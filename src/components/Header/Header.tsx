@@ -134,14 +134,22 @@ export default function Header() {
           >
             Home
           </Link>
-          <Link
-            href="/about-us"
-            className={`${styles.navItemWithDropdown} ${isActive("/about-us") ? styles.navItemWithDropdownActive : ""}`}
-            onClick={closeMobileMenu}
+          <div
+            className={`${styles.navDropdownWrapper} ${isActive("/about-us") || isActive("/team") ? styles.navDropdownActive : ""}`}
           >
-            About
-            <ChevronDownIcon className={styles.dropdownIcon} />
-          </Link>
+            <span className={styles.navDropdownTrigger}>
+              About
+              <ChevronDownIcon className={styles.dropdownIcon} />
+            </span>
+            <div className={styles.navDropdownPanel}>
+              <Link href="/about-us" onClick={closeMobileMenu}>
+                About Us
+              </Link>
+              <Link href="/team" onClick={closeMobileMenu}>
+                Team
+              </Link>
+            </div>
+          </div>
           <div
             className={`${styles.navDropdownWrapper} ${isActive("/job-request") || isActive("/industries-we-serve") ? styles.navDropdownActive : ""}`}
           >
