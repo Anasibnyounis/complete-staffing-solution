@@ -1,0 +1,589 @@
+.header {
+  width: 100%;
+  height: 165px;
+  position: relative;
+  overflow: visible;
+  text-align: left;
+  font-size: 18px;
+  color: #fff;
+  font-family: var(--font-inter), Inter, sans-serif;
+}
+
+/* Wrapper for top bar; on desktop is transparent for layout, on mobile becomes the blue bar */
+.topBarWrapper {
+  position: static;
+}
+
+.topHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 64px;
+}
+
+.topHeader2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #19478e;
+  width: 100%;
+  min-width: 1440px;
+  height: 64px;
+}
+
+.rectangleParent {
+  position: absolute;
+  top: 7px;
+  right: 74px;
+  width: 263px;
+  height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.groupChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #6ca642;
+  width: 263px;
+  height: 50px;
+  border-radius: 4px;
+}
+
+.recruitmentFraudNotice {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  right: 20px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.contact {
+  position: absolute;
+  top: 22px;
+  left: 343px;
+  min-width: 167px;
+  height: 21px;
+  font-size: 16px;
+  font-family: var(--font-dm-sans), "DM Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.contact .text {
+  position: relative;
+  white-space: nowrap;
+}
+
+.contactIcon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: #6ca642;
+}
+
+.email {
+  position: absolute;
+  top: 21px;
+  left: 74px;
+  width: 237px;
+  height: 22px;
+  font-size: 16px;
+  font-family: var(--font-dm-sans), "DM Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.email .text {
+  position: relative;
+}
+
+.mailIcon {
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+  color: #6ca642;
+}
+
+.mainHeader {
+  position: absolute;
+  top: 101px;
+  left: 385px;
+  right: 74px;
+  width: calc(100% - 459px);
+  max-width: 981px;
+  height: 29px;
+  color: #0d0d0d;
+}
+
+.navLinks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  overflow: visible;
+}
+
+.navItem {
+  position: relative;
+  font-weight: 600;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -6px;
+}
+
+.navItem:hover {
+  color: #6ca642;
+}
+
+.navItemActive {
+  color: #6ca642;
+  border-bottom-color: #6ca642;
+}
+
+.navItemWithDropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -6px;
+}
+
+.navItemWithDropdown:hover {
+  color: #6ca642;
+}
+
+.navItemWithDropdownActive {
+  color: #6ca642;
+  border-bottom-color: #6ca642;
+}
+
+.dropdownIcon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+/* For Employers dropdown (desktop) */
+.navDropdownWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navDropdownWrapper:hover .navDropdownPanel,
+.navDropdownWrapper[data-open="true"] .navDropdownPanel {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navDropdownTrigger {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-bottom: 4px;
+  margin-bottom: -6px;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  background: none;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.navDropdownWrapper:hover .navDropdownTrigger,
+.navDropdownWrapper[data-open="true"] .navDropdownTrigger {
+  color: #6ca642;
+}
+
+.navDropdownWrapper.navDropdownActive .navDropdownTrigger {
+  color: #6ca642;
+  border-bottom-color: #6ca642;
+}
+
+.navDropdownPanel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  min-width: 200px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+  z-index: 1002;
+}
+
+.navDropdownPanel a {
+  display: block;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0d0d0d;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navDropdownPanel a:hover {
+  color: #6ca642;
+  background: rgba(108, 166, 66, 0.08);
+}
+
+/* Wrapper for logo + hamburger; on desktop behaves as block so logo keeps absolute position */
+.logoRow {
+  position: absolute;
+  top: 79px;
+  left: 0;
+  right: 0;
+  display: block;
+}
+
+.logoWrapper {
+  position: absolute;
+  top: 0;
+  left: 74px;
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+/* Hamburger button - hidden on desktop, shown on mobile */
+.hamburgerButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #0d0d0d;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.hamburgerButton:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.hamburgerIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.logoImage {
+  width: auto;
+  height: 72px;
+  object-fit: contain;
+}
+
+/* ========== RESPONSIVE: Header - Tablet (max-width: 1200px) ========== */
+@media (max-width: 1200px) {
+  .topHeader2 {
+    min-width: 0;
+  }
+
+  .email {
+    left: 24px;
+  }
+
+  .contact {
+    left: 280px;
+  }
+
+  .rectangleParent {
+    right: 24px;
+  }
+
+  .logoWrapper {
+    left: 24px;
+  }
+
+  .mainHeader {
+    left: 220px;
+    right: 24px;
+    width: auto;
+  }
+
+  .navLinks {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .navItem,
+  .navItemWithDropdown {
+    font-size: 16px;
+  }
+}
+
+/* ========== RESPONSIVE: Header - Small tablet + Mobile menu (max-width: 992px) ========== */
+@media (max-width: 992px) {
+  .header {
+    height: auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: visible;
+    z-index: 1000;
+  }
+
+  /* Top bar wrapper: blue bar with email + phone inline horizontal */
+  .topBarWrapper {
+    position: relative;
+    background-color: #19478e;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 16px 20px;
+    padding: 10px 16px;
+    min-height: 48px;
+  }
+
+  .topHeader {
+    display: none;
+  }
+
+  .topHeader2 {
+    display: none;
+  }
+
+  .email {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .email .text {
+    color: #fff;
+  }
+
+  .contact {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .contact .text {
+    color: #fff;
+  }
+
+  /* Green icon color on blue bar (mobile) */
+  .topBarWrapper .contactIcon,
+  .topBarWrapper .mailIcon {
+    color: #6ca642;
+  }
+
+  /* Hide Recruitment Fraud Notice on mobile */
+  .rectangleParent {
+    display: none !important;
+  }
+
+  /* Logo row: logo left, hamburger right - tight gap below blue bar, minimal below logo */
+  .logoRow {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px 24px 4px;
+    padding: 0;
+  }
+
+  .logoWrapper {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0;
+  }
+
+  /* Show hamburger button on mobile/tablet */
+  .hamburgerButton {
+    display: flex;
+  }
+
+  /* Hide main nav by default; show when .mobileMenuOpen - full-width white background */
+  .mainHeader {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 0 24px 0;
+    box-sizing: border-box;
+    display: none;
+    overflow: visible;
+    z-index: 1001;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .header.mobileMenuOpen .mainHeader {
+    display: block;
+  }
+
+  /* Nav links: full-width white, inner padding for left-aligned items */
+  .navLinks {
+    position: relative;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    background: #fff;
+    border-top: 1px solid #e8e8e8;
+    padding: 12px 24px 0 24px;
+    margin-top: 12px;
+  }
+
+  /* All menu items left-aligned; dropdown items: text left, chevron at end */
+  .navLinks .navItem,
+  .navLinks .navItemWithDropdown {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 12px 0;
+    font-size: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .navLinks .navItemWithDropdown .dropdownIcon {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .navLinks .navItem:last-child,
+  .navLinks .navItemWithDropdown:last-child {
+    border-bottom: none;
+  }
+
+  .navLinks .navItemActive,
+  .navLinks .navItemWithDropdownActive {
+    color: #6ca642;
+    border-bottom: 2px solid #6ca642;
+  }
+
+  /* For Employers dropdown on mobile: show panel below trigger, no hover */
+  .navLinks .navDropdownWrapper {
+    flex-direction: column;
+    align-items: stretch;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .navLinks .navDropdownTrigger {
+    padding: 12px 0;
+    margin-bottom: 0;
+    justify-content: flex-start;
+    border-bottom: none;
+  }
+
+  .navLinks .navDropdownPanel {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 0;
+    padding: 0 0 8px 0;
+    box-shadow: none;
+    background: transparent;
+    min-width: 0;
+  }
+
+  .navLinks .navDropdownPanel a {
+    padding: 10px 0 10px 8px;
+    font-size: 15px;
+    border-bottom: none;
+  }
+}
+
+/* ========== RESPONSIVE: Header - Mobile (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  .header {
+    padding-bottom: 0;
+  }
+
+  .email .text,
+  .contact .text {
+    font-size: 14px;
+  }
+
+  .rectangleParent {
+    width: auto;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .groupChild {
+    width: 100%;
+  }
+
+  .logoRow {
+    margin: 6px 16px 4px;
+  }
+
+  .logoImage {
+    height: 56px;
+  }
+
+  .mainHeader {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+  }
+
+  .navLinks .navItem,
+  .navLinks .navItemWithDropdown {
+    font-size: 15px;
+  }
+}
+
+/* ========== RESPONSIVE: Header - Small mobile (max-width: 480px) ========== */
+@media (max-width: 480px) {
+  .recruitmentFraudNotice {
+    font-size: 14px;
+  }
+
+  .email .text,
+  .contact .text {
+    font-size: 12px;
+  }
+}

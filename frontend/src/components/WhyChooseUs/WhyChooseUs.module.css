@@ -1,0 +1,190 @@
+.section {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 75px 80px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 46px;
+  color: #000;
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.sectionInner {
+  width: 100%;
+  max-width: 1290px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.sectionTitle {
+  align-self: stretch;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 46px);
+}
+
+.cardsRow {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-size: 28px;
+  color: #0d0d0d;
+}
+
+.card {
+  flex: 1;
+  min-width: 280px;
+  max-width: 410px;
+  box-shadow: 3px 4px 12.4px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 30px;
+}
+
+.cardIconWrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-color: #6ca642;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardIcon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.cardContent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  border-top: 1px solid #e8e8e8;
+  padding-top: 10px;
+  text-align: left;
+  min-height: 155px;
+}
+
+.cardTitle {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #0d0d0d;
+}
+
+.cardDescription {
+  font-size: 16px;
+  line-height: 24px;
+  color: #383838;
+  text-align: justify;
+}
+
+.readMoreLink {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--font-inter), Inter, sans-serif;
+  color: #19478e;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.readMoreLink:hover {
+  color: #6ca642;
+}
+
+/* ========== RESPONSIVE: Why Choose Us - Tablet (max-width: 992px) ========== */
+@media (max-width: 992px) {
+  .section {
+    padding: 48px 32px 60px;
+  }
+
+  .cardsRow {
+    justify-content: center;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+}
+
+/* ========== RESPONSIVE: Why Choose Us - Mobile (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 20px 48px;
+    gap: 24px;
+  }
+
+  .sectionInner {
+    gap: 24px;
+  }
+
+  .cardsRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .cardIconWrapper {
+    width: 72px;
+    height: 72px;
+  }
+
+  .cardIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cardContent {
+    min-height: auto;
+  }
+}
+
+/* ========== RESPONSIVE: Why Choose Us - Small mobile (max-width: 480px) ========== */
+@media (max-width: 480px) {
+  .section {
+    padding: 32px 16px 40px;
+  }
+
+  .cardIconWrapper {
+    width: 64px;
+    height: 64px;
+  }
+
+  .cardIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .cardDescription {
+    font-size: 15px;
+  }
+}

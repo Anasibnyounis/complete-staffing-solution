@@ -1,0 +1,109 @@
+.section {
+  position: relative;
+  background-color: rgba(185, 198, 220, 0.3);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 74px 80px;
+  box-sizing: border-box;
+  gap: 30px;
+  text-align: center;
+  font-size: 46px;
+  color: #0d0d0d;
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.title {
+  max-width: 714px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 46px);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.columns {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+  text-align: left;
+  font-size: 18px;
+  color: #383838;
+  font-family: var(--font-inter), Inter, sans-serif;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  min-width: 200px;
+  max-width: 312px;
+}
+
+.columnList {
+  margin: 0;
+  padding-left: 24px;
+  list-style: disc;
+  line-height: 2;
+}
+
+.columnList li {
+  margin: 0;
+}
+
+/* ========== RESPONSIVE: Specialize section - Tablet (max-width: 992px) ========== */
+@media (max-width: 992px) {
+  .section {
+    padding: 48px 32px 60px;
+  }
+
+  .columns {
+    gap: 28px;
+  }
+}
+
+/* ========== RESPONSIVE: Specialize section - Mobile (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 20px 48px;
+    gap: 24px;
+  }
+
+  .columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .columnList {
+    font-size: 16px;
+  }
+}
+
+/* ========== RESPONSIVE: Specialize section - Small mobile (max-width: 480px) ========== */
+@media (max-width: 480px) {
+  .section {
+    padding: 32px 16px 40px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .columnList {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+}
