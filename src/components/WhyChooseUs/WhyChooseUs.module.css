@@ -1,190 +1,744 @@
-.section {
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 60px 75px 80px;
+/* WHY CHOOSE US - FULLY RESPONSIVE CSS MODULE */
+
+.main {
+  min-height: 100vh;
+  background: white;
+}
+
+/* ============================================
+   COMMON / CONTAINER
+   ============================================ */
+
+.container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 60px;
   box-sizing: border-box;
-  text-align: center;
-  font-size: 46px;
+}
+
+.text {
+  color: black;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-family: var(--font-inter);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  padding: 80px 0;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-jakarta);
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: black;
+  line-height: 1.2;
+}
+
+.heroImage {
+  position: relative;
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* ============================================
+   BLUE SECTION
+   ============================================ */
+
+.blueSection {
+  padding: 80px 0px;
+  box-sizing: border-box;
+  background: #B9C6DC;
+  margin: 0px auto;
+}
+
+.blueBlock {
+  max-width: 100%;
+  margin-bottom: 48px;
+  margin: 0px auto;
+}
+
+.blueBlock:last-child {
+  margin-bottom: 0;
+}
+
+.subTitle {
+  font-family: var(--font-jakarta);
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 16px;
   color: #000;
-  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+  line-height: 1.2;
 }
 
-.sectionInner {
-  width: 100%;
-  max-width: 1290px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 30px;
-}
-
-.sectionTitle {
-  align-self: stretch;
-  position: relative;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: clamp(28px, 4vw, 46px);
-}
-
-.cardsRow {
-  width: 100%;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+.smallTitle {
+  font-family: var(--font-jakarta);
   font-size: 28px;
-  color: #0d0d0d;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #000;
+  line-height: 1.3;
 }
 
-.card {
-  flex: 1;
-  min-width: 280px;
-  max-width: 410px;
-  box-shadow: 3px 4px 12.4px 3px rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
-  background-color: #fff;
+.text {
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: 1.7;
+  color: #1f2933;
+  margin-bottom: 20px;
+}
+
+/* Bullet List */
+.blueList {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px 18px;
+  padding-left: 18px;
+  margin-top: 20px;
+}
+
+.blueList li {
+  font-family: var(--font-inter);
+  font-size: 15px;
+  color: #111827;
+  list-style: disc;
+}
+
+/* ============================================
+   FLEXIBLE SECTION
+   ============================================ */
+
+.flexSection {
+  padding-top: 80px;
+}
+
+.flexWrapper {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  min-height: 600px;
+  height: auto;
+}
+
+.flexImage {
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+}
+
+.flexOverlay {
+  position: absolute;
+  top: 45px;
+  left: 50px; 
+  padding: 14px 22px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.flexRight {
+  background: #0f3b7a;
+  padding: 60px 60px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-  gap: 30px;
-}
-
-.cardIconWrapper {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  background-color: #6ca642;
-  display: flex;
-  align-items: center;
+  gap: 24px;
   justify-content: center;
 }
 
-.cardIcon {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
-
-.cardContent {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.flexCard {
+  font-family: var(--font-inter);
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px;
+  color: black;
   gap: 16px;
-  border-top: 1px solid #e8e8e8;
-  padding-top: 10px;
-  text-align: left;
-  min-height: 155px;
+  align-items: flex-start;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  margin-left: -180px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cardTitle {
-  font-weight: 700;
+.flexCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+.flexCard:last-child {
+  margin-bottom: 0;
+}
+
+.flexCard h3 {
   font-size: 20px;
-  line-height: 1.3;
-  color: #0d0d0d;
+  font-weight: 700;
+  margin: 10px 0px;
+  color: #1a1a1a;
 }
 
-.cardDescription {
-  font-size: 16px;
-  line-height: 24px;
-  color: #383838;
-  text-align: justify;
-}
-
-.readMoreLink {
+.flexCard p {
   font-size: 18px;
-  font-weight: 600;
-  font-family: var(--font-inter), Inter, sans-serif;
-  color: #19478e;
-  cursor: pointer;
-  text-decoration: none;
-  transition: color 0.2s;
+  color: black;
+  line-height: 1.4;
+  margin: 0;
 }
 
-.readMoreLink:hover {
-  color: #6ca642;
+.flexIcon {
+  width: 36px;
+  height: 36px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 15px;
 }
 
-/* ========== RESPONSIVE: Why Choose Us - Tablet (max-width: 992px) ========== */
-@media (max-width: 992px) {
-  .section {
-    padding: 48px 32px 60px;
+.flexContent {
+  flex: 1;
+}
+
+/* ============================================
+   RESPONSIVE - TABLET LARGE (1024px - 1200px)
+   ============================================ */
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 40px;
   }
 
-  .cardsRow {
-    justify-content: center;
+  .title {
+    font-size: 38px;
   }
 
-  .card {
-    max-width: 100%;
+  .subTitle {
+    font-size: 36px;
+  }
+
+  .smallTitle {
+    font-size: 26px;
+  }
+
+  .flexCard {
+    margin-left: -120px;
+  }
+
+  .flexOverlay {
+    font-size: 36px;
+    left: 40px;
   }
 }
 
-/* ========== RESPONSIVE: Why Choose Us - Mobile (max-width: 768px) ========== */
+/* ============================================
+   RESPONSIVE - TABLET (768px - 1024px)
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 32px;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+
+  .heroGrid {
+    gap: 36px;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .heroImage {
+    height: 350px;
+  }
+
+  .blueSection {
+    padding: 60px 0;
+  }
+
+  .subTitle {
+    font-size: 32px;
+  }
+
+  .smallTitle {
+    font-size: 24px;
+  }
+
+  .text {
+    font-size: 15px;
+  }
+
+  .blueList {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px 16px;
+  }
+
+  .blueList li {
+    font-size: 14px;
+  }
+
+  .flexSection {
+    padding-top: 60px;
+  }
+
+  .flexCard {
+    margin-left: -100px;
+  }
+
+  .flexCard h3 {
+    font-size: 19px;
+  }
+
+  .flexCard p {
+    font-size: 16px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - TABLET SMALL (600px - 768px)
+   ============================================ */
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .heroImage {
+    height: 320px;
+  }
+
+  .blueList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Flexible Section Stacked */
+  .flexWrapper {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .flexImage {
+    height: 400px;
+    min-height: 400px;
+  }
+
+  .flexRight {
+    padding: 50px 40px;
+  }
+
+  .flexCard {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .flexOverlay {
+    font-size: 34px;
+    left: 35px;
+    top: 35px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE LARGE (480px - 600px)
+   ============================================ */
+
 @media (max-width: 768px) {
-  .section {
-    padding: 40px 20px 48px;
-    gap: 24px;
+  .container {
+    padding: 0 24px;
   }
 
-  .sectionInner {
-    gap: 24px;
+  .hero {
+    padding: 50px 0;
   }
 
-  .cardsRow {
-    flex-direction: column;
-    align-items: stretch;
+  .heroGrid {
+    gap: 28px;
   }
 
-  .card {
-    min-width: 0;
-    width: 100%;
+  .title {
+    font-size: 28px;
+    margin-bottom: 20px;
   }
 
-  .cardIconWrapper {
-    width: 72px;
-    height: 72px;
+  .heroImage {
+    height: 280px;
   }
 
-  .cardIcon {
-    width: 40px;
-    height: 40px;
+  .blueSection {
+    padding: 50px 0;
   }
 
-  .cardContent {
-    min-height: auto;
+  .blueBlock {
+    margin-bottom: 36px;
+  }
+
+  .subTitle {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .smallTitle {
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+
+  .text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .blueList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 14px;
+    margin-top: 16px;
+  }
+
+  .blueList li {
+    font-size: 13px;
+  }
+
+  .flexSection {
+    padding-top: 50px;
+  }
+
+  .flexImage {
+    height: 350px;
+    min-height: 350px;
+  }
+
+  .flexRight {
+    padding: 40px 28px;
+  }
+
+  .flexCard {
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .flexCard h3 {
+    font-size: 18px;
+    margin: 8px 0;
+  }
+
+  .flexCard p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .flexOverlay {
+    font-size: 28px;
+    left: 28px;
+    top: 28px;
+  }
+
+  .flexIcon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
   }
 }
 
-/* ========== RESPONSIVE: Why Choose Us - Small mobile (max-width: 480px) ========== */
+/* ============================================
+   RESPONSIVE - MOBILE MEDIUM (400px - 480px)
+   ============================================ */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .hero {
+    padding: 40px 0;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .heroImage {
+    height: 260px;
+  }
+
+  .blueSection {
+    padding: 40px 0;
+  }
+
+  .subTitle {
+    font-size: 26px;
+  }
+
+  .smallTitle {
+    font-size: 20px;
+  }
+
+  .text {
+    font-size: 13px;
+  }
+
+  .blueList {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
+  }
+
+  .blueList li {
+    font-size: 12px;
+  }
+
+  .flexImage {
+    height: 300px;
+    min-height: 300px;
+  }
+
+  .flexRight {
+    padding: 32px 24px;
+    gap: 16px;
+  }
+
+  .flexCard {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .flexCard h3 {
+    font-size: 17px;
+  }
+
+  .flexCard p {
+    font-size: 14px;
+  }
+
+  .flexOverlay {
+    font-size: 24px;
+    left: 24px;
+    top: 24px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE SMALL (< 400px)
+   ============================================ */
+
 @media (max-width: 480px) {
-  .section {
-    padding: 32px 16px 40px;
+  .container {
+    padding: 0 16px;
   }
 
-  .cardIconWrapper {
-    width: 64px;
-    height: 64px;
+  .hero {
+    padding: 32px 0;
   }
 
-  .cardIcon {
-    width: 36px;
-    height: 36px;
+  .heroGrid {
+    gap: 24px;
   }
 
-  .cardTitle {
+  .title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .heroImage {
+    height: 240px;
+  }
+
+  .blueSection {
+    padding: 32px 0;
+  }
+
+  .blueBlock {
+    margin-bottom: 28px;
+  }
+
+  .subTitle {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .smallTitle {
+    font-size: 19px;
+    margin-bottom: 12px;
+  }
+
+  .text {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .blueList {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-left: 16px;
+    margin-top: 14px;
+  }
+
+  .blueList li {
+    font-size: 12px;
+  }
+
+  .flexSection {
+    padding-top: 32px;
+  }
+
+  .flexImage {
+    height: 250px;
+    min-height: 250px;
+  }
+
+  .flexRight {
+    padding: 28px 20px;
+  }
+
+  .flexCard {
+    padding: 16px;
+  }
+
+  .flexCard h3 {
+    font-size: 16px;
+    margin: 6px 0;
+  }
+
+  .flexCard p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .flexOverlay {
+    font-size: 20px;
+    left: 20px;
+    top: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .flexIcon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE EXTRA SMALL (< 360px)
+   ============================================ */
+
+@media (max-width: 400px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .heroImage {
+    height: 220px;
+  }
+
+  .subTitle {
+    font-size: 22px;
+  }
+
+  .smallTitle {
     font-size: 18px;
   }
 
-  .cardDescription {
+  .text {
+    font-size: 12px;
+  }
+
+  .blueList li {
+    font-size: 11px;
+  }
+
+  .flexImage {
+    height: 220px;
+    min-height: 220px;
+  }
+
+  .flexRight {
+    padding: 24px 16px;
+  }
+
+  .flexCard {
+    padding: 14px;
+  }
+
+  .flexCard h3 {
     font-size: 15px;
+  }
+
+  .flexCard p {
+    font-size: 12px;
+  }
+
+  .flexOverlay {
+    font-size: 18px;
+    left: 16px;
+    top: 16px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .flexCard {
+    transition: none;
+  }
+
+  .flexCard:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .hero,
+  .blueSection,
+  .flexSection {
+    page-break-inside: avoid;
+  }
+
+  .flexCard {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  .heroImage,
+  .flexImage {
+    box-shadow: none;
   }
 }

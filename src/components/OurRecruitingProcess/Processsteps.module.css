@@ -1,0 +1,299 @@
+.section {
+  background: white;
+  /* padding-top: 90px; */
+
+
+}
+
+.container {
+    padding: 0 60px;
+padding-bottom: 90px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.stepSmallTitle {
+  font-size: 24px;
+  font-weight:600;
+  color: black; /* grey-ish */
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+   font-family: var(--font-jakarta);
+
+}
+
+.step {
+  padding: 0px 10px;
+  background: #ffffff;
+  border-radius: 0;
+  border: none;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+  transition: all 0.3s ease;
+  animation: slideIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.step:hover {
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.stepTitle {
+  font-size: 42px;
+  font-weight: 600;
+  color: black;
+  margin: 0 0 8px 0;
+  font-family: var(--font-jakarta);
+  letter-spacing: 0;
+}
+
+.stepSubtitle {
+  font-size: 34px;
+  font-weight: 500;
+padding: 0px 140px ;
+box-sizing: border-box;  
+  color: black;
+  margin: 0 0 8px 0;
+font-family: var(--font-jakarta);}
+
+.stepDescription {
+  width: 100%;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #383838;
+  padding: 0px 10px;
+  box-sizing: border-box;
+  margin: 0;
+font-family: var(--font-inter);
+  text-align: center;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .section {
+    padding: 50px 40px;
+  }
+  
+  .container {
+    gap: 32px;
+  }
+  
+  .step {
+    padding: 32px 40px;
+  }
+  
+  .stepTitle {
+    font-size: 20px;
+  
+
+  }
+  
+  .stepSubtitle {
+    font-size: 15px;
+      
+
+  }
+  
+  .stepDescription {
+    font-size: 14px;
+        
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 0px;
+        width: 100%;
+  }
+  
+  .container {
+    gap: 24px;
+
+  }
+  
+  .step {
+    padding: 24px 0px;
+  }
+  
+  .stepContent {
+    gap: 10px;
+  }
+  
+  .stepTitle {
+    font-size: 18px;
+    margin-bottom: 6px;
+      padding: 0;
+    width: 100%;
+  }
+  
+  .stepSubtitle {
+    font-size: 14px;
+    margin-bottom: 6px;
+    padding: 0;
+width: 100%;
+  }
+  
+  .stepDescription {
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0;
+width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 32px 0px;
+  }
+  
+  .step {
+    padding: 20px 0px;
+  }
+  
+  .stepTitle {
+    font-size: 16px;
+  }
+  
+  .stepSubtitle {
+    font-size: 13px;
+  }
+  
+  .stepDescription {
+    font-size: 12px;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .section {
+    padding: 64px 24px;
+  }
+  
+  .container {
+    gap: 48px;
+  }
+  
+  .step {
+    padding: 32px;
+    gap: 24px;
+  }
+  
+  .stepNumber {
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+  }
+  
+  .stepTitle {
+    font-size: 22px;
+  }
+  
+  .stepSubtitle {
+    font-size: 16px;
+  }
+  
+  .stepDescription {
+    font-size: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 0px;
+  }
+  
+  .container {
+    gap: 32px;
+        padding: 0 0;
+padding-bottom: 0;
+
+  }
+  
+  .step {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 20px;
+  }
+  
+  .stepNumber {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    margin: 0 auto;
+  }
+  
+  .stepContent {
+    text-align: center;
+  }
+  
+  .stepTitle {
+    font-size: 28px;
+    font-weight: 600px;
+    padding: 0px 5px;
+  }
+  .stepSmallTitle{
+    font-size: 20px;
+    font-weight: 500px;
+  }
+  .stepSubtitle {
+    font-size: 20px;
+    font-weight: 700;
+        padding: 0px 10px;
+
+  }
+  
+  .stepDescription {
+    font-size: 14px;
+        padding: 0px 25px;
+
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .stepTitle {
+    font-size: 18px;
+  }
+  
+  .stepNumber {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+}

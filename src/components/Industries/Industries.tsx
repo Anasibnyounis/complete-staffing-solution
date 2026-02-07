@@ -11,20 +11,20 @@ function enc(path: string) {
 }
 
 const industries = [
-  { name: "Agriculture", icon: "planting 1.svg" },
-  { name: "Arts", icon: "art 1.svg" },
-  { name: "Legal", icon: "legal-document (1) 1.svg" },
-  { name: "Manufacturing", icon: "manufacturing 1.svg" },
-  { name: "Corporate Services", icon: "service 1.svg" },
-  { name: "Construction", icon: "engineer 1.svg" },
-  { name: "Information Technology", icon: "information-technology 1.svg" },
-  { name: "Consumer Goods", icon: "goods (1) 1.svg" },
-  { name: "Design", icon: "loupe 1.svg" },
-  { name: "Education", icon: "education (1) 1.svg" },
-  { name: "Energy", icon: "flash 1.svg" },
-  { name: "Entertainment", icon: "video (1) 1.svg" },
-  { name: "Finance", icon: "bar-chart 1.svg" },
-  { name: "Healthcare", icon: "heart-rate 1.svg" },
+  { name: "Agriculture", icon: "planting 1.svg", slug: "agriculture"  },
+  { name: "Arts", icon: "art 1.svg", slug: "arts"  },
+  { name: "Legal", icon: "legal-document (1) 1.svg"  , slug: "legal"  },
+  { name: "Manufacturing", icon: "manufacturing 1.svg" , slug: "manufacturing" },
+  { name: "Corporate Services", icon: "service 1.svg", slug: "corporateservices"  },
+  { name: "Construction", icon: "engineer 1.svg" , slug: "construction" },
+  { name: "Information Technology", icon: "information-technology 1.svg" , slug: "it" },
+  { name: "Consumer Goods", icon: "goods (1) 1.svg" , slug: "consumergoods" },
+  { name: "Design", icon: "loupe 1.svg" ,slug: "design" },
+  { name: "Education", icon: "education (1) 1.svg" ,slug: "education" },
+  { name: "Energy", icon: "flash 1.svg" ,slug: "energy"},
+  { name: "Entertainment", icon: "video (1) 1.svg",slug: "entertainment" },
+  { name: "Finance", icon: "bar-chart 1.svg" ,slug: "finance"},
+  { name: "Healthcare", icon: "heart-rate 1.svg" , slug: "healthcare" },
 ];
 
 const positions = [
@@ -121,7 +121,7 @@ export default function Industries() {
               key={item.name}
               name={item.name}
               iconFile={item.icon}
-              href={`/industries-we-serve?q=${encodeURIComponent(item.name)}`}
+              href={item.slug ? `/industries-we-serve/${item.slug}` : `/industries-we-serve?q=${encodeURIComponent(item.name)}`}
             />
           ))}
         </div>
@@ -152,7 +152,7 @@ export default function Industries() {
 
       <div className={styles.buttonWrap}>
         <Link
-          href="/primary-positions"
+          href="/open-position"
           className={`${styles.viewAllButton} ${styles.viewAllPositions}`}
         >
           View All Positions

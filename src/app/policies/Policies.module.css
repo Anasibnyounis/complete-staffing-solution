@@ -1,0 +1,25 @@
+/* POLICIES PAGE - FULLY RESPONSIVE */
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+
+
+
+/* ==========================================
+   MAIN CONTENT LAYOUT
+   ========================================== */
+
+.mainContent {
+  padding: 60px 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+}
+

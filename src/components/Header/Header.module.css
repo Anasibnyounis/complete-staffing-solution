@@ -1,25 +1,27 @@
-.header {
+.header{
   width: 100%;
-  height: 165px;
+  height: 175px;
   position: relative;
   overflow: visible;
   text-align: left;
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
-  font-family: var(--font-inter), Inter, sans-serif;
+  background-color: #fff;
+  font-family: var(--font-inter);
 }
 
 /* Wrapper for top bar; on desktop is transparent for layout, on mobile becomes the blue bar */
-.topBarWrapper {
+.topBarWrapper{
   position: static;
 }
 
-.topHeader {
+.topHeader{
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
+  
   height: 64px;
 }
 
@@ -27,10 +29,11 @@
   position: absolute;
   top: 0;
   left: 0;
+  
   right: 0;
   background-color: #19478e;
   width: 100%;
-  min-width: 1440px;
+  /* min-width: 1440px; */
   height: 64px;
 }
 
@@ -42,6 +45,8 @@
   height: 50px;
   text-align: center;
   cursor: pointer;
+  
+  text-decoration: none;
 }
 
 .groupChild {
@@ -52,6 +57,13 @@
   width: 263px;
   height: 50px;
   border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.rectangleParent:hover .groupChild {
+  background-color: #5a8e37;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .recruitmentFraudNotice {
@@ -61,6 +73,11 @@
   right: 20px;
   font-weight: 600;
   pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.rectangleParent:hover .recruitmentFraudNotice {
+  transform: scale(1.02);
 }
 
 .contact {
@@ -75,6 +92,11 @@
   align-items: center;
   gap: 8px;
   white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+.contact:hover {
+  opacity: 0.8;
 }
 
 .contact .text {
@@ -87,6 +109,11 @@
   width: 20px;
   height: 20px;
   color: #6ca642;
+  transition: transform 0.3s ease;
+}
+
+.contact:hover .contactIcon {
+  transform: scale(1.1);
 }
 
 .email {
@@ -100,6 +127,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
+  color: #fff;
+  transition: opacity 0.3s ease;
+}
+
+.email:hover {
+  opacity: 0.8;
 }
 
 .email .text {
@@ -111,6 +145,11 @@
   width: 19px;
   height: 19px;
   color: #6ca642;
+  transition: transform 0.3s ease;
+}
+
+.email:hover .mailIcon {
+  transform: scale(1.1);
 }
 
 .mainHeader {
@@ -121,6 +160,7 @@
   width: calc(100% - 459px);
   max-width: 981px;
   height: 29px;
+  
   color: #0d0d0d;
 }
 
@@ -143,10 +183,27 @@
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
   margin-bottom: -6px;
+  transition: all 0.3s ease;
+}
+
+.navItem::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #6ca642;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
 }
 
 .navItem:hover {
   color: #6ca642;
+}
+
+.navItem:hover::after {
+  width: 100%;
 }
 
 .navItemActive {
@@ -166,6 +223,7 @@
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
   margin-bottom: -6px;
+  transition: all 0.3s ease;
 }
 
 .navItemWithDropdown:hover {
@@ -182,6 +240,12 @@
   height: 22px;
   flex-shrink: 0;
   color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.navItemWithDropdown:hover .dropdownIcon,
+.navDropdownWrapper:hover .dropdownIcon {
+  transform: rotate(180deg);
 }
 
 /* For Employers dropdown (desktop) */
@@ -195,6 +259,7 @@
 .navDropdownWrapper[data-open="true"] .navDropdownPanel {
   opacity: 1;
   visibility: visible;
+  transform: translateY(0);
 }
 
 .navDropdownTrigger {
@@ -211,6 +276,7 @@
   border: none;
   font-size: inherit;
   font-family: inherit;
+  transition: all 0.3s ease;
 }
 
 .navDropdownWrapper:hover .navDropdownTrigger,
@@ -227,31 +293,51 @@
   position: absolute;
   top: 100%;
   left: 0;
-  margin-top: 4px;
-  min-width: 200px;
+  margin-top: 8px;
+  min-width: 220px;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   padding: 8px 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s, visibility 0.2s;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
   z-index: 1002;
 }
 
 .navDropdownPanel a {
   display: block;
-  padding: 12px 16px;
+  padding: 12px 20px;
   font-size: 15px;
   font-weight: 600;
   color: #0d0d0d;
   text-decoration: none;
   white-space: nowrap;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.navDropdownPanel a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: #6ca642;
+  transform: scaleY(0);
+  transition: transform 0.2s ease;
 }
 
 .navDropdownPanel a:hover {
   color: #6ca642;
   background: rgba(108, 166, 66, 0.08);
+  padding-left: 24px;
+}
+
+.navDropdownPanel a:hover::before {
+  transform: scaleY(1);
 }
 
 /* Wrapper for logo + hamburger; on desktop behaves as block so logo keeps absolute position */
@@ -270,6 +356,11 @@
   display: flex;
   align-items: center;
   line-height: 0;
+  transition: transform 0.3s ease;
+}
+
+.logoWrapper:hover {
+  /* transform: scale(1.0); */
 }
 
 /* Hamburger button - hidden on desktop, shown on mobile */
@@ -285,16 +376,22 @@
   color: #0d0d0d;
   cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.2s, color 0.2s;
+  transition: all 0.3s ease;
 }
 
 .hamburgerButton:hover {
   background-color: rgba(0, 0, 0, 0.06);
+  transform: scale(1.1);
 }
 
 .hamburgerIcon {
   width: 24px;
   height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.hamburgerButton:hover .hamburgerIcon {
+  transform: rotate(90deg);
 }
 
 .logoImage {
@@ -382,6 +479,7 @@
     margin: 0;
     color: #fff;
     font-size: 14px;
+    width: auto;
   }
 
   .email .text {
@@ -395,6 +493,7 @@
     margin: 0;
     color: #fff;
     font-size: 14px;
+    min-width: auto;
   }
 
   .contact .text {
@@ -453,6 +552,18 @@
     z-index: 1001;
     background: #fff;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .header.mobileMenuOpen .mainHeader {
@@ -484,6 +595,14 @@
     border-bottom: 1px solid #f0f0f0;
     width: 100%;
     box-sizing: border-box;
+    border-left: 3px solid transparent;
+  }
+
+  .navLinks .navItem:hover,
+  .navLinks .navItemWithDropdown:hover {
+    background: #f9fafb;
+    border-left-color: #6ca642;
+    padding-left: 12px;
   }
 
   .navLinks .navItemWithDropdown .dropdownIcon {
@@ -499,7 +618,7 @@
   .navLinks .navItemActive,
   .navLinks .navItemWithDropdownActive {
     color: #6ca642;
-    border-bottom: 2px solid #6ca642;
+    border-left-color: #6ca642;
   }
 
   /* For Employers dropdown on mobile: show panel below trigger, no hover */
@@ -520,17 +639,25 @@
     position: static;
     opacity: 1;
     visibility: visible;
+    transform: translateY(0);
     margin-top: 0;
     padding: 0 0 8px 0;
     box-shadow: none;
-    background: transparent;
+    background: #f9fafb;
     min-width: 0;
   }
 
   .navLinks .navDropdownPanel a {
-    padding: 10px 0 10px 8px;
+    padding: 10px 0 10px 24px;
     font-size: 15px;
     border-bottom: none;
+    border-left: 3px solid transparent;
+  }
+
+  .navLinks .navDropdownPanel a:hover {
+    background: white;
+    border-left-color: #6ca642;
+    padding-left: 32px;
   }
 }
 
@@ -542,7 +669,7 @@
 
   .email .text,
   .contact .text {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .rectangleParent {
@@ -585,5 +712,266 @@
   .email .text,
   .contact .text {
     font-size: 12px;
+  }
+
+  .topBarWrapper {
+    padding: 8px 12px;
+    gap: 12px;
+  }
+
+  .logoRow {
+    margin: 6px 12px 4px;
+  }
+
+  .logoImage {
+    height: 48px;
+  }
+}
+
+/* ========== ACCESSIBILITY & SMOOTH TRANSITIONS ========== */
+
+/* Focus states */
+.navItem:focus,
+.navDropdownPanel a:focus,
+.hamburgerButton:focus {
+  outline: 2px solid #6ca642;
+  outline-offset: 2px;
+}
+
+/* Reduce motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .header *,
+  .header *::before,
+  .header *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* MAIN NAVIGATION - PREVENTS OVERFLOW */
+.mainNav {
+  height: 95px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.navContent {
+  width: 92%;
+  max-width: 1350px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  gap: 22px; /* Adjusted gap to fit laptop screens */
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #0d0d0d;
+  font-weight: 600;
+  font-size: 14px; /* Scaled down for laptop fit */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 10px 0;
+  transition: color 0.3s;
+}
+
+.navLink:hover, .active {
+  color: #6ca642;
+}
+
+/* Active Home Underline like Figma */
+.active {
+  border-bottom: 2px solid #6ca642;
+}
+
+.chevron {
+  width: 16px;
+  transition: transform 0.3s;
+}
+
+/* DROPDOWN LOGIC */
+.navItemDropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 220px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  padding: 12px 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.navItemDropdown:hover .dropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navItemDropdown:hover .chevron {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu li a, .submenuTrigger {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.dropdownMenu li a:hover, .submenuTrigger:hover {
+  background-color: #f8fcf5;
+  color: #6ca642;
+}
+
+/* NESTED DEPARTMENTS DROPDOWN */
+.hasSubmenu {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(15px);
+  transition: all 0.3s ease;
+}
+
+.hasSubmenu:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.sideChevron {
+  width: 14px;
+  transform: rotate(-90deg);
+  margin-left: auto;
+}
+
+.hamburger {
+  display: none;
+}
+
+/* RESPONSIVE - LAPTOP FIX */
+@media (max-width: 1280px) {
+  .navList {
+    gap: 15px;
+  }
+  .navLink {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .desktopNav { display: none; }
+  .hamburger { display: block; border: none; background: none; cursor: pointer; }
+}
+
+
+
+/* ===== DESKTOP HEADER CONTAINER FIX ===== */
+@media (min-width: 993px) {
+  .header {
+    /* height: auto; */
+    
+  }
+
+  .logoRow {
+    position: relative;
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 16px 24px 0;
+  }
+
+  .logoWrapper {
+    position: relative;
+    left: 0;
+  }
+
+  .mainHeader {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    height: auto;
+  }
+
+  .navLinks {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+}
+@media (min-width: 993px) {
+  .mainHeader {
+    width: 100% !important;
+    
+  }
+
+  .navLinks {
+    left: auto !important;
+    top: auto !important;
+  }
+}
+@media (min-width: 993px) {
+  .topBarWrapper {
+    position: relative;
+  }
+
+  .topHeader2 {
+    position: relative;
+    
+  }
+
+  .email {
+    left: 24px;
+  }
+
+  .contact {
+    left: 280px;
+  }
+
+  .rectangleParent {
+    right: 24px;
   }
 }

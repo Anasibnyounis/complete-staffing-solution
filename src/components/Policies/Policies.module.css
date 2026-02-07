@@ -1,0 +1,327 @@
+/* POLICIES PAGE - FULLY RESPONSIVE */
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+
+.hero {
+  padding: 60px 0 40px;
+  background: white;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 17px;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  font-family: var(--font-jakarta);
+}
+
+.heroDate {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 24px auto;
+  font-family: var(--font-inter);
+}
+
+.heroText {
+  font-size: 15px;
+  line-height: 1.7;
+  padding: 0px 0px;
+  color: #4b5563;
+    font-family: var(--font-inter);
+  max-width: 1100px;
+  margin: 10px auto;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 25px;
+}
+
+.heroText a {
+  color: #19478E;
+  text-decoration: underline;
+}
+
+/* ==========================================
+   MAIN CONTENT LAYOUT
+   ========================================== */
+
+.mainContent {
+  padding: 60px 0;
+  background: #f9fafb;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+}
+/* SIDEBAR - Keep Desktop, Add Mobile fix */
+.sidebar {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+  max-width: 250px;
+  z-index: 10;
+}
+
+.sidebarTitle {
+  font-size: 19px;
+  font-weight: 700;
+  padding: 15px 13px;
+  border-bottom: 2px solid #e5e7eb;
+  background: #B9C6DC;
+  color: #19478E;
+  font-family: var(--font-jakarta);
+}
+
+.sidebarList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarItem {
+  padding: 12px;
+  font-size: 16px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-inter);
+  border-left: 3px solid transparent;
+}
+
+.sidebarItem:hover {
+  background: #f9fafb;
+  color: #1a1a1a;
+  border-left-color: #e5e7eb;
+}
+
+.sidebarItemActive {
+  border-left-color: #19478E;
+  color: #19478E;
+  font-weight: 600;
+}
+
+/* CONTENT */
+.content {
+  background: white;
+  border-radius: 8px;
+}
+
+.section {
+  margin-bottom: 48px;
+  scroll-margin-top: 120px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 40px; /* Big Screen Padding */
+  box-sizing: border-box;
+  border-radius: 25px; /* Big Screen Radius */
+  background: white;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.iconWrapper {
+  margin-bottom: 16px;
+}
+
+.iconImage {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  font-family: var(--font-jakarta);
+}
+
+.subTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 4px;
+  font-family: var(--font-jakarta);
+}
+
+.text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #383838;
+  margin-bottom: 4px;
+  font-family: var(--font-inter);
+}
+
+.text2 {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #383838;
+  margin-bottom: 4px;
+  max-width: 600px;
+  font-family: var(--font-inter);
+}
+
+.text a {
+  color: #19478E;
+  text-decoration: underline;
+}
+
+.list {
+  padding-left: 24px;
+  list-style: disc;
+  list-style-position: outside;
+}
+
+.list li {
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.7;
+  font-family: var(--font-inter);
+}
+
+.margins {
+  margin-top: 25px;
+}
+
+.cookieButton {
+  display: inline-block;
+  background: #19478E;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-inter);
+  text-decoration: none;
+}
+
+.cookieButton:hover {
+  background: #153a75;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(25, 71, 142, 0.3);
+}
+
+.twoColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 20px;
+}
+
+.stackItem {
+  margin-bottom: 20px;
+}
+
+/* ==========================================
+   RESPONSIVE FIXES
+   ========================================== */
+
+/* TABLET (1024px and below) */
+@media (max-width: 1024px) {
+  .section {
+    padding: 30px;
+  }
+}
+
+/* MOBILE (768px and below) - IMPORTANT FIXES */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    max-width: 100%;
+    top: -500%;
+    margin-bottom: 30px;
+  }
+  .hero{
+    /* padding-top: 30px; */
+    padding: 30px 0px;
+  }
+.heroTitle{
+  font-size: 26px;
+  padding: 0;
+}
+.heroText{
+  width: 100%;
+}
+  .sidebarItem {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 25px 20px;
+    border-radius: 15px; /* Smaller radius for mobile */
+    margin-bottom: 30px;
+  }
+
+  .twoColumn {
+    grid-template-columns: 1fr; /* Stack columns */
+    gap: 24px;
+  }
+
+  .text2 {
+    max-width: 100%; /* Full width on mobile */
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+  }
+}
+
+/* SMALL MOBILE (480px and below) */
+@media (max-width: 480px) {
+  .section {
+    padding: 20px 15px;
+  }
+  .hero{
+    /* padding-top: 30px; */
+    padding: 30px 0px;
+  }
+.heroTitle{
+  font-size: 26px;
+  padding: 0;
+}
+.heroText{
+  width: 100%;
+  
+  font-size: 14px;
+}
+  .sectionTitle {
+    font-size: 19px;
+  }
+
+  .text, .text2, .list li {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

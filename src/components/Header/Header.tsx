@@ -7,7 +7,6 @@ import Image from "next/image";
 import { MailIcon, PhoneIcon, ChevronDownIcon } from "./icons";
 import styles from "./Header.module.css";
 
-/* Hamburger icon - three horizontal lines */
 function HamburgerIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -29,7 +28,6 @@ function HamburgerIcon({ className }: { className?: string }) {
   );
 }
 
-/* Close (X) icon for when menu is open */
 function CloseIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -52,10 +50,12 @@ function CloseIcon({ className }: { className?: string }) {
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null); // desktop hover
   const pathname = usePathname();
 
   const closeMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(false);
+    setOpenDropdown(null);
   }, []);
 
   const isActive = (href: string) => {
@@ -67,7 +67,7 @@ export default function Header() {
     <header
       className={`${styles.header} ${isMobileMenuOpen ? styles.mobileMenuOpen : ""}`}
     >
-      {/* Top bar wrapper: on mobile contains blue bar + contact + email + fraud button */}
+      {/* Top bar */}
       <div className={styles.topBarWrapper}>
         <div className={styles.topHeader}>
           <div className={styles.topHeader2} />
@@ -92,7 +92,7 @@ export default function Header() {
         </a>
       </div>
 
-      {/* Logo + Hamburger row (hamburger visible only on mobile) */}
+      {/* Logo + Hamburger */}
       <div className={styles.logoRow}>
         <Link
           href="/"
@@ -124,7 +124,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Main navigation - becomes dropdown on mobile when hamburger is open */}
+      {/* Main navigation */}
       <nav className={styles.mainHeader} aria-label="Main navigation">
         <div className={styles.navLinks}>
           <Link
@@ -134,38 +134,42 @@ export default function Header() {
           >
             Home
           </Link>
+
+          {/* About dropdown */}
           <div
             className={`${styles.navDropdownWrapper} ${isActive("/about-us") || isActive("/team") ? styles.navDropdownActive : ""}`}
+            onMouseEnter={() => setOpenDropdown("about")}
+            onMouseLeave={() => setOpenDropdown(null)}
           >
             <span className={styles.navDropdownTrigger}>
-              About
-              <ChevronDownIcon className={styles.dropdownIcon} />
+              About <ChevronDownIcon className={styles.dropdownIcon} />
             </span>
-            <div className={styles.navDropdownPanel}>
-              <Link href="/about-us" onClick={closeMobileMenu}>
-                About Us
-              </Link>
-              <Link href="/team" onClick={closeMobileMenu}>
-                Team
-              </Link>
+            <div
+              className={`${styles.navDropdownPanel} ${openDropdown === "about" || isActive("/about-us") || isActive("/team") ? styles.navDropdownPanelOpen : ""}`}
+            >
+              <Link href="/about-us" onClick={closeMobileMenu}>Overview</Link>
+              <Link href="/team" onClick={closeMobileMenu}>Meet our Team</Link>
             </div>
           </div>
+
+          {/* For Employers dropdown */}
           <div
             className={`${styles.navDropdownWrapper} ${isActive("/job-request") || isActive("/industries-we-serve") ? styles.navDropdownActive : ""}`}
+            onMouseEnter={() => setOpenDropdown("employers")}
+            onMouseLeave={() => setOpenDropdown(null)}
           >
             <span className={styles.navDropdownTrigger}>
-              For Employers
-              <ChevronDownIcon className={styles.dropdownIcon} />
+              For Employers <ChevronDownIcon className={styles.dropdownIcon} />
             </span>
-            <div className={styles.navDropdownPanel}>
-              <Link href="/industries-we-serve" onClick={closeMobileMenu}>
-                Industries We Serve
-              </Link>
-              <Link href="/job-request" onClick={closeMobileMenu}>
-                Place a Job Request
-              </Link>
+            <div
+              className={`${styles.navDropdownPanel} ${openDropdown === "employers" || isActive("/job-request") || isActive("/industries-we-serve") ? styles.navDropdownPanelOpen : ""}`}
+            >
+              <Link href="/industries-we-serve" onClick={closeMobileMenu}>Industries</Link>
+              <Link href="/Departments" onClick={closeMobileMenu}>Departments</Link>
             </div>
           </div>
+
+          {/* Our Recruiting Process */}
           <Link
             href="/our-recruiting-process"
             className={`${styles.navItem} ${isActive("/our-recruiting-process") ? styles.navItemActive : ""}`}
@@ -173,24 +177,41 @@ export default function Header() {
           >
             Our Recruiting Process
           </Link>
-          <Link
-            href="/why-choose-us"
-            className={`${styles.navItem} ${isActive("/why-choose-us") ? styles.navItemActive : ""}`}
-            onClick={closeMobileMenu}
+
+          {/* For Job Seekers dropdown */}
+          <div
+            className={`${styles.navDropdownWrapper} ${isActive("/job-seeker-overview") || isActive("/open-position") || isActive("/job-request") ? styles.navDropdownActive : ""}`}
+            onMouseEnter={() => setOpenDropdown("jobseekers")}
+            onMouseLeave={() => setOpenDropdown(null)}
           >
-            Why Choose Us?
-          </Link>
-          <span className={styles.navItemWithDropdown} role="button" tabIndex={0}>
-            For Job Seekers
-            <ChevronDownIcon className={styles.dropdownIcon} />
-          </span>
-          <Link
-            href="/contact"
-            className={`${styles.navItem} ${isActive("/contact") ? styles.navItemActive : ""}`}
-            onClick={closeMobileMenu}
+            <span className={styles.navDropdownTrigger}>
+              For Job Seekers <ChevronDownIcon className={styles.dropdownIcon} />
+            </span>
+            <div
+              className={`${styles.navDropdownPanel} ${openDropdown === "jobseekers" || isActive("/job-seeker-overview") || isActive("/open-position") || isActive("/job-request") ? styles.navDropdownPanelOpen : ""}`}
+            >
+              <Link href="/job-seeker-overview" onClick={closeMobileMenu}>Job Seeker Overview</Link>
+              <Link href="/open-position" onClick={closeMobileMenu}>Open Positions</Link>
+              <Link href="/job-request" onClick={closeMobileMenu}>Employment Position</Link>
+            </div>
+          </div>
+
+          {/* Contact dropdown */}
+          <div
+            className={`${styles.navDropdownWrapper} ${isActive("/contact") || isActive("/policies") ? styles.navDropdownActive : ""}`}
+            onMouseEnter={() => setOpenDropdown("contact")}
+            onMouseLeave={() => setOpenDropdown(null)}
           >
-            Contact
-          </Link>
+            <span className={styles.navDropdownTrigger}>
+              Contact <ChevronDownIcon className={styles.dropdownIcon} />
+            </span>
+            <div
+              className={`${styles.navDropdownPanel} ${openDropdown === "contact" || isActive("/contact") || isActive("/policies") ? styles.navDropdownPanelOpen : ""}`}
+            >
+              <Link href="/contact" onClick={closeMobileMenu}>Our Locations</Link>
+              <Link href="/policies" onClick={closeMobileMenu}>Policies and Disclosures</Link>
+            </div>
+          </div>
         </div>
       </nav>
     </header>

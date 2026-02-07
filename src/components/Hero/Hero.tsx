@@ -43,7 +43,7 @@ export default function Hero() {
               Find an Ideal Candidate
             </Link>
             <Link
-              href="/primary-positions"
+              href="/open-position"
               className={`${styles.ctaButton} ${styles.ctaButtonPosition}`}
             >
               Find an Ideal Position
