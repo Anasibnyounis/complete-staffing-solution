@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Industries.module.css";
@@ -11,20 +12,20 @@ function enc(path: string) {
 }
 
 const industries = [
-  { name: "Agriculture", icon: "planting 1.svg", slug: "agriculture"  },
-  { name: "Arts", icon: "art 1.svg", slug: "arts"  },
-  { name: "Legal", icon: "legal-document (1) 1.svg"  , slug: "legal"  },
-  { name: "Manufacturing", icon: "manufacturing 1.svg" , slug: "manufacturing" },
-  { name: "Corporate Services", icon: "service 1.svg", slug: "corporateservices"  },
-  { name: "Construction", icon: "engineer 1.svg" , slug: "construction" },
-  { name: "Information Technology", icon: "information-technology 1.svg" , slug: "it" },
-  { name: "Consumer Goods", icon: "goods (1) 1.svg" , slug: "consumergoods" },
-  { name: "Design", icon: "loupe 1.svg" ,slug: "design" },
-  { name: "Education", icon: "education (1) 1.svg" ,slug: "education" },
-  { name: "Energy", icon: "flash 1.svg" ,slug: "energy"},
-  { name: "Entertainment", icon: "video (1) 1.svg",slug: "entertainment" },
-  { name: "Finance", icon: "bar-chart 1.svg" ,slug: "finance"},
-  { name: "Healthcare", icon: "heart-rate 1.svg" , slug: "healthcare" },
+  { name: "Agriculture", icon: "planting 1.svg", slug: "agriculture" },
+  { name: "Arts", icon: "art 1.svg", slug: "arts" },
+  { name: "Legal", icon: "legal-document (1) 1.svg", slug: "legal" },
+  { name: "Manufacturing", icon: "manufacturing 1.svg", slug: "manufacturing" },
+  { name: "Corporate Services", icon: "service 1.svg", slug: "corporateservices" },
+  { name: "Construction", icon: "engineer 1.svg", slug: "construction" },
+  { name: "Information Technology", icon: "information-technology 1.svg", slug: "it" },
+  { name: "Consumer Goods", icon: "goods (1) 1.svg", slug: "consumergoods" },
+  { name: "Design", icon: "loupe 1.svg", slug: "design" },
+  { name: "Education", icon: "education (1) 1.svg", slug: "education" },
+  { name: "Energy", icon: "flash 1.svg", slug: "energy" },
+  { name: "Entertainment", icon: "video (1) 1.svg", slug: "entertainment" },
+  { name: "Finance", icon: "bar-chart 1.svg", slug: "finance" },
+  { name: "Healthcare", icon: "heart-rate 1.svg", slug: "healthcare" },
 ];
 
 const positions = [
@@ -43,129 +44,199 @@ const positions = [
   { name: "Medical Billers", icon: "invoice 1.svg" },
 ];
 
-const stats = [
-  {
-    number: "14 k",
-    description:
-      "Small to mid-size organization that we work with annually, helping them achieve their unique Business goals",
-  },
-  {
-    number: "83 k",
-    description:
-      "Average number of Manpower Associates on assignment monthly",
-  },
-  {
-    number: "30 k",
-    description: "Manpower Associates hired by employers",
-  },
-];
+const INITIAL_COUNT = 6;
 
 function ItemCard({
   name,
   iconFile,
   href,
+  index,
+  isVisible,
 }: {
   name: string;
   iconFile: string;
   href: string;
+  index: number;
+  isVisible: boolean;
 }) {
   const iconSrc = `${ICONS_BASE}/${enc(iconFile)}`;
   const arrowSrc = `${ICONS_BASE}/${enc("iconamoon_arrow-down-2.svg")}`;
+
   return (
-    <Link href={href} className={styles.card}>
+    <Link 
+      href={href} 
+      className={`${styles.card} ${isVisible ? styles.cardVisible : ''}`}
+      style={{ 
+        animationDelay: `${index * 0.1}s`,
+      }}
+    >
       <div className={styles.cardLeft}>
         <div className={styles.cardIconWrap}>
-          <Image
-            src={iconSrc}
-            alt=""
-            width={40}
-            height={40}
+          <Image 
+            src={iconSrc} 
+            alt="" 
+            width={40} 
+            height={40} 
             className={styles.cardIcon}
-            unoptimized
+            unoptimized 
           />
         </div>
         <span className={styles.cardLabel}>{name}</span>
       </div>
-      <Image
-        src={arrowSrc}
-        alt=""
-        width={30}
-        height={30}
+      <Image 
+        src={arrowSrc} 
+        alt="" 
+        width={30} 
+        height={30} 
         className={styles.cardArrow}
-        unoptimized
+        unoptimized 
       />
     </Link>
   );
 }
 
 export default function Industries() {
-  return (
-    <section className={styles.section} aria-labelledby="industries-title">
-      <div className={styles.introWrapper}>
-        <div className={styles.intro}>
-          <h2 id="industries-title" className={styles.sectionSubtitle}>
-            Proven staffing solutions across diverse industries.
-          </h2>
-          <p className={styles.sectionDescription}>
-            We adhere to the highest standards of quality in all our products
-            and services. From design and development to manufacturing.
-          </p>
-        </div>
-      </div>
+  const [showAllIndustries, setShowAllIndustries] = useState(false);
+  const [showAllPositions, setShowAllPositions] = useState(false);
+  const [isIndustriesVisible, setIsIndustriesVisible] = useState(false);
+  const [isPositionsVisible, setIsPositionsVisible] = useState(false);
+  const [isStatsVisible, setIsStatsVisible] = useState(false);
 
-      <div className={styles.block}>
+  const industriesRef = useRef<HTMLDivElement>(null);
+  const positionsRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '50px',
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target === industriesRef.current) {
+            setIsIndustriesVisible(true);
+          } else if (entry.target === positionsRef.current) {
+            setIsPositionsVisible(true);
+          } else if (entry.target === statsRef.current) {
+            setIsStatsVisible(true);
+          }
+        }
+      });
+    }, observerOptions);
+
+    if (industriesRef.current) observer.observe(industriesRef.current);
+    if (positionsRef.current) observer.observe(positionsRef.current);
+    if (statsRef.current) observer.observe(statsRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleShowAllIndustries = () => {
+    setShowAllIndustries(true);
+  };
+
+  const handleShowAllPositions = () => {
+    setShowAllPositions(true);
+  };
+
+  return (
+    <section className={styles.section}>
+      {/* -------- INDUSTRIES -------- */}
+      <div 
+        ref={industriesRef}
+        className={`${styles.block} ${isIndustriesVisible ? styles.blockVisible : ''}`}
+      >
         <h3 className={styles.blockTitle}>Industries We Serve:</h3>
+
         <div className={styles.cardsGrid}>
-          {industries.map((item) => (
+          {(showAllIndustries
+            ? industries
+            : industries.slice(0, INITIAL_COUNT)
+          ).map((item, index) => (
             <ItemCard
               key={item.name}
               name={item.name}
               iconFile={item.icon}
-              href={item.slug ? `/industries-we-serve/${item.slug}` : `/industries-we-serve?q=${encodeURIComponent(item.name)}`}
+              href={`/industries-we-serve/${item.slug}`}
+              index={index}
+              isVisible={isIndustriesVisible}
             />
           ))}
         </div>
+
+        {!showAllIndustries && (
+          <div className={`${styles.buttonWrap} ${isIndustriesVisible ? styles.buttonVisible : ''}`}>
+            <button
+              className={`${styles.viewAllButton} ${styles.viewAllIndustries}`}
+              onClick={handleShowAllIndustries}
+            >
+              View All Industries
+            </button>
+          </div>
+        )}
       </div>
 
-      <div className={styles.buttonWrap}>
-        <Link
-          href="/industries-we-serve"
-          className={`${styles.viewAllButton} ${styles.viewAllIndustries}`}
-        >
-          View All Industries
-        </Link>
-      </div>
+      {/* -------- POSITIONS -------- */}
+      <div 
+        ref={positionsRef}
+        className={`${styles.block} ${isPositionsVisible ? styles.blockVisible : ''}`}
+      >
+        <h3 className={styles.blockTitle}>Positions We Specialize In:</h3>
 
-      <div className={styles.block}>
-        <h3 className={styles.blockTitle}>Positions We specialize In:</h3>
         <div className={styles.cardsGrid}>
-          {positions.map((item) => (
+          {(showAllPositions
+            ? positions
+            : positions.slice(0, INITIAL_COUNT)
+          ).map((item, index) => (
             <ItemCard
               key={item.name}
               name={item.name}
               iconFile={item.icon}
               href={`/primary-positions?q=${encodeURIComponent(item.name)}`}
+              index={index}
+              isVisible={isPositionsVisible}
             />
           ))}
         </div>
-      </div>
 
-      <div className={styles.buttonWrap}>
-        <Link
-          href="/open-position"
-          className={`${styles.viewAllButton} ${styles.viewAllPositions}`}
-        >
-          View All Positions
-        </Link>
-      </div>
-
-      <div className={styles.statsBlock}>
-        {stats.map((stat) => (
-          <div key={stat.number} className={styles.statItem}>
-            <span className={styles.statNumber}>{stat.number}</span>
-            <p className={styles.statDescription}>{stat.description}</p>
+        {!showAllPositions && (
+          <div className={`${styles.buttonWrap} ${isPositionsVisible ? styles.buttonVisible : ''}`}>
+            <button
+              className={`${styles.viewAllButton} ${styles.viewAllPositions}`}
+              onClick={handleShowAllPositions}
+            >
+              View All Positions
+            </button>
           </div>
-        ))}
+        )}
+      </div>
+
+      {/* -------- STATS -------- */}
+      <div 
+        ref={statsRef}
+        className={`${styles.statsBlock} ${isStatsVisible ? styles.statsVisible : ''}`}
+      >
+        <div className={styles.statItem}>
+          <div className={styles.statNumber}>14K</div>
+          <div className={styles.statDescription}>
+            We have served over 14,000 businesses and job seekers
+          </div>
+        </div>
+        <div className={styles.statItem}>
+          <div className={styles.statNumber}>83K</div>
+          <div className={styles.statDescription}>
+            We have placed over 83,000 candidates in rewarding positions
+          </div>
+        </div>
+        <div className={styles.statItem}>
+          <div className={styles.statNumber}>30K</div>
+          <div className={styles.statDescription}>
+            We have built relationships with over 30,000 talented professionals
+          </div>
+        </div>
       </div>
     </section>
   );

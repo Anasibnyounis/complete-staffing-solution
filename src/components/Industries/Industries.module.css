@@ -1,3 +1,8 @@
+
+
+
+
+
 .section {
   width: 100%;
   position: relative;
@@ -13,6 +18,21 @@
   font-size: 20px;
   color: #0d0d0d;
   font-family: var(--font-inter), Inter, sans-serif;
+  
+  /* Page load animation */
+  /* opacity: 0;
+  animation: fadeInSection 0.8s ease 0.2s forwards; */
+}
+
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(1px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .introWrapper {
@@ -59,6 +79,17 @@
   text-align: left;
   width: 100%;
   max-width: 1292px;
+  
+  /* Initial hidden state */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+/* Visible state when scrolled into view */
+.blockVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .blockTitle {
@@ -86,11 +117,32 @@
   box-sizing: border-box;
   gap: 20px;
   border-radius: 8px;
-  transition: box-shadow 0.2s;
+  
+  /* Initial hidden state */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+/* Visible state with stagger effect */
+.cardVisible {
+  animation: cardFadeIn 0.5s ease forwards;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .card:hover {
   box-shadow: 3px 4px 28px 4px rgba(0, 0, 0, 0.28);
+  transform: translateY(-4px);
 }
 
 .cardLeft {
@@ -109,6 +161,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover .cardIconWrap {
+  background-color: #5a8e37;
+  transform: scale(1.03) rotate(5deg);
 }
 
 .cardIcon {
@@ -116,6 +174,11 @@
   height: 40px;
   object-fit: contain;
   filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .cardIcon {
+  transform: rotate(-5deg);
 }
 
 .cardLabel {
@@ -123,6 +186,11 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.card:hover .cardLabel {
+  color: #6ca642;
 }
 
 .cardArrow {
@@ -131,6 +199,11 @@
   flex-shrink: 0;
   object-fit: contain;
   transform: rotate(-90deg);
+  transition: all 0.3s ease;
+}
+
+.card:hover .cardArrow {
+  transform: rotate(-90deg) translateX(-6px);
 }
 
 .buttonWrap {
@@ -138,6 +211,17 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  
+  /* Initial hidden state */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+/* Visible state */
+.buttonVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .viewAllButton {
@@ -154,11 +238,36 @@
   color: #fff;
   cursor: pointer;
   text-decoration: none;
-  transition: opacity 0.2s;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.viewAllButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.viewAllButton:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .viewAllButton:hover {
-  opacity: 0.9;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.viewAllButton:active {
+  transform: translateY(-1px);
 }
 
 .viewAllIndustries {
@@ -166,9 +275,17 @@
   min-width: 203px;
 }
 
+.viewAllIndustries:hover {
+  background-color: #153a75;
+}
+
 .viewAllPositions {
   background-color: #6ca642;
   min-width: 196px;
+}
+
+.viewAllPositions:hover {
+  background-color: #5a8e37;
 }
 
 .statsBlock {
@@ -185,6 +302,17 @@
   font-size: 76.64px;
   color: #fff;
   font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+  
+  /* Initial hidden state */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+/* Visible state */
+.statsVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 900px) {
@@ -200,6 +328,33 @@
   align-items: center;
   justify-content: flex-start;
   gap: 24px;
+  
+  /* Stagger animation for stats */
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.statsVisible .statItem:nth-child(1) {
+  animation: statFadeIn 0.6s ease 0.2s forwards;
+}
+
+.statsVisible .statItem:nth-child(2) {
+  animation: statFadeIn 0.6s ease 0.4s forwards;
+}
+
+.statsVisible .statItem:nth-child(3) {
+  animation: statFadeIn 0.6s ease 0.6s forwards;
+}
+
+@keyframes statFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .statNumber {
@@ -207,6 +362,11 @@
   font-weight: 700;
   font-size: clamp(48px, 8vw, 76.64px);
   line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.statItem:hover .statNumber {
+  transform: scale(1.08);
 }
 
 .statDescription {
@@ -218,7 +378,7 @@
   max-width: 314px;
 }
 
-/* ========== RESPONSIVE: Industries - Tablet (max-width: 992px) ========== */
+/* RESPONSIVE */
 @media (max-width: 992px) {
   .section {
     padding: 48px 24px 60px;
@@ -245,7 +405,6 @@
   }
 }
 
-/* ========== RESPONSIVE: Industries - Mobile (max-width: 768px) ========== */
 @media (max-width: 768px) {
   .section {
     padding: 40px 20px 48px;
@@ -272,7 +431,6 @@
   }
 }
 
-/* ========== RESPONSIVE: Industries - Small mobile (max-width: 480px) ========== */
 @media (max-width: 480px) {
   .section {
     padding: 32px 16px 40px;
@@ -288,5 +446,20 @@
 
   .statDescription {
     font-size: 16px;
+  }
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+  .section,
+  .block,
+  .card,
+  .buttonWrap,
+  .statsBlock,
+  .statItem {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

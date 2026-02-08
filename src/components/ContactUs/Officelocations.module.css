@@ -109,3 +109,29 @@
     grid-template-columns: 1fr;
   }
 }
+/* --- Add/Modify these in your CSS --- */
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 8px;              
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  
+  /* Animation Initial State */
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              box-shadow 0.3s ease; /* Hover transition remains same */
+}
+
+/* Animation Active State */
+.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Maintain your hover logic */
+.card:hover {
+  transform: translateY(-5px) scale(1.02); /* Thoda extra smooth hover */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}

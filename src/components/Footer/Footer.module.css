@@ -1,3 +1,51 @@
+/* --- Animation Global Styles --- */
+.reveal {
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.revealUp { transform: translateY(30px); }
+.revealLeft { transform: translateX(-40px); }
+.revealRight { transform: translateX(40px); }
+
+/* Active Class trigger */
+.active .reveal, 
+.reveal.active {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.delay1 { transition-delay: 0.1s; }
+.delay2 { transition-delay: 0.2s; }
+.delay3 { transition-delay: 0.3s; }
+
+/* --- Rest of your original CSS (No layout changes) --- */
+.footerContainer {
+  width: 100%;
+  background-color: #b9c6dc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 74px 0;
+  gap: 50px;
+  overflow: hidden; /* Important to prevent horizontal scroll during animation */
+}
+
+/* Maintain your existing classes... */
+.contactAndSocialContainer {
+  align-self: stretch;
+  border-bottom: 1px solid #d6d6d6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+}
+
+/* (Include all your other original classes here) */
+
+
+
+
 .footerContainer {
   width: 100%;
   position: relative;

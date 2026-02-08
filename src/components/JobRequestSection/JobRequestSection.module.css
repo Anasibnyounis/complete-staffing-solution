@@ -1,3 +1,15 @@
+.section { overflow: hidden; }
+.section::before { /* If you want bg zoom, apply transition to background-image if it's a div */
+    transition: transform 3s ease;
+}
+.active::before { transform: scale(1.1); }
+
+.revealUp { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.active .revealUp { opacity: 1; transform: translateY(0); }
+
+
+
+
 .section {
   width: 100%;
   height: 390px;

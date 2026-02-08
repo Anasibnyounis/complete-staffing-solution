@@ -1,104 +1,80 @@
-// "use client";
+"use client";
 
-// import Link from "next/link";
-// import Image from "next/image";
-// import styles from "./WhyChooseUs.module.css";
-
-// const ICON_BASE = "/homepage/why%20choose%20us";
-
-// const cards = [
-//   {
-//     icon: `${ICON_BASE}/why complete staffing solutions.svg`,
-//     title: "Why Complete Staffing Solutions",
-//     description:
-//       "For 25+ years, we've helped growing organizations find the right talent by focusing on fit, culture, and long-term success—earning our place as a leading staffing firm in Southern New England.",
-//     href: "/why-choose-us",
-//   },
-//   {
-//     icon: `${ICON_BASE}/our mission.svg`,
-//     title: "Our Mission",
-//     description:
-//       "Our mission is to deliver top talent through strategic staffing solutions that strengthen teams and drive long-term success. We specialize in permanent and consulting services with deep market expertise.",
-//     href: "/our-mission",
-//   },
-//   {
-//     icon: `${ICON_BASE}/what set us apart.svg`,
-//     title: "What Sets Us Apart",
-//     description:
-//       "Our passion for search and career placement sets us apart. Strong client relationships and a dedicated team have fueled industry-leading retention and steady growth through every economic cycle.",
-//     href: "/what-sets-us-apart",
-//   },
-// ];
-
-// function CardIcon({ src }: { src: string }) {
-//   const encodedSrc = src.replace(/ /g, "%20");
-//   return (
-//     <div className={styles.cardIconWrapper}>
-//       <Image
-//         src={encodedSrc}
-//         alt=""
-//         width={56}
-//         height={56}
-//         className={styles.cardIcon}
-//       />
-//     </div>
-//   );
-// }
-
-// export default function WhyChooseUs() {
-//   return (
-//     <section className={styles.section} aria-labelledby="why-choose-us-title">
-//       <div className={styles.sectionInner}>
-//         <h2 id="why-choose-us-title" className={styles.sectionTitle}>
-//           Why choose Us ?
-//         </h2>
-//         <div className={styles.cardsRow}>
-//           {cards.map((card) => (
-//             <article key={card.title} className={styles.card}>
-//               <CardIcon src={card.icon} />
-//               <div className={styles.cardContent}>
-//                 <h3 className={styles.cardTitle}>{card.title}</h3>
-//                 <p className={styles.cardDescription}>{card.description}</p>
-//               </div>
-//               <Link href={card.href} className={styles.readMoreLink}>
-//                 Read More
-//               </Link>
-//             </article>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-import styles from "./WhyChooseUs.module.css";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import styles from './WhyChooseUsSection.module.css';
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
-import HeroSection from "./HeroSection";
-import BlueSection from "./BlueSection";
-import FlexibleSection from "./FlexibleSection";
-import JobRequestSection from "../JobRequestSection";
-////////font
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-jakarta",
-});
+const WhyChooseUs: React.FC = () => {
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
-///////////////////
-export default function WhyChooseUs() {
+  const cards = [
+    {
+      id: 1,
+      icon: '/why choose us/svg1.png',
+      title: 'Why Complete Staffing Solutions',
+      shortDescription: 'For 25+ years, we\'ve helped growing organizations find the right talent by focusing o...',
+      fullDescription: 'For 25+ years, we\'ve helped growing organizations find the right talent by focusing on personalized service and industry expertise. Our commitment to excellence has made us a trusted partner for businesses across various sectors. We understand that finding the right talent is crucial for organizational success, and our experienced team works diligently to match qualified candidates with the perfect opportunities.',
+    },
+    {
+      id: 2,
+      icon: '/why choose us/svg2.png',
+      title: 'Our Mission',
+      shortDescription: 'Our mission is to deliver top talent through strategic staffing solutions that strengthen tea...',
+      fullDescription: 'Our mission is to deliver top talent through strategic staffing solutions that strengthen teams and drive business success. We are dedicated to building lasting relationships with both clients and candidates, ensuring mutual growth and satisfaction. By leveraging our extensive network and industry knowledge, we connect exceptional talent with outstanding opportunities, creating value for all stakeholders.',
+    },
+    {
+      id: 3,
+      icon: '/why choose us/svg3.png',
+      title: 'What Sets Us Apart',
+      shortDescription: 'Our passion for search and career placement sets us apart. Strong client relationships and a d...',
+      fullDescription: 'Our passion for search and career placement sets us apart. Strong client relationships and a dedicated team make the difference. We go beyond traditional staffing by understanding the unique culture and needs of each organization. Our personalized approach, combined with cutting-edge recruitment strategies, ensures we deliver candidates who not only meet technical requirements but also align with company values and long-term goals.',
+    },
+  ];
+
+  const toggleExpand = (id: number) => {
+    setExpandedCard(expandedCard === id ? null : id);
+  };
+
   return (
-    <main className={styles.main}>
-
-      <HeroSection />
-      <BlueSection />
-      <FlexibleSection />
-<JobRequestSection/>
-    </main>
+    <section className={styles.section}>
+      <div className={styles.container}>
+        <h2 className={styles.sectionTitle}>WHY CHOOSE US ?</h2>
+        
+        <div className={styles.cardsGrid}>
+          {cards.map((card) => (
+            <div key={card.id} className={styles.card}>
+              <div className={styles.iconWrapper}>
+                <Image
+                  src={card.icon}
+                  alt={card.title}
+                  width={80}
+                  height={80}
+                  className={styles.icon}
+                />
+              </div>
+              
+              <h3 className={styles.cardTitle}>{card.title}</h3>
+              
+              <p className={styles.cardDescription}>
+                {expandedCard === card.id ? card.fullDescription : card.shortDescription}
+              </p>
+              
+              <button 
+                className={styles.readMoreBtn}
+                onClick={() => toggleExpand(card.id)}
+              >
+                {expandedCard === card.id ? 'Read Less' : 'Read More'}
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
-}
+};
+
+export default WhyChooseUs;

@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./WhyChooseUs.module.css";
 
@@ -38,12 +40,21 @@ export default function FlexibleSection({
   cards = defaultCards,
   backgroundColor = "#0f3b7a"
 }: FlexibleSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) entry.target.classList.add(styles.active);
+    }, { threshold: 0.1 });
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={styles.flexSection}>
+    <section ref={sectionRef} className={`${styles.flexSection} ${styles.reveal}`}>
       <div className={styles.flexWrapper}>
 
-        {/* LEFT IMAGE */}
-        <div className={styles.flexImage}>
+        <div className={`${styles.flexImage} ${styles.reveal} ${styles.revealLeft}`}>
           <Image
             src={image}
             alt={title}
@@ -51,26 +62,19 @@ export default function FlexibleSection({
             className={styles.image}
             unoptimized
           />
-
-          <div className={styles.flexOverlay}>
-            {title}
-          </div>
+          <div className={styles.flexOverlay}>{title}</div>
         </div>
 
-        {/* RIGHT BLUE AREA */}
-        <div className={styles.flexRight} style={{ backgroundColor }}>
+        <div className={`${styles.flexRight} ${styles.reveal} ${styles.revealRight}`} style={{ backgroundColor }}>
           {cards.map((card, i) => (
-            <div key={i} className={styles.flexCard}>
+            <div 
+              key={i} 
+              className={`${styles.flexCard} ${styles.reveal} ${styles.revealUp}`}
+              style={{ transitionDelay: `${0.2 + (i * 0.15)}s` }}
+            >
               <div className={styles.flexIcon}>
-                <Image
-                  src={card.icon}
-                  alt="icon"
-                  width={20}
-                  height={20}
-                  unoptimized
-                />
+                <Image src={card.icon} alt="icon" width={20} height={20} unoptimized />
               </div>
-
               <div className={styles.flexContent}>
                 <h3>{card.title}</h3>
                 <p>{card.text}</p>
@@ -78,7 +82,6 @@ export default function FlexibleSection({
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

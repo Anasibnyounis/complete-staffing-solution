@@ -5,7 +5,7 @@ export const metadata = {
     description: "Expert healthcare staffing services for hospitals, clinics, and medical facilities.",
 };
 
-export default function HealthcarePage() {
+export default function ManufacturingPage() {
     return (
         <main className="min-h-screen bg-white">
             {/* Hero Section - HEALTHCARE */}

@@ -104,7 +104,7 @@
 /* Extra large devices (large desktops) */
 @media (min-width: 1201px) {
   .heroTitle {
-    font-size: 4rem;
+    font-size: 3rem;
     letter-spacing: 0.1em;
   }
 
