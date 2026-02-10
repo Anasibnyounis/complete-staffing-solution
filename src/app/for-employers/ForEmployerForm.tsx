@@ -224,7 +224,7 @@ export default function ForEmployerForm() {
         </form>
       </div>
 
-      <Image
+      <Image 
         src={PLACEHOLDER_IMAGE}
         alt=""
         width={689}

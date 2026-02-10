@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -52,7 +52,14 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false); // For client-only checks
+
   const pathname = usePathname();
+
+  // Set mounted to true on client to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const closeMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(false);
@@ -60,10 +67,11 @@ export default function Header() {
   }, []);
 
   const toggleMobileDropdown = (dropdown: string) => {
-    setMobileOpenDropdown(prev => prev === dropdown ? null : dropdown);
+    setMobileOpenDropdown(prev => (prev === dropdown ? null : dropdown));
   };
 
   const isActive = (href: string) => {
+    if (!mounted) return false; // server: always false
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   };
@@ -142,11 +150,13 @@ export default function Header() {
 
           {/* About dropdown */}
           <div
-            className={`${styles.navDropdownWrapper} ${mobileOpenDropdown === "about" ? styles.navDropdownOpen : ""} ${isActive("/about-us") || isActive("/team") ? styles.navDropdownActive : ""}`}
+            className={`${styles.navDropdownWrapper} ${
+              mobileOpenDropdown === "about" ? styles.navDropdownOpen : ""
+            } ${isActive("/about-us") || isActive("/team") ? styles.navDropdownActive : ""}`}
             onMouseEnter={() => setOpenDropdown("about")}
             onMouseLeave={() => setOpenDropdown(null)}
           >
-            <span 
+            <span
               className={styles.navDropdownTrigger}
               onClick={() => toggleMobileDropdown("about")}
             >
@@ -160,11 +170,13 @@ export default function Header() {
 
           {/* For Employers dropdown */}
           <div
-            className={`${styles.navDropdownWrapper} ${mobileOpenDropdown === "employers" ? styles.navDropdownOpen : ""} ${isActive("/job-request") || isActive("/industries-we-serve") ? styles.navDropdownActive : ""}`}
+            className={`${styles.navDropdownWrapper} ${
+              mobileOpenDropdown === "employers" ? styles.navDropdownOpen : ""
+            } ${isActive("/job-request") || isActive("/industries-we-serve") ? styles.navDropdownActive : ""}`}
             onMouseEnter={() => setOpenDropdown("employers")}
             onMouseLeave={() => setOpenDropdown(null)}
           >
-            <span 
+            <span
               className={styles.navDropdownTrigger}
               onClick={() => toggleMobileDropdown("employers")}
             >
@@ -187,11 +199,13 @@ export default function Header() {
 
           {/* For Job Seekers dropdown */}
           <div
-            className={`${styles.navDropdownWrapper} ${mobileOpenDropdown === "jobseekers" ? styles.navDropdownOpen : ""} ${isActive("/job-seeker-overview") || isActive("/open-position") || isActive("/job-request") ? styles.navDropdownActive : ""}`}
+            className={`${styles.navDropdownWrapper} ${
+              mobileOpenDropdown === "jobseekers" ? styles.navDropdownOpen : ""
+            } ${isActive("/job-seeker-overview") || isActive("/open-position") || isActive("/job-request") ? styles.navDropdownActive : ""}`}
             onMouseEnter={() => setOpenDropdown("jobseekers")}
             onMouseLeave={() => setOpenDropdown(null)}
           >
-            <span 
+            <span
               className={styles.navDropdownTrigger}
               onClick={() => toggleMobileDropdown("jobseekers")}
             >
@@ -206,11 +220,13 @@ export default function Header() {
 
           {/* Contact dropdown */}
           <div
-            className={`${styles.navDropdownWrapper} ${mobileOpenDropdown === "contact" ? styles.navDropdownOpen : ""} ${isActive("/contact-us") || isActive("/policies") ? styles.navDropdownActive : ""}`}
+            className={`${styles.navDropdownWrapper} ${
+              mobileOpenDropdown === "contact" ? styles.navDropdownOpen : ""
+            } ${isActive("/contact-us") || isActive("/policies") ? styles.navDropdownActive : ""}`}
             onMouseEnter={() => setOpenDropdown("contact")}
             onMouseLeave={() => setOpenDropdown(null)}
           >
-            <span 
+            <span
               className={styles.navDropdownTrigger}
               onClick={() => toggleMobileDropdown("contact")}
             >

@@ -225,13 +225,16 @@
   }
 
   .formCard {
-    max-width: 520px;
+    max-width: 500px;
     padding: 28px 20px 36px;
     gap: 28px;
   }
 
   .fieldRow {
     gap: 20px;
+  }
+  .placeholderImage{
+    width: 400px;
   }
 }
 
