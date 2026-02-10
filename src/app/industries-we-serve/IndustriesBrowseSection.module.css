@@ -1,30 +1,23 @@
-/* ========== Section wrapper ========== */
+/* Section */
 .groupParent {
   width: 100%;
   position: relative;
   overflow: hidden;
-  text-align: left;
-  font-size: 20px;
-  color: #0d0d0d;
   font-family: var(--font-inter), Inter, sans-serif;
   padding-bottom: 80px;
+  background: #f8f8f8;
 }
 
-/* ========== Search + filters strip (light blue background) ========== */
+/* Search strip */
 .rectangleParent {
   position: relative;
   width: 100%;
-  min-height: 224px;
-  font-size: 16px;
-  color: #a2a2a2;
+  min-height: 200px;
 }
 
 .groupChild {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background-color: #b9c6dc;
 }
 
@@ -35,7 +28,6 @@
   padding: 50px 24px 40px;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   gap: 30px;
 }
 
@@ -60,7 +52,7 @@
   padding: 0 16px;
   border-radius: 5px;
   background-color: #fff;
-  border: 1px solid transparent;
+  transition: all 0.3s ease;
 }
 
 .searchInputWrapper:focus-within {
@@ -73,12 +65,10 @@
   width: 40px;
   height: 40px;
   margin-right: 10px;
-  color: #a2a2a2;
 }
 
 .searchInput {
   flex: 1;
-  min-width: 0;
   height: 40px;
   border: none;
   background: transparent;
@@ -95,26 +85,22 @@
   outline: none;
 }
 
-/* Filter buttons row - inline on one row (wrap only on small screens) */
+/* Filters */
 .frameParent {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-start;
   gap: 20px;
-  font-size: 18px;
-  color: #383838;
 }
 
 .filterButton,
 .filterButtonActive {
   padding: 10px 25px;
   border-radius: 5px;
-  font-family: inherit;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  transition: all 0.3s ease;
   border: 1px solid #19478e;
   background-color: #fff;
   color: #383838;
@@ -124,20 +110,20 @@
 
 .filterButton:hover {
   background-color: #f0f4fc;
+  transform: translateY(-2px);
 }
 
 .filterButtonActive {
   background-color: #19478e;
   color: #e8e8e8;
-  border-color: #19478e;
 }
 
-/* ========== Industry cards grid (reference: white card, shadow, grey border, image then title then button) ========== */
+/* Cards grid */
 .cardsGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  max-width: 1292px;
+  gap: 24px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 50px 24px 0;
 }
@@ -145,120 +131,186 @@
 .card {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  padding: 0;
-  border-radius: 20px;
-  box-shadow: 3px 4px 20.5px 3px rgba(0, 0, 0, 0.25);
-  border: 1px solid #e8e8e8;
   background: #fff;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-/* Image at top with rounded top corners only (matches card) */
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image */
 .cardImageWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 280 / 230;
-  border-radius: 20px 20px 0 0;
+  aspect-ratio: 1.25 / 1;
   overflow: hidden;
-  flex-shrink: 0;
 }
 
 .cardImage {
   object-fit: cover;
+  transition: transform 0.3s ease;
+  padding: 9px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
-/* Title and button area - padding below image */
-.cardBody {
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+/* Content */
+.cardContent {
+  padding: 16px 18px 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 16px 16px 20px;
-  gap: 20px;
+  gap: 10px;
   flex: 1;
+}
+
+/* Icon + Title */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .cardIcon {
+  transform: rotate(8deg) scale(1.03);
 }
 
 .cardTitle {
   font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
   color: #0d0d0d;
   margin: 0;
   line-height: 1.3;
 }
 
-/* Rounded rectangular buttons - reference style */
-.buttonBlue,
-.buttonGreen {
+/* Description */
+.cardDescription {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+  min-height: 38px;
+   padding:0px 13px;
+  
+  text-align: justify;
+  box-sizing: border-box;
+  
+}
+
+/* Button */
+.cardButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
-  padding: 0 24px;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: 600;
-  font-family: inherit;
+  gap: 8px;
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
   color: #fff;
   text-decoration: none;
-  transition: opacity 0.2s;
-  border: none;
-  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.4s ease;
+}
+
+.cardButton:hover::before {
+  left: 100%;
+}
+
+.cardButton svg {
+  transition: transform 0.3s ease;
+}
+
+.cardButton:hover svg {
+  transform: translateX(3px);
 }
 
 .buttonBlue {
-  background-color: #19478e;
-  min-width: 153px;
+  background-color: #4A7BAD;
+}
+
+.buttonBlue:hover {
+  background-color: #3d6a9a;
+  box-shadow: 0 4px 12px rgba(74, 123, 173, 0.35);
 }
 
 .buttonGreen {
-  background-color: #6ca642;
-  min-width: 139px;
+  background-color: #6CA642;
 }
 
-.buttonBlue:hover,
 .buttonGreen:hover {
-  opacity: 0.9;
+  background-color: #5d9338;
+  box-shadow: 0 4px 12px rgba(108, 166, 66, 0.35);
 }
 
-/* ========== RESPONSIVE: Tablet (max-width: 1200px) ========== */
+.buttonBrown {
+  background-color: #8B6F47;
+}
+
+.buttonBrown:hover {
+  background-color: #7a603d;
+  box-shadow: 0 4px 12px rgba(139, 111, 71, 0.35);
+}
+
+/* Responsive */
 @media (max-width: 1200px) {
   .cardsGrid {
     grid-template-columns: repeat(3, 1fr);
     padding: 40px 20px 0;
-    gap: 24px;
   }
 }
 
-/* ========== RESPONSIVE: Medium (max-width: 992px) ========== */
 @media (max-width: 992px) {
-  .rectangleParent {
-    min-height: auto;
-  }
-
   .groupContainer {
     padding: 40px 20px 32px;
-    gap: 24px;
   }
 
-  /* Keep filter buttons inline with horizontal scroll if needed */
   .frameParent {
-    flex-wrap: nowrap;
     overflow-x: auto;
-    overflow-y: hidden;
     padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch;
   }
 
   .cardsGrid {
     grid-template-columns: repeat(2, 1fr);
-    padding: 40px 20px 0;
-    gap: 24px;
   }
 }
 
-/* ========== RESPONSIVE: Mobile (max-width: 768px) ========== */
 @media (max-width: 768px) {
   .groupParent {
     padding-bottom: 60px;
@@ -277,14 +329,8 @@
   .searchIcon {
     width: 32px;
     height: 32px;
-    margin-right: 8px;
   }
 
-  .searchInput {
-    font-size: 16px;
-  }
-
-  /* Allow filter buttons to wrap on smaller screens when inline row doesn't fit */
   .frameParent {
     flex-wrap: wrap;
     gap: 10px;
@@ -299,44 +345,46 @@
   .cardsGrid {
     grid-template-columns: 1fr;
     padding: 32px 16px 0;
-    gap: 24px;
     max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  .cardBody {
-    padding: 12px 12px 16px;
-    gap: 16px;
+  .cardContent {
+    padding: 14px 16px 18px;
   }
 
-  .cardTitle {
-    font-size: 18px;
-  }
-
-  .buttonBlue,
-  .buttonGreen {
-    height: 48px;
-    font-size: 16px;
+  .cardButton {
     width: 100%;
-    max-width: 200px;
-    min-width: 0;
   }
 }
 
-/* ========== RESPONSIVE: Small mobile (max-width: 480px) ========== */
 @media (max-width: 480px) {
   .cardsGrid {
     padding: 24px 12px 0;
     gap: 20px;
   }
 
-  .cardBody {
-    padding: 12px 10px 16px;
+  .cardIcon {
+    width: 30px;
+    height: 30px;
   }
 
-  /* Inline filter row can scroll horizontally if needed on very small screens */
-  .frameParent {
-    flex-wrap: wrap;
+  .cardTitle {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cardImage,
+  .cardIcon,
+  .filterButton,
+  .filterButtonActive,
+  .cardButton {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .card:hover {
+    transform: none !important;
   }
 }
