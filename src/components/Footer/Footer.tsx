@@ -41,8 +41,7 @@ export default function Footer() {
               <Image src={`${FOOTER_ICONS}/EnvelopeSimple.svg`} alt="" width={24} height={24} />
             </div>
             <a href="mailto:23-cs-63@students.uettaxila.edu.pk" className={styles.contactEmail}>
-              23-cs-63@students.uettaxila.edu.pk
-            </a>
+              example@gmail.com            </a>
           </div>
           <div className={styles.socialIconsContainer}>
             {/* Social icons are part of the top reveal */}

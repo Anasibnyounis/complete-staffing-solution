@@ -8,7 +8,7 @@
   overflow: hidden;
 
   /* Background image as banner */
-  background-image: url("/for employer/Hero.PNG");
+  background-image: url("/for employer/hero (2).PNG");
   /* background-size: 100% 100%; */
   /* background-size: auto; */
   background-size: 100% 100%;
@@ -19,7 +19,7 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.368); /* Dark overlay */
+  background: rgba(8, 48, 75, 0.368); /* Dark overlay */
   z-index: 2;
 }
 
