@@ -17,13 +17,14 @@
 }
 
 .title {
-  max-width: 714px;
+  max-width: 670px;
   position: relative;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: clamp(24px, 3vw, 46px);
+  font-size: clamp(22px, 2.5vw, 42px);
   line-height: 1.2;
   text-align: center;
+  word-spacing: 8px;
 }
 
 .columns {
@@ -34,7 +35,7 @@
   justify-content: center;
   gap: 32px;
   text-align: left;
-  font-size: 18px;
+  font-size: 16px;
   color: #383838;
   font-family: var(--font-inter), Inter, sans-serif;
   flex-wrap: wrap;

@@ -22,7 +22,7 @@ export default function Hero() {
         <div className={`${styles.contentInner} ${styles.revealLeft}`}>
           <div className={styles.titleBlock}>
             <h1 className={styles.title}>Empowering Careers.<br />Strengthening<br />Businesses.</h1>
-            <p className={styles.description}>For over 25 years, we&apos;ve matched exceptional candidates with leading employers.</p>
+            <p className={styles.description}>For over 25 years, we’ve matched exceptional candidates with leading employers — helping businesses grow and careers thrive.</p>
           </div>
           <div className={`${styles.buttonsRow} ${styles.delay1}`}>
             <Link href="/job-request" className={`${styles.ctaButton} ${styles.ctaButtonCandidate}`}>Find an Ideal Candidate</Link>

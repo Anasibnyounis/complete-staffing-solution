@@ -1,8 +1,11 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 import styles from './Processsteps.module.css';
 import { title } from 'process';
 
 const ProcessSteps: React.FC = () => {
+  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
+
   const steps = [
     {
       title: 'HOW OUR PROCESS WORKS',
@@ -33,8 +36,16 @@ const ProcessSteps: React.FC = () => {
     }
   ];
 
+  const toggleOpen = (index: number) => {
+    setOpenIndexes(prev =>
+      prev.includes(index)
+        ? prev.filter(i => i !== index) // same heading click → close
+        : [...prev, index]              // new heading click → keep old open, add new
+    );
+  };
+
   return (
-  <section className={styles.section}>
+    <section className={styles.section}>
       <div className={styles.container}>
         {steps.map((step, index) => (
           <div
@@ -42,7 +53,10 @@ const ProcessSteps: React.FC = () => {
             className={styles.step}
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <div className={styles.stepContent}>
+            <div
+              className={styles.stepContent}
+              onClick={() => toggleOpen(index)}
+            >
               {step.title && (
                 <h2 className={styles.stepTitle}>{step.title}</h2>
               )}
@@ -55,7 +69,13 @@ const ProcessSteps: React.FC = () => {
                 <h3 className={styles.stepSubtitle}>{step.subtitle}</h3>
               )}
 
-              <p className={styles.stepDescription}>{step.description}</p>
+              <p
+                className={`${styles.stepDescription} ${
+                  openIndexes.includes(index) ? styles.open : styles.closed
+                }`}
+              >
+                {step.description}
+              </p>
             </div>
           </div>
         ))}

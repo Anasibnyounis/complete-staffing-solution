@@ -40,7 +40,7 @@ export default function Footer() {
             <div className={styles.contactIconContainer}>
               <Image src={`${FOOTER_ICONS}/EnvelopeSimple.svg`} alt="" width={24} height={24} />
             </div>
-            <a href="mailto:23-cs-63@students.uettaxila.edu.pk" className={styles.contactEmail}>
+            <a href="mailto:example@gmail.com" className={styles.contactEmail}>
               example@gmail.com            </a>
           </div>
           <div className={styles.socialIconsContainer}>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import styles from "./ForEmployerForm.module.css";
 
-const PLACEHOLDER_IMAGE = "/for%20employer/source_904ec21c34e0b2555a4ab03bb339cfc7277f46f5.jpg";
+const PLACEHOLDER_IMAGE = "/for%20employer/pic.jpg";
 const UPLOAD_ICON = "/for%20employer/material-symbols-light_upload-file-outline.svg";
 
 export default function ForEmployerForm() {

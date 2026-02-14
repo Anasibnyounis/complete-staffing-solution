@@ -149,30 +149,17 @@ export default function Header() {
           </Link>
 
           {/* About dropdown */}
-          <div
-            className={`${styles.navDropdownWrapper} ${
-              mobileOpenDropdown === "about" ? styles.navDropdownOpen : ""
-            } ${isActive("/about-us") || isActive("/team") ? styles.navDropdownActive : ""}`}
-            onMouseEnter={() => setOpenDropdown("about")}
-            onMouseLeave={() => setOpenDropdown(null)}
+          <Link
+            href="/about-us"
+            className={`${styles.navItem} ${isActive("/about-us") ? styles.navItemActive : ""}`}
+            onClick={closeMobileMenu}
           >
-            <span
-              className={styles.navDropdownTrigger}
-              onClick={() => toggleMobileDropdown("about")}
-            >
-              About <ChevronDownIcon className={styles.dropdownIcon} />
-            </span>
-            <div className={styles.navDropdownPanel}>
-              <Link href="/about-us" onClick={closeMobileMenu}>Overview</Link>
-              <Link href="/team" onClick={closeMobileMenu}>Meet our Team</Link>
-            </div>
-          </div>
-
+            About
+          </Link>
           {/* For Employers dropdown */}
           <div
-            className={`${styles.navDropdownWrapper} ${
-              mobileOpenDropdown === "employers" ? styles.navDropdownOpen : ""
-            } ${isActive("/job-request") || isActive("/industries-we-serve") ? styles.navDropdownActive : ""}`}
+            className={`${styles.navDropdownWrapper} ${mobileOpenDropdown === "employers" ? styles.navDropdownOpen : ""
+              } ${isActive("/job-request") || isActive("/industries-we-serve") ? styles.navDropdownActive : ""}`}
             onMouseEnter={() => setOpenDropdown("employers")}
             onMouseLeave={() => setOpenDropdown(null)}
           >
@@ -199,9 +186,8 @@ export default function Header() {
 
           {/* For Job Seekers dropdown */}
           <div
-            className={`${styles.navDropdownWrapper} ${
-              mobileOpenDropdown === "jobseekers" ? styles.navDropdownOpen : ""
-            } ${isActive("/job-seeker-overview") || isActive("/open-position") || isActive("/job-request") ? styles.navDropdownActive : ""}`}
+            className={`${styles.navDropdownWrapper} ${mobileOpenDropdown === "jobseekers" ? styles.navDropdownOpen : ""
+              } ${isActive("/open-position") || isActive("/job-request") ? styles.navDropdownActive : ""}`}
             onMouseEnter={() => setOpenDropdown("jobseekers")}
             onMouseLeave={() => setOpenDropdown(null)}
           >
@@ -212,7 +198,7 @@ export default function Header() {
               For Job Seekers <ChevronDownIcon className={styles.dropdownIcon} />
             </span>
             <div className={styles.navDropdownPanel}>
-              <Link href="/job-seeker-overview" onClick={closeMobileMenu}>Job Seeker Overview</Link>
+              {/* <Link href="/job-seeker-overview" onClick={closeMobileMenu}>Job Seeker Overview</Link> */}
               <Link href="/open-position" onClick={closeMobileMenu}>Open Positions</Link>
               <Link href="/job-request" onClick={closeMobileMenu}>Employment Position</Link>
             </div>
@@ -220,9 +206,8 @@ export default function Header() {
 
           {/* Contact dropdown */}
           <div
-            className={`${styles.navDropdownWrapper} ${
-              mobileOpenDropdown === "contact" ? styles.navDropdownOpen : ""
-            } ${isActive("/contact-us") || isActive("/policies") ? styles.navDropdownActive : ""}`}
+            className={`${styles.navDropdownWrapper} ${mobileOpenDropdown === "contact" ? styles.navDropdownOpen : ""
+              } ${isActive("/contact-us") || isActive("/policies") ? styles.navDropdownActive : ""}`}
             onMouseEnter={() => setOpenDropdown("contact")}
             onMouseLeave={() => setOpenDropdown(null)}
           >

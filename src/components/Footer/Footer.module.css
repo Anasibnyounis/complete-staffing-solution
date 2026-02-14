@@ -54,7 +54,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px 74px 0;
+  padding: 34px 74px 0;
   box-sizing: border-box;
   gap: 50px;
   text-align: left;
@@ -69,7 +69,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 0;
+  padding: 0px 0;
   gap: 20px;
   font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
 }
@@ -79,28 +79,28 @@
 }
 
 .logoIcon {
-  height: 150px;
+  height: 100px;
   width: auto;
-  max-width: 270px;
+  max-width: 190px;
   object-fit: contain;
 }
 
 .contactInfoContainerParent {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .contactInfoContainer {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 15px;
 }
 
 .contactIconContainer {
-  height: 50px;
-  width: 50px;
-  min-width: 50px;
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
   border-radius: 50%;
   flex-shrink: 0;
   background-color: #fff;
@@ -112,32 +112,32 @@
 }
 
 .contactIconContainer img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 
 .contactEmail {
   position: relative;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .socialIconsContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .socialIconLink {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  min-width: 50px;
-  min-height: 50px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   border-radius: 50%;
   background-color: #fff;
   border: 1px solid #0d0d0d;
@@ -150,8 +150,8 @@
 }
 
 .socialIcon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 
@@ -159,7 +159,7 @@
   align-self: stretch;
   display: flex;
   align-items: flex-start;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .linksRow {
@@ -167,14 +167,14 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 20px;
+  gap: 10px;
 }
 
 .column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 15px;
 }
 
 .columnTitle {
@@ -186,8 +186,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
-  font-size: 18px;
+  gap: 10px;
+  font-size: 15px;
   color: #383838;
 }
 
@@ -205,12 +205,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 18px;
 }
 
 .completeStaffingGroup {
   display: flex;
-  gap: 40px;
+  gap: 20px;
   align-items: flex-start;
 }
 
@@ -218,8 +218,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
-  font-size: 18px;
+  gap: 10px;
+  font-size: 15px;
   color: #383838;
 }
 
@@ -228,20 +228,20 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 24px;
-  font-size: 18px;
+  gap: 18px;
+  font-size: 15px;
   color: #383838;
 }
 
 .addressRow {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .addressRowIcon {
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   flex-shrink: 0;
   object-fit: contain;
 }
@@ -252,8 +252,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px 0;
-  font-size: 18px;
+  padding: 20px 0;
+  font-size: 15px;
   color: #383838;
 }
 
@@ -265,7 +265,7 @@
 @media (max-width: 992px) {
   .footerContainer {
     padding: 24px 32px 0;
-    gap: 40px;
+    gap: 30px;
   }
 
   .contactAndSocialContainer {
@@ -285,7 +285,7 @@
   .linksRow {
     flex-wrap: wrap;
     gap: 24px;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .completeStaffingGroup {

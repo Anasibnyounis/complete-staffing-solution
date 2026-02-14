@@ -22,13 +22,14 @@
 import JobHero from "@/components/Openposition/Jobhero";
 import FeaturedJobs from "@/components/Openposition/Featuredjobs";
 import LatestJobsTable from "@/components/Openposition/Latestjobstable";
-
+import CommitmentSection from "@/components/JobSeekerOverview/Commitmentsection";
 
 import JobRequestSection from "@/components/JobRequestSection";
 
 export default function OpenPositionPage() {
   return (
     <main className="min-h-screen bg-white">
+      <CommitmentSection />
       <JobHero />
       <FeaturedJobs />
       <LatestJobsTable />

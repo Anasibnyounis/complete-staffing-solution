@@ -12,7 +12,7 @@
 
 .heroSection {
   width: 100%;
-  height: 560px;
+  height: 540px;
   position: relative;
   overflow: hidden;
   text-align: left;
@@ -58,7 +58,7 @@
 
 .contentInner {
   position: absolute;
-  top: 48px;
+  top: 68px;
   left: 74px;
   display: flex;
   flex-direction: column;
@@ -81,7 +81,7 @@
   position: relative;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: clamp(36px, 5vw, 58px);
+  font-size: clamp(32px, 4vw, 50px);
   line-height: 1.15;
 }
 
@@ -92,6 +92,7 @@
   font-family: var(--font-inter), Inter, sans-serif;
   color: #383838;
   line-height: 1.5;
+  padding-right: 20px;
 }
 
 .buttonsRow {
@@ -160,12 +161,12 @@
 @media (max-width: 992px) {
   .heroSection {
     height: auto;
-    min-height: 480px;
+    min-height: 400px;
   }
 
   .contentInner {
     left: 32px;
-    top: 32px;
+    top: 48px;
     gap: 24px;
   }
 
@@ -180,6 +181,9 @@
   .ctaButtonCandidate,
   .ctaButtonPosition {
     min-width: 180px;
+  }
+  .description{
+    max-width: 600px;
   }
 }
 

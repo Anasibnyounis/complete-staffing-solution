@@ -44,7 +44,7 @@ const positions = [
   { name: "Medical Billers", icon: "invoice 1.svg" },
 ];
 
-const INITIAL_COUNT = 6;
+const INITIAL_COUNT = 8;
 
 function ItemCard({
   name,
