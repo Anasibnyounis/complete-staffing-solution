@@ -83,7 +83,7 @@ export default function DepartmentCards() {
                         )}
                       </ul>
                     </div>
-                    <Link href={`/departments/${dept.slug}`} className={styles.pageLink}>View Department Page →</Link>
+                    {/* <Link href={`/departments/${dept.slug}`} className={styles.pageLink}>View Department Page →</Link> */}
                   </div>
                 </div>
               </div>
