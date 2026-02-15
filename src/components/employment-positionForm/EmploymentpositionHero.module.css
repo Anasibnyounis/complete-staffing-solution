@@ -6,9 +6,9 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-
+background-color: #ffffff;
   /* Background image as banner */
-  background-image: url("/for employer/hero (2).PNG");
+  /* background-image: url("/for employer/hero (3).PNG"); */
   /* background-size: 100% 100%; */
   /* background-size: auto; */
   background-size: 100% 100%;
@@ -19,7 +19,7 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(24, 27, 30, 0.368); 
+  /* background: rgba(3, 48, 94, 0.24);  */
   z-index: 2;
 }
 
@@ -34,27 +34,28 @@
 }
 
 .heroText {
-  max-width: 800px;
+  max-width: 1150px;
   margin: 0 auto;
+  color: black;
 }
 
 .heroTitle {
   font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(32px, 4.5vw, 50px);
+  font-size: clamp(28px, 4vw, 42px);
   font-weight: 700;
-  color: #ffffff;
+  /* color: #ffffff; */
   margin: 0 0 24px 0;
   line-height: 1.2;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  /* text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); */
 }
 
 .heroSubtitle {
-  font-size: clamp(16px, 2vw, 22px);
-  color: #ffffff;
+  font-size: clamp(12px, 1.3vw, 16px);
+  /* color: #ffffff; */
   line-height: 1.6;
   margin: 0;
   
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  /* text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); */
 }
 
 

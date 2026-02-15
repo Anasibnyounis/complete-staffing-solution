@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import styles from './Commitmentsection.module.css';
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import Image from "next/image";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,7 +16,6 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 const CommitmentSection: React.FC = () => {
-  // Boolean state to toggle all paragraphs at once via Title/Subtitle
   const [isOpen, setIsOpen] = useState(false);
 
   const paragraphs = [
@@ -32,8 +32,23 @@ We take into consideration many factors, from technical skills and experience to
   return (
     <section className={styles.section}>
       <div className={styles.container}>
+
+        {/* ✅ New Heading */}
+        <h2 className={styles.poweredByTitle}>JobBoard Powered By</h2>
+
+        {/* ✅ Center Logo */}
+        <div className={styles.poweredByLogoWrapper}>
+          <Image
+            src="/open position/top-one-hire.jpg"   
+            alt="JobBoard Logo"
+            width={180}
+            height={80}
+            className={styles.poweredByLogo}
+          />
+        </div>
+
+        {/* 🔽 Neeche tumhara existing content bilkul same */}
         <div className={styles.content}>
-          {/* Clicking either of these will toggle the description */}
           <h1 className={styles.title} onClick={toggleOpen}>
             OUR COMMITMENT TO YOU
           </h1>
@@ -52,6 +67,7 @@ We take into consideration many factors, from technical skills and experience to
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );

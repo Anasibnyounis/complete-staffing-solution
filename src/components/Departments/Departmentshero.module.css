@@ -1,30 +1,28 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 60vh; /* adjust height relative to viewport */
+  min-height: 500px; /* desktop default height in px */
   padding: 100px 60px;
   text-align: center;
   overflow: hidden;
 
   /* Background image + dark transparent overlay */
   background-image: url("/departments/hero.png");
-  background-size: cover;          /* image scales to cover container */
-  background-position: center;     /* keeps image centered */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-color: rgba(10, 25, 80, 0.196); /* dark blue transparent */
-  background-blend-mode: multiply; /* blends overlay with image */
+  background-color: rgba(10, 25, 80, 0.196);
+  background-blend-mode: multiply;
 }
 
-/* Optional: use ::before overlay for more control */
+/* Optional: overlay for more control */
 .hero::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(10, 25, 80, 0.6); /* dark blue transparent */
+  background: rgba(10, 25, 80, 0.6);
   pointer-events: none;
 }
-
-
 
 .heroBackground {
   position: absolute;
@@ -110,7 +108,6 @@
 .btnPrimary {
   background: #ffffff;
   color: #1e3a8a;
-  /* border: 2px solid #ffffff; */
 }
 
 .btnPrimary:hover {
@@ -122,13 +119,10 @@
 .btnSecondary {
   background: #6ca642;
   color: #ffffff;
-    padding: 12px 27px;
-
-  /* border: 2px solid #ffffff; */
+  padding: 12px 27px;
 }
 
 .btnSecondary:hover {
-  /* background: rgba(255, 255, 255, 0.521); */
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
@@ -150,10 +144,14 @@
 .delay1 { transition-delay: 0.2s; }
 .delay2 { transition-delay: 0.4s; }
 
-/* Responsive */
+/* Responsive: Tablets */
 @media (max-width: 768px) {
   .hero {
-    padding: 80px 24px;
+    height: 300px; /* fixed height in px for tablets */
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering */
   }
 
   .buttons {
@@ -168,9 +166,11 @@
   }
 }
 
+/* Responsive: Mobile */
 @media (max-width: 480px) {
   .hero {
-    padding: 60px 20px;
+    height: 350px; /* fixed height for small screens */
+    padding: 30px 20px;
   }
 
   .btnPrimary,

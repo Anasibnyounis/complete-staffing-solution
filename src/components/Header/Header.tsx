@@ -7,6 +7,7 @@ import Image from "next/image";
 import { MailIcon, PhoneIcon, ChevronDownIcon } from "./icons";
 import styles from "./Header.module.css";
 
+
 function HamburgerIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -163,12 +164,22 @@ export default function Header() {
             onMouseEnter={() => setOpenDropdown("employers")}
             onMouseLeave={() => setOpenDropdown(null)}
           >
-            <span
+            {/* <span
               className={styles.navDropdownTrigger}
-              onClick={() => toggleMobileDropdown("employers")}
+              onClick={() => toggleMobileDropdown("")}
             >
               For Employers <ChevronDownIcon className={styles.dropdownIcon} />
-            </span>
+            </span> */}
+<Link
+  href="/job-request"
+  className={styles.navDropdownTrigger}
+  onClick={() => toggleMobileDropdown("employers")}
+>
+  For Employees <ChevronDownIcon className={styles.dropdownIcon} />
+</Link>
+
+
+
             <div className={styles.navDropdownPanel}>
               <Link href="/industries-we-serve" onClick={closeMobileMenu}>Industries</Link>
               <Link href="/Departments" onClick={closeMobileMenu}>Departments</Link>
@@ -191,16 +202,20 @@ export default function Header() {
             onMouseEnter={() => setOpenDropdown("jobseekers")}
             onMouseLeave={() => setOpenDropdown(null)}
           >
-            <span
-              className={styles.navDropdownTrigger}
-              onClick={() => toggleMobileDropdown("jobseekers")}
-            >
+           <span
+  className={styles.navDropdownTrigger}
+  onClick={() => {
+    toggleMobileDropdown("jobseekers");
+  }}
+>
+
+
               For Job Seekers <ChevronDownIcon className={styles.dropdownIcon} />
             </span>
-            <div className={styles.navDropdownPanel}>
+            <div className={styles.navDropdownPanel} >
               {/* <Link href="/job-seeker-overview" onClick={closeMobileMenu}>Job Seeker Overview</Link> */}
               <Link href="/open-position" onClick={closeMobileMenu}>Open Positions</Link>
-              <Link href="/job-request" onClick={closeMobileMenu}>Employment Position</Link>
+              <Link href="/employment-form" onClick={closeMobileMenu}>Employment Position</Link>
             </div>
           </div>
 

@@ -24,7 +24,7 @@
 
 .formCard {
   flex: 1;
-  max-width: 560px;
+  max-width: 650px;
   box-shadow: 3px 4px 20.5px 3px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   background-color: #19478e;
@@ -208,7 +208,7 @@
 /* Placeholder image - hidden on mobile */
 .placeholderImage {
   width: 100%;
-  max-width: 689px;
+  max-width: 450px;
   height: auto;
   min-height: 400px;
   object-fit: cover;

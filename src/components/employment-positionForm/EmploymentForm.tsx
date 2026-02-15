@@ -4,7 +4,18 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import styles from "./EmploymentForm.module.css";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-jakarta",
+});
 const PLACEHOLDER_IMAGE = "/for%20employer/pic.jpg";
 const UPLOAD_ICON = "/for%20employer/material-symbols-light_upload-file-outline.svg";
 

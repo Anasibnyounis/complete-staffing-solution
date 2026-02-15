@@ -1,5 +1,5 @@
 .section {
-  padding-top: 60px;
+  padding-top: 70px;
   padding-bottom: 40px;
   position: relative;
   overflow: hidden;
@@ -30,6 +30,7 @@
   padding: 64px;
   border-radius: 20px;
   animation: fadeInScale 0.8s ease-out;
+  padding-top: 30px;
 }
 
 .title {
@@ -83,6 +84,28 @@
   opacity: 1;
   transform: translateY(0);
   margin-bottom: 10px;
+}
+.poweredByTitle {
+  text-align: center;
+  font-family: var(--font-jakarta);
+  font-size: 25px;
+  color: black;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.poweredByLogoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-bottom: 40px; */
+}
+
+.poweredByLogo {
+  width: 500px;
+  height: auto;
+  margin: 0px auto;
 }
 
 @keyframes fadeInScale {

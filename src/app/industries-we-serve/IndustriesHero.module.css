@@ -1,5 +1,5 @@
 .hero {
-  width: 100%;
+  max-width: 100vw;
   min-height: 516px;
   position: relative;
   display: flex;
@@ -13,7 +13,7 @@
   position: absolute;
   inset: 0;
   background-image: url("/industries/hero%20bg%20image.png");
-  background-size: auto;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }

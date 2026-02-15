@@ -6,6 +6,12 @@ import Image from "next/image";
 import styles from "./Footer.module.css";
 
 const FOOTER_ICONS = "/footer%20icons";
+const socialLinks = [
+  { icon: "fb", url: "https://www.facebook.com/completestaffinginc/#" },
+  { icon: "insta", url: "https://www.instagram.com/completestaffingsolutions/" },
+  { icon: "X_logo", url: "https://x.com/CSS_JobPosts" },
+  { icon: "linkedin", url: "https://www.linkedin.com/company/complete-staffing-solutions/" },
+];
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
@@ -43,14 +49,26 @@ export default function Footer() {
             <a href="mailto:example@gmail.com" className={styles.contactEmail}>
               example@gmail.com            </a>
           </div>
-          <div className={styles.socialIconsContainer}>
-            {/* Social icons are part of the top reveal */}
-            {['fb', 'insta', 'X_logo', 'linkedin'].map((icon) => (
-              <a key={icon} href="#" className={styles.socialIconLink}>
-                <Image src={`${FOOTER_ICONS}/${icon}.svg`} alt="" width={24} height={24} className={styles.socialIcon} />
-              </a>
-            ))}
-          </div>
+         
+<div className={styles.socialIconsContainer}>
+  {socialLinks.map(({ icon, url }) => (
+    <a
+      key={icon}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.socialIconLink}
+    >
+      <Image
+        src={`${FOOTER_ICONS}/${icon}.svg`}
+        alt={icon}
+        width={24}
+        height={24}
+        className={styles.socialIcon}
+      />
+    </a>
+  ))}
+</div>
         </div>
       </div>
 
@@ -70,8 +88,8 @@ export default function Footer() {
           <div className={`${styles.column} ${styles.reveal} ${styles.revealLeft} ${styles.delay2}`}>
             <b className={styles.columnTitle}>Job Seekers</b>
             <div className={styles.linksList}>
-              <Link href="/primary-positions" className={styles.footerLink}>Primary Positions</Link>
-              <Link href="/privacy-policy" className={styles.footerLink}>Privacy Policy</Link>
+              <Link href="/Departments" className={styles.footerLink}>Primary Positions</Link>
+              <Link href="/policies" className={styles.footerLink}>Privacy Policy</Link>
               <Link href="/terms-and-conditions" className={styles.footerLink}>Terms & Conditions</Link>
             </div>
           </div>
@@ -83,8 +101,8 @@ export default function Footer() {
                 <b className={styles.columnTitle}>Complete Staffing</b>
                 <div className={styles.linksList}>
                   <Link href="/about-us" className={styles.footerLink}>About us</Link>
-                  <Link href="/why-choose-us" className={styles.footerLink}>Why Choose Us?</Link>
-                  <Link href="/our-process" className={styles.footerLink}>Our Process</Link>
+                  <Link href="/why-choose-us-page" className={styles.footerLink}>Why Choose Us?</Link>
+                  <Link href="/our-recruiting-process" className={styles.footerLink}>Our Process</Link>
                 </div>
               </div>
             </div>
