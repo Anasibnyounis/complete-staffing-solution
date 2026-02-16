@@ -87,7 +87,7 @@ export default function Header() {
           <div className={styles.topHeader2} />
         </div>
         <a
-          href="#recruitment-fraud-notice"
+          href="/FraudNotice"
           className={styles.rectangleParent}
           aria-label="Recruitment Fraud Notice"
         >
@@ -98,11 +98,12 @@ export default function Header() {
         </a>
         <div className={styles.contact}>
           <PhoneIcon className={styles.contactIcon} />
-          <span className={styles.text}>+977-9809758493</span>
+          <span className={styles.text}>(401) 475-8800
+          </span>
         </div>
         <a href="mailto:info@sparklewpthemes.com" className={styles.email}>
           <MailIcon className={styles.mailIcon} />
-          <span className={styles.text}>info@sparklewpthemes.com</span>
+          <span className={styles.text}>Contactus@completestaffingsolutions.com</span>
         </a>
       </div>
 
@@ -160,7 +161,7 @@ export default function Header() {
           {/* For Employers dropdown */}
           <div
             className={`${styles.navDropdownWrapper} ${mobileOpenDropdown === "employers" ? styles.navDropdownOpen : ""
-              } ${isActive("/job-request") || isActive("/IndustryPage") ? styles.navDropdownActive : ""}`}
+              } ${isActive("/job-request") || isActive("/industries-we-serve") ? styles.navDropdownActive : ""}`}
             onMouseEnter={() => setOpenDropdown("employers")}
             onMouseLeave={() => setOpenDropdown(null)}
           >
@@ -181,7 +182,7 @@ export default function Header() {
 
 
             <div className={styles.navDropdownPanel}>
-              <Link href="/IndustryPage" onClick={closeMobileMenu}>Industries</Link>
+              <Link href="/industries-we-serve" onClick={closeMobileMenu}>Industries</Link>
               <Link href="/Departments" onClick={closeMobileMenu}>Departments</Link>
             </div>
           </div>

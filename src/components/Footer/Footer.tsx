@@ -47,7 +47,7 @@ export default function Footer() {
               <Image src={`${FOOTER_ICONS}/EnvelopeSimple.svg`} alt="" width={24} height={24} />
             </div>
             <a href="mailto:example@gmail.com" className={styles.contactEmail}>
-              example@gmail.com            </a>
+              Contactus@completestaffingsolutions.com           </a>
           </div>
          
 <div className={styles.socialIconsContainer}>
@@ -114,11 +114,11 @@ export default function Footer() {
             <div className={styles.contactInfoLinksContainer}>
               <div className={styles.addressRow}>
                 <Image src={`${FOOTER_ICONS}/MapPinLine.svg`} alt="" width={24} height={24} className={styles.addressRowIcon} />
-                <span>843, Apple Lane Peoria</span>
+                <span>United States America</span>
               </div>
               <div className={styles.addressRow}>
                 <Image src={`${FOOTER_ICONS}/Phone.svg`} alt="" width={24} height={24} className={styles.addressRowIcon} />
-                <a href="tel:+12025550153" className={styles.footerLink}>+1 - 202 - 555 - 0153</a>
+                <a href="tel:+12025550153" className={styles.footerLink}>(401) 475-8800</a>
               </div>
             </div>
           </div>
