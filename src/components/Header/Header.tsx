@@ -160,7 +160,7 @@ export default function Header() {
           {/* For Employers dropdown */}
           <div
             className={`${styles.navDropdownWrapper} ${mobileOpenDropdown === "employers" ? styles.navDropdownOpen : ""
-              } ${isActive("/job-request") || isActive("/industries-we-serve") ? styles.navDropdownActive : ""}`}
+              } ${isActive("/job-request") || isActive("/IndustryPage") ? styles.navDropdownActive : ""}`}
             onMouseEnter={() => setOpenDropdown("employers")}
             onMouseLeave={() => setOpenDropdown(null)}
           >
@@ -181,7 +181,7 @@ export default function Header() {
 
 
             <div className={styles.navDropdownPanel}>
-              <Link href="/industries-we-serve" onClick={closeMobileMenu}>Industries</Link>
+              <Link href="/IndustryPage" onClick={closeMobileMenu}>Industries</Link>
               <Link href="/Departments" onClick={closeMobileMenu}>Departments</Link>
             </div>
           </div>
