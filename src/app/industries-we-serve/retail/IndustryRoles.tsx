@@ -1,0 +1,58 @@
+import Link from "next/link";
+import Image from "next/image";
+import styles from "./IndustryRoles.module.css";
+
+
+const ROLES = [
+  { icon: "🏬", title: "Store Manager", description: "Directing all on-site operations, staff management, and sales targets for retail outlets.", buttonText: "Explore Roles", buttonColor: "blue", image: "/industries/retail/manager.jpg" },
+  { icon: "🌐", title: "E-commerce Director", description: "Leading the digital storefront strategy to drive online sales and user experience.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries/retail/ecommerce.jpg" },
+  { icon: "📦", title: "Merchandising Lead", description: "Optimizing product placement and inventory levels to maximize profitability.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries/retail/merch.jpg" },
+  { icon: "🎧", title: "Customer Success Rep", description: "Providing exceptional support to ensure a positive and consistent shopping experience.", buttonText: "Learn More", buttonColor: "blue", image: "/industries/retail/success.jpg" }
+];
+
+export default function IndustryRoles() {
+  return (
+    <section className={styles.section}>
+      <div className={styles.container}>
+        <h2 className={styles.title}>Roles We Fill</h2>
+
+        <div className={styles.rolesGrid}>
+          {ROLES.map((role, index) => (
+            <div key={index} className={styles.card}>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src={role.image}
+                  alt={role.title}
+                  fill
+                  className={styles.image}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
+                />
+              </div>
+              
+              <div className={styles.cardContent}>
+                <div className={styles.iconTitle}>
+                  <div className={`${styles.iconCircle} ${styles[role.buttonColor]}`}>
+                    <span className={styles.icon}>{role.icon}</span>
+                  </div>
+                  <h3 className={styles.cardTitle}>{role.title}</h3>
+                </div>
+                
+                <p className={styles.cardDescription}>{role.description}</p>
+                
+                <Link 
+                  href="/job-request" 
+                  className={`${styles.button} ${styles[role.buttonColor]}`}
+                >
+                  {role.buttonText}
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

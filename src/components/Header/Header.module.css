@@ -809,3 +809,70 @@
     right: 60px;
   }
 }
+
+
+
+
+
+
+/* ========== RESPONSIVE: Header - Large Screens (min-width: 1600px) ========== */
+@media (min-width: 1600px) {
+  .logoRow {
+    max-width: 1600px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .mainHeader {
+    max-width: 1600px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .navLinks {
+    gap: 28px;
+  }
+
+  .email {
+    left: 80px;
+  }
+
+  .contact {
+    left: 380px;
+  }
+
+  .rectangleParent {
+    right: 80px;
+  }
+}
+
+/* ========== RESPONSIVE: Header - Ultra Wide Screens (min-width: 1920px) ========== */
+@media (min-width: 1920px) {
+  .logoRow {
+    max-width: 1800px;
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
+  .mainHeader {
+    max-width: 1800px;
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
+  .navLinks {
+    gap: 32px;
+  }
+
+  .email {
+    left: 120px;
+  }
+
+  .contact {
+    left: 420px;
+  }
+
+  .rectangleParent {
+    right: 120px;
+  }
+}
