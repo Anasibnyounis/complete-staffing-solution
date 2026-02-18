@@ -9,7 +9,7 @@ const ROLES = [
     description: "General laborers in the organic farms, nurseries, and farms.",
     buttonText: "Explore Roles",
     buttonColor: "blue",
-    image: "/industries/agriculture/farm-workers.jpg"
+    image: "/industries detail pages/cards/agriculture cards/1.jpg"
   },
   {
     icon: "🚜",
@@ -17,7 +17,7 @@ const ROLES = [
     description: "Expertise agriculture farm tools and machinery, farm machinery and trucks.",
     buttonText: "Explore Roles",
     buttonColor: "green",
-    image: "/industries/agriculture/equipment-operators.jpg"
+    image: "/industries detail pages/cards/agriculture cards/2.jpg"
   },
   {
     icon: "🌾",
@@ -25,7 +25,7 @@ const ROLES = [
     description: "Job oversight, plantation yields, pest, sustainable, and cost control.",
     buttonText: "Explore Roles",
     buttonColor: "green",
-    image: "/industries/agriculture/crop-managers.jpg"
+    image: "/industries detail pages/cards/agriculture cards/3.jpg"
   },
   {
     icon: "💧",
@@ -33,7 +33,7 @@ const ROLES = [
     description: "Maintain irrigation and specialist techniques on all installation requirements.",
     buttonText: "Learn More",
     buttonColor: "blue",
-    image: "/industries/agriculture/irrigation-tech.jpg"
+    image: "/industries detail pages/cards/agriculture cards/4.jpg"
   }
 ];
 

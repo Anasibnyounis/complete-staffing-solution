@@ -3,10 +3,18 @@ import Image from "next/image";
 import styles from "./IndustryRoles.module.css";
 
 const ROLES = [
-  { icon: "🏛️", title: "Public Policy Analyst", description: "Evaluating government policies and proposing data-driven improvements.", buttonText: "Explore Roles", buttonColor: "blue", image: "/industries/gov/policy.jpg" },
-  { icon: "🏙️", title: "Municipal Administrator", description: "Managing the daily operations and services of local government bodies.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries/gov/admin.jpg" },
-  { icon: "📜", title: "Govt. Affairs Lead", description: "Managing relationships between the organization and various legislative bodies.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries/gov/affairs.jpg" },
-  { icon: "⚡", title: "Utility Manager", description: "Directing the public services related to water, power, or waste management.", buttonText: "Learn More", buttonColor: "blue", image: "/industries/gov/utility.jpg" }
+  { icon: "🏛️", title: "Public Policy Analyst", description: "Evaluating government policies and proposing data-driven improvements.", buttonText: "Explore Roles", buttonColor: "blue", 
+    image: "/industries detail pages/cards/public cards/1.jpg"
+   },
+  { icon: "🏙️", title: "Municipal Administrator", description: "Managing the daily operations and services of local government bodies.", buttonText: "Explore Roles", buttonColor: "green",
+    image: "/industries detail pages/cards/public cards/2.jpg"
+    },
+  { icon: "📜", title: "Govt. Affairs Lead", description: "Managing relationships between the organization and various legislative bodies.", buttonText: "Explore Roles", buttonColor: "green", 
+    image: "/industries detail pages/cards/public cards/3.jpg"
+   },
+  { icon: "⚡", title: "Utility Manager", description: "Directing the public services related to water, power, or waste management.", buttonText: "Learn More", buttonColor: "blue", 
+    image: "/industries detail pages/cards/public cards/4.jpg"
+   }
 ];
 
 export default function IndustryRoles() {

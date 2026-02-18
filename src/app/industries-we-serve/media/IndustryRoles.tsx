@@ -3,10 +3,18 @@ import Image from "next/image";
 import styles from "./IndustryRoles.module.css";
 
 const ROLES = [
-  { icon: "📱", title: "Social Media Manager", description: "Developing content strategies to build brand presence and community engagement online.", buttonText: "Explore Roles", buttonColor: "blue", image: "/industries/media/social.jpg" },
-  { icon: "📢", title: "PR Specialist", description: "Managing public image and maintaining relationships with media outlets and stakeholders.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries/media/pr.jpg" },
-  { icon: "📰", title: "Journalist", description: "Researching, writing, and reporting news stories across digital and print media.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries/media/journalist.jpg" },
-  { icon: "🎙️", title: "Broadcaster", description: "Presenting news or entertainment content to audiences via radio, TV, or podcasts.", buttonText: "Learn More", buttonColor: "blue", image: "/industries/media/broadcaster.jpg" }
+  { icon: "📱", title: "Social Media Manager", description: "Developing content strategies to build brand presence and community engagement online.", buttonText: "Explore Roles", buttonColor: "blue", 
+    image: "/industries detail pages/cards/media cards/1.jpg"
+  },
+  { icon: "📢", title: "PR Specialist", description: "Managing public image and maintaining relationships with media outlets and stakeholders.", buttonText: "Explore Roles", buttonColor: "green", 
+    image: "/industries detail pages/cards/media cards/2.jpg"
+   },
+  { icon: "📰", title: "Journalist", description: "Researching, writing, and reporting news stories across digital and print media.", buttonText: "Explore Roles", buttonColor: "green", 
+    image: "/industries detail pages/cards/media cards/3.jpg"
+   },
+  { icon: "🎙️", title: "Broadcaster", description: "Presenting news or entertainment content to audiences via radio, TV, or podcasts.", buttonText: "Learn More", buttonColor: "blue", 
+    image: "/industries detail pages/cards/media cards/4.jpg"
+   }
 ];
 
 export default function IndustryRoles() {

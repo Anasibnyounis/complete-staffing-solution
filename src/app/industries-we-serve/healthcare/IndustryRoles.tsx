@@ -5,10 +5,18 @@ import styles from "./IndustryRoles.module.css";
 
 
 const ROLES = [
-  { icon: "🩺", title: "Registered Nurse", description: "Providing direct patient care and collaborating with doctors to execute treatment plans.", buttonText: "Explore Roles", buttonColor: "blue", image: "/industries/healthcare/nurse.jpg" },
-  { icon: "🏥", title: "Medical Assistant", description: "Assisting with clinical tasks and patient intake in hospitals and private clinics.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries/healthcare/assistant.jpg" },
-  { icon: "👩‍⚕️", title: "Nurse Practitioner", description: "Advanced clinical practice including diagnosis and management of patient health conditions.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries/healthcare/np.jpg" },
-  { icon: "🧪", title: "Medical Researcher", description: "Leading clinical trials and laboratory studies to advance medical science and treatments.", buttonText: "Learn More", buttonColor: "blue", image: "/industries/healthcare/researcher.jpg" }
+  { icon: "🩺", title: "Registered Nurse", description: "Providing direct patient care and collaborating with doctors to execute treatment plans.", buttonText: "Explore Roles", buttonColor: "blue",
+    image: "/industries detail pages/cards/healthcare cards/1.jpg"
+     },
+  { icon: "🏥", title: "Medical Assistant", description: "Assisting with clinical tasks and patient intake in hospitals and private clinics.", buttonText: "Explore Roles", buttonColor: "green",
+    image: "/industries detail pages/cards/healthcare cards/2.jpg"
+     },
+  { icon: "👩‍⚕️", title: "Nurse Practitioner", description: "Advanced clinical practice including diagnosis and management of patient health conditions.", buttonText: "Explore Roles", buttonColor: "green",
+    image: "/industries detail pages/cards/healthcare cards/3.jpg"
+    },
+  { icon: "🧪", title: "Medical Researcher", description: "Leading clinical trials and laboratory studies to advance medical science and treatments.", buttonText: "Learn More", buttonColor: "blue", 
+    image: "/industries detail pages/cards/healthcare cards/4.jpg"
+   }
 ];
 
 export default function IndustryRoles() {

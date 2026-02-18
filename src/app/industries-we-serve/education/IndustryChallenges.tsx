@@ -23,21 +23,26 @@ interface Props {
     industryName?: string;
 }
 
-export default function IndustryChallenges({ industryName = "Agriculture" }: Props) {
+export default function IndustryChallenges({ industryName = "Education" }: Props) {
     const CHALLENGES = [
-        {
-            icon: <Icons.Demands />,
-            title: "Seasonal Labor Demands", description: "We address fluctuating labor needs during peak seasons with flexible staffing solutions."
-        },
-        {
-            icon: <Icons.Skills />,
-            title: "Specialized Skills Required", description: "Connecting you with experts in crop science and machinery operation."
-        },
-        {
-            icon: <Icons.Safety />,
-            title: "Safety & Compliance", description: "Ensuring all placements meet strict regulatory and workplace safety standards."
-        }
-    ];
+  { 
+    icon: <Icons.Demands />, 
+    title: "Staff Retention & Burnout", 
+    description: "Finding resilient educators and administrators capable of maintaining high standards in high-stress academic environments." 
+  },
+  { 
+    icon: <Icons.Skills />, 
+    title: "Strict Credential Compliance", 
+    description: "Ensuring all candidates meet state-mandated licensing, rigorous background checks, and specific educational certifications." 
+  },
+  { 
+    icon: <Icons.Safety />, 
+    title: "Instructional Innovation", 
+    description: "Identifying talent capable of integrating modern digital learning tools and diverse teaching methodologies into the classroom." 
+  }
+];
+
+
 
     return (
         <section className={styles.section}>

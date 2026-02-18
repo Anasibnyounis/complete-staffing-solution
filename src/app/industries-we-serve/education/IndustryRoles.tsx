@@ -3,37 +3,37 @@ import Image from "next/image";
 import styles from "./IndustryRoles.module.css";
 
 const ROLES = [
-  {
-    icon: "👨‍🌾",
-    title: "Farm Workers",
-    description: "General laborers in the organic farms, nurseries, and farms.",
-    buttonText: "Explore Roles",
-    buttonColor: "blue",
-    image: "/industries/agriculture/farm-workers.jpg"
+  { 
+    icon: "🏫", 
+    title: "Academic Administrator", 
+    description: "Directing the strategic goals, budgeting, and daily operations of K-12 schools or higher education institutions.", 
+    buttonText: "Explore Roles", 
+    buttonColor: "blue", 
+    image: "/industries detail pages/cards/education cards/1.jpg"
   },
-  {
-    icon: "🚜",
-    title: "Equipment Operators",
-    description: "Expertise agriculture farm tools and machinery, farm machinery and trucks.",
-    buttonText: "Explore Roles",
-    buttonColor: "green",
-    image: "/industries/agriculture/equipment-operators.jpg"
+  { 
+    icon: "🎓", 
+    title: "Instructional Designer", 
+    description: "Developing innovative curriculum frameworks and learning materials for digital and physical learning environments.", 
+    buttonText: "Explore Roles", 
+    buttonColor: "green", 
+    image: "/industries detail pages/cards/education cards/2.jpg"
   },
-  {
-    icon: "🌾",
-    title: "Crop Managers",
-    description: "Job oversight, plantation yields, pest, sustainable, and cost control.",
-    buttonText: "Explore Roles",
-    buttonColor: "green",
-    image: "/industries/agriculture/crop-managers.jpg"
+  { 
+    icon: "🤝", 
+    title: "School Counselor", 
+    description: "Providing social, emotional, and academic guidance to support student well-being and long-term career development.", 
+    buttonText: "Explore Roles", 
+    buttonColor: "green", 
+    image: "/industries detail pages/cards/education cards/3.jpg"
   },
-  {
-    icon: "💧",
-    title: "Irrigation Technicians",
-    description: "Maintain irrigation and specialist techniques on all installation requirements.",
-    buttonText: "Learn More",
-    buttonColor: "blue",
-    image: "/industries/agriculture/irrigation-tech.jpg"
+  { 
+    icon: "📝", 
+    title: "Curriculum Lead", 
+    description: "Overseeing educational standards and syllabus planning to ensure compliance with state and federal academic guidelines.", 
+    buttonText: "Learn More", 
+    buttonColor: "blue", 
+    image: "/industries detail pages/cards/education cards/4.jpg"
   }
 ];
 
