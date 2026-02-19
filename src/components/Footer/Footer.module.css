@@ -27,24 +27,17 @@
   flex-direction: column;
   align-items: center;
   padding: 24px 74px 0;
+  padding-bottom: 0;
   gap: 50px;
-  overflow: hidden; /* Important to prevent horizontal scroll during animation */
+  overflow: hidden;
 }
 
-/* Maintain your existing classes... */
 .contactAndSocialContainer {
   align-self: stretch;
-  border-bottom: 1px solid #d6d6d6;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 0;
 }
-
-/* (Include all your other original classes here) */
-
-
-
 
 .footerContainer {
   width: 100%;
@@ -54,7 +47,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 34px 74px 0;
   box-sizing: border-box;
   gap: 50px;
   text-align: left;
@@ -65,12 +57,10 @@
 
 .contactAndSocialContainer {
   align-self: stretch;
-  border-bottom: 1px solid #d6d6d6;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 0;
-  gap: 20px;
   font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
 }
 
@@ -94,13 +84,12 @@
 .contactInfoContainer {
   display: flex;
   align-items: center;
-  gap: 15px;
 }
 
 .contactIconContainer {
-  height: 40px;
-  width: 40px;
-  min-width: 40px;
+  height: 27px;
+  width: 27px;
+  min-width: 27px;
   border-radius: 50%;
   flex-shrink: 0;
   background-color: #fff;
@@ -112,8 +101,8 @@
 }
 
 .contactIconContainer img {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   object-fit: contain;
 }
 
@@ -130,14 +119,22 @@
   gap: 10px;
 }
 
+/* Social icons column version */
+.socialIconsContainerColumn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
 .socialIconLink {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  min-height: 40px;
+  width: 27px;
+  height: 27px;
+  min-width: 27px;
+  min-height: 27px;
   border-radius: 50%;
   background-color: #fff;
   border: 1px solid #0d0d0d;
@@ -150,8 +147,8 @@
 }
 
 .socialIcon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   object-fit: contain;
 }
 
@@ -228,7 +225,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 18px;
+  gap: 10px;
   font-size: 15px;
   color: #383838;
 }
@@ -248,11 +245,11 @@
 
 .copyrightContainer {
   align-self: stretch;
-  border-top: 1px solid #d6d6d6;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px 0;
+  padding-top: 0;
   font-size: 15px;
   color: #383838;
 }
@@ -364,5 +361,41 @@
 
   .linksList {
     font-size: 16px;
+  }
+}
+
+/* ========== RESPONSIVE: Footer - Large Screens (min-width: 1200px) ========== */
+@media (min-width: 1200px) {
+  .footerContainer {
+    padding-left: 120px;
+    padding-right: 120px;
+    gap: 40px;
+  }
+
+  .linksRow {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contactAndSocialContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* ========== RESPONSIVE: Footer - Extra Large Screens (min-width: 1440px) ========== */
+@media (min-width: 1440px) {
+  .footerContainer {
+    padding-left: 160px;
+    padding-right: 160px;
+    gap: 36px;
+  }
+
+  .linksRow {
+    max-width: 1320px;
+  }
+
+  .contactAndSocialContainer {
+    max-width: 1320px;
   }
 }

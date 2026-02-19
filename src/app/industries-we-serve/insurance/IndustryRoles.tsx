@@ -3,11 +3,12 @@ import Image from "next/image";
 import styles from "./IndustryRoles.module.css";
 
 const ROLES = [
-  { icon: "📱", title: "Digital Content Lead", description: "Overseeing the creation and strategy of engaging content across all digital and social platforms.", buttonText: "Explore Roles", buttonColor: "blue", image: "/industries detail pages/cards/media cards/1.jpg" },
-  { icon: "📢", title: "PR Specialist", description: "Managing brand reputation and building strong relationships with media outlets and the public.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries detail pages/cards/media cards/2.jpg" },
-  { icon: "🎬", title: "Media Planner", description: "Analyzing audience data to determine the best platforms and timing for organizational messaging.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries detail pages/cards/media cards/3.jpg"},
-  { icon: "🎙️", title: "Communications Director", description: "Developing high-level internal and external strategies to ensure consistent organizational messaging.", buttonText: "Learn More", buttonColor: "blue", image: "/industries detail pages/cards/media cards/4.jpg" }
+  { icon: "✍️", title: "Insurance Underwriter", description: "Evaluating applications and determining the risk level to establish policy terms and premiums.", buttonText: "Explore Roles", buttonColor: "blue", image: "/industries detail pages/cards/insurance cards/1.jpg" },
+  { icon: "🔎", title: "Claims Adjuster", description: "Investigating insurance claims to determine the extent of liability and ensuring fair settlements.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries detail pages/cards/insurance cards/2.jpg"  },
+  { icon: "📉", title: "Actuarial Analyst", description: "Using statistical models to assess risk and help the company maintain long-term financial stability.", buttonText: "Explore Roles", buttonColor: "green", image:  "/industries detail pages/insurance-hero.jpg" },
+  { icon: "🤝", title: "Risk Consultant", description: "Identifying potential hazards for clients and proposing insurance solutions to mitigate those risks.", buttonText: "Learn More", buttonColor: "blue", image:  "/industries detail pages/cards/insurance cards/4.jpg"  }
 ];
+
 export default function IndustryRoles() {
   return (
     <section className={styles.section}>

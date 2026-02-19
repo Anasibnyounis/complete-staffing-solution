@@ -7,14 +7,18 @@ const items = [
   {
     title: "Mission Statement",
     description:
-      "The mission of Complete Staffing Solutions is to provide our clients with access to the best and brightest talent available. We offer comprehensive solutions that will increase productivity and empower our clients and their employees to achieve their goals and experience the highest level of success possible. Our specialists focus on permanent and consulting services where our proven experience is unmatched in the marketplace.",
+"Complete Staffing Solutions connects exceptional talent with organizations that demand results. We believe great companies are built by great people. We deliver staffing solutions that fuel growth, productivity and long-term success."      
+      
+      
+      ,
     icon: `${ASSETS}/mission statement icon.svg`,
     image: `${ASSETS}/mission statement placeholder.jpg`,
   },
   {
-    title: "Our Service Commitment to You",
+    title: "Our Service Commitment",
     description:
-      "Every candidate represented by Complete Staffing Solutions is thoroughly interviewed in person and evaluated (including reference checks) before joining your team. Our thorough interview process ensures that a candidate's skills, experience and personality are well matched to each job and to the culture of the hiring organization. The success of our clients and our candidates is supremely important to us, and Complete Staffing has an unparalleled customer service approach that has proven to be an integral part of our success. We promise to make your staffing needs our number one priority.",
+      "At Complete Staffing Solutions, we believe placement is more than a transaction — it’s the beginning of a partnership.Each candidate is thoroughly screened through in-depth interviews and reference verification to ensure alignment not only in skills, but in values and culture. We are committed to supporting both our clients and our candidates with responsiveness, transparency, and a level of service that reflects genuine care.Your goals guide our work, and your success defines ours."
+      ,
     icon: `${ASSETS}/our services commitmnet to you icon.svg`,
     image: `${ASSETS}/our service placeholder.jpg`,
   },

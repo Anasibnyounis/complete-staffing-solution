@@ -10,31 +10,32 @@ export default function IndustryWelcome() {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.content}>
-          <h2 className={styles.title}>Welcome to Communications Staffing</h2>
+          <h2 className={styles.title}>Welcome to Insurance Staffing</h2>
           <p className={styles.description}>
-Empowering traditional and digital media outlets with creative talent that understands audience engagement. We bridge the gap between technical production skills and visionary storytelling.                 </p>
-
+ Navigating the evolving insurance landscape requires a blend of technical expertise and customer empathy. We provide experienced underwriters, claims specialists, and risk consultants to strengthen your firm.
+</p>
           <div className={styles.features}>
             <div className={styles.feature}>
               <div className={styles.checkIcon}>✓</div>
-              <span>Storytelling Excellence  
+              <span>
+Risk management specialists              </span>
+            </div>
+            <div className={styles.feature}>
+              <div className={styles.checkIcon}>✓</div>
+              <span>Experienced claims adjusters
               </span>
             </div>
             <div className={styles.feature}>
               <div className={styles.checkIcon}>✓</div>
-              <span>Digital media innovators 
-              </span>
-            </div>
-            <div className={styles.feature}>
-              <div className={styles.checkIcon}>✓</div>
-              <span>Audience engagement specialists </span>
+              <span> Licensed insurance professionals
+</span>
             </div>
           </div>
         </div>
 
         <div className={styles.imageWrapper}>
           <Image
-            src="/industries/cards/media.jpg"
+            src="/industries/cards/insurance.jpg"
             alt=" workers"
             fill
             className={styles.image}

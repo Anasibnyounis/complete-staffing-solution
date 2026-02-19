@@ -12,29 +12,31 @@ export default function IndustryWelcome() {
         <div className={styles.content}>
           <h2 className={styles.title}>Welcome to Communications Staffing</h2>
           <p className={styles.description}>
-Empowering traditional and digital media outlets with creative talent that understands audience engagement. We bridge the gap between technical production skills and visionary storytelling.                 </p>
-
+ Empowering traditional and digital media outlets with creative talent that understands audience engagement. We bridge the gap between technical production skills and visionary storytelling.
+ </p>
           <div className={styles.features}>
             <div className={styles.feature}>
               <div className={styles.checkIcon}>✓</div>
-              <span>Storytelling Excellence  
+              <span>
+                
+Creative storytelling experts              </span>
+            </div>
+            <div className={styles.feature}>
+              <div className={styles.checkIcon}>✓</div>
+              <span>Digital media innovators
               </span>
             </div>
             <div className={styles.feature}>
               <div className={styles.checkIcon}>✓</div>
-              <span>Digital media innovators 
-              </span>
-            </div>
-            <div className={styles.feature}>
-              <div className={styles.checkIcon}>✓</div>
-              <span>Audience engagement specialists </span>
+              <span>Audience engagement specialists
+</span>
             </div>
           </div>
         </div>
 
         <div className={styles.imageWrapper}>
           <Image
-            src="/industries/cards/media.jpg"
+            src="/industries/cards/arts.jpg"
             alt=" workers"
             fill
             className={styles.image}

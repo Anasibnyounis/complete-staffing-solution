@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./IndustryRoles.module.css";
-
 const ROLES = [
-  { icon: "📱", title: "Digital Content Lead", description: "Overseeing the creation and strategy of engaging content across all digital and social platforms.", buttonText: "Explore Roles", buttonColor: "blue", image: "/industries detail pages/cards/media cards/1.jpg" },
-  { icon: "📢", title: "PR Specialist", description: "Managing brand reputation and building strong relationships with media outlets and the public.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries detail pages/cards/media cards/2.jpg" },
-  { icon: "🎬", title: "Media Planner", description: "Analyzing audience data to determine the best platforms and timing for organizational messaging.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries detail pages/cards/media cards/3.jpg"},
-  { icon: "🎙️", title: "Communications Director", description: "Developing high-level internal and external strategies to ensure consistent organizational messaging.", buttonText: "Learn More", buttonColor: "blue", image: "/industries detail pages/cards/media cards/4.jpg" }
+  { icon: "💼", title: "Wealth Manager", description: "Managing investment portfolios and providing strategic financial advice to high-net-worth clients.", buttonText: "Explore Roles", buttonColor: "blue", image: "/industries/finance/wealth.jpg" },
+  { icon: "🛡️", title: "Compliance Officer", description: "Ensuring all banking and investment activities strictly adhere to legal standards and internal policies.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries/finance/compliance.jpg" },
+  { icon: "📊", title: "Investment Analyst", description: "Researching financial trends and evaluating investment opportunities to drive organizational growth.", buttonText: "Explore Roles", buttonColor: "green", image: "/industries/finance/analyst.jpg" },
+  { icon: "🏦", title: "Portfolio Coordinator", description: "Supporting the management of diverse asset classes and ensuring smooth daily operational reporting.", buttonText: "Learn More", buttonColor: "blue", image: "/industries/finance/portfolio.jpg" }
 ];
+
 export default function IndustryRoles() {
   return (
     <section className={styles.section}>

@@ -23,12 +23,13 @@ interface Props {
     industryName?: string;
 }
 
-export default function IndustryChallenges({ industryName = "Communications" }: Props) {
-   
-const CHALLENGES = [
-  { icon: <Icons.Demands />, title: "Real-time Deadline Pressure", description: "Managing high-volume recruitment for fast-moving newsrooms and digital agencies with 24/7 cycles." },
-  { icon: <Icons.Skills />, title: "Platform Fragmentation", description: "Finding specialists who can produce content that resonates across TV, Print, Social, and Podcasts simultaneously." },
-  { icon: <Icons.Safety />, title: "Digital Evolution Gap", description: "Recruiting traditional media professionals who have successfully transitioned to data-driven digital strategies." }
+
+
+export default function IndustryChallenges({ industryName = "Insurance" }: Props) {
+ const CHALLENGES = [
+  { icon: <Icons.Demands />, title: "Claims Processing Speed", description: "Scaling a workforce quickly to handle surges in claims during natural disasters or peak periods." },
+  { icon: <Icons.Skills />, title: "Actuarial Talent Gap", description: "Sourcing highly specialized analysts who can accurately predict and price complex risk factors." },
+  { icon: <Icons.Safety />, title: "Digital Transformation", description: "Finding talent that can merge traditional insurance knowledge with modern InsurTech platforms and AI tools." }
 ];
 
     return (

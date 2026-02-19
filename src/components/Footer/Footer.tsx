@@ -38,10 +38,10 @@ export default function Footer() {
     <footer className={styles.footerContainer} ref={footerRef}>
       {/* Top: Reveal Up Animation */}
       <div className={`${styles.contactAndSocialContainer} ${styles.reveal} ${styles.revealUp}`}>
-        <Link href="/" className={styles.logoLink} aria-label="Home">
+        {/* <Link href="/" className={styles.logoLink} aria-label="Home">
           <Image src="/logo.svg" alt="Logo" width={320} height={132} className={styles.logoIcon} />
-        </Link>
-        <div className={styles.contactInfoContainerParent}>
+        </Link> */}
+        {/* <div className={styles.contactInfoContainerParent}>
           <div className={styles.contactInfoContainer}>
             <div className={styles.contactIconContainer}>
               <Image src={`${FOOTER_ICONS}/EnvelopeSimple.svg`} alt="" width={24} height={24} />
@@ -69,7 +69,7 @@ export default function Footer() {
     </a>
   ))}
 </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Middle: Left and Right Animations */}
@@ -109,19 +109,79 @@ export default function Footer() {
           </div>
 
           {/* Contact Info: Reveal Right (Slightly slower) */}
-          <div className={`${styles.column} ${styles.reveal} ${styles.revealRight} ${styles.delay2}`}>
-            <b className={styles.columnTitle}>Contact Info</b>
-            <div className={styles.contactInfoLinksContainer}>
-              <div className={styles.addressRow}>
-                <Image src={`${FOOTER_ICONS}/MapPinLine.svg`} alt="" width={24} height={24} className={styles.addressRowIcon} />
-                <span>United States America</span>
-              </div>
-              <div className={styles.addressRow}>
-                <Image src={`${FOOTER_ICONS}/Phone.svg`} alt="" width={24} height={24} className={styles.addressRowIcon} />
-                <a href="tel:+12025550153" className={styles.footerLink}>(401) 475-8800</a>
-              </div>
-            </div>
-          </div>
+        <div className={`${styles.column} ${styles.reveal} ${styles.revealRight} ${styles.delay2}`}>
+  <b className={styles.columnTitle}>Contact Info</b>
+
+  <div className={styles.contactInfoLinksContainer}>
+    
+    {/* Address */}
+    <div className={styles.addressRow}>
+      <Image
+        src={`${FOOTER_ICONS}/MapPinLine.svg`}
+        alt=""
+        width={24}
+        height={24}
+        className={styles.addressRowIcon}
+      />
+      <span>United States America</span>
+    </div>
+
+    {/* Phone */}
+    <div className={styles.addressRow}>
+      <Image
+        src={`${FOOTER_ICONS}/Phone.svg`}
+        alt=""
+        width={24}
+        height={24}
+        className={styles.addressRowIcon}
+      />
+      <a href="tel:+12025550153" className={styles.footerLink}>
+        (401) 475-8800
+      </a>
+    </div>
+
+    {/* Email - Separate Row */}
+    <div className={styles.addressRow}>
+      <div className={styles.contactIconContainer}>
+        <Image
+          src={`${FOOTER_ICONS}/EnvelopeSimple.svg`}
+          alt=""
+          width={20}
+          height={20}
+        />
+      </div>
+      <a
+        href="mailto:Contactus@completestaffingsolutions.com"
+        className={styles.footerLink}
+      >
+        Contactus@completestaffingsolutions.com
+      </a>
+    </div>
+
+    {/* Social Icons - Separate Row */}
+    <div className={styles.socialIconsContainerColumn}>
+      {socialLinks.map(({ icon, url }) => (
+        <a
+          key={icon}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.socialIconLink}
+        >
+          <Image
+            src={`${FOOTER_ICONS}/${icon}.svg`}
+            alt={icon}
+            width={20}
+            height={20}
+            className={styles.socialIcon}
+          />
+        </a>
+      ))}
+    </div>
+
+  </div>
+</div>
+
         </div>
       </div>
 

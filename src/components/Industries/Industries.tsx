@@ -11,49 +11,49 @@ function enc(path: string) {
   return path.replace(/ /g, "%20").replace(/\(/g, "%28").replace(/\)/g, "%29");
 }
 
-const industries = [
-  { name: "Agriculture", icon: "planting 1.svg", slug: "agriculture" },
-  { name: "Arts", icon: "art 1.svg", slug: "arts" },
-  { name: "Construction", icon: "engineer 1.svg", slug: "construction" },
-  { name: "Consumer Goods", icon: "goods (1) 1.svg", slug: "consumergoods" },
-  { name: "Corporate Services", icon: "service 1.svg", slug: "corporateservices" },
-  { name: "Design", icon: "loupe 1.svg", slug: "design" },
-  { name: "Education", icon: "education (1) 1.svg", slug: "education" },
-  { name: "Energy & Mining", icon: "flash 1.svg", slug: "energy" },
-  { name: "Entertainment", icon: "video (1) 1.svg", slug: "entertainment" },
-  { name: "Finance", icon: "bar-chart 1.svg", slug: "finance" },
-  { name: "Hardware & Networking", icon: "manufacturing 1.svg", slug: "hardware" },
-  { name: "Healthcare", icon: "heart-rate 1.svg", slug: "healthcare" },
-  { name: "Legal", icon: "legal-document (1) 1.svg", slug: "legal" },
-  { name: "Manufacturing", icon: "manufacturing 1.svg", slug: "manufacturing" },
-  { name: "Media & Communications", icon: "information-technology 1.svg", slug: "media" },
-  { name: "Nonprofit", icon: "legal-document (1) 1.svg", slug: "non-profit" },
-  { name: "Public Administration", icon: "service 1.svg", slug: "public" },
-  { name: "Property Management", icon: "service 1.svg", slug: "property" },
-  { name: "Real Estate", icon: "service 1.svg", slug: "real-estate" },
-  { name: "Recreation & Travel", icon: "engineer 1.svg", slug: "travel" },
-  { name: "Retail", icon: "loupe 1.svg", slug: "retail" },
-  { name: "Software & IT Services", icon: "information-technology 1.svg", slug: "it" },
-  { name: "Transportation & Logistics", icon: "engineer 1.svg", slug: "transportation" },
-  { name: "Wellness & Fitness", icon: "heart-rate 1.svg", slug: "wellness" },
-];
+// const industries = [
+//   { name: "Agriculture", icon: "planting 1.svg", slug: "agriculture" },
+//   { name: "Arts", icon: "art 1.svg", slug: "arts" },
+//   { name: "Construction", icon: "engineer 1.svg", slug: "construction" },
+//   { name: "Consumer Goods", icon: "goods (1) 1.svg", slug: "consumergoods" },
+//   { name: "Corporate Services", icon: "service 1.svg", slug: "corporateservices" },
+//   { name: "Design", icon: "loupe 1.svg", slug: "design" },
+//   { name: "Education", icon: "education (1) 1.svg", slug: "education" },
+//   { name: "Energy & Mining", icon: "flash 1.svg", slug: "energy" },
+//   { name: "Entertainment", icon: "video (1) 1.svg", slug: "entertainment" },
+//   { name: "Finance", icon: "bar-chart 1.svg", slug: "finance" },
+//   { name: "Hardware & Networking", icon: "manufacturing 1.svg", slug: "hardware" },
+//   { name: "Healthcare", icon: "heart-rate 1.svg", slug: "healthcare" },
+//   { name: "Legal", icon: "legal-document (1) 1.svg", slug: "legal" },
+//   { name: "Manufacturing", icon: "manufacturing 1.svg", slug: "manufacturing" },
+//   { name: "Media & Communications", icon: "information-technology 1.svg", slug: "media" },
+//   { name: "Nonprofit", icon: "legal-document (1) 1.svg", slug: "non-profit" },
+//   { name: "Public Administration", icon: "service 1.svg", slug: "public" },
+//   { name: "Property Management", icon: "service 1.svg", slug: "property" },
+//   { name: "Real Estate", icon: "service 1.svg", slug: "real-estate" },
+//   { name: "Recreation & Travel", icon: "engineer 1.svg", slug: "travel" },
+//   { name: "Retail", icon: "loupe 1.svg", slug: "retail" },
+//   { name: "Software & IT Services", icon: "information-technology 1.svg", slug: "it" },
+//   { name: "Transportation & Logistics", icon: "engineer 1.svg", slug: "transportation" },
+//   { name: "Wellness & Fitness", icon: "heart-rate 1.svg", slug: "wellness" },
+// ];
 
 
-const positions = [
-  { name: "Accountant", icon: "accounting 1.svg" },
-  { name: "Controller", icon: "bar-chart 1.svg" },
-  { name: "Surgical Schedulers", icon: "calendar 1.svg" },
-  { name: "Medical Assistants", icon: "nurse-cap 1.svg" },
-  { name: "Pharmacy Technicians", icon: "pharmacy 1.svg" },
-  { name: "Physician Assistants", icon: "physician (1) 1.svg" },
-  { name: "Nursing & Allied Health", icon: "nurse-cap 1.svg" },
-  { name: "Contract Recruiters", icon: "integration 1.svg" },
-  { name: "Accounts Payable Specialist", icon: "invoice 1.svg" },
-  { name: "Accounts Receivable Specialist", icon: "accounting 1.svg" },
-  { name: "Accounting Manager", icon: "accounting 1.svg" },
-  { name: "Patient Service Coordinators", icon: "calendar 1.svg" },
-  { name: "Medical Billers", icon: "invoice 1.svg" },
-];
+// const positions = [
+//   { name: "Accountant", icon: "accounting 1.svg" },
+//   { name: "Controller", icon: "bar-chart 1.svg" },
+//   { name: "Surgical Schedulers", icon: "calendar 1.svg" },
+//   { name: "Medical Assistants", icon: "nurse-cap 1.svg" },
+//   { name: "Pharmacy Technicians", icon: "pharmacy 1.svg" },
+//   { name: "Physician Assistants", icon: "physician (1) 1.svg" },
+//   { name: "Nursing & Allied Health", icon: "nurse-cap 1.svg" },
+//   { name: "Contract Recruiters", icon: "integration 1.svg" },
+//   { name: "Accounts Payable Specialist", icon: "invoice 1.svg" },
+//   { name: "Accounts Receivable Specialist", icon: "accounting 1.svg" },
+//   { name: "Accounting Manager", icon: "accounting 1.svg" },
+//   { name: "Patient Service Coordinators", icon: "calendar 1.svg" },
+//   { name: "Medical Billers", icon: "invoice 1.svg" },
+// ];
 
 const INITIAL_COUNT = 8;
 
@@ -156,7 +156,7 @@ export default function Industries() {
   return (
     <section className={styles.section}>
       {/* -------- INDUSTRIES -------- */}
-      <div 
+      {/* <div 
         ref={industriesRef}
         className={`${styles.block} ${isIndustriesVisible ? styles.blockVisible : ''}`}
       >
@@ -188,10 +188,10 @@ export default function Industries() {
             </button>
           </div>
         )}
-      </div>
+      </div> */}
 
       {/* -------- POSITIONS -------- */}
-      <div 
+      {/* <div 
         ref={positionsRef}
         className={`${styles.block} ${isPositionsVisible ? styles.blockVisible : ''}`}
       >
@@ -223,7 +223,7 @@ export default function Industries() {
             </button>
           </div>
         )}
-      </div>
+      </div> */}
 
       {/* -------- STATS -------- */}
       <div 
