@@ -1,7 +1,9 @@
 .section {
   padding: 60px 0;
   background: #022d6d; /* Dark theme contrast */
-}
+
+  
+  }
 .container {
   max-width: 1300px;
   margin: 0 auto;

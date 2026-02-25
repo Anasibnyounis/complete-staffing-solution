@@ -1,11 +1,14 @@
 .section {
   padding: 80px 0;
   background-color: #f8fafc;
-  width: 100%;
-}
+  max-width: 1280%;
+  margin: 0 auto;
+
+  
+  }
 
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px;
 }
@@ -160,6 +163,8 @@
 @media (max-width: 640px) {
   .section {
     padding: 60px 0;
+  
+  
   }
   .listCard {
     padding: 30px 20px;

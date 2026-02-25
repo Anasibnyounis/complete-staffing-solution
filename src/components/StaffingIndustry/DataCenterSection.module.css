@@ -7,10 +7,14 @@
   background-color: #022d6d;
   color: white;
   overflow: hidden;
-}
+  max-width: 1280px;
+  margin: 0 auto;
+
+  
+  }
 
 .container {
-  max-width: 1300px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px;
   display: grid;
@@ -110,6 +114,8 @@
 @media (max-width: 992px) {
   .section {
     padding: 40px 20px;
+  
+  
   }
 
   .container {
@@ -143,6 +149,8 @@
 @media (max-width: 576px) {
   .section {
     padding: 30px 15px;
+  
+  
   }
 
   .title {

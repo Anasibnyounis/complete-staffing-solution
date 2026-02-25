@@ -1,4 +1,6 @@
-.section { padding: 100px 0; background-color: #f1f5f9; }
+.section { padding: 100px 0; background-color: #f1f5f9; 
+  
+  }
 .container { max-width: 1300px; margin: 0 auto; padding: 0 40px; }
 .header { text-align: center; margin-bottom: 60px; }
 .title { font-size: 40px; color: #022d6d; font-weight: 800; margin-bottom: 15px; }

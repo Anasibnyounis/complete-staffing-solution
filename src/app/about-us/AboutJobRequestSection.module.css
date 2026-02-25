@@ -1,7 +1,8 @@
 
 
 .section {
-  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   height: 390px;
   min-height: 390px;
   position: relative;
@@ -13,7 +14,9 @@
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
-}
+
+  
+  }
 
 .overlay {
   position: absolute;
@@ -72,6 +75,8 @@
     height: auto;
     min-height: 320px;
     padding: 40px 24px;
+  
+  
   }
 }
 
@@ -80,6 +85,8 @@
   .section {
     min-height: 280px;
     padding: 32px 20px;
+  
+  
   }
 
   .headline {

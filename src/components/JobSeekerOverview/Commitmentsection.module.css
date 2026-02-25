@@ -1,11 +1,15 @@
 .section {
+  max-width: 1280px;
+  margin: 0 auto;
   padding-top: 70px;
   padding-bottom: 40px;
   position: relative;
   overflow: hidden;
   background-color: white;
   box-sizing: border-box;
-}
+
+  
+  }
 
 .section::before {
   content: '';
@@ -123,6 +127,8 @@
 @media (max-width: 1024px) {
   .section {
     padding: 64px 0px;
+  
+  
   }
 
   .content {
@@ -148,6 +154,8 @@
   .section {
     padding: 48px 0px;
     width: 100%;
+  
+  
   }
 
   .content {

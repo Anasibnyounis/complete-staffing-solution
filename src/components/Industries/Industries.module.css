@@ -4,7 +4,8 @@
 
 
 .section {
-  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   position: relative;
   background-color: rgba(185, 198, 220, 0.3);
   overflow: hidden;
@@ -22,7 +23,9 @@
   /* Page load animation */
   /* opacity: 0;
   animation: fadeInSection 0.8s ease 0.2s forwards; */
-}
+
+  
+  }
 
 @keyframes fadeInSection {
   from {
@@ -390,6 +393,8 @@
 @media (max-width: 992px) {
   .section {
     padding: 48px 24px 60px;
+  
+  
   }
 
   .cardsGrid {
@@ -417,6 +422,8 @@
   .section {
     padding: 40px 20px 48px;
     gap: 36px;
+  
+  
   }
 
   .blockTitle {
@@ -442,6 +449,8 @@
 @media (max-width: 480px) {
   .section {
     padding: 32px 16px 40px;
+  
+  
   }
 
   .cardLabel {

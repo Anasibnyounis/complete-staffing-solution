@@ -1,7 +1,9 @@
 .section {
   padding: 100px 0;
   background-color: #f8fafd;
-}
+
+  
+  }
 
 .container {
   max-width: 1350px;
@@ -167,12 +169,16 @@
 @media (max-width: 900px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
   .container { padding: 0 28px; }
-  .section { padding: 72px 0; }
+  .section { padding: 72px 0; 
+  
+  }
 }
 
 /* Tablet portrait 768px */
 @media (max-width: 768px) {
-  .section { padding: 60px 0; }
+  .section { padding: 60px 0; 
+  
+  }
   .container { padding: 0 20px; }
   .sectionTitle { margin-bottom: 50px; }
   .imageArea { height: 145px; }

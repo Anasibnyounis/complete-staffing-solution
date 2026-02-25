@@ -2,7 +2,9 @@
 .section {
   padding: 50px 30px;
   background-color: #ffffff;
-}
+
+  
+  }
 
 .container {
   max-width: 1300px;
@@ -130,6 +132,8 @@
 @media (max-width: 992px) {
   .section {
     padding: 40px 20px;
+  
+  
   }
 
   .container {
@@ -169,6 +173,8 @@
 @media (max-width: 576px) {
   .section {
     padding: 30px 15px;
+  
+  
   }
 
   .container {

@@ -14,7 +14,9 @@
 .delay2 { transition-delay: 0.4s; }
 
 /* --- Rest of your existing CSS (No changes below) --- */
-.section { width: 100%; font-family: 'Inter', sans-serif; }
+.section { width: 100%; font-family: 'Inter', sans-serif; 
+  
+  }
 .topSection { background: #B9C6DC; padding: 40px 60px; }
 .container { max-width: 1200px; margin: 0 auto; }
 .searchBox { background: white; max-width: 900px; margin: 0px auto; border-radius: 8px; margin-bottom: 16px; position: relative; }

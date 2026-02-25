@@ -1,9 +1,12 @@
-.section {
-  width: 100%;
+.section {  
+  max-width: 1280px;
+  margin: 0 auto;
   background: #f8f9fa;
   padding: 0;
   padding-bottom: 40px;
-}
+
+  
+  }
 
 .container {
   max-width: 1200px;
@@ -175,6 +178,8 @@
 @media (max-width: 768px) {
   .section {
     padding: 60px 0;
+  
+  
   }
 
   .container {
@@ -195,6 +200,8 @@
 @media (max-width: 480px) {
   .section {
     padding: 48px 0;
+  
+  
   }
 
   .container {
