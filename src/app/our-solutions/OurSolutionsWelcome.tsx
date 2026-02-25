@@ -12,22 +12,29 @@ export default function OurSolutionsWelcome() {
         <div className={styles.content}>
           <h2 className={styles.title}>Welcome to Our Solutions</h2>
           <p className={styles.description}>
-          Comprehensive staffing solutions tailored to your industry needs, connecting top talent with leading organizations across multiple sectors.
+          Our solutions are structured into four key service areas designed to meet diverse hiring and talent acquisition needs.
                   </p>
           <div className={styles.features}>
             <div className={styles.feature}>
               <div className={styles.checkIcon}>✓</div>
-              <span>Industry Expertise
+              <span>Retained
+
               </span>
             </div>
             <div className={styles.feature}>
               <div className={styles.checkIcon}>✓</div>
-              <span>Custom Staffing Solutions
+              <span>Executive Search
+
               </span>
             </div>
             <div className={styles.feature}>
               <div className={styles.checkIcon}>✓</div>
-              <span>  Quality Talent Matching
+              <span>Contract
+</span>
+            </div>
+            <div className={styles.feature}>
+              <div className={styles.checkIcon}>✓</div>
+              <span>Direct-Hire
 </span>
             </div>
           </div>
@@ -35,7 +42,7 @@ export default function OurSolutionsWelcome() {
 
         <div className={styles.imageWrapper}>
           <Image
-            src="/industries detail pages/our-solutions-hero.jpg"
+            src="/about us/mission statement placeholder.jpg"
             alt="Our Solutions"
             fill
             className={styles.image}

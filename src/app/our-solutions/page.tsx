@@ -2,17 +2,15 @@
 import Link from "next/link";
 
 import JobRequestSection from "@/components/JobRequestSection";
-import IndustryDetailPageHero from "../industries-we-serve/healthcare/IndustryDetailPageHero";
+import OurSolutionsHero from "./OurSolutionsHero";
 import OurSolutionsWelcome from "./OurSolutionsWelcome";
-import IndustryChallenges from "../industries-we-serve/healthcare/IndustryChallenges";
-import IndustryRoles from "../industries-we-serve/healthcare/IndustryRoles";
+import SolutionsCategories from "./SolutionsCategories";
 
 export default function OurSolutionsPage() {
     return (<>
-           <IndustryDetailPageHero />
+           <OurSolutionsHero />
            <OurSolutionsWelcome />
-           <IndustryChallenges/>
-           <IndustryRoles/>
+           <SolutionsCategories />
             <JobRequestSection />
 
 </>

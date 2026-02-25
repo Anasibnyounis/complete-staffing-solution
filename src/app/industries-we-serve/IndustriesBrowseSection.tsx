@@ -180,14 +180,14 @@ const INDUSTRIES = [
   // },
   {
     id: "financial-services",
-    image: "/industries/cards/financial-services.jpg",
+    image: "/industries/information.jpg",
     title: "Financial Services",
     description: "Strategic expertise in banking, investment management, and global compliance",
     iconColor: "#6CA642",
   },
   {
     id: "communications",
-    image: "/industries/cards/communications.jpg",
+    image: "/industries/cards/construction.jpg",
     title: "Communications",
     description: "Connecting organizations with storytelling, PR, and digital media experts",
     iconColor: "#6CA642",
