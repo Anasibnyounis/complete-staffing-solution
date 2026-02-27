@@ -13,7 +13,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const footerRef = useRef<HTMLElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = footerRef.current;
