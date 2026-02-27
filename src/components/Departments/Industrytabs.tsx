@@ -1,30 +1,34 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import styles from "./Industrytabs.module.css";
 import { FaSearch } from "react-icons/fa";
 
-const IndustryTabs: React.FC = () => {
+export default function IndustryTabs() {
   const [activeIndustry, setActiveIndustry] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(styles.active);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const elements = sectionRef.current?.querySelectorAll(`.${styles.reveal}`);
-    elements?.forEach((el) => observer.observe(el));
-
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("active");
+        });
+      },
+      { threshold: 0.1 }
+    );
+    const el = sectionRef.current;
+    if (el) observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
   const industries = [
-    "Accounting", "Administrative", "Engineering", "Finance", "Healthcare", "Information Technology", "Sales",
+    "Accounting",
+    "Administrative",
+    "Engineering",
+    "Finance",
+    "Healthcare",
+    "Information Technology",
+    "Sales",
   ];
 
   const positions = {
@@ -35,28 +39,30 @@ const IndustryTabs: React.FC = () => {
   };
 
   return (
-    <section className={styles.section} ref={sectionRef}>
-      <div className={styles.topSection}>
-        <div className={styles.container}>
-          <div className={`${styles.searchBox} ${styles.reveal}`}>
-            <div className={styles.searchInputWrapper}>
-              <FaSearch className={styles.searchIcon} />
+    <section ref={sectionRef} className="w-full font-[var(--font-inter)]">
+      <div className="w-full bg-[#B9C6DC] py-10 px-4 sm:px-6 md:px-8 lg:px-12 2xl:px-16">
+        <div className="w-full max-w-[1200px] mx-auto">
+          <div className="reveal revealUp bg-white max-w-[900px] mx-auto rounded-lg mb-4 relative">
+            <div className="relative">
+              <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-base" />
               <input
                 type="text"
                 placeholder="Search industries (e.g Healthcare, Legal...)"
-                className={styles.searchInput}
+                className="w-full py-3 px-4 pl-9 border border-gray-300 rounded outline-none text-sm text-gray-900 placeholder:text-gray-400"
               />
             </div>
           </div>
-
-          <div className={`${styles.buttonsRow} ${styles.reveal} ${styles.delay1}`}>
+          <div className="reveal revealUp delay-1 flex flex-wrap justify-center gap-2">
             {industries.map((industry, index) => (
               <button
                 key={index}
-                className={`${styles.industryButton} ${
-                  index === activeIndustry ? styles.activeButton : ""
-                }`}
+                type="button"
                 onClick={() => setActiveIndustry(index)}
+                className={`px-5 py-2 rounded border cursor-pointer transition-all duration-300 ${
+                  index === activeIndustry
+                    ? "bg-[#19478E] text-white border-[#19478E]"
+                    : "bg-white text-black border-[#19478E] hover:bg-[#19478E] hover:text-white"
+                }`}
               >
                 {industry}
               </button>
@@ -64,14 +70,18 @@ const IndustryTabs: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <div className={`${styles.positionsWrapper} `}>
-        <div className={styles.positionsGrid}>
+      <div className="w-full bg-white py-8 px-4 sm:px-6 md:px-8 lg:px-12 2xl:px-16 -mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[positions.column1, positions.column2, positions.column3, positions.column4].map((col, i) => (
-            <div key={i} className={styles.column}>
-              <ul>
+            <div key={i}>
+              <ul className="list-none p-0 m-0">
                 {col.map((position, idx) => (
-                  <li key={idx}>{position}</li>
+                  <li
+                    key={idx}
+                    className="relative pl-3 mb-2 text-gray-700 before:content-['•'] before:absolute before:left-0 before:font-bold before:text-black"
+                  >
+                    {position}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -80,6 +90,4 @@ const IndustryTabs: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default IndustryTabs;
+}

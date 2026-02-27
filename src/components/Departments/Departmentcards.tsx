@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import styles from "./Departmentcards.module.css";
 
 const Icons = {
   accounting: () => <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13h8"/><path d="M8 17h8"/></svg>,
@@ -27,63 +26,107 @@ const DEPARTMENTS = [
 const formatSlug = (name: string) => name.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
 
 export default function DepartmentCards() {
-  // tracks only ONE open ID at a time
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"industries" | "positions">("positions");
 
   const toggleExpand = (id: string) => {
-    // If clicked the same open card, close it. Otherwise, open the new one.
     setExpandedId(expandedId === id ? null : id);
     setActiveTab("positions");
   };
 
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <div className={styles.grid}>
+    <section className="w-full py-16 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-10 2xl:px-16 bg-[#fcfdfe]">
+      <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {DEPARTMENTS.map((dept) => {
             const IconComp = dept.icon;
             const isOpen = expandedId === dept.id;
-            
             return (
-              <div key={dept.id} className={`${styles.card} ${isOpen ? styles.cardActive : ""}`}>
-                <div className={styles.cardHeader}>
-                  <div className={styles.iconTitleRow}>
-                    <div className={styles.iconCircle}><IconComp /></div>
-                    <h3 className={styles.cardTitle}>{dept.title}</h3>
+              <div
+                key={dept.id}
+                className={`flex flex-col h-fit rounded-2xl border bg-white p-6 shadow-sm transition-all duration-300 ease-out ${
+                  isOpen
+                    ? "border-[#19478e] shadow-[0_20px_40px_rgba(25,71,142,0.1)]"
+                    : "border-[#eef0f2]"
+                }`}
+              >
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 rounded-[10px] bg-[#6ca642] text-white flex items-center justify-center flex-shrink-0">
+                      <IconComp />
+                    </div>
+                    <h3 className="text-lg font-extrabold text-[#1e293b] m-0">
+                      {dept.title}
+                    </h3>
                   </div>
-                  <div className={styles.statsSummary}>
+                  <div className="flex items-center gap-1.5 text-sm font-semibold text-slate-400">
                     <span>{dept.industries.length} Industries</span>
-                    <span className={styles.dot}>•</span>
+                    <span>•</span>
                     <span>{dept.positions.length} Positions</span>
                   </div>
-                  <button className={styles.viewDetailBtn} onClick={() => toggleExpand(dept.id)}>
+                  <button
+                    type="button"
+                    onClick={() => toggleExpand(dept.id)}
+                    className="bg-transparent border-none text-[#19478e] font-bold text-sm cursor-pointer underline underline-offset-2 text-left py-1 px-0 transition-colors hover:text-[#143a75]"
+                  >
                     {isOpen ? "Close Details" : "View Details"}
                   </button>
                 </div>
 
-                <div className={`${styles.accordion} ${isOpen ? styles.isOpen : ""}`}>
-                  <div className={styles.accordionInner}>
-                    <div className={styles.tabRow}>
-                      <button className={`${styles.tabBtn} ${activeTab === 'positions' ? styles.tabActive : ''}`} onClick={() => setActiveTab("positions")}>Positions</button>
-                      <button className={`${styles.tabBtn} ${activeTab === 'industries' ? styles.tabActive : ''}`} onClick={() => setActiveTab("industries")}>Industries</button>
+                <div
+                  className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    <div className="pt-4 border-t border-slate-200 mt-2">
+                      <div className="flex gap-5 mb-3 pb-3 border-b border-slate-200">
+                        <button
+                          type="button"
+                          onClick={() => setActiveTab("positions")}
+                          className={`bg-transparent border-none py-1.5 font-bold text-sm cursor-pointer transition-colors ${
+                            activeTab === "positions"
+                              ? "text-[#19478e] border-b-2 border-[#19478e] -mb-[3px] pb-1.5"
+                              : "text-slate-400"
+                          }`}
+                        >
+                          Positions
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setActiveTab("industries")}
+                          className={`bg-transparent border-none py-1.5 font-bold text-sm cursor-pointer transition-colors ${
+                            activeTab === "industries"
+                              ? "text-[#19478e] border-b-2 border-[#19478e] -mb-[3px] pb-1.5"
+                              : "text-slate-400"
+                          }`}
+                        >
+                          Industries
+                        </button>
+                      </div>
+                      <div className="max-h-[300px] overflow-y-auto pr-2.5 mb-5 [scrollbar-width:thin] [scrollbar-color:theme(colors.slate.300)_transparent]">
+                        <ul className="list-none p-0 m-0 flex flex-col gap-2.5">
+                          {activeTab === "industries"
+                            ? dept.industries.map((item, i) => (
+                                <li key={i} className="text-sm text-slate-600 flex items-center gap-2.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#6ca642] flex-shrink-0" />
+                                  <Link
+                                    href={`/industries-we-serve/${formatSlug(item)}`}
+                                    className="text-inherit no-underline transition-colors hover:text-[#19478e] hover:font-semibold"
+                                  >
+                                    {item}
+                                  </Link>
+                                </li>
+                              ))
+                            : dept.positions.map((item, i) => (
+                                <li key={i} className="text-sm text-slate-600 flex items-center gap-2.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#6ca642] flex-shrink-0" />
+                                  {item}
+                                </li>
+                              ))}
+                        </ul>
+                      </div>
                     </div>
-                    <div className={styles.listContainer}>
-                      <ul className={styles.list}>
-                        {activeTab === 'industries' ? (
-                          dept.industries.map((item, i) => (
-                            <li key={i} className={styles.listItem}>
-                              <Link href={`/industries-we-serve/${formatSlug(item)}`} className={styles.itemLink}>{item}</Link>
-                            </li>
-                          ))
-                        ) : (
-                          dept.positions.map((item, i) => (
-                            <li key={i} className={styles.listItem}>{item}</li>
-                          ))
-                        )}
-                      </ul>
-                    </div>
-                    {/* <Link href={`/departments/${dept.slug}`} className={styles.pageLink}>View Department Page →</Link> */}
                   </div>
                 </div>
               </div>

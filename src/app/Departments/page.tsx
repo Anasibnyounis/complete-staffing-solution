@@ -7,7 +7,7 @@ import DepartmentCards from '@/components/Departments/Departmentcards';
 import JobRequestSection from '@/components/JobRequestSection';
 export default function Departments() {
   return (
-    <main>
+    <main className="min-h-screen bg-white">
       <DepartmentsHero />
       {/* <IndustryTabs /> */}
       <DepartmentCards />

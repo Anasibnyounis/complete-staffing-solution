@@ -1,11 +1,5 @@
 "use client";
 
-import styles from "./IndustryChallenges.module.css";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["700"], variable: "--font-jakarta" });
-
 // Industry specific icons (SVG format for professional look)
 const Icons = {
     Demands: () => (
@@ -31,25 +25,34 @@ export default function IndustryChallenges({ industryName = "Agriculture" }: Pro
 ];
 
     return (
-        <section className={styles.section}>
-            <div className={styles.container}>
-                {/* Title matches the image style exactly */}
-                <h2 className={styles.title}>
-                    Addressing {industryName} Staffing <span className={styles.highlight}>Challenges</span>
-                </h2>
+        <section className="w-full bg-white py-12 sm:py-14 md:py-16">
+            <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 2XL:px-16">
+                <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto">
+                    <h2 className="font-[var(--font-plus-jakarta)] text-[clamp(24px,3.8vw,35px)] font-semibold text-[#022d6d] text-left mb-12 tracking-tight">
+                        Addressing {industryName} Staffing{" "}
+                        <span className="font-medium text-[#022d6d]">Challenges</span>
+                    </h2>
 
-                <div className={styles.challengesGrid}>
-                    {CHALLENGES.map((challenge, index) => (
-                        <div key={index} className={styles.card}>
-                            <div className={styles.cardHeader}>
-                                <div className={styles.iconWrapper}>
-                                    {challenge.icon}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {CHALLENGES.map((challenge, index) => (
+                            <div
+                                key={index}
+                                className="flex flex-col gap-4 rounded-[15px] border border-[#f0f0f0] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
+                            >
+                                <div className="flex items-center gap-4">
+                                    <div className="flex items-center justify-center flex-shrink-0">
+                                        {challenge.icon}
+                                    </div>
+                                    <h3 className="m-0 text-[18px] font-bold leading-snug text-[#1e293b]">
+                                        {challenge.title}
+                                    </h3>
                                 </div>
-                                <h3 className={styles.cardTitle}>{challenge.title}</h3>
+                                <p className="m-0 text-[13px] leading-relaxed text-[#64748b]">
+                                    {challenge.description}
+                                </p>
                             </div>
-                            <p className={styles.cardDescription}>{challenge.description}</p>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

@@ -1,8 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./IndustryRoles.module.css";
-
-
 
 const ROLES = [
   { icon: "🩺", title: "Registered Nurse", description: "Providing direct patient care and collaborating with doctors to execute treatment plans.", buttonText: "Explore Roles", buttonColor: "blue",
@@ -21,36 +18,56 @@ const ROLES = [
 
 export default function IndustryRoles() {
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles.title}>Roles We Fill</h2>
+    <section className="w-full bg-[#f8f9fa] py-12 sm:py-14 md:py-16">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 2xl:px-16">
+        <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto">
+        <h2 className="font-[var(--font-plus-jakarta)] text-[clamp(28px,4vw,36px)] font-bold text-[#1a1a1a] m-0 mb-12 leading-tight">
+          Roles We Fill
+        </h2>
 
-        <div className={styles.rolesGrid}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
           {ROLES.map((role, index) => (
-            <div key={index} className={styles.card}>
-              <div className={styles.imageWrapper}>
+            <div
+              key={index}
+              className="flex flex-col overflow-hidden rounded-xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)]"
+            >
+              <div className="relative w-full aspect-[1.8/1] overflow-hidden">
                 <Image
                   src={role.image}
                   alt={role.title}
                   fill
-                  className={styles.image}
+                  className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
                 />
               </div>
               
-              <div className={styles.cardContent}>
-                <div className={styles.iconTitle}>
-                  <div className={`${styles.iconCircle} ${styles[role.buttonColor]}`}>
-                    <span className={styles.icon}>{role.icon}</span>
+              <div className="flex flex-col gap-3 p-4 flex-1">
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full text-[20px] ${
+                      role.buttonColor === "blue"
+                        ? "bg-[#4A7BAD]"
+                        : "bg-[#6CA642]"
+                    }`}
+                  >
+                    <span>{role.icon}</span>
                   </div>
-                  <h3 className={styles.cardTitle}>{role.title}</h3>
+                  <h3 className="m-0 font-[var(--font-plus-jakarta)] text-[18px] font-bold text-[#1a1a1a] leading-snug">
+                    {role.title}
+                  </h3>
                 </div>
                 
-                <p className={styles.cardDescription}>{role.description}</p>
+                <p className="m-0 flex-1 text-[14px] leading-relaxed text-[#666]">
+                  {role.description}
+                </p>
                 
                 <Link 
                   href="/job-request" 
-                  className={`${styles.button} ${styles[role.buttonColor]}`}
+                  className={`mt-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-[15px] font-semibold text-white no-underline transition-all duration-300 ${
+                    role.buttonColor === "blue"
+                      ? "bg-[#4A7BAD] hover:bg-[#3d6a9a] hover:shadow-[0_4px_12px_rgba(74,123,173,0.3)]"
+                      : "bg-[#6CA642] hover:bg-[#5d9338] hover:shadow-[0_4px_12px_rgba(108,166,66,0.3)]"
+                  }`}
                 >
                   {role.buttonText}
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -61,6 +78,7 @@ export default function IndustryRoles() {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

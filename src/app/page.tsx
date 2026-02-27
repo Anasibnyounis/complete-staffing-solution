@@ -10,12 +10,11 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Hero />
       <HeroTagline />
-<WhyChooseUs/>
+      <WhyChooseUs />
       <Industries />
       {/* <IndustryWelcome /> */}
       {/* <FinancialServicesWelcome /> */}
       {/* <RealEstateWelcome /> */}
-      <div className="py-16"></div>
       <JobRequestSection />
     </main>
   );
