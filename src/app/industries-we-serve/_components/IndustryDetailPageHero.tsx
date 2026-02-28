@@ -2,14 +2,22 @@
 
 import Link from "next/link";
 
-export default function IndustryDetailPageHero() {
+interface Props {
+  title: string;
+  subtitle: string;
+  backgroundImage: string;
+}
+
+export default function IndustryDetailPageHero({
+  title,
+  subtitle,
+  backgroundImage,
+}: Props) {
   return (
     <section className="relative w-full min-h-[350px] sm:min-h-[400px] md:min-h-[500px] flex items-center overflow-hidden">
       <div
         className="absolute inset-0 z-[1] bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/industries detail pages/real-estate.jpg')",
-        }}
+        style={{ backgroundImage: `url('${backgroundImage}')` }}
       />
       <div
         className="absolute inset-0 z-[2] pointer-events-none"
@@ -19,14 +27,13 @@ export default function IndustryDetailPageHero() {
         }}
       />
 
-      <div className="relative z-10 w-full flex items-center px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-12 lg:py-24 2xl:px-16">
-        <div className="w-full max-w-[1200px] mx-auto flex flex-col">
+      <div className="relative z-10 w-full flex items-center px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-10 lg:py-24 xl:px-12 2xl:px-16">
+        <div className="w-full flex flex-col">
           <h1 className="font-[var(--font-plus-jakarta)] text-white font-bold m-0 mb-5 text-[clamp(32px,4.4vw,50px)] leading-tight max-w-[600px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
-            Real Estate Staffing Solutions
+            {title}
           </h1>
           <p className="text-white text-[clamp(16px,2vw,20px)] leading-relaxed m-0 mb-8 max-w-[550px] drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]">
-            Navigating property markets with expert sales, leasing, and
-            management talent.
+            {subtitle}
           </p>
           <Link
             href="/job-request"

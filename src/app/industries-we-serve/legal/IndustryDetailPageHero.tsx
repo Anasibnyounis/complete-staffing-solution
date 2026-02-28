@@ -1,19 +1,13 @@
 "use client";
-import Link from "next/link";
-import styles from "./IndustryDetailPageHero.module.css";
+
+import IndustryDetailPageHeroShared from "../_components/IndustryDetailPageHero";
 
 export default function IndustryDetailPageHero() {
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroBg} style={{ backgroundImage: "url('/industries detail pages/legal-hero.jpg')" }} />
-      <div className={styles.heroOverlay} />
-      <div className={styles.heroContent}>
-        <h1 className={styles.title}>Legal Staffing Solutions</h1>
-        <p className={styles.subtitle}>S
-          Upholding justice with high-integrity legal talent and support.
-        </p>
-        <Link href="/job-request" className={styles.ctaButton}>Place Job Request</Link>
-      </div>
-    </section>
+    <IndustryDetailPageHeroShared
+      title="Legal Staffing Solutions"
+      subtitle="Upholding justice with high-integrity legal talent and support."
+      backgroundImage="/industries detail pages/legal-hero.jpg"
+    />
   );
 }

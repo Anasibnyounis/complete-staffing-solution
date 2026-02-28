@@ -35,7 +35,7 @@ export default function Industries() {
   }, []);
 
   return (
-    <section className="w-full relative bg-[#b9c6dc]/30 overflow-hidden flex flex-col items-center py-8 px-4 sm:py-10 sm:px-6 md:py-12 md:px-8 2xl:py-16 2xl:px-8">
+    <section className="w-full relative bg-[#b9c6dc]/30 overflow-hidden flex flex-col items-center py-2 px-4 sm:py-2 sm:px-6 md:py-2 md:px-8 2xl:py-2 2xl:px-8">
       <div
         ref={statsRef}
         className={`w-full rounded-2xl 2xl:rounded-none bg-[#19478e] overflow-hidden py-10 px-6 sm:py-12 sm:px-8 md:py-14 md:px-10 lg:py-16 lg:px-12 2xl:py-20 2xl:px-16

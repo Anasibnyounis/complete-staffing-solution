@@ -1,26 +1,23 @@
-"use client";
-import Link from "next/link";
-
 import JobRequestSection from "@/components/JobRequestSection";
 import IndustryDetailPageHero from "./IndustryDetailPageHero";
 import IndustryWelcome from "./IndustryWelcome";
 import IndustryChallenges from "./IndustryChallenges";
 import IndustryRoles from "./IndustryRoles";
-// export const metadata = {
-//     title: "Agriculture Staffing Solutions | Complete Staffing Solutions",
-//     description: "Expert healthcare staffing services for hospitals, clinics, and medical facilities.",
-// };
 
-export default function AgriculturePage() {
-    return (<>
-           <IndustryDetailPageHero />
-           <IndustryWelcome />
-           <IndustryChallenges/>
-           <IndustryRoles/>
-            <JobRequestSection />
+export const metadata = {
+  title: "Manufacturing Staffing Solutions | Complete Staffing Solutions",
+  description:
+    "Automotive, aerospace, and equipment sectors. Quality, operational safety, and skilled industrial labor.",
+};
 
-</>
-
-
-    );
+export default function ManufacturingPage() {
+  return (
+    <main className="min-h-screen bg-white">
+      <IndustryDetailPageHero />
+      <IndustryWelcome />
+      <IndustryChallenges industryName="Manufacturing" />
+      <IndustryRoles />
+      <JobRequestSection />
+    </main>
+  );
 }

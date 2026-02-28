@@ -1,47 +1,17 @@
-import Image from "next/image";
-import styles from "./IndustryWelcome.module.css";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["700"], variable: "--font-jakarta" });
+import IndustryWelcomeShared from "../_components/IndustryWelcome";
 
 export default function IndustryWelcome() {
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <h2 className={styles.title}>Welcome to Transportation & Logistics Staffing</h2>
-          <p className={styles.description}>
-Supporting shipping and warehousing firms with coordinators and managers dedicated to reliability.                  </p>
-
-          <div className={styles.features}>
-            <div className={styles.feature}>
-              <div className={styles.checkIcon}>✓</div>
-              <span>Efficiency & Reliability 
-              </span>
-            </div>
-            <div className={styles.feature}>
-              <div className={styles.checkIcon}>✓</div>
-              <span>Supply Chain Optimization
-              </span>
-            </div>
-            <div className={styles.feature}>
-              <div className={styles.checkIcon}>✓</div>
-              <span>Skilled Logistics </span>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.imageWrapper}>
-          <Image
-            src="/industries/cards/transportation.jpg"
-            alt=" workers"
-            fill
-            className={styles.image}
-            // sizes="(max-width: 768px) 100vw, 40vw"
-          />
-        </div>
-      </div>
-    </section>
+    <IndustryWelcomeShared
+      title="Welcome to Transportation & Logistics Staffing"
+      description="Supporting shipping and warehousing firms with coordinators and managers dedicated to reliability."
+      features={[
+        "Efficiency & Reliability",
+        "Supply Chain Optimization",
+        "Skilled Logistics",
+      ]}
+      imageSrc="/industries/cards/transportation.jpg"
+      imageAlt="Transportation workers"
+    />
   );
 }

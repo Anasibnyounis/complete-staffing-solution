@@ -15,7 +15,9 @@ export default function Home() {
       {/* <IndustryWelcome /> */}
       {/* <FinancialServicesWelcome /> */}
       {/* <RealEstateWelcome /> */}
+      <Hero />
       <JobRequestSection />
+
     </main>
   );
 }

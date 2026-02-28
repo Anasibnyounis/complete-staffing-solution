@@ -109,7 +109,7 @@ export default function Hero() {
 
       <div className="absolute inset-0 z-[3] bg-transparent md:bg-gradient-to-b md:from-black/40 md:to-black/60" />
 
-      <div className="absolute top-[68px] left-[74px] z-[3] flex flex-col items-start gap-[38px] shrink-0 md:py-[60px] md:px-5 md:pb-[140px] md:items-start md:text-left md:pr-4 lg:left-8 lg:top-12 2xl:left-20 2xl:top-16">
+      <div className="absolute top-[10px] left-[74px] z-[3] flex flex-col items-start gap-[20px] shrink-0 md:py-[60px] md:px-5 md:pb-[140px] md:items-start md:text-left md:pr-4 lg:left-8 lg:top-12 2xl:left-20 2xl:top-16 -translate-x-[80px]">
         <div className="revealLeft textContent max-w-[717px] flex flex-col items-start justify-center gap-5">
           <h1 className="title self-stretch relative uppercase font-bold text-[clamp(28px,3.5vw,42px)] leading-tight text-neutral-900 md:text-center md:text-[clamp(24px,6vw,32px)] md:!text-white md:mb-5">
             Empowering Careers.
@@ -120,7 +120,7 @@ export default function Hero() {
           </h1>
           {!isMobile && (
             <>
-              <p className="description self-stretch relative text-[clamp(14px,2vw,16px)] font-[var(--font-inter)] text-black leading-normal pr-5 max-w-[600px]">
+              <p className="description self-stretch relative text-[clamp(14px,2vw,16px)] font-[var(--font-inter)] text-white leading-normal pr-5 max-w-[600px]">
                 For over 25 years, we've matched exceptional candidates with leading employers — helping businesses grow and careers thrive.
               </p>
               <div className="buttonsRow flex items-center gap-5 flex-wrap md:hidden">

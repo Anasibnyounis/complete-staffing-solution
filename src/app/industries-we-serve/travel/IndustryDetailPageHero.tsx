@@ -1,18 +1,13 @@
 "use client";
-import Link from "next/link";
-import styles from "./IndustryDetailPageHero.module.css";
+
+import IndustryDetailPageHeroShared from "../_components/IndustryDetailPageHero";
 
 export default function IndustryDetailPageHero() {
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroBg} style={{ backgroundImage: "url('/industries detail pages/travel-hero.jpg')" }} />
-      <div className={styles.heroOverlay} />
-      <div className={styles.heroContent}>
-        <h1 className={styles.title}>Recreation & Travel Staffing Solutions</h1>
-        <p className={styles.subtitle}>
-Creating unforgettable experiences with hospitality and tourism professionals.          </p>
-        <Link href="/job-request" className={styles.ctaButton}>Place Job Request</Link>
-      </div>
-    </section>
+    <IndustryDetailPageHeroShared
+      title="Recreation & Travel Staffing Solutions"
+      subtitle="Creating unforgettable experiences with hospitality and tourism professionals."
+      backgroundImage="/industries detail pages/travel-hero.jpg"
+    />
   );
 }

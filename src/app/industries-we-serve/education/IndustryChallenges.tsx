@@ -1,71 +1,21 @@
 "use client";
 
-import styles from "./IndustryChallenges.module.css";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { ChallengeIcons } from "../_components/challengeIcons";
+import IndustryChallengesShared from "../_components/IndustryChallenges";
+import type { ChallengeItem } from "../_components/IndustryChallenges";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["700"], variable: "--font-jakarta" });
-
-// Industry specific icons (SVG format for professional look)
-const Icons = {
-    Demands: () => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#19478e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-    ),
-    Skills: () => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6ca642" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 7h-9"></path><path d="M14 17H5"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>
-    ),
-    Safety: () => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#19478e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-    )
-};
-
-interface Props {
-    industryName?: string;
-}
-
-export default function IndustryChallenges({ industryName = "Education" }: Props) {
-    const CHALLENGES = [
-  { 
-    icon: <Icons.Demands />, 
-    title: "Staff Retention & Burnout", 
-    description: "Finding resilient educators and administrators capable of maintaining high standards in high-stress academic environments." 
-  },
-  { 
-    icon: <Icons.Skills />, 
-    title: "Strict Credential Compliance", 
-    description: "Ensuring all candidates meet state-mandated licensing, rigorous background checks, and specific educational certifications." 
-  },
-  { 
-    icon: <Icons.Safety />, 
-    title: "Instructional Innovation", 
-    description: "Identifying talent capable of integrating modern digital learning tools and diverse teaching methodologies into the classroom." 
-  }
+const CHALLENGES: ChallengeItem[] = [
+  { icon: <ChallengeIcons.Demands />, title: "Staff Retention & Burnout", description: "Finding resilient educators and administrators capable of maintaining high standards in high-stress academic environments." },
+  { icon: <ChallengeIcons.Skills />, title: "Strict Credential Compliance", description: "Ensuring all candidates meet state-mandated licensing, rigorous background checks, and specific educational certifications." },
+  { icon: <ChallengeIcons.Safety />, title: "Instructional Innovation", description: "Identifying talent capable of integrating modern digital learning tools and diverse teaching methodologies into the classroom." },
 ];
 
-
-
-    return (
-        <section className={styles.section}>
-            <div className={styles.container}>
-                {/* Title matches the image style exactly */}
-                <h2 className={styles.title}>
-                    Addressing {industryName} Staffing <span className={styles.highlight}>Challenges</span>
-                </h2>
-
-                <div className={styles.challengesGrid}>
-                    {CHALLENGES.map((challenge, index) => (
-                        <div key={index} className={styles.card}>
-                            <div className={styles.cardHeader}>
-                                <div className={styles.iconWrapper}>
-                                    {challenge.icon}
-                                </div>
-                                <h3 className={styles.cardTitle}>{challenge.title}</h3>
-                            </div>
-                            <p className={styles.cardDescription}>{challenge.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+export default function IndustryChallenges({
+  industryName = "Education",
+}: {
+  industryName?: string;
+}) {
+  return (
+    <IndustryChallengesShared industryName={industryName} challenges={CHALLENGES} />
+  );
 }
