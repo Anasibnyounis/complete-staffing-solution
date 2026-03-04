@@ -64,7 +64,7 @@ export default function Hero() {
 
   return (
     <section
-      className={`relative z-0 w-full overflow-hidden text-left font-[var(--font-plus-jakarta)] flex flex-col justify-between min-h-[640px] md:min-h-[720px] lg:min-h-[760px] ${isActive ? "active" : ""} ${isMobile ? "min-h-screen" : ""}`}
+      className={`relative z-0 w-full overflow-hidden bg-black text-left font-[var(--font-plus-jakarta)] flex flex-col justify-between min-h-[640px] md:min-h-[720px] lg:min-h-[760px] ${isActive ? "active" : ""} ${isMobile ? "min-h-screen" : ""}`}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -81,7 +81,7 @@ export default function Hero() {
             <div className="absolute top-0 bottom-0 left-[45%] right-0">
               <Image
                 className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ${shouldShowOriginalBg ? "revealRight" : "opacity-0 translate-x-[50px]"}`}
-                src="/homepage/hero%20image.png"
+                src="/firsthero.jpg"
                 alt="Professionals collaborating"
                 fill
                 priority
@@ -95,10 +95,9 @@ export default function Hero() {
                   priority
                 />
               )}
-              {/* Fade left edge into white */}
-              <div className="absolute inset-y-0 left-0 w-[30%] bg-gradient-to-r from-white to-transparent" />
-              {/* Fade right edge into white */}
-              <div className="absolute inset-y-0 right-0 w-[25%] bg-gradient-to-l from-white to-transparent" />
+              {/* Fade edges into black for subtle blending */}
+              <div className="absolute inset-y-0 left-0 w-[30%] bg-gradient-to-r from-black via-black/60 to-transparent" />
+              <div className="absolute inset-y-0 right-0 w-[25%] bg-gradient-to-l from-black via-black/60 to-transparent" />
             </div>
           </div>
         </div>
@@ -115,14 +114,14 @@ export default function Hero() {
         />
       )}
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 z-[3] bg-gradient-to-b from-black/40 via-black/10 to-black/70 md:bg-gradient-to-r md:from-white md:via-white md:to-white/0" />
+      {/* Black overlay for depth and text contrast (slightly lighter for readability) */}
+      <div className="absolute inset-0 z-[3] bg-gradient-to-r from-black/80 via-black/55 to-black/15" />
 
       {/* Hero text — container mirrors navbar exactly */}
       <div className="absolute top-[80px] left-0 right-0 z-[4] md:py-[60px] md:pb-[140px] lg:top-32 2xl:top-40">
         <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 2xl:px-8">
           <div className="revealLeft textContent max-w-[560px] flex flex-col items-start justify-center gap-5">
-            <h1 className="title self-stretch relative uppercase font-bold text-[clamp(28px,3.5vw,42px)] leading-tight text-white md:text-neutral-900 md:text-left md:mb-5">
+            <h1 className="title self-stretch relative uppercase font-bold text-[clamp(28px,3.5vw,42px)] leading-tight text-white text-left md:mb-5">
               Empowering Careers.
               <br />
               Strengthening
@@ -131,7 +130,7 @@ export default function Hero() {
             </h1>
             {!isMobile && (
               <>
-                <p className="description self-stretch relative text-[clamp(14px,2vw,16px)] font-[var(--font-inter)] text-white md:text-neutral-700 leading-normal max-w-[480px]">
+                <p className="description self-stretch relative text-[clamp(14px,2vw,16px)] font-[var(--font-inter)] text-white leading-normal max-w-[480px]">
                   For over 25 years, we've matched exceptional candidates with leading employers — helping businesses grow and careers thrive.
                 </p>
                 <div className="buttonsRow flex items-center gap-5 flex-wrap md:hidden">
