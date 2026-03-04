@@ -28,7 +28,7 @@ export default function IndustryDetailPageHero({
       />
 
       <div className="relative z-10 w-full flex items-center px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-10 lg:py-24 xl:px-12 2xl:px-16">
-        <div className="w-full flex flex-col">
+        <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto flex flex-col">
           <h1 className="font-[var(--font-plus-jakarta)] text-white font-bold m-0 mb-5 text-[clamp(32px,4.4vw,50px)] leading-tight max-w-[600px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
             {title}
           </h1>
