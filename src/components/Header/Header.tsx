@@ -193,7 +193,7 @@ export default function Header() {
                   className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
                   onClick={closeMobileMenu}
                 >
-                  Employment Position
+                  For Job Applications
                 </Link>
               </div>
             </div>

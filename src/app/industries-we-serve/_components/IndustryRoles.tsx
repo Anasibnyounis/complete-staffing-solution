@@ -60,7 +60,7 @@ export default function IndustryRoles({ roles }: Props) {
                   </p>
 
                   <Link
-                    href="/job-request"
+                    href="/employment-form"
                     className={`mt-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-[15px] font-semibold text-white no-underline transition-all duration-300 ${
                       role.buttonColor === "blue"
                         ? "bg-[#4A7BAD] hover:bg-[#3d6a9a] hover:shadow-[0_4px_12px_rgba(74,123,173,0.3)]"
