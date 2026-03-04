@@ -5,15 +5,15 @@ import { useEffect, useRef, useState } from "react";
 const stats = [
   {
     number: "35K",
-    description: "We have served over 14,000 businesses",
+    description: "We have served over 35K businesses",
   },
   {
     number: "200K",
-    description: "We have placed over 83,000 candidates in rewarding positions",
+    description: "We have placed over 200K candidates in rewarding positions",
   },
   {
     number: "1M",
-    description: "We have built relationships with over 30,000 talented professionals",
+    description: "We have built relationships with over 1M talented professionals",
   },
 ];
 

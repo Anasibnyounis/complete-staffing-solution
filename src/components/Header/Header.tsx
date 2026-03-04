@@ -210,19 +210,12 @@ export default function Header() {
 
             {/* For Employers */}
             <DesktopDropdown
-              label="For Employers"
+              label="Employers"
               dropdownKey="employers"
               openKey={desktopOpenDropdown}
               onOpen={setDesktopOpenDropdown}
               onClose={() => setDesktopOpenDropdown(null)}
             >
-              <Link
-                href="/industries-we-serve"
-                className={dropdownLinkClass}
-                onClick={() => setDesktopOpenDropdown(null)}
-              >
-                Industries
-              </Link>
               <Link
                 href="/our-solutions"
                 className={dropdownLinkClass}
@@ -230,6 +223,14 @@ export default function Header() {
               >
                 Our Solutions
               </Link>
+              <Link
+                href="/industries-we-serve"
+                className={dropdownLinkClass}
+                onClick={() => setDesktopOpenDropdown(null)}
+              >
+                Industries
+              </Link>
+              
             </DesktopDropdown>
 
             <Link
@@ -336,7 +337,7 @@ export default function Header() {
                 className="w-full flex items-center justify-between py-2 font-semibold"
                 onClick={() => toggleMobileDropdown("employers")}
               >
-                <span>For Employers</span>
+                <span>Employers</span>
                 <ChevronDownIcon
                   className={`w-5 h-5 transition-transform ${
                     mobileOpenDropdown === "employers" ? "rotate-180" : ""
@@ -345,6 +346,13 @@ export default function Header() {
               </button>
               {mobileOpenDropdown === "employers" && (
                 <div className="pl-4 pb-2 space-y-1">
+                   <Link
+                    href="/our-solutions"
+                    className="block py-1.5 text-neutral-700"
+                    onClick={closeMobileMenu}
+                  >
+                    Our Solutions
+                  </Link>
                   <Link
                     href="/industries-we-serve"
                     className="block py-1.5 text-neutral-700"
@@ -352,13 +360,7 @@ export default function Header() {
                   >
                     Industries
                   </Link>
-                  <Link
-                    href="/our-solutions"
-                    className="block py-1.5 text-neutral-700"
-                    onClick={closeMobileMenu}
-                  >
-                    Our Solutions
-                  </Link>
+                 
                 </div>
               )}
             </div>

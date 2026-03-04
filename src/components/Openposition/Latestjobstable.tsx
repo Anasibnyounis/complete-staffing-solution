@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 const CATEGORIES = [
   {
     name: "Healthcare",
@@ -45,7 +47,17 @@ const CATEGORIES = [
   },
 ];
 
-const JOBS = [
+type Job = {
+  title: string;
+  id: string;
+  location: string;
+  department: string;
+  type: string;
+  status?: string;
+};
+
+// Fallback jobs in case XML feed is unavailable
+const FALLBACK_JOBS: Job[] = [
   {
     title: "Licensed Practical Nurse (LPN)",
     id: "#84238",
@@ -88,7 +100,127 @@ const JOBS = [
   },
 ];
 
+// Helper to parse a jobs XML feed into Job[]
+function parseJobsFromXml(xmlText: string): Job[] {
+  if (typeof window === "undefined" || !xmlText) return [];
+
+  // Some exported XML files (especially if copied from a browser view)
+  // may contain leading human-readable text before the first "<" tag.
+  // Strip everything before the first "<" so the XML parser can succeed.
+  let cleaned = xmlText.trim();
+  const firstTagIndex = cleaned.indexOf("<");
+  if (firstTagIndex > 0) {
+    cleaned = cleaned.slice(firstTagIndex);
+  }
+
+  const parser = new DOMParser();
+  const xmlDoc = parser.parseFromString(cleaned, "application/xml");
+
+  // If parsing failed, bail out so we can fall back gracefully.
+  if (xmlDoc.getElementsByTagName("parsererror").length > 0) {
+    return [];
+  }
+
+  const jobNodes = Array.from(xmlDoc.getElementsByTagName("job"));
+
+  // NOTE: The tag names below (`jobtitle`, `jobid`, `city`, `state`, `category`, `jobtype`, `status`)
+  // are based on a typical ATS XML format. If your actual XML uses different
+  // tag names, you can update the lookups inside this map.
+  const jobs: Job[] = jobNodes.map((node, index) => {
+    const get = (tag: string) =>
+      node.getElementsByTagName(tag)[0]?.textContent?.trim() || "";
+
+    const title =
+      get("jobtitle") || get("title") || `Job ${index + 1}`;
+
+    // Many ATS XML feeds (including the Complete Staffing feed) use
+    // <referencenumber> for the external job ID, so prioritize that.
+    const id =
+      get("referencenumber") || get("jobid") || get("id") || `#${index + 1}`;
+
+    const city = get("city");
+    const state = get("state");
+    const location =
+      city && state ? `${city}, ${state}` : city || state || get("location");
+
+    const department =
+      get("category") || get("department") || "General";
+
+    const type =
+      get("jobtype") || get("type") || "Full-Time";
+
+    const status =
+      get("status") || (get("hot_job") === "true" ? "Urgent" : "");
+
+    return {
+      title,
+      id,
+      location: location || "Location not specified",
+      department,
+      type,
+      status,
+    };
+  });
+
+  return jobs;
+}
+
 export default function LatestJobsTable() {
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [visibleCount, setVisibleCount] = useState<number>(10);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [hasError, setHasError] = useState<boolean>(false);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadJobsFromXml() {
+      try {
+        // Prefer a configurable public env var, fall back to a local /jobs.xml file.
+        const feedUrl =
+          process.env.NEXT_PUBLIC_JOBS_FEED_URL || "/jobs.xml";
+
+        const res = await fetch(feedUrl);
+
+        if (!res.ok) {
+          throw new Error(`Failed to fetch jobs XML: ${res.status}`);
+        }
+
+        const xmlText = await res.text();
+        const parsedJobs = parseJobsFromXml(xmlText);
+
+        if (!isMounted) return;
+
+        if (parsedJobs.length > 0) {
+          setJobs(parsedJobs);
+          setHasError(false);
+        } else {
+          // If XML was empty or parsing failed, fall back to static jobs.
+          setJobs(FALLBACK_JOBS);
+          setHasError(true);
+        }
+      } catch (error) {
+        if (!isMounted) return;
+        // On any error, fall back to static jobs so the UI still shows listings.
+        setJobs(FALLBACK_JOBS);
+        setHasError(true);
+      } finally {
+        if (isMounted) {
+          setIsLoading(false);
+        }
+      }
+    }
+
+    loadJobsFromXml();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const visibleJobs = jobs.slice(0, visibleCount);
+  const canLoadMore = visibleCount < jobs.length;
+
   return (
     <section className="w-full bg-[#f5f7fb] py-10 sm:py-12 lg:py-14">
       <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
@@ -248,9 +380,30 @@ export default function LatestJobsTable() {
                 </tr>
               </thead>
               <tbody>
-                {JOBS.map((job, idx) => (
+                {isLoading && (
+                  <tr>
+                    <td
+                      colSpan={6}
+                      className="px-4 sm:px-6 py-6 text-center text-neutral-500"
+                    >
+                      Loading job listings...
+                    </td>
+                  </tr>
+                )}
+                {!isLoading && visibleJobs.length === 0 && (
+                  <tr>
+                    <td
+                      colSpan={6}
+                      className="px-4 sm:px-6 py-6 text-center text-neutral-500"
+                    >
+                      No job listings are available right now.
+                    </td>
+                  </tr>
+                )}
+                {!isLoading &&
+                  visibleJobs.map((job, idx) => (
                   <tr
-                    key={job.id}
+                    key={job.id || idx}
                     className={idx % 2 === 1 ? "bg-white" : "bg-[#f9fbff]"}
                   >
                     {/* Apply button as first column */}
@@ -326,11 +479,16 @@ export default function LatestJobsTable() {
           </div>
 
           {/* Load more row */}
-          <div className="px-4 sm:px-6 md:px-8 py-4 text-center bg-white">
-            <button className="text-sm font-semibold text-[#19478e] hover:underline">
-              Load More Job Listings
-            </button>
-          </div>
+          {canLoadMore && (
+            <div className="px-4 sm:px-6 md:px-8 py-4 text-center bg-white">
+              <button
+                className="text-sm font-semibold text-[#19478e] hover:underline"
+                onClick={() => setVisibleCount(jobs.length)}
+              >
+                Load More Job Listings
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>
