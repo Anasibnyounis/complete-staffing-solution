@@ -11,7 +11,7 @@ interface MenuOption {
 }
 
 const menuOptions: MenuOption[] = [
-  { id: "our-solutions", title: "Our Solutions", description: "Our solutions should break down into Retained, Executive search, Contract, Direct-Hire", image: "/about us/our service placeholder.jpg" },
+  { id: "our-solutions", title: "Our Solutions", description: "We focus on Retained, Executive, Contract and Direct-Hire Searches for a vast array of clients.", image: "/about us/our service placeholder.jpg" },
   { id: "healthcare", title: "Healthcare", description: "Connecting healthcare professionals with leading medical facilities to support quality patient care.", image: "/industries detail pages/healthcare-hero.jpg" },
   { id: "financial-services", title: "Financial Services", description: "Expert financial talent for banking, accounting, and fintech industries to drive your business forward.", image: "/industries detail pages/agriculture-hero.jpg" },
   { id: "real-estate", title: "Real Estate", description: "Skilled professionals for property management and real estate services to maximize your property investments.", image: "/industries detail pages/real-estate.jpg" },
