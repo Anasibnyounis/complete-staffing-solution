@@ -24,8 +24,8 @@ export default function OurSolutionsHero() {
             Our Solutions
           </h1>
           <p className="text-white text-[clamp(16px,2vw,20px)] leading-relaxed m-0 mb-8 max-w-[550px] drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]">
-            Our solutions should break down into Retained, Executive search,
-            Contract, Direct-Hire
+          We focus on Retained, Executive, Contract and Direct-Hire Searches for a vast array of clients.
+
           </p>
           <Link
             href="/job-request"
