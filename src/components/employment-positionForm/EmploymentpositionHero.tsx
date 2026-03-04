@@ -1,33 +1,22 @@
 "use client";
 
-import styles from "./EmploymentpositionHero.module.css";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-jakarta",
-});
 export default function EmploymentpositionHero() {
   return (
-    <section className={styles.heroSection}>
-      {/* Dark overlay */}
-      <div className={styles.heroOverlay} />
-
-      {/* Content */}
-      <div className={styles.heroContent}>
-        <div className={styles.heroText}>
-          <h1 className={styles.heroTitle}>
-Online Application          </h1>
-          <p className={styles.heroSubtitle}>
-            Kindly take the opportunity to review the current openings on our job board, where you have the option to submit direct applications for the positions of interest. In the event that you do not come across a role that aligns with your preferences or career aspirations, we encourage you to provide your information below. By doing so, our dedicated team of recruiters will promptly reach out to engage in a more comprehensive discussion regarding potential opportunities that may be a suitable fit for your professional goals. Your proactive engagement in this process is appreciated, and we look forward to the possibility of welcoming you to our organization.
-          </p>
-        </div>
+    <section className="relative w-full min-h-[260px] sm:min-h-[300px] md:min-h-[340px] flex items-center justify-center overflow-hidden bg-gradient-to-r from-[#19478e] via-[#225eb9] to-[#6CA642]">
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute -left-10 top-10 w-40 h-40 rounded-full border border-white/40" />
+        <div className="absolute right-6 top-12 w-24 h-24 rounded-full border border-white/30" />
+        <div className="absolute left-1/3 bottom-8 w-32 h-32 rounded-full border border-white/20" />
+      </div>
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-14 text-center">
+        <h1 className="font-[var(--font-plus-jakarta)] font-bold text-white text-[clamp(26px,4vw,40px)] mb-4 tracking-wide uppercase">
+          Online Application
+        </h1>
+        <p className="font-[var(--font-inter)] text-white/95 text-[clamp(14px,1.5vw,17px)] leading-relaxed max-w-[900px] mx-auto">
+          Review our current openings on the job board and apply directly for roles that interest you. If you do not see
+          a perfect match today, share your information below and our recruiters will connect with you about
+          opportunities that fit your goals.
+        </p>
       </div>
     </section>
   );

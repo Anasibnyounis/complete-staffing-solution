@@ -1,22 +1,9 @@
 "use client";
 
-
-import Image from "next/image";
 import { useRef, useState } from "react";
-import styles from "./EmploymentForm.module.css";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-jakarta",
-});
-const PLACEHOLDER_IMAGE = "/for%20employer/pic.jpg";
+const OFFICE_ILLUSTRATION =
+  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80";
 const UPLOAD_ICON = "/for%20employer/material-symbols-light_upload-file-outline.svg";
 
 export default function EmploymentForm() {
@@ -24,141 +11,286 @@ export default function EmploymentForm() {
   const [fileName, setFileName] = useState<string>("No file chosen");
 
   return (
-    <section className={styles.section} aria-labelledby="form-title">
-      <div className={styles.formCard}>
-        <div className={styles.headingBlock}>
-          <h2 id="form-title" className={styles.title}>
-            EMPLOYMENT APPLICATION
-          </h2>
-          <p className={styles.subtitle}>
-            Please contact us to discuss your hiring needs.
-          </p>
+    <section className="w-full bg-gradient-to-b from-white to-sky-50/30 py-12 sm:py-16 md:py-20">
+      <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
+          {/* Form Card */}
+          <div className="flex-1 max-w-[650px] mx-auto lg:mx-0">
+            <div className="bg-[#19478e] rounded-3xl shadow-xl p-6 sm:p-8 md:p-10">
+              <div className="mb-8">
+                <h2 className="font-[var(--font-plus-jakarta)] font-bold text-white text-[clamp(20px,3vw,28px)] uppercase tracking-wide mb-3">
+                  Employment Application
+                </h2>
+                <p className="font-[var(--font-inter)] text-white/90 text-sm sm:text-base">
+                  Please contact us to discuss your hiring needs.
+                </p>
+              </div>
+
+              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+                {/* Email Address */}
+                <div>
+                  <label htmlFor="email" className="block text-white font-medium mb-2 text-sm">
+                    Email Address
+                  </label>
+                  <input 
+                    id="email" 
+                    type="email" 
+                    name="email" 
+                    className="w-full px-4 py-3 rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all"
+                    placeholder="Enter your email"
+                    required 
+                  />
+                </div>
+
+                {/* Full Name & Phone Number */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="fullName" className="block text-white font-medium mb-2 text-sm">
+                      Full Name
+                    </label>
+                    <input 
+                      id="fullName" 
+                      type="text" 
+                      name="fullName" 
+                      className="w-full px-4 py-3 rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all"
+                      placeholder="Your full name"
+                      required 
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-white font-medium mb-2 text-sm">
+                      Phone Number
+                    </label>
+                    <input 
+                      id="phone" 
+                      type="tel" 
+                      name="phone" 
+                      className="w-full px-4 py-3 rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all"
+                      placeholder="Your phone number"
+                      required 
+                    />
+                  </div>
+                </div>
+
+                {/* Street Address */}
+                <div>
+                  <label htmlFor="street" className="block text-white font-medium mb-2 text-sm">
+                    Street Address
+                  </label>
+                  <input 
+                    id="street" 
+                    type="text" 
+                    name="street" 
+                    className="w-full px-4 py-3 rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all"
+                    placeholder="Your street address"
+                  />
+                </div>
+
+                {/* City & State */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="city" className="block text-white font-medium mb-2 text-sm">
+                      City
+                    </label>
+                    <input 
+                      id="city" 
+                      type="text" 
+                      name="city" 
+                      className="w-full px-4 py-3 rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all"
+                      placeholder="Your city"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="state" className="block text-white font-medium mb-2 text-sm">
+                      State
+                    </label>
+                    <input 
+                      id="state" 
+                      type="text" 
+                      name="state" 
+                      className="w-full px-4 py-3 rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all"
+                      placeholder="Your state"
+                    />
+                  </div>
+                </div>
+
+                {/* Zip Code & Salary Range */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="zip" className="block text-white font-medium mb-2 text-sm">
+                      Zip Code
+                    </label>
+                    <input 
+                      id="zip" 
+                      type="text" 
+                      name="zip" 
+                      className="w-full px-4 py-3 rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all"
+                      placeholder="Your zip code"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="salary" className="block text-white font-medium mb-2 text-sm">
+                      Desired Salary Range
+                    </label>
+                    <select 
+                      id="salary" 
+                      name="salary" 
+                      className="w-full px-4 py-3 rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all cursor-pointer"
+                    >
+                      <option value="" className="text-neutral-900">Please Select a Range</option>
+                      <option value="30-50k" className="text-neutral-900">$30,000 - $50,000</option>
+                      <option value="50-80k" className="text-neutral-900">$50,000 - $80,000</option>
+                      <option value="80k+" className="text-neutral-900">$80,000+</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Position & Source */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="position" className="block text-white font-medium mb-2 text-sm">
+                      Position Interested in
+                    </label>
+                    <select 
+                      id="position" 
+                      name="position" 
+                      className="w-full px-4 py-3 rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all cursor-pointer"
+                    >
+                      <option value="" className="text-neutral-900">Please Choose</option>
+                      <option value="accounting" className="text-neutral-900">Accounting</option>
+                      <option value="admin" className="text-neutral-900">Administrative</option>
+                      <option value="it" className="text-neutral-900">Information Technology</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="hearAbout" className="block text-white font-medium mb-2 text-sm">
+                      How did you hear about us?
+                    </label>
+                    <select 
+                      id="hearAbout" 
+                      name="hearAbout" 
+                      className="w-full px-4 py-3 rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all cursor-pointer"
+                    >
+                      <option value="" className="text-neutral-900">Please Choose</option>
+                      <option value="search" className="text-neutral-900">Search Engine</option>
+                      <option value="referral" className="text-neutral-900">Referral</option>
+                      <option value="social" className="text-neutral-900">Social Media</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Type of Employment (Checkboxes) */}
+                <div>
+                  <label className="block text-white font-medium mb-3 text-sm">
+                    Type of Employment Desired:
+                  </label>
+                  <div className="flex flex-wrap gap-4">
+                    <label className="flex items-center gap-2 text-white cursor-pointer">
+                      <input 
+                        type="checkbox" 
+                        name="type" 
+                        value="full-time" 
+                        className="w-4 h-4 rounded border-white/30 bg-white/10 text-white focus:ring-white/30 focus:ring-2"
+                      />
+                      <span className="text-sm">Full Time</span>
+                    </label>
+                    <label className="flex items-center gap-2 text-white cursor-pointer">
+                      <input 
+                        type="checkbox" 
+                        name="type" 
+                        value="part-time" 
+                        className="w-4 h-4 rounded border-white/30 bg-white/10 text-white focus:ring-white/30 focus:ring-2"
+                      />
+                      <span className="text-sm">Part Time</span>
+                    </label>
+                    <label className="flex items-center gap-2 text-white cursor-pointer">
+                      <input 
+                        type="checkbox" 
+                        name="type" 
+                        value="temporary" 
+                        className="w-4 h-4 rounded border-white/30 bg-white/10 text-white focus:ring-white/30 focus:ring-2"
+                      />
+                      <span className="text-sm">Temporary</span>
+                    </label>
+                  </div>
+                </div>
+
+                {/* File Upload Block */}
+                <div>
+                  <label className="block text-white font-medium mb-3 text-sm">
+                    Upload Resume (Optional)
+                  </label>
+                  <div className="flex items-center gap-4 p-4 border-2 border-dashed border-white/30 rounded-lg bg-white/5">
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      className="flex items-center justify-center w-12 h-12 rounded-lg bg-white/20 hover:bg-white/30 transition-colors cursor-pointer"
+                    >
+                      <img src={UPLOAD_ICON} alt="upload" className="w-6 h-6 invert" />
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        className="sr-only"
+                        accept=".pdf,.doc,.docx,.txt"
+                        onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "No file chosen")}
+                      />
+                    </button>
+                    <div className="flex-1">
+                      <span className="block text-white font-medium text-sm">{fileName}</span>
+                      <span className="block text-white/70 text-xs">Max. file size: 128 MB.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <button 
+                  type="submit" 
+                  className="w-full mt-8 bg-white text-[#19478e] font-semibold py-3.5 px-6 rounded-lg hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-white/30 transition-all duration-200 text-base"
+                >
+                  Submit Application
+                </button>
+              </form>
+            </div>
+          </div>
+
+          {/* Illustration / Info Panel */}
+          <div className="flex-1 max-w-[550px] mx-auto lg:mx-0">
+            <div className="h-full min-h-[560px] rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-[#19478e] via-[#225eb9] to-[#6CA642] text-white flex flex-col">
+              <div className="p-7 sm:p-8 md:p-9 pb-4 flex flex-col gap-4">
+                <h3 className="font-[var(--font-plus-jakarta)] font-semibold text-[clamp(18px,2.4vw,22px)]">
+                  Why Apply with Complete Staffing?
+                </h3>
+                <p className="font-[var(--font-inter)] text-sm sm:text-[15px] text-white/90 leading-relaxed">
+                  We partner with top employers across healthcare, finance, real estate and more. Submitting your
+                  application helps our recruiters match you with roles that fit your skills, experience, and goals.
+                </p>
+                <ul className="mt-2 space-y-2 text-sm sm:text-[15px] font-[var(--font-inter)]">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white" />
+                    <span>Access to exclusive opportunities that are not posted publicly.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white" />
+                    <span>Guidance from experienced recruiters throughout the hiring process.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white" />
+                    <span>Flexible roles including permanent, temporary, and contract positions.</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="relative flex-1 px-7 pb-8 sm:px-8 sm:pb-9">
+                <div className="w-full h-full min-h-[260px] sm:min-h-[320px] md:min-h-[360px] rounded-2xl bg-white/10 overflow-hidden">
+                  <img
+                    src={OFFICE_ILLUSTRATION}
+                    alt="Modern open office with team collaborating around a table"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-          {/* Email Address */}
-          <div className={styles.fieldGroup}>
-            <label htmlFor="email" className={styles.label}>Email Address</label>
-            <input id="email" type="email" name="email" className={styles.input} required />
-          </div>
-
-          {/* Full Name & Phone Number */}
-          <div className={styles.fieldRow}>
-            <div className={styles.fieldGroup}>
-              <label htmlFor="fullName" className={styles.label}>Full Name</label>
-              <input id="fullName" type="text" name="fullName" className={styles.input} required />
-            </div>
-            <div className={styles.fieldGroup}>
-              <label htmlFor="phone" className={styles.label}>Phone Number</label>
-              <input id="phone" type="tel" name="phone" className={styles.input} required />
-            </div>
-          </div>
-
-          {/* Street Address */}
-          <div className={styles.fieldGroup}>
-            <label htmlFor="street" className={styles.label}>Street Address</label>
-            <input id="street" type="text" name="street" className={styles.input} />
-          </div>
-
-          {/* City & State */}
-          <div className={styles.fieldRow}>
-            <div className={styles.fieldGroup}>
-              <label htmlFor="city" className={styles.label}>City</label>
-              <input id="city" type="text" name="city" className={styles.input} />
-            </div>
-            <div className={styles.fieldGroup}>
-              <label htmlFor="state" className={styles.label}>State</label>
-              <input id="state" type="text" name="state" className={styles.input} />
-            </div>
-          </div>
-
-          {/* Zip Code & Salary Range */}
-          <div className={styles.fieldRow}>
-            <div className={styles.fieldGroup}>
-              <label htmlFor="zip" className={styles.label}>Zip Code</label>
-              <input id="zip" type="text" name="zip" className={styles.input} />
-            </div>
-            <div className={styles.fieldGroup}>
-              <label htmlFor="salary" className={styles.label}>Desired Salary Range</label>
-              <select id="salary" name="salary" className={styles.select}>
-                <option value="">Please Select a Range</option>
-                <option value="30-50k">$30,000 - $50,000</option>
-                <option value="50-80k">$50,000 - $80,000</option>
-                <option value="80k+">$80,000+</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Position & Source */}
-          <div className={styles.fieldRow}>
-            <div className={styles.fieldGroup}>
-              <label htmlFor="position" className={styles.label}>Position Interested in</label>
-              <select id="position" name="position" className={styles.select}>
-                <option value="">Please Choose</option>
-                <option value="accounting">Accounting</option>
-                <option value="admin">Administrative</option>
-                <option value="it">Information Technology</option>
-              </select>
-            </div>
-            <div className={styles.fieldGroup}>
-              <label htmlFor="hearAbout" className={styles.label}>How did you hear about us?</label>
-              <select id="hearAbout" name="hearAbout" className={styles.select}>
-                <option value="">Please Choose</option>
-                <option value="search">Search Engine</option>
-                <option value="referral">Referral</option>
-                <option value="social">Social Media</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Type of Employment (Checkboxes) */}
-          <div className={styles.checkboxSection}>
-            <label className={styles.label}>Type of Employment Desired:</label>
-            <div className={styles.checkboxGroup}>
-              <label className={styles.checkboxLabel}>
-                <input type="checkbox" name="type" value="full-time" /> Full Time
-              </label>
-              <label className={styles.checkboxLabel}>
-                <input type="checkbox" name="type" value="part-time" /> Part Time
-              </label>
-              <label className={styles.checkboxLabel}>
-                <input type="checkbox" name="type" value="temporary" /> Temporary
-              </label>
-            </div>
-          </div>
-
-          {/* File Upload Block */}
-          <div className={styles.uploadBlock}>
-            <div className={styles.uploadRow}>
-              <div className={styles.uploadBox} onClick={() => fileInputRef.current?.click()}>
-                <Image src={UPLOAD_ICON} alt="upload" width={30} height={30} />
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  className={styles.visuallyHidden}
-                  onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "No file chosen")}
-                />
-              </div>
-              <div className={styles.uploadInfo}>
-                <span className={styles.fileName}>{fileName}</span>
-                <span className={styles.maxSize}>Max. file size: 128 MB.</span>
-              </div>
-            </div>
-          </div>
-
-          <button type="submit" className={styles.submitButton}>
-            Submit
-          </button>
-        </form>
       </div>
-
-      <Image 
-        src={PLACEHOLDER_IMAGE}
-        alt=""
-        width={689}
-        height={1200}
-        className={styles.placeholderImage}
-      />
     </section>
   );
 }
