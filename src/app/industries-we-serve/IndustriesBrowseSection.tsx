@@ -343,7 +343,7 @@ export default function IndustriesBrowseSection() {
   return (
     <div className={styles.groupParent}>
       {/* Search + filters strip */}
-      <div className={styles.rectangleParent}>
+      {/* <div className={styles.rectangleParent}>
         <div className={styles.groupChild} aria-hidden />
         <div className={styles.groupContainer}>
           <div className={styles.rectangleGroup}>
@@ -385,7 +385,7 @@ export default function IndustriesBrowseSection() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Industry cards grid */}
       <div className={styles.cardsGrid}>

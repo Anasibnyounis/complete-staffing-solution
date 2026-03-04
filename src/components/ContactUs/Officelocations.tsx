@@ -44,6 +44,27 @@ const OFFICES: Office[] = [
     phone: "(860) 555-0199",
   },
   {
+    name: "Burlington Office",
+    address: "25 Burlington Mall Road, Suite 406",
+    city: "Burlington",
+    state: "MA 01803",
+    phone: "(781) 270-0004",
+  },
+  {
+    name: "Shelton Office",
+    address: "2 Corporate Drive, Suite 943",
+    city: "Shelton",
+    state: "CT 06484",
+    phone: "(203) 533-2110",
+  },
+  {
+    name: "Fort Myers Office",
+    address: "4575 Via Royale Suite 218",
+    city: "Fort Myers",
+    state: "FL 33907",
+    phone: "(239) 555-0185",
+  },
+  {
     name: "Remote & National",
     address: "Serving clients across the U.S.",
     city: "",
