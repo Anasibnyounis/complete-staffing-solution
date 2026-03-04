@@ -80,7 +80,7 @@ export default function Header() {
     <header className="relative z-50 w-full bg-white text-sm text-neutral-900 font-[var(--font-inter)] shadow-sm">
       {/* Top bar */}
       <div className="w-full bg-[#19478e] text-white">
-        <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-2 2xl:px-8 font-[var(--font-dm-sans)]">
+        <div className="w-full max-w-[1280px] 2xl:max-w-[1840px] mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-2 2xl:px-8 font-[var(--font-dm-sans)]">
           <div className="flex flex-wrap items-center gap-4">
             <a
               href="mailto:Contactus@completestaffingsolutions.com"
@@ -128,13 +128,13 @@ export default function Header() {
             <Link href="/" className={navItemClass("/")} onClick={closeMobileMenu}>
               Home
             </Link>
-            <Link
+            {/* <Link
               href="/about-us"
               className={navItemClass("/about-us")}
               onClick={closeMobileMenu}
             >
               About
-            </Link>
+            </Link> */}
 
             {/* For Employers */}
             <div className="relative group">
@@ -148,17 +148,17 @@ export default function Header() {
               <div className="hidden group-hover:block absolute left-0 top-full mt-3 w-56 rounded-md bg-white shadow-lg py-2 z-20">
                 <Link
                   href="/industries-we-serve"
-                  className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
+                  className="block px-5 py-2.5 text:[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
                   onClick={closeMobileMenu}
                 >
                   Industries
                 </Link>
                 <Link
-                  href="/Departments"
+                  href="/our-solutions"
                   className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
                   onClick={closeMobileMenu}
                 >
-                  Departments
+                  Our Solutions
                 </Link>
               </div>
             </div>
@@ -282,11 +282,11 @@ export default function Header() {
                     Industries
                   </Link>
                   <Link
-                    href="/Departments"
+                    href="/our-solutions"
                     className="block py-1.5 text-neutral-700"
                     onClick={closeMobileMenu}
                   >
-                    Departments
+                    Our Solutions
                   </Link>
                 </div>
               )}

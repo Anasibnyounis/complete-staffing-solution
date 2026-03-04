@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./IndustriesBrowseSection.module.css";
+import DepartmentCards from "../../components/Departments/Departmentcards";
 
 const INDUSTRIES = [
   // {
@@ -20,13 +21,13 @@ const INDUSTRIES = [
   //   description: "Creative professionals for galleries, studios, and artistic ventures",
   //   iconColor: "#6CA642",
   // },
-  {
-    id: "construction",
-    image: "/industries/cards/construction.jpg",
-    title: "Construction",
-    description: "Experienced workers for building, engineering, and construction projects",
-    iconColor: "#6CA642",
-  },
+  // {
+  //   id: "construction",
+  //   image: "/industries/cards/construction.jpg",
+  //   title: "Construction",
+  //   description: "Experienced workers for building, engineering, and construction projects",
+  //   iconColor: "#6CA642",
+  // },
   // {
   //   id: "consumergoods",
   //   image: "/industries/cards/consumer goods.jpg",
@@ -71,7 +72,7 @@ const INDUSTRIES = [
   // },
   {
     id: "finance",
-    image: "/industries/cards/education.jpg",
+    image: "/67db95411df971225cd735e7_emerging_technologies_in_finance.webp",
     title: "Finance",
     description: "Financial experts for banking, accounting, and investment services",
     iconColor: "#6CA642",
@@ -138,7 +139,7 @@ const INDUSTRIES = [
 
   {
     id: "real-estate",
-    image: "/industries/cards/real estate.jpg",
+    image: "/valuation-multiples-for-a-property-management-firm-1-980x551.jpg",
     title: "Real Estate",
     description: "Reliable agents and support staff for real estate industry",
     iconColor: "#6CA642",
@@ -434,6 +435,16 @@ export default function IndustriesBrowseSection() {
           </button>
         </div>
       )}
+
+      {/* Departments heading + cards section */}
+      <section className="w-full mt-10 mb-4 px-4 sm:px-6 md:px-8 lg:px-10 2xl:px-16">
+        <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto">
+          <h2 className="font-[var(--font-plus-jakarta)] text-[clamp(26px,3vw,32px)] font-bold text-[#022d6d] m-0">
+            Departments
+          </h2>
+        </div>
+      </section>
+      <DepartmentCards />
     </div>
   );
 }
