@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -47,21 +47,51 @@ function CloseIcon({ className }: { className?: string }) {
   );
 }
 
+type DropdownKey = "employers" | "jobseekers" | "contact" | null;
+
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
+  const [desktopOpenDropdown, setDesktopOpenDropdown] = useState<DropdownKey>(null);
   const [mounted, setMounted] = useState(false);
 
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // Close desktop dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setDesktopOpenDropdown(null);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Close dropdowns on route change
+  useEffect(() => {
+    setDesktopOpenDropdown(null);
+    setIsMobileMenuOpen(false);
+    setMobileOpenDropdown(null);
+  }, [pathname]);
+
   const closeMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(false);
     setMobileOpenDropdown(null);
   }, []);
+
+  const closeAllDesktopDropdowns = () => {
+    setDesktopOpenDropdown(null);
+  };
+
+  const toggleDesktopDropdown = (key: DropdownKey) => {
+    setDesktopOpenDropdown((prev) => (prev === key ? null : key));
+  };
 
   const toggleMobileDropdown = (key: string) => {
     setMobileOpenDropdown((prev) => (prev === key ? null : key));
@@ -77,7 +107,7 @@ export default function Header() {
     `nav-link-underline ${isActive(href) ? "active" : ""}`;
 
   return (
-    <header className="relative z-50 w-full bg-white text-sm text-neutral-900 font-[var(--font-inter)] shadow-sm">
+    <header ref={headerRef} className="relative z-50 w-full bg-white text-sm text-neutral-900 font-[var(--font-inter)] shadow-sm">
       {/* Top bar */}
       <div className="w-full bg-[#19478e] text-white">
         <div className="w-full max-w-[1280px] 2xl:max-w-[1840px] mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-2 2xl:px-8 font-[var(--font-dm-sans)]">
@@ -104,7 +134,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Logo row - solid background so it never blends with hero */}
+      {/* Logo row */}
       <div className="w-full bg-white border-b border-neutral-200">
         <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto flex items-center justify-between px-4 py-3 lg:py-4 2xl:px-8">
           <Link
@@ -125,104 +155,124 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-6 text-[15px]" aria-label="Main navigation">
-            <Link href="/" className={navItemClass("/")} onClick={closeMobileMenu}>
+            <Link href="/" className={navItemClass("/")} onClick={closeAllDesktopDropdowns}>
               Home
             </Link>
-            {/* <Link
-              href="/about-us"
-              className={navItemClass("/about-us")}
-              onClick={closeMobileMenu}
-            >
-              About
-            </Link> */}
 
             {/* For Employers */}
-            <div className="relative group">
+            <div className="relative">
               <button
                 type="button"
+                onClick={() => toggleDesktopDropdown("employers")}
+                aria-expanded={desktopOpenDropdown === "employers"}
+                aria-haspopup="true"
                 className="inline-flex items-center gap-1 font-semibold pb-1 border-b-2 border-transparent -mb-1.5 hover:text-[#6ca642] transition-colors"
               >
                 For Employers
-                <ChevronDownIcon className="w-5 h-5" />
+                <ChevronDownIcon
+                  className={`w-5 h-5 transition-transform duration-200 ${
+                    desktopOpenDropdown === "employers" ? "rotate-180" : ""
+                  }`}
+                />
               </button>
-              <div className="hidden group-hover:block absolute left-0 top-full mt-3 w-56 rounded-md bg-white shadow-lg py-2 z-20">
-                <Link
-                  href="/industries-we-serve"
-                  className="block px-5 py-2.5 text:[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
-                  onClick={closeMobileMenu}
-                >
-                  Industries
-                </Link>
-                <Link
-                  href="/our-solutions"
-                  className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
-                  onClick={closeMobileMenu}
-                >
-                  Our Solutions
-                </Link>
-              </div>
+              {desktopOpenDropdown === "employers" && (
+                <div className="absolute left-0 top-full mt-3 w-56 rounded-md bg-white shadow-lg py-2 z-20 border border-neutral-100">
+                  <Link
+                    href="/industries-we-serve"
+                    className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
+                    onClick={closeAllDesktopDropdowns}
+                  >
+                    Industries
+                  </Link>
+                  <Link
+                    href="/our-solutions"
+                    className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
+                    onClick={closeAllDesktopDropdowns}
+                  >
+                    Our Solutions
+                  </Link>
+                </div>
+              )}
             </div>
 
             <Link
               href="/our-recruiting-process"
               className={navItemClass("/our-recruiting-process")}
-              onClick={closeMobileMenu}
+              onClick={closeAllDesktopDropdowns}
             >
               Our Recruiting Process
             </Link>
 
             {/* For Job Seekers */}
-            <div className="relative group">
+            <div className="relative">
               <button
                 type="button"
+                onClick={() => toggleDesktopDropdown("jobseekers")}
+                aria-expanded={desktopOpenDropdown === "jobseekers"}
+                aria-haspopup="true"
                 className="inline-flex items-center gap-1 font-semibold pb-1 border-b-2 border-transparent -mb-1.5 hover:text-[#6ca642] transition-colors"
               >
                 Job Seekers
-                <ChevronDownIcon className="w-5 h-5" />
+                <ChevronDownIcon
+                  className={`w-5 h-5 transition-transform duration-200 ${
+                    desktopOpenDropdown === "jobseekers" ? "rotate-180" : ""
+                  }`}
+                />
               </button>
-              <div className="hidden group-hover:block absolute left-0 top-full mt-3 w-56 rounded-md bg-white shadow-lg py-2 z-20">
-                <Link
-                  href="/open-position"
-                  className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
-                  onClick={closeMobileMenu}
-                >
-                  Open Positions
-                </Link>
-                <Link
-                  href="/employment-form"
-                  className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
-                  onClick={closeMobileMenu}
-                >
-                  For Job Applications
-                </Link>
-              </div>
+              {desktopOpenDropdown === "jobseekers" && (
+                <div className="absolute left-0 top-full mt-3 w-56 rounded-md bg-white shadow-lg py-2 z-20 border border-neutral-100">
+                  <Link
+                    href="/open-position"
+                    className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
+                    onClick={closeAllDesktopDropdowns}
+                  >
+                    Open Positions
+                  </Link>
+                  <Link
+                    href="/employment-form"
+                    className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
+                    onClick={closeAllDesktopDropdowns}
+                  >
+                    For Job Applications
+                  </Link>
+                </div>
+              )}
             </div>
 
             {/* Contact */}
-            <div className="relative group">
+            <div className="relative">
               <button
                 type="button"
+                onClick={() => toggleDesktopDropdown("contact")}
+                aria-expanded={desktopOpenDropdown === "contact"}
+                aria-haspopup="true"
                 className="inline-flex items-center gap-1 font-semibold pb-1 border-b-2 border-transparent -mb-1.5 hover:text-[#6ca642] transition-colors"
               >
                 Contact
-                <ChevronDownIcon className="w-5 h-5" />
+                <ChevronDownIcon
+                  className={`w-5 h-5 transition-transform duration-200 ${
+                    desktopOpenDropdown === "contact" ? "rotate-180" : ""
+                  }`}
+                />
               </button>
-              <div className="hidden group-hover:block absolute right-0 top-full mt-3 w-64 rounded-md bg-white shadow-lg py-2 z-20">
-                <Link
-                  href="/contact"
-                  className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
-                  onClick={closeMobileMenu}
-                >
-                  Our Locations
-                </Link>
-                <Link
-                  href="/policies"
-                  className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
-                  onClick={closeMobileMenu}
-                >
-                  Policies and Disclosures
-                </Link>
-              </div>
+              {desktopOpenDropdown === "contact" && (
+                <div className="absolute right-0 top-full mt-3 w-64 rounded-md bg-white shadow-lg py-2 z-20 border border-neutral-100">
+                  <Link
+                    href="/contact"
+                    className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
+                    onClick={closeAllDesktopDropdowns}
+                  >
+                    Our Locations
+                  </Link>
+                  <Link
+                    href="/policies"
+                    className="block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]"
+                    onClick={closeAllDesktopDropdowns}
+                  >
+                    Policies and Disclosures
+                  </Link>
+                </div>
+              )}
             </div>
           </nav>
 
@@ -373,4 +423,3 @@ export default function Header() {
     </header>
   );
 }
-
