@@ -239,12 +239,12 @@ export default function LatestJobsTable() {
             <table className="min-w-full border-separate border-spacing-0 text-xs sm:text-sm font-[var(--font-inter)]">
               <thead>
                 <tr className="bg-[#eef2fb] text-left font-semibold text-neutral-600">
+                  <th className="px-4 sm:px-6 py-3 border-b border-neutral-200 text-left"></th>
                   <th className="px-4 sm:px-6 py-3 border-b border-neutral-200">Job Title</th>
                   <th className="px-4 sm:px-6 py-3 border-b border-neutral-200">Job ID</th>
                   <th className="px-4 sm:px-6 py-3 border-b border-neutral-200">Location</th>
                   <th className="px-4 sm:px-6 py-3 border-b border-neutral-200">Department</th>
                   <th className="px-4 sm:px-6 py-3 border-b border-neutral-200">Type</th>
-                  <th className="px-4 sm:px-6 py-3 border-b border-neutral-200 text-right"></th>
                 </tr>
               </thead>
               <tbody>
@@ -253,26 +253,30 @@ export default function LatestJobsTable() {
                     key={job.id}
                     className={idx % 2 === 1 ? "bg-white" : "bg-[#f9fbff]"}
                   >
-                    {/* Job title + status */}
+                    {/* Apply button as first column */}
                     <td className="px-4 sm:px-6 py-3 border-b border-neutral-100">
-                      <div className="flex items-center gap-3">
-                        <div className="h-11 w-11 rounded-xl bg-gradient-to-br from-[#e2efff] to-[#f4f8ff] border border-[#d1e2ff]" />
-                        <div className="flex flex-col gap-1">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="font-semibold text-neutral-900">{job.title}</span>
-                            {job.status === "Urgent" && (
-                              <span className="rounded-full bg-[#fee2e2] px-2 py-[2px] text-[10px] font-semibold text-[#b91c1c]">
-                                Urgent
-                              </span>
-                            )}
-                            {job.status === "New" && (
-                              <span className="rounded-full bg-[#dcfce7] px-2 py-[2px] text-[10px] font-semibold text-[#166534]">
-                                New
-                              </span>
-                            )}
-                          </div>
-                          <span className="text-[11px] text-neutral-500">{job.id}</span>
+                      <button className="inline-flex items-center justify-center rounded-full bg-[#1a458b] px-4 py-1.5 text-xs font-semibold text-white hover:bg-[#153874] transition-colors">
+                        Apply Now
+                      </button>
+                    </td>
+
+                    {/* Job title + status (without leading icon box) */}
+                    <td className="px-4 sm:px-6 py-3 border-b border-neutral-100">
+                      <div className="flex flex-col gap-1">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="font-semibold text-neutral-900">{job.title}</span>
+                          {job.status === "Urgent" && (
+                            <span className="rounded-full bg-[#fee2e2] px-2 py-[2px] text-[10px] font-semibold text-[#b91c1c]">
+                              Urgent
+                            </span>
+                          )}
+                          {job.status === "New" && (
+                            <span className="rounded-full bg-[#dcfce7] px-2 py-[2px] text-[10px] font-semibold text-[#166534]">
+                              New
+                            </span>
+                          )}
                         </div>
+                        <span className="text-[11px] text-neutral-500">{job.id}</span>
                       </div>
                     </td>
 
@@ -303,7 +307,7 @@ export default function LatestJobsTable() {
                       </span>
                     </td>
 
-                    {/* Type + Apply */}
+                    {/* Type */}
                     <td className="px-4 sm:px-6 py-3 border-b border-neutral-100">
                       <span
                         className={
@@ -314,11 +318,6 @@ export default function LatestJobsTable() {
                       >
                         {job.type}
                       </span>
-                    </td>
-                    <td className="px-4 sm:px-6 py-3 border-b border-neutral-100 text-right">
-                      <button className="inline-flex items-center justify-center rounded-full bg-[#1a458b] px-4 py-1.5 text-xs font-semibold text-white hover:bg-[#153874] transition-colors">
-                        Apply Now
-                      </button>
                     </td>
                   </tr>
                 ))}

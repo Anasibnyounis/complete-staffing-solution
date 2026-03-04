@@ -21,7 +21,6 @@
 "use client";
 
 import JobHero from "@/components/Openposition/Jobhero";
-import FeaturedJobs from "@/components/Openposition/Featuredjobs";
 import LatestJobsTable from "@/components/Openposition/Latestjobstable";
 import JobRequestSection from "@/components/JobRequestSection";
 
@@ -29,7 +28,6 @@ export default function OpenPositionPage() {
   return (
     <main className="min-h-screen bg-white">
       <JobHero />
-      <FeaturedJobs />
       <LatestJobsTable />
       <JobRequestSection />
     </main>

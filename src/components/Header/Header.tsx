@@ -177,7 +177,7 @@ export default function Header() {
                 type="button"
                 className="inline-flex items-center gap-1 font-semibold pb-1 border-b-2 border-transparent -mb-1.5 hover:text-[#6ca642] transition-colors"
               >
-                For Job Seekers
+                Job Seekers
                 <ChevronDownIcon className="w-5 h-5" />
               </button>
               <div className="hidden group-hover:block absolute left-0 top-full mt-3 w-56 rounded-md bg-white shadow-lg py-2 z-20">
@@ -307,7 +307,7 @@ export default function Header() {
                 className="w-full flex items-center justify-between py-2 font-semibold"
                 onClick={() => toggleMobileDropdown("jobseekers")}
               >
-                <span>For Job Seekers</span>
+                <span>Job Seekers</span>
                 <ChevronDownIcon
                   className={`w-5 h-5 transition-transform ${
                     mobileOpenDropdown === "jobseekers" ? "rotate-180" : ""
