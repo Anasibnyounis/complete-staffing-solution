@@ -20,14 +20,12 @@
 // src/app/open-position/page.tsx
 "use client";
 
-import JobHero from "@/components/Openposition/Jobhero";
 import LatestJobsTable from "@/components/Openposition/Latestjobstable";
 import JobRequestSection from "@/components/JobRequestSection";
 
 export default function OpenPositionPage() {
   return (
     <main className="min-h-screen bg-white">
-      <JobHero />
       <LatestJobsTable />
       <JobRequestSection />
     </main>

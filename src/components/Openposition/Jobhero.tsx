@@ -121,22 +121,6 @@ export default function JobHero() {
               Search
             </button>
           </div>
-
-          {/* Stats row */}
-          {/* <div className="mt-4 grid grid-cols-3 gap-3 max-w-sm text-center text-[10px] sm:text-xs font-[var(--font-inter)]">
-            <div className="rounded-xl bg-white/10 border border-white/20 px-3 py-2">
-              <p className="font-semibold text-white text-sm sm:text-base">500+</p>
-              <p className="text-white/80">Companies Served</p>
-            </div>
-            <div className="rounded-xl bg-white/10 border border-white/20 px-3 py-2">
-              <p className="font-semibold text-white text-sm sm:text-base">12,000+</p>
-              <p className="text-white/80">Successful Placements</p>
-            </div>
-            <div className="rounded-xl bg-white/10 border border-white/20 px-3 py-2">
-              <p className="font-semibold text-white text-sm sm:text-base">25+</p>
-              <p className="text-white/80">Years of Experience</p>
-            </div>
-          </div> */}
         </div>
       </div>
     </section>

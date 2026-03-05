@@ -4,12 +4,20 @@ export default function SolutionsCategories() {
       <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto">
         {/* Retained Search Section */}
         <section className="mb-8 md:mb-10 last:mb-0">
-          <div className="mb-5">
-            <h2 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold uppercase m-0 text-[clamp(24px,3vw,32px)]">
-              Retained Search
-            </h2>
+          <div className="mb-5 flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#19478e] text-white text-sm font-semibold shadow-sm">
+              01
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#8093c2]">
+                Service Area
+              </span>
+              <h2 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold uppercase m-0 text-[clamp(24px,3vw,32px)]">
+                Retained Search
+              </h2>
+            </div>
           </div>
-          <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+          <div className="bg-gradient-to-br from-[#f9fbff] via-white to-[#eef2ff] rounded-xl border border-[#d7e2ff] shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
             <div className="p-6 sm:p-8">
               <div className="space-y-6">
                 <div>
@@ -67,12 +75,20 @@ export default function SolutionsCategories() {
 
         {/* Executive Search Section */}
         <section className="mb-8 md:mb-10 last:mb-0">
-          <div className="mb-5">
-            <h2 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold uppercase m-0 text-[clamp(24px,3vw,32px)]">
-              Executive Search  fasdfad
-            </h2>
+          <div className="mb-5 flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#19478e] text-white text-sm font-semibold shadow-sm">
+              02
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#8093c2]">
+                Service Area
+              </span>
+              <h2 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold uppercase m-0 text-[clamp(24px,3vw,32px)]">
+                Executive Search
+              </h2>
+            </div>
           </div>
-          <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+          <div className="bg-gradient-to-br from-[#f9fbff] via-white to-[#eef2ff] rounded-xl border border-[#d7e2ff] shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
             <div className="p-6 sm:p-8">
               <div className="space-y-6">
                 <div>
@@ -134,12 +150,20 @@ export default function SolutionsCategories() {
 
         {/* Contract Search Section */}
         <section className="mb-8 md:mb-10 last:mb-0">
-          <div className="mb-5">
-            <h2 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold uppercase m-0 text-[clamp(24px,3vw,32px)]">
-              Contract Search
-            </h2>
+          <div className="mb-5 flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#19478e] text-white text-sm font-semibold shadow-sm">
+              03
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#8093c2]">
+                Service Area
+              </span>
+              <h2 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold uppercase m-0 text-[clamp(24px,3vw,32px)]">
+                Contract Search
+              </h2>
+            </div>
           </div>
-          <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+          <div className="bg-gradient-to-br from-[#f9fbff] via-white to-[#eef2ff] rounded-xl border border-[#d7e2ff] shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
             <div className="p-6 sm:p-8">
               <div className="space-y-6">
                 <div>
@@ -196,12 +220,20 @@ export default function SolutionsCategories() {
 
         {/* Direct-Hire Search Section */}
         <section className="mb-8 md:mb-10 last:mb-0">
-          <div className="mb-5">
-            <h2 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold uppercase m-0 text-[clamp(24px,3vw,32px)]">
-              Direct-Hire Search
-            </h2>
+          <div className="mb-5 flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#19478e] text-white text-sm font-semibold shadow-sm">
+              04
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#8093c2]">
+                Service Area
+              </span>
+              <h2 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold uppercase m-0 text-[clamp(24px,3vw,32px)]">
+                Direct-Hire Search
+              </h2>
+            </div>
           </div>
-          <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+          <div className="bg-gradient-to-br from-[#f9fbff] via-white to-[#eef2ff] rounded-xl border border-[#d7e2ff] shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
             <div className="p-6 sm:p-8">
               <div className="space-y-6">
                 <div>

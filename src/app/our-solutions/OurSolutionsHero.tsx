@@ -29,7 +29,7 @@ export default function OurSolutionsHero() {
           </p>
           <Link
             href="/job-request"
-            className="inline-block py-3 px-5 bg-[#6CA642] text-white text-[22px] font-medium lowercase rounded no-underline transition-all duration-300 hover:bg-[#5d9338] hover:-translate-y-0.5 hover:shadow-lg w-full sm:w-auto max-w-[300px] sm:max-w-none text-center"
+            className="inline-block py-3 px-5 bg-[#6CA642] text-white text-[22px] font-medium rounded no-underline transition-all duration-300 hover:bg-[#5d9338] hover:-translate-y-0.5 hover:shadow-lg w-full sm:w-auto max-w-[300px] sm:max-w-none text-center"
           >
             Place Job Request
           </Link>
