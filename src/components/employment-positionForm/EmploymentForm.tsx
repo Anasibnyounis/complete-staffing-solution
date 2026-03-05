@@ -15,6 +15,7 @@ export default function EmploymentForm() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    // console.log("formData", e.currentTarget);
     setIsSubmitting(true);
     setSubmitStatus("idle");
     setSubmitError(null);
@@ -22,6 +23,30 @@ export default function EmploymentForm() {
     try {
       const form = e.currentTarget;
       const formData = new FormData(form);
+
+      const resumeFile = fileInputRef.current?.files?.[0] ?? null;
+
+      let resume: {
+        fileName: string;
+        mimeType: string;
+        content: string;
+      } | null = null;
+
+      if (resumeFile) {
+        const arrayBuffer = await resumeFile.arrayBuffer();
+        const bytes = new Uint8Array(arrayBuffer);
+        let binary = "";
+        for (let i = 0; i < bytes.byteLength; i++) {
+          binary += String.fromCharCode(bytes[i]);
+        }
+        const base64Content = typeof window !== "undefined" ? window.btoa(binary) : "";
+
+        resume = {
+          fileName: resumeFile.name,
+          mimeType: resumeFile.type || "application/octet-stream",
+          content: base64Content,
+        };
+      }
 
       const payload = {
         email: formData.get("email") as string | null,
@@ -35,6 +60,7 @@ export default function EmploymentForm() {
         position: formData.get("position") as string | null,
         hearAbout: formData.get("hearAbout") as string | null,
         employmentTypes: formData.getAll("type") as string[],
+        resume,
       };
 
       const res = await fetch("/api/employment-application", {

@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
+import assets from "../../assets/assets";
 
 interface Office {
   name: string;
@@ -11,6 +12,7 @@ interface Office {
   state: string;
   phone: string;
   fax?: string;
+  image: StaticImageData;
 }
 
 const OFFICES: Office[] = [
@@ -21,6 +23,7 @@ const OFFICES: Office[] = [
     state: "MA 01752",
     phone: "(508) 460-6600",
     fax: "(508) 460-6631",
+    image: assets.marlborough_ma,
   },
   {
     name: "Boston Office",
@@ -28,6 +31,7 @@ const OFFICES: Office[] = [
     city: "Boston",
     state: "MA 02110",
     phone: "(617) 555-0123",
+    image: assets.boston_ma,
   },
   {
     name: "Providence Office",
@@ -35,6 +39,7 @@ const OFFICES: Office[] = [
     city: "Providence",
     state: "RI 02903",
     phone: "(401) 555-0145",
+    image: assets.rhode_island_office,
   },
   {
     name: "Hartford Office",
@@ -42,6 +47,7 @@ const OFFICES: Office[] = [
     city: "Hartford",
     state: "CT 06103",
     phone: "(860) 555-0199",
+    image: assets.glastonbury_ct,
   },
   {
     name: "Burlington Office",
@@ -49,6 +55,7 @@ const OFFICES: Office[] = [
     city: "Burlington",
     state: "MA 01803",
     phone: "(781) 270-0004",
+    image: assets.burlington_ma,
   },
   {
     name: "Shelton Office",
@@ -56,6 +63,7 @@ const OFFICES: Office[] = [
     city: "Shelton",
     state: "CT 06484",
     phone: "(203) 533-2110",
+    image: assets.shelton_ct,
   },
   {
     name: "Fort Myers Office",
@@ -63,6 +71,7 @@ const OFFICES: Office[] = [
     city: "Fort Myers",
     state: "FL 33907",
     phone: "(239) 555-0185",
+    image: assets.fort_myers_fl,
   },
   {
     name: "Remote & National",
@@ -70,6 +79,7 @@ const OFFICES: Office[] = [
     city: "",
     state: "",
     phone: "(401) 475-8800",
+    image: assets.boston_ma,
   },
 ];
 
@@ -107,7 +117,7 @@ const OfficeLocations: React.FC = () => {
               >
                 <div className="relative w-full h-44 sm:h-48 md:h-52 overflow-hidden bg-neutral-100">
                   <Image
-                    src="/contact us/map.png"
+                    src={office.image}
                     alt={`${office.name} location`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"

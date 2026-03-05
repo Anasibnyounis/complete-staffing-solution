@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
         ? subject
         : `New contact inquiry from ${fullName}`,
       html,
-      reply_to: email,
+      replyTo: email,
     });
 
     return NextResponse.json({ success: true });

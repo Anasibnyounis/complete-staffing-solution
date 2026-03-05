@@ -19,6 +19,7 @@ export async function POST(req: NextRequest) {
       position,
       hearAbout,
       employmentTypes,
+      resume,
     } = body as {
       email?: string;
       fullName?: string;
@@ -31,7 +32,37 @@ export async function POST(req: NextRequest) {
       position?: string;
       hearAbout?: string;
       employmentTypes?: string[];
+      resume?: {
+        fileName?: string;
+        mimeType?: string;
+        content?: string;
+      } | null;
     };
+
+    // #region agent log
+    fetch('http://127.0.0.1:7570/ingest/7981dddb-5043-41b5-b056-f02d8ae9367c', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Debug-Session-Id': 'e0ba7e',
+      },
+      body: JSON.stringify({
+        sessionId: 'e0ba7e',
+        runId: 'initial',
+        hypothesisId: 'A',
+        location: 'api/employment-application/route.ts:36',
+        message: 'Parsed employment application payload',
+        data: {
+          hasEmail: !!email,
+          hasFullName: !!fullName,
+          hasPhone: !!phone,
+          hasEmploymentTypes: Array.isArray(employmentTypes),
+          hasResume: !!resume && !!resume?.content,
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion agent log
 
     if (!email || !fullName || !phone) {
       return NextResponse.json(
@@ -63,21 +94,95 @@ export async function POST(req: NextRequest) {
       </table>
     `;
 
-    // `from` should be a verified sender in your Resend account.
-    // Configure via environment variable so it can be changed without code updates.
     const from =
-      process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+      process.env.RESEND_FROM_EMAIL || "no-reply@completestaffingsolutions.com";
+
+    const attachments =
+      resume && resume.content
+        ? [
+            {
+              filename: resume.fileName || "resume",
+              content: resume.content,
+              contentType: resume.mimeType || "application/octet-stream",
+            },
+          ]
+        : undefined;
+
+    // #region agent log
+    fetch('http://127.0.0.1:7570/ingest/7981dddb-5043-41b5-b056-f02d8ae9367c', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Debug-Session-Id': 'e0ba7e',
+      },
+      body: JSON.stringify({
+        sessionId: 'e0ba7e',
+        runId: 'initial',
+        hypothesisId: 'B',
+        location: 'api/employment-application/route.ts:67',
+        message: 'About to send email via Resend',
+        data: {
+          toCount: toRecipients.length,
+          hasApiKey: !!process.env.RESEND_API_KEY,
+          fromValueSet: !!from,
+          hasAttachments: Array.isArray(attachments) && attachments.length > 0,
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion agent log
 
     await resend.emails.send({
-      from,
+      from: from,
       to: toRecipients,
       subject: `New Employment Application from ${fullName}`,
       html,
-      reply_to: email,
+      replyTo: email,
+      attachments,
     });
+
+    // #region agent log
+    fetch('http://127.0.0.1:7570/ingest/7981dddb-5043-41b5-b056-f02d8ae9367c', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Debug-Session-Id': 'e0ba7e',
+      },
+      body: JSON.stringify({
+        sessionId: 'e0ba7e',
+        runId: 'initial',
+        hypothesisId: 'C',
+        location: 'api/employment-application/route.ts:70',
+        message: 'Resend email send completed without throwing',
+        data: {},
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion agent log
 
     return NextResponse.json({ success: true });
   } catch (error) {
+    // #region agent log
+    fetch('http://127.0.0.1:7570/ingest/7981dddb-5043-41b5-b056-f02d8ae9367c', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Debug-Session-Id': 'e0ba7e',
+      },
+      body: JSON.stringify({
+        sessionId: 'e0ba7e',
+        runId: 'initial',
+        hypothesisId: 'D',
+        location: 'api/employment-application/route.ts:79',
+        message: 'Error in employment-application route catch',
+        data: {
+          errorMessage: error instanceof Error ? error.message : String(error),
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion agent log
+
     console.error("Error sending employment application email:", error);
     return NextResponse.json(
       { error: "Failed to send application." },
