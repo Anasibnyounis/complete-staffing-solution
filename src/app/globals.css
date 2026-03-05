@@ -29,7 +29,7 @@ body {
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
 
-/* Shared reveal animations (used by Hero, Footer) */
+/* Shared reveal animations  by Hero, Footer) */
 @layer utilities {
   .reveal {
     opacity: 0;
