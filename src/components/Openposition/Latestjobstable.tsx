@@ -300,6 +300,58 @@ export default function LatestJobsTable() {
       const location = job.location?.toLowerCase() ?? "";
       const description = job.descriptionHtml?.toLowerCase() ?? "";
 
+      // Reuse the same broad category matching logic that powers the
+      // "Browse Jobs by Category" card counts so that clicking a card
+      // (e.g. "Finance & Accounting") actually shows those jobs.
+      const matchesCategory = () => {
+        if (!categoryQuery) return true;
+
+        if (categoryQuery === "healthcare") {
+          return department.includes("health");
+        }
+
+        if (categoryQuery === "finance & accounting") {
+          return department.includes("finance") || department.includes("account");
+        }
+
+        if (categoryQuery === "information technology") {
+          return (
+            department.includes("it") ||
+            department.includes("information technology") ||
+            department.includes("technology") ||
+            department.includes("software")
+          );
+        }
+
+        if (categoryQuery === "manufacturing") {
+          return (
+            department.includes("manufactur") ||
+            department.includes("operations") ||
+            department.includes("production")
+          );
+        }
+
+        if (categoryQuery === "customer service") {
+          return (
+            department.includes("customer service") ||
+            department.includes("customer support") ||
+            department.includes("call center")
+          );
+        }
+
+        if (categoryQuery === "administrative") {
+          return (
+            department.includes("admin") ||
+            department.includes("office") ||
+            department.includes("clerical")
+          );
+        }
+
+        // Fallback: simple substring match for all other specific
+        // dropdown selections (e.g. "Real Estate", "Education", etc).
+        return department.includes(categoryQuery);
+      };
+
       if (keyword) {
         const matchesKeyword =
           title.includes(keyword) ||
@@ -314,7 +366,7 @@ export default function LatestJobsTable() {
         return false;
       }
 
-      if (categoryQuery && !department.includes(categoryQuery)) {
+      if (!matchesCategory()) {
         return false;
       }
 
@@ -458,10 +510,18 @@ export default function LatestJobsTable() {
                 className="flex-[0_0_180px] rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs sm:text-sm text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#19478e]/60 focus:border-[#19478e]"
               >
                 <option value="">Category</option>
+                {/* High-level groupings that match the category cards */}
+                <option>Healthcare</option>
+                <option>Finance &amp; Accounting</option>
+                <option>Information Technology</option>
+                <option>Manufacturing</option>
+                <option>Customer Service</option>
+                <option>Administrative</option>
+                <option disabled>──────────</option>
+                {/* More specific ATS-style categories */}
                 <option>Accounting</option>
                 <option>Accounts Payable</option>
                 <option>Accounts Receivable</option>
-                <option>Administrative</option>
                 <option>Aerospace</option>
                 <option>Banking</option>
                 <option>Biotechnology</option>
@@ -676,6 +736,7 @@ export default function LatestJobsTable() {
                 <thead>
                   <tr className="bg-[#eef2fb] text-left font-semibold text-neutral-600">
                     <th className="px-4 sm:px-6 py-3 border-b border-neutral-200 text-left"> #</th>
+                    <th className="px-4 sm:px-6 py-3 border-b border-neutral-200 text-left"> Actions</th>
                     <th className="px-4 sm:px-6 py-3 border-b border-neutral-200">Job Title</th>
                     <th className="px-4 sm:px-6 py-3 border-b border-neutral-200">Job ID</th>
                     <th className="px-4 sm:px-6 py-3 border-b border-neutral-200">Location</th>
