@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./IndustriesBrowseSection.module.css";
 import DepartmentCards from "../../components/Departments/Departmentcards";
 
 const INDUSTRIES = [
@@ -282,7 +281,10 @@ function IndustryIcon({ title, color }: { title: string; color: string }) {
   };
 
   return (
-    <div className={styles.cardIcon} style={{ backgroundColor: color }}>
+    <div
+      className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-[1.04]"
+      style={{ backgroundColor: color }}
+    >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
         {getIcon()}
       </svg>
@@ -341,78 +343,41 @@ export default function IndustriesBrowseSection() {
   const industriesToShow = showAll ? filteredIndustries : filteredIndustries.slice(0, 8);
 
   return (
-    <div className={styles.groupParent}>
-      {/* Search + filters strip */}
-      {/* <div className={styles.rectangleParent}>
-        <div className={styles.groupChild} aria-hidden />
-        <div className={styles.groupContainer}>
-          <div className={styles.rectangleGroup}>
-            <div className={styles.groupItem} aria-hidden />
-            <div className={styles.searchInputWrapper}>
-              <Image
-                src="/industries/search%20icon.svg"
-                alt=""
-                width={40}
-                height={40}
-                className={styles.searchIcon}
-                aria-hidden
-                unoptimized
-              />
-              <input
-                type="search"
-                placeholder="Search industries (e.g. Healthcare, Legal...)"
-                className={styles.searchInput}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                aria-label="Search industries"
-              />
-            </div>
-          </div>
-          <div className={styles.frameParent} role="group" aria-label="Filter by category">
-            {FILTERS.map((label) => (
-              <button
-                key={label}
-                type="button"
-                className={
-                  activeFilter === label
-                    ? styles.filterButtonActive
-                    : styles.filterButton
-                }
-                onClick={() => setActiveFilter(label)}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div> */}
-
+    <div className="w-full pb-20 bg-[#f8f8f8] font-[var(--font-inter),Inter,sans-serif]">
+     
       {/* Industry cards grid */}
-      <div className={styles.cardsGrid}>
+      <div className="grid max-w-[1180px] grid-cols-1 gap-6 px-6 pt-12 mx-auto sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {industriesToShow.map((industry) => (
-          <div key={industry.id} className={styles.card}>
-            <div className={styles.cardImageWrap}>
+          <div
+            key={industry.id}
+            className="flex flex-col overflow-hidden bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.1)] transition-all duration-300 group hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)]"
+          >
+            <div className="relative w-full overflow-hidden aspect-[1.25/1]">
               <Image
                 src={industry.image}
                 alt=""
                 fill
-                className={styles.cardImage}
+                className="object-cover transition-transform duration-300 p-[9px] rounded-[20px] group-hover:scale-[1.02]"
                 sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 280px"
                 unoptimized
               />
             </div>
-            <div className={styles.cardContent}>
+            <div className="flex flex-col flex-1 gap-2 px-4 pt-4 pb-5">
               {/* Icon + Title */}
-              <div className={styles.cardHeader}>
+              <div className="flex items-center gap-3">
                 <IndustryIcon title={industry.title} color={industry.iconColor} />
-                <h3 className={styles.cardTitle}>{industry.title}</h3>
+                <h3 className="m-0 font-(--font-plus-jakarta) text-[17px] font-bold text-[#0d0d0d] leading-snug">
+                  {industry.title}
+                </h3>
               </div>
               {/* Description */}
-              <p className={styles.cardDescription}>{industry.description}</p>
+              <p className="px-[13px] m-0 text-[12.5px] leading-relaxed text-justify text-[#666] min-h-[38px]">
+                {industry.description}
+              </p>
               {/* Button */}
               <Link
                 href={`/industries-we-serve/${industry.id}`}
-                className={styles.cardButton}
+                className="relative inline-flex items-center justify-center gap-2 h-[42px] px-[18px] mt-auto text-[16px] font-medium text-white rounded-md bg-[#6CA642] transition-all duration-300 hover:bg-[#5d9338] hover:shadow-[0_4px_12px_rgba(108,166,66,0.35)]"
               >
                 Explore
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -426,10 +391,10 @@ export default function IndustriesBrowseSection() {
 
       {/* View All Button */}
       {!showAll && filteredIndustries.length > 8 && (
-        <div className={styles.viewAllWrapper}>
+        <div className="mt-10 text-center px-6">
           <button
             onClick={() => setShowAll(true)}
-            className={styles.viewAllButton}
+            className="relative inline-flex items-center justify-center px-9 py-3.5 text-[17px] font-semibold text-white bg-[#6CA642] rounded-md shadow-sm transition-all duration-300 hover:bg-[#5d9338] hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(108,166,66,0.3)]"
           >
             View All Industries
           </button>
@@ -439,7 +404,7 @@ export default function IndustriesBrowseSection() {
       {/* Departments heading + cards section */}
       <section className="w-full mt-10 mb-4 px-4 sm:px-6 md:px-8 lg:px-10 2xl:px-16">
         <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto">
-          <h2 className="font-[var(--font-plus-jakarta)] text-[clamp(26px,3vw,32px)] font-bold text-[#022d6d] m-0">
+          <h2 className="font-(--font-plus-jakarta) text-[clamp(26px,3vw,32px)] font-bold text-[#022d6d] m-0">
             Departments
           </h2>
         </div>

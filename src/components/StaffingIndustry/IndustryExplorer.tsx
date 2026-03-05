@@ -7,34 +7,34 @@ import styles from "./IndustryExplorer.module.css";
 
 // Industry Data (Total 28)
 const ALL_INDUSTRIES = [
-  { title: "Agriculture", slug: "agriculture", color: "green", icon: "farm" },
-  { title: "Arts", slug: "arts", color: "blue", icon: "art" },
-  { title: "Construction", slug: "construction", color: "green", icon: "build" },
-  { title: "Consumer Goods", slug: "consumer-goods", color: "blue", icon: "box" },
-  { title: "Corporate Services", slug: "corporate-services", color: "green", icon: "office" },
-  { title: "Design", slug: "design", color: "blue", icon: "pen" },
-  { title: "Education", slug: "education", color: "green", icon: "book" },
-  { title: "Energy & Mining", slug: "energy-mining", color: "blue", icon: "flash" },
-  { title: "Entertainment", slug: "entertainment", color: "green", icon: "video" },
-  { title: "Finance", slug: "finance", color: "blue", icon: "bank" },
-  { title: "Hardware & Networking", slug: "hardware-networking", color: "green", icon: "server" },
-  { title: "Healthcare", slug: "healthcare", color: "blue", icon: "health" },
-  { title: "Property Management", slug: "property-management", color: "green", icon: "home" },
-  { title: "Legal", slug: "legal", color: "blue", icon: "legal" },
-  { title: "Manufacturing", slug: "manufacturing", color: "green", icon: "factory" },
-  { title: "Media & Communications", slug: "media-communications", color: "blue", icon: "mic" },
-  { title: "Nonprofit", slug: "nonprofit", color: "green", icon: "heart" },
-  { title: "Public Administration", slug: "public-administration", color: "blue", icon: "gov" },
-  { title: "Public Safety", slug: "public-safety", color: "green", icon: "shield" },
-  { title: "Real Estate", slug: "real-estate", color: "blue", icon: "map" },
-  { title: "Recreation & Travel", slug: "recreation-travel", color: "green", icon: "plane" },
-  { title: "Retail", slug: "retail", color: "blue", icon: "cart" },
-  { title: "Software & IT Services", slug: "software-it-services", color: "green", icon: "code" },
-  { title: "Transportation & Logistics", slug: "transportation-logistics", color: "blue", icon: "truck" },
-  { title: "Wellness & Fitness", slug: "wellness-fitness", color: "green", icon: "gym" },
-  { title: "Data Center", slug: "data-center", color: "blue", icon: "data" },
-  { title: "Executive Search", slug: "executive-search", color: "green", icon: "king" },
-  { title: "Financial Services", slug: "financial-services", color: "blue", icon: "money" },
+  { title: "Agriculture", slug: "agriculture", routeSlug: "agriculture", color: "green", icon: "farm" },
+  { title: "Arts", slug: "arts", routeSlug: "arts", color: "blue", icon: "art" },
+  { title: "Construction", slug: "construction", routeSlug: "construction", color: "green", icon: "build" },
+  { title: "Consumer Goods", slug: "consumer-goods", routeSlug: "consumergoods", color: "blue", icon: "box" },
+  { title: "Corporate Services", slug: "corporate-services", routeSlug: "corporateservices", color: "green", icon: "office" },
+  { title: "Design", slug: "design", routeSlug: "design", color: "blue", icon: "pen" },
+  { title: "Education", slug: "education", routeSlug: "education", color: "green", icon: "book" },
+  { title: "Energy & Mining", slug: "energy-mining", routeSlug: "energy", color: "blue", icon: "flash" },
+  { title: "Entertainment", slug: "entertainment", routeSlug: "entertainment", color: "green", icon: "video" },
+  { title: "Finance", slug: "finance", routeSlug: "finance", color: "blue", icon: "bank" },
+  { title: "Hardware & Networking", slug: "hardware-networking", routeSlug: "hardware", color: "green", icon: "server" },
+  { title: "Healthcare", slug: "healthcare", routeSlug: "healthcare", color: "blue", icon: "health" },
+  { title: "Property Management", slug: "property-management", routeSlug: "property", color: "green", icon: "home" },
+  { title: "Legal", slug: "legal", routeSlug: "legal", color: "blue", icon: "legal" },
+  { title: "Manufacturing", slug: "manufacturing", routeSlug: "manufacturing", color: "green", icon: "factory" },
+  { title: "Media & Communications", slug: "media-communications", routeSlug: "media", color: "blue", icon: "mic" },
+  { title: "Nonprofit", slug: "nonprofit", routeSlug: "non-profit", color: "green", icon: "heart" },
+  { title: "Public Administration", slug: "public-administration", routeSlug: "public", color: "blue", icon: "gov" },
+  { title: "Public Safety", slug: "public-safety", routeSlug: "public", color: "green", icon: "shield" },
+  { title: "Real Estate", slug: "real-estate", routeSlug: "real-estate", color: "blue", icon: "map" },
+  { title: "Recreation & Travel", slug: "recreation-travel", routeSlug: "travel", color: "green", icon: "plane" },
+  { title: "Retail", slug: "retail", routeSlug: "retail", color: "blue", icon: "cart" },
+  { title: "Software & IT Services", slug: "software-it-services", routeSlug: "it", color: "green", icon: "code" },
+  { title: "Transportation & Logistics", slug: "transportation-logistics", routeSlug: "transportation", color: "blue", icon: "truck" },
+  { title: "Wellness & Fitness", slug: "wellness-fitness", routeSlug: "wellness", color: "green", icon: "gym" },
+  { title: "Data Center", slug: "data-center", routeSlug: "hardware", color: "blue", icon: "data" },
+  { title: "Executive Search", slug: "executive-search", routeSlug: "corporateservices", color: "green", icon: "king" },
+  { title: "Financial Services", slug: "financial-services", routeSlug: "financial-services", color: "blue", icon: "money" },
 ];
 
 const Icon = ({ type }: { type: string }) => {
@@ -92,7 +92,7 @@ export default function IndustryExplorer() {
               </div>
 
               {/* FULL WIDTH BUTTON */}
-              <Link href={`/industries-we-serve/${item.slug}`} className={`${styles.actionBtn} ${styles[`btn-${item.color}`]}`}>
+              <Link href={`/industries-we-serve/${(item as any).routeSlug ?? item.slug}`} className={`${styles.actionBtn} ${styles[`btn-${item.color}`]}`}>
                 <span>Explore Roles</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
                   <path d="M9 18l6-6-6-6" />

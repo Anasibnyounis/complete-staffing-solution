@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export interface RoleItem {
   icon: string;
@@ -15,6 +18,34 @@ interface Props {
 }
 
 export default function IndustryRoles({ roles }: Props) {
+  const [startIndex, setStartIndex] = useState(0);
+  const VISIBLE_COUNT = 4;
+  const totalRoles = roles.length;
+
+  useEffect(() => {
+    if (totalRoles <= VISIBLE_COUNT) return;
+
+    const interval = setInterval(() => {
+      setStartIndex((prev) => {
+        const next = prev + VISIBLE_COUNT;
+        return next >= totalRoles ? 0 : next;
+      });
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [totalRoles]);
+
+  const visibleRoles =
+    totalRoles <= VISIBLE_COUNT
+      ? roles
+      : [
+          ...roles.slice(startIndex, Math.min(startIndex + VISIBLE_COUNT, totalRoles)),
+          ...roles.slice(
+            0,
+            Math.max(0, startIndex + VISIBLE_COUNT - totalRoles)
+          ),
+        ];
+
   return (
     <section className="w-full bg-[#f8f9fa] py-12 sm:py-14 md:py-16">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 2xl:px-16">
@@ -24,7 +55,7 @@ export default function IndustryRoles({ roles }: Props) {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-            {roles.map((role, index) => (
+            {visibleRoles.map((role, index) => (
               <div
                 key={index}
                 className="flex flex-col overflow-hidden rounded-xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)]"
@@ -60,7 +91,7 @@ export default function IndustryRoles({ roles }: Props) {
                   </p>
 
                   <Link
-                    href="/employment-form"
+                    href={`/open-position?search=${encodeURIComponent(role.title)}`}
                     className={`mt-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-[15px] font-semibold text-white no-underline transition-all duration-300 ${
                       role.buttonColor === "blue"
                         ? "bg-[#4A7BAD] hover:bg-[#3d6a9a] hover:shadow-[0_4px_12px_rgba(74,123,173,0.3)]"

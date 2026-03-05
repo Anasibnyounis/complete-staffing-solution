@@ -18,15 +18,27 @@
 //   );
 // }
 // src/app/open-position/page.tsx
-"use client";
 
 import LatestJobsTable from "@/components/Openposition/Latestjobstable";
 import JobRequestSection from "@/components/JobRequestSection";
 
-export default function OpenPositionPage() {
+type OpenPositionPageProps = {
+  searchParams?: {
+    search?: string;
+    category?: string;
+  };
+};
+
+export default function OpenPositionPage({ searchParams }: OpenPositionPageProps) {
+  const initialSearch = searchParams?.search ?? "";
+  const initialCategory = searchParams?.category ?? "";
+
   return (
     <main className="min-h-screen bg-white">
-      <LatestJobsTable />
+      <LatestJobsTable
+        initialSearch={initialSearch}
+        initialCategory={initialCategory}
+      />
       <JobRequestSection />
     </main>
   );

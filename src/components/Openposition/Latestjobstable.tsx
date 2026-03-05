@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -217,14 +217,22 @@ export function parseJobsFromXml(xmlText: string): Job[] {
   return jobs;
 }
 
-export default function LatestJobsTable() {
+interface LatestJobsTableProps {
+  initialSearch?: string;
+  initialCategory?: string;
+}
+
+export default function LatestJobsTable({
+  initialSearch = "",
+  initialCategory = "",
+}: LatestJobsTableProps) {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [visibleCount, setVisibleCount] = useState<number>(10);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<boolean>(false);
-  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string>(initialSearch);
   const [locationFilter, setLocationFilter] = useState<string>("");
-  const [categoryFilter, setCategoryFilter] = useState<string>("");
+  const [categoryFilter, setCategoryFilter] = useState<string>(initialCategory);
   const router = useRouter();
 
   const categoryCounts = useMemo(() => {
