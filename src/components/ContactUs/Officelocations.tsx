@@ -84,11 +84,11 @@ const OFFICES: Office[] = [
 ];
 
 const ACCENT_COLORS = [
-  { border: "border-t-[#19478e]", bg: "bg-[#19478e]", hover: "hover:bg-[#143474]", shadow: "shadow-[#19478e]/20" },
-  { border: "border-t-[#6CA642]", bg: "bg-[#6CA642]", hover: "hover:bg-[#5d9338]", shadow: "shadow-[#6CA642]/20" },
-  { border: "border-t-[#225eb9]", bg: "bg-[#225eb9]", hover: "hover:bg-[#1a4a94]", shadow: "shadow-[#225eb9]/20" },
-  { border: "border-t-[#0d7a3e]", bg: "bg-[#0d7a3e]", hover: "hover:bg-[#0a6232]", shadow: "shadow-[#0d7a3e]/20" },
-  { border: "border-t-[#19478e]", bg: "bg-[#19478e]", hover: "hover:bg-[#143474]", shadow: "shadow-[#19478e]/20" },
+  { border: "border-t-blue-500", bg: "bg-[#19478e]", hover: "hover:bg-[#143474]", shadow: "shadow-[#19478e]/20" },
+  { border: "border-t-blue-500", bg: "bg-[#19478e]", hover: "hover:bg-[#143474]", shadow: "shadow-[#19478e]/20" },
+  { border: "border-t-blue-500", bg: "bg-[#19478e]", hover: "hover:bg-[#143474]", shadow: "shadow-[#19478e]/20" },
+  { border: "border-t-blue-500", bg: "bg-[#19478e]", hover: "hover:bg-[#143474]", shadow: "shadow-[#19478e]/20" },
+  { border: "border-t-blue-500", bg: "bg-[#19478e]", hover: "hover:bg-[#143474]", shadow: "shadow-[#19478e]/20" },
 ];
 
 const OfficeLocations: React.FC = () => {
@@ -113,7 +113,7 @@ const OfficeLocations: React.FC = () => {
             return (
               <div
                 key={office.name}
-                className={`group bg-white rounded-2xl shadow-lg hover:shadow-xl border border-neutral-100 hover:border-[#19478e]/30 transition-all duration-300 overflow-hidden flex flex-col border-t-4 ${accent.border}`}
+                className={`group bg-white rounded-2xl shadow-lg hover:shadow-xl border border-neutral-100 hover:border-blue-500/30 transition-all duration-300 overflow-hidden flex flex-col border-t-4 ${accent.border}`}
               >
                 <div className="relative w-full h-44 sm:h-48 md:h-52 overflow-hidden bg-neutral-100">
                   <Image
