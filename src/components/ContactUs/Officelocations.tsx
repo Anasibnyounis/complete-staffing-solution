@@ -144,10 +144,12 @@ const OfficeLocations: React.FC = () => {
                     )}
                   </p>
                   <Link
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.address + (office.city ? ` ${office.city} ${office.state}` : ""))}`}
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                      office.address + (office.city ? ` ${office.city} ${office.state}` : ""),
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`mt-2 inline-flex w-fit items-center justify-center gap-2 rounded-xl ${accent.bg} px-4 py-2.5 text-sm font-semibold text-white shadow-md ${accent.hover} hover:shadow-lg transition-all duration-200 no-underline`}
+                    className="mt-2 inline-flex w-fit items-center justify-center gap-2 rounded-xl bg-[#6CA642] px-4 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-[#5d9338] hover:shadow-lg transition-all duration-200 no-underline"
                   >
                     Get Directions
                     <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

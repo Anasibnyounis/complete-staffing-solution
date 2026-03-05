@@ -9,6 +9,57 @@ const UPLOAD_ICON = "/for%20employer/material-symbols-light_upload-file-outline.
 export default function EmploymentForm() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState<string>("No file chosen");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setSubmitError(null);
+
+    try {
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+
+      const payload = {
+        email: formData.get("email") as string | null,
+        fullName: formData.get("fullName") as string | null,
+        phone: formData.get("phone") as string | null,
+        street: formData.get("street") as string | null,
+        city: formData.get("city") as string | null,
+        state: formData.get("state") as string | null,
+        zip: formData.get("zip") as string | null,
+        salary: formData.get("salary") as string | null,
+        position: formData.get("position") as string | null,
+        hearAbout: formData.get("hearAbout") as string | null,
+        employmentTypes: formData.getAll("type") as string[],
+      };
+
+      const res = await fetch("/api/employment-application", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || "Failed to submit application.");
+      }
+
+      setSubmitStatus("success");
+      form.reset();
+      setFileName("No file chosen");
+    } catch (err: any) {
+      setSubmitStatus("error");
+      setSubmitError(err?.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <section className="w-full bg-gradient-to-b from-white to-sky-50/30 py-12 sm:py-16 md:py-20">
@@ -26,7 +77,7 @@ export default function EmploymentForm() {
                 </p>
               </div>
 
-              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 {/* Email Address */}
                 <div>
                   <label htmlFor="email" className="block text-white font-medium mb-2 text-sm">
@@ -242,12 +293,24 @@ export default function EmploymentForm() {
                   </div>
                 </div>
 
-                <button 
-                  type="submit" 
-                  className="w-full mt-8 bg-white text-[#19478e] font-semibold py-3.5 px-6 rounded-lg hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-white/30 transition-all duration-200 text-base"
+                <button
+                  type="submit"
+                  className="w-full mt-8 bg-white text-[#19478e] font-semibold py-3.5 px-6 rounded-lg hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-white/30 transition-all duration-200 text-base disabled:opacity-70 disabled:cursor-not-allowed"
+                  disabled={isSubmitting}
                 >
-                  Submit Application
+                  {isSubmitting ? "Submitting..." : "Submit Application"}
                 </button>
+
+                {submitStatus === "success" && (
+                  <p className="mt-3 text-sm text-emerald-200">
+                    Thank you. Your application has been submitted successfully.
+                  </p>
+                )}
+                {submitStatus === "error" && (
+                  <p className="mt-3 text-sm text-red-200">
+                    {submitError || "We could not submit your application. Please try again."}
+                  </p>
+                )}
               </form>
             </div>
           </div>

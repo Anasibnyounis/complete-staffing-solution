@@ -59,11 +59,7 @@ export default function DepartmentCards() {
                       {dept.title}
                     </h3>
                   </div>
-                  <div className="flex items-center gap-1.5 text-sm font-semibold text-slate-400">
-                    <span>{dept.industries.length} Industries</span>
-                    <span>•</span>
-                    <span>{dept.positions.length} Positions</span>
-                  </div>
+                  {/* Removed industries/positions count per request */}
                   <button
                     type="button"
                     onClick={() => toggleExpand(dept.id)}
