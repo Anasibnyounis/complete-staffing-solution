@@ -449,6 +449,60 @@ export default function LatestJobsTable({
     router.push(`/open-position/${encodeURIComponent(normalizedId)}`);
   };
 
+  const handleDepartmentClick = (department: string) => {
+    const normalized = department.toLowerCase();
+
+    if (normalized.includes("health")) {
+      setCategoryFilter("Healthcare");
+      return;
+    }
+
+    if (normalized.includes("finance") || normalized.includes("account")) {
+      setCategoryFilter("Finance & Accounting");
+      return;
+    }
+
+    if (
+      normalized === "it" ||
+      normalized.includes("information technology") ||
+      normalized.includes("technology") ||
+      normalized.includes("software")
+    ) {
+      setCategoryFilter("Information Technology");
+      return;
+    }
+
+    if (
+      normalized.includes("manufactur") ||
+      normalized.includes("operations") ||
+      normalized.includes("production")
+    ) {
+      setCategoryFilter("Manufacturing");
+      return;
+    }
+
+    if (
+      normalized.includes("customer service") ||
+      normalized.includes("customer support") ||
+      normalized.includes("call center")
+    ) {
+      setCategoryFilter("Customer Service");
+      return;
+    }
+
+    if (
+      normalized.includes("admin") ||
+      normalized.includes("office") ||
+      normalized.includes("clerical")
+    ) {
+      setCategoryFilter("Administrative");
+      return;
+    }
+
+    // Fallback: just use the raw department label.
+    setCategoryFilter(department);
+  };
+
   return (
     <>
       <section className="relative w-full bg-[#0b2547] py-10 sm:py-12 lg:py-16">
@@ -733,9 +787,6 @@ export default function LatestJobsTable({
                   Explore some of the latest opportunities available through our network.
                 </p>
               </div>
-              <button className="mt-1 inline-flex items-center justify-center rounded-xl border border-[#19478e]/15 bg-[#19478e]/5 px-4 py-2 text-xs sm:text-sm font-semibold text-[#19478e] hover:bg-[#19478e]/10 transition-colors">
-                View All Jobs
-              </button>
             </div>
 
             {/* Table */}
@@ -824,19 +875,13 @@ export default function LatestJobsTable({
 
                       {/* Department */}
                       <td className="px-4 sm:px-6 py-3 border-b border-neutral-100">
-                        <span
-                          className={
-                            job.department === "Healthcare"
-                              ? "text-[#2563eb] font-semibold cursor-pointer"
-                              : job.department === "Manufacturing"
-                              ? "text-[#f97316] font-semibold cursor-pointer"
-                              : job.department === "Finance"
-                              ? "text-[#16a34a] font-semibold cursor-pointer"
-                              : "text-[#dc2626] font-semibold cursor-pointer"
-                          }
+                        <button
+                          type="button"
+                          onClick={() => handleDepartmentClick(job.department)}
+                          className="text-[#19478e] font-semibold underline-offset-2 hover:underline"
                         >
                           {job.department}
-                        </span>
+                        </button>
                       </td>
 
                       {/* Type */}
