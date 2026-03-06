@@ -13,7 +13,7 @@ export default function OurRecruitingProcess() {
   return (
     <main className="min-h-screen bg-[#f9f9fb] scroll-smooth">
       <HeroSection />
-      <ProcessSummarySection />
+      {/* <ProcessSummarySection /> */}
       <ProcessSteps />
       <RecruitingProcessCTA />
     </main>
