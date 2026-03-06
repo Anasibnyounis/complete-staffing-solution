@@ -14,10 +14,6 @@ export default function Home() {
       <WhyChooseUs />
       <LandingVideoSection />
       <Industries />
-      {/* <IndustryWelcome /> */}
-      {/* <FinancialServicesWelcome /> */}
-      {/* <RealEstateWelcome /> */}
-      {/* <Hero /> */}
       <JobRequestSection />
 
     </main>
