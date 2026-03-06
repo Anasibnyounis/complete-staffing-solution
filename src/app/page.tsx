@@ -1,5 +1,6 @@
 import { Hero, HeroTagline } from "@/components/Hero";
 import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
+import LandingVideoSection from "@/components/LandingVideoSection/LandingVideoSection";
 import Industries from "@/components/Industries";
 import JobRequestSection from "@/components/JobRequestSection";
 // import IndustryWelcome from "@/app/industries-we-serve/healthcare/IndustryWelcome";
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <HeroTagline />
       <WhyChooseUs />
+      <LandingVideoSection />
       <Industries />
       {/* <IndustryWelcome /> */}
       {/* <FinancialServicesWelcome /> */}

@@ -1,6 +1,7 @@
-import JobRequestSection from "@/components/JobRequestSection";
-import HeroSection from "@/components/OurRecruitingProcess/Herosection ";
+import HeroSection from "@/components/OurRecruitingProcess/HeroSection";
+import ProcessSummarySection from "@/components/OurRecruitingProcess/ProcessSummarySection";
 import ProcessSteps from "@/components/OurRecruitingProcess/Processsteps";
+import RecruitingProcessCTA from "@/components/OurRecruitingProcess/RecruitingProcessCTA";
 
 export const metadata = {
   title: "Our Recruiting Process | Complete Staffing Solutions",
@@ -10,10 +11,11 @@ export const metadata = {
 
 export default function OurRecruitingProcess() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#f9f9fb] scroll-smooth">
       <HeroSection />
+      <ProcessSummarySection />
       <ProcessSteps />
-      <JobRequestSection />
+      <RecruitingProcessCTA />
     </main>
   );
 }

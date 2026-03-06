@@ -16,7 +16,7 @@ export default function IndustriesHero() {
         </p>
         <div className={styles.buttonsRow}>
           <Link
-            href="/job-request"
+            href="/employment-form"
             className={`${styles.ctaButton} ${styles.ctaPlaceJob}`}
           >
             Place Job Request

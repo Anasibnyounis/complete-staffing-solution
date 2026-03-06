@@ -1,292 +1,180 @@
-export default function SolutionsCategories() {
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import type { SolutionTabId } from "./OurSolutionsWelcome";
+
+const CHECK_ICON = (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+    <path d="M20 6L9 17l-5-5" />
+  </svg>
+);
+
+const CARDS: {
+  id: SolutionTabId;
+  title: string;
+  description: string;
+  bullets: string[];
+  image: string;
+  icon: "at" | "briefcase" | "handshake" | "search";
+  href: string;
+}[] = [
+  {
+    id: "retained",
+    title: "Retained Search",
+    description: "Our retained search model is designed for critical leadership and highly specialized roles that require a dedicated, strategic recruitment approach.",
+    bullets: [
+      "Dedicated resources for pivotal positions",
+      "Confidential, methodical search process",
+      "Market intelligence and talent benchmarking",
+    ],
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
+    icon: "at",
+    href: "/our-solutions#retained",
+  },
+  {
+    id: "executive",
+    title: "Executive Search",
+    description: "We partner with organizations to identify and secure C-suite and senior executives who are culturally aligned and results-driven.",
+    bullets: [
+      "C-suite and senior leadership placement",
+      "Global talent network reach",
+      "Agile, consultative approach",
+    ],
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80",
+    icon: "briefcase",
+    href: "/our-solutions#executive",
+  },
+  {
+    id: "contract",
+    title: "Contract Search",
+    description: "We help organizations quickly access highly skilled professionals for project-based work, interim leadership, and specialized skill requirements.",
+    bullets: [
+      "Rapid talent deployment",
+      "Short-term and long-term assignments",
+      "Specialized expertise on demand",
+    ],
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80",
+    icon: "handshake",
+    href: "/our-solutions#contract",
+  },
+  {
+    id: "direct",
+    title: "Direct-Hire Search",
+    description: "Our direct-hire search services help organizations secure full-time professionals who bring both technical expertise and cultural alignment.",
+    bullets: [
+      "Comprehensive candidate evaluation",
+      "Streamlined recruitment lifecycle",
+      "Long-term organizational fit",
+    ],
+    image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=600&q=80",
+    icon: "search",
+    href: "/our-solutions#direct",
+  },
+];
+
+function CardIcon({ icon }: { icon: string }) {
+  const cls = "w-9 h-9 flex items-center justify-center rounded-full bg-[#19478e] text-white shrink-0";
+  if (icon === "at")
+    return (
+      <span className={cls}>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" /></svg>
+      </span>
+    );
+  if (icon === "briefcase")
+    return (
+      <span className={cls}>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" /></svg>
+      </span>
+    );
+  if (icon === "handshake")
+    return (
+      <span className={cls}>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.562 2.05a1 1 0 0 1 .876 0l.094.047 2.81 1.496 2.81-1.496a1 1 0 0 1 .97-.047l.105.047 4.5 2.25a1 1 0 0 1 .553.894V20a1 1 0 0 1-1 1h-2v-8H4v8H2a1 1 0 0 1-1-1V5.241a1 1 0 0 1 .553-.894l4.5-2.25.094-.047zm-.97 2.446L4.5 6.653v11.694h2v-6h11v6h2V6.653l-6.062-3.157-1.53.814-1.53-.814z" /></svg>
+      </span>
+    );
   return (
-    <div className="w-full bg-[#f8fafc] py-12 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 lg:px-10 2xl:px-16">
-      <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto">
-        {/* Retained Search Section */}
-        <section className="mb-8 md:mb-10 last:mb-0">
-          <div className="mb-5 flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#19478e] text-white text-sm font-semibold shadow-sm">
-              01
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#8093c2]">
-                Service Area
-              </span>
-              <h2 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold uppercase m-0 text-[clamp(24px,3vw,32px)]">
-                Retained Search
-              </h2>
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-[#f9fbff] via-white to-[#eef2ff] rounded-xl border border-[#d7e2ff] shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
-            <div className="p-6 sm:p-8">
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Our Focus
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    Our retained search model is designed for critical leadership
-                    and highly specialized roles that require a dedicated,
-                    strategic recruitment approach. Through a retained
-                    partnership, we commit focused resources to delivering
-                    exceptional candidates for pivotal positions.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Strategic Partnership
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    Working closely with client leadership, we develop a
-                    comprehensive search strategy that includes market mapping,
-                    targeted outreach, and structured candidate evaluation. This
-                    collaborative approach ensures alignment with both immediate
-                    hiring goals and broader organizational objectives.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Confidential Search Process
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    Retained engagements allow for a discreet and methodical
-                    search process, particularly valuable when hiring for
-                    sensitive or high-visibility roles. We manage all outreach
-                    with discretion, protecting both client and candidate
-                    confidentiality throughout the search.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Our Edge
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    Our retained search approach is highly consultative and
-                    insight-driven, providing clients with market intelligence,
-                    talent benchmarking, and thoughtful recommendations. We focus
-                    on building leadership teams that can sustain performance and
-                    drive long-term organizational success.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    <span className={cls}>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" /></svg>
+    </span>
+  );
+}
 
-        {/* Executive Search Section */}
-        <section className="mb-8 md:mb-10 last:mb-0">
-          <div className="mb-5 flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#19478e] text-white text-sm font-semibold shadow-sm">
-              02
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#8093c2]">
-                Service Area
-              </span>
-              <h2 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold uppercase m-0 text-[clamp(24px,3vw,32px)]">
-                Executive Search
-              </h2>
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-[#f9fbff] via-white to-[#eef2ff] rounded-xl border border-[#d7e2ff] shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
-            <div className="p-6 sm:p-8">
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Our Focus
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    We partner with high-impact consumer brands to accelerate
-                    business growth, organizational transformation, and
-                    leadership performance. As a specialized executive search
-                    firm, we support companies navigating expansion, innovation,
-                    and competitive market shifts through strategic leadership
-                    recruitment.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Executive Search
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    Our executive search services are led by experienced
-                    operators who have built businesses, led cross-functional
-                    teams, and delivered complex initiatives. This hands-on
-                    leadership background enables us to identify and secure
-                    C-suite and senior executives who are not only highly
-                    capable, but culturally aligned and results-driven. We
-                    deliver strategic hiring solutions tailored to long-term
-                    business objectives.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Global Reach
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    Our global talent network spans North America, the European
-                    Union, and the APEC region, providing access to top-tier
-                    executive candidates across international markets. Our
-                    cross-border recruitment capabilities ensure seamless
-                    leadership placement in diverse and dynamic environments.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Our Edge
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    Our approach is agile, consultative, and solutions-focused.
-                    Beyond traditional executive search services, we help solve
-                    broader business challenges with flexible, performance-driven
-                    recruitment strategies designed to deliver measurable
-                    results.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+interface SolutionsCategoriesProps {
+  activeTab?: SolutionTabId;
+}
 
-        {/* Contract Search Section */}
-        <section className="mb-8 md:mb-10 last:mb-0">
-          <div className="mb-5 flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#19478e] text-white text-sm font-semibold shadow-sm">
-              03
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#8093c2]">
-                Service Area
-              </span>
-              <h2 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold uppercase m-0 text-[clamp(24px,3vw,32px)]">
-                Contract Search
-              </h2>
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-[#f9fbff] via-white to-[#eef2ff] rounded-xl border border-[#d7e2ff] shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
-            <div className="p-6 sm:p-8">
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Our Focus
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    We help organizations quickly access highly skilled
-                    professionals who can step in, contribute immediately, and
-                    support critical business initiatives. Our contract search
-                    services provide flexible talent solutions for project-based
-                    work, interim leadership, and specialized skill
-                    requirements.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Rapid Talent Deployment
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    Our recruiting team maintains an active network of
-                    experienced professionals who are available to engage on
-                    short-term and long-term contract assignments. This allows
-                    us to move quickly when our clients need skilled talent to
-                    address immediate operational demands.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Specialized Expertise
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    Whether supporting seasonal workload fluctuations,
-                    transformation initiatives, or temporary coverage for key
-                    roles, our contract professionals bring targeted expertise
-                    and the ability to deliver results in dynamic environments.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Our Edge
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    We combine speed, precision, and relationship-driven
-                    recruiting to ensure our clients receive dependable
-                    professionals who integrate quickly, add immediate value, and
-                    help keep business operations moving forward.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+export default function SolutionsCategories({ activeTab }: SolutionsCategoriesProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-        {/* Direct-Hire Search Section */}
-        <section className="mb-8 md:mb-10 last:mb-0">
-          <div className="mb-5 flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#19478e] text-white text-sm font-semibold shadow-sm">
-              04
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#8093c2]">
-                Service Area
-              </span>
-              <h2 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold uppercase m-0 text-[clamp(24px,3vw,32px)]">
-                Direct-Hire Search
-              </h2>
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-[#f9fbff] via-white to-[#eef2ff] rounded-xl border border-[#d7e2ff] shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
-            <div className="p-6 sm:p-8">
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Our Focus
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    Our direct-hire search services help organizations secure
-                    full-time professionals who bring both technical expertise
-                    and cultural alignment. We work closely with clients to
-                    understand the strategic needs behind every hire, ensuring
-                    candidates are positioned to succeed from day one.
-                  </p>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.08 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="w-full bg-[#f5f6f8] py-10 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 2xl:px-16"
+    >
+      <div className="w-full max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+          {CARDS.map((card, index) => (
+            <article
+              key={card.id}
+              id={card.id}
+              className={`group rounded-xl transition-all duration-300 reveal revealUp ${isVisible ? "active" : ""}`}
+              style={{ transitionDelay: `${0.1 + index * 0.08}s` }}
+            > 
+              <div className="relative w-full aspect-4/3">
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  fill
+                  className="object-cover transition-transform rounded-xl duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                />
+              </div>
+              <div className="relative px-5 sm:px-6 py-5 sm:py-6 -mt-6 mx-3 sm:mx-4 rounded-t-xl bg-white shadow-gray-300 border border-neutral-200/60 min-h-[520px] flex flex-col justify-between">
+                <div className="absolute -top-5 left-5 sm:left-6">
+                  <CardIcon icon={card.icon} />
                 </div>
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Candidate Evaluation
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    Each candidate undergoes a comprehensive screening process
-                    that includes in-depth interviews, skills evaluation, and
-                    reference verification. This process ensures that every
-                    candidate presented meets the highest standards of capability
-                    and professionalism.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Efficient Hiring Process
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    We streamline the recruitment lifecycle by managing sourcing,
-                    screening, interview coordination, and offer facilitation—
-                    allowing hiring teams to focus on selecting the best talent
-                    rather than managing the search process.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-[var(--font-plus-jakarta)] text-[#19478e] font-bold text-[clamp(16px,2vw,18px)] mb-3 m-0">
-                    Our Edge
-                  </h4>
-                  <p className="font-[var(--font-inter)] text-[#383838] text-[clamp(14px,1.8vw,16px)] leading-relaxed m-0">
-                    Our consultative approach balances efficiency with
-                    thoroughness, delivering candidates who are not only
-                    qualified but well-suited to contribute to the long-term
-                    success of the organization.
-                  </p>
+                <h3 className="font-[var(--font-plus-jakarta)] font-bold text-[#1f2933] text-lg sm:text-xl mt-2 mb-3">
+                  {card.title}
+                </h3>
+                <p className="text-[#4b5563] text-sm sm:text-base leading-relaxed mb-4">
+                  {card.description}
+                </p>
+                <ul className="list-none p-0 m-0 space-y-2 mb-5">
+                  {card.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-2 text-[#374151] text-sm sm:text-base">
+                      <span className="text-[#6ca642] mt-0.5">{CHECK_ICON}</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex justify-end">
+                  <Link
+                    href={card.href}
+                    className="inline-flex items-center gap-1.5 py-2.5 px-4 bg-[#6ca642] text-white text-sm font-medium rounded-lg no-underline transition-all duration-300 hover:bg-[#5d9338] hover:shadow-md"
+                  >
+                    Learn More
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg>
+                  </Link>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
