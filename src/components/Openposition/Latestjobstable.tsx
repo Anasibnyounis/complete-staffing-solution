@@ -874,14 +874,13 @@ export default function LatestJobsTable({
                       </td>
 
                       {/* Department */}
-                      <td className="px-4 sm:px-6 py-3 border-b border-neutral-100">
-                        <button
-                          type="button"
+                      <td className="px-4 sm:px-6 py-3 border-b border-neutral-100 text-left">
+                        <span
                           onClick={() => handleDepartmentClick(job.department)}
-                          className="text-[#19478e] font-semibold underline-offset-2 hover:underline"
+                          className="text-[#19478e] text-left font-semibold underline-offset-2 hover:underline cursor-default "
                         >
                           {job.department}
-                        </button>
+                        </span>
                       </td>
 
                       {/* Type */}
