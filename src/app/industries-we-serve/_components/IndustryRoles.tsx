@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useCallback, useEffect } from "react";
-import useEmblaCarousel from "embla-carousel-react";
+import { useEffect, useRef } from "react";
 
 export interface RoleItem {
   icon: string;
@@ -19,30 +18,58 @@ interface Props {
 }
 
 export default function IndustryRoles({ roles }: Props) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "start",
-    containScroll: "trimSnaps",
-    skipSnaps: false,
-    dragFree: false,
-  });
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
 
-  const scrollPrev = useCallback(() => {
-    emblaApi?.scrollPrev();
-  }, [emblaApi]);
+  const marqueeRoles = roles.length > 0 ? [...roles, ...roles] : [];
 
-  const scrollNext = useCallback(() => {
-    emblaApi?.scrollNext();
-  }, [emblaApi]);
-
-  // Optional: auto-advance every 6 seconds (user can still scroll)
   useEffect(() => {
-    if (!emblaApi || roles.length <= 1) return;
-    const interval = setInterval(() => {
-      emblaApi.scrollNext();
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [emblaApi, roles.length]);
+    if (!scrollerRef.current || roles.length === 0) return;
+
+    let animationFrameId: number;
+    let lastTimestamp: number | null = null;
+    let currentX = 0;
+    const SPEED = 150; // pixels per second
+
+    const getScrollWidth = () =>
+      scrollerRef.current ? scrollerRef.current.scrollWidth / 2 : 0;
+
+    let scrollWidth = getScrollWidth();
+
+    const handleResize = () => {
+      scrollWidth = getScrollWidth();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    const step = (timestamp: number) => {
+      if (lastTimestamp === null) {
+        lastTimestamp = timestamp;
+      }
+
+      const delta = timestamp - lastTimestamp;
+      lastTimestamp = timestamp;
+
+      const distance = (SPEED * delta) / 1000;
+      currentX -= distance;
+
+      if (scrollWidth > 0 && Math.abs(currentX) >= scrollWidth) {
+        currentX += scrollWidth;
+      }
+
+      if (scrollerRef.current) {
+        scrollerRef.current.style.transform = `translateX(${currentX}px)`;
+      }
+
+      animationFrameId = window.requestAnimationFrame(step);
+    };
+
+    animationFrameId = window.requestAnimationFrame(step);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [roles.length]);
 
   return (
     <section className="w-full bg-[#f8f9fa] py-12 sm:py-14 md:py-16">
@@ -52,50 +79,17 @@ export default function IndustryRoles({ roles }: Props) {
             <h2 className="font-[var(--font-plus-jakarta)] text-[clamp(28px,4vw,36px)] font-bold text-[#1a1a1a] m-0 leading-tight">
               Roles We Fill
             </h2>
-            {roles.length > 1 && (
-              <div className="flex items-center gap-2 shrink-0">
-                <button
-                  type="button"
-                  onClick={scrollPrev}
-                  aria-label="Previous roles"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#1a1a1a] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-200 hover:bg-[#4A7BAD] hover:text-white hover:shadow-[0_4px_12px_rgba(74,123,173,0.3)] disabled:opacity-50 disabled:pointer-events-none"
-                >
-                  <svg width="20" height="20" viewBox="0 0 16 16" fill="none" className="shrink-0">
-                    <path
-                      d="M15 8H1M1 8L8 15M1 8L8 1"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  onClick={scrollNext}
-                  aria-label="Next roles"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#1a1a1a] shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-200 hover:bg-[#4A7BAD] hover:text-white hover:shadow-[0_4px_12px_rgba(74,123,173,0.3)] disabled:opacity-50 disabled:pointer-events-none"
-                >
-                  <svg width="20" height="20" viewBox="0 0 16 16" fill="none" className="shrink-0">
-                    <path
-                      d="M1 8H15M15 8L8 1M15 8L8 15"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-            )}
           </div>
 
-          <div className="overflow-x-hidden p-5" ref={emblaRef}>
-            <div className="flex touch-pan-y gap-6 -mr-6">
-              {roles.map((role, index) => (
+          <div className="overflow-x-hidden pt-5">
+            <div
+              ref={scrollerRef}
+              className="flex gap-6 will-change-transform"
+            >
+              {marqueeRoles.map((role, index) => (
                 <div
-                  key={index}
-                  className="flex-[0_0_100%] sm:flex-[0_0_calc(50%-12px)] xl:flex-[0_0_calc(25%-18px)] min-w-0 pr-6"
+                  key={`${role.title}-${index}`}
+                  className="flex-[0_0_100%] sm:flex-[0_0_calc(50%-12px)] xl:flex-[0_0_calc(25%-18px)] min-w-0"
                 >
                   <div className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] h-full">
                     <div className="relative w-full aspect-[1.8/1] overflow-hidden">
