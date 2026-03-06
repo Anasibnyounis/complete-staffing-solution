@@ -184,7 +184,8 @@ const ContactHero: React.FC = () => {
                       name="subject"
                       type="text"
                       required
-                      defaultValue={selectedReason}
+                      value={selectedReason}
+                      readOnly
                       className="w-full rounded-lg border border-sky-200 bg-white px-3.5 py-2.5 text-sm text-neutral-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#19478e]/70 focus:border-[#19478e]"
                     />
                   </div>
