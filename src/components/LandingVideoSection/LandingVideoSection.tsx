@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const VIDEO_TITLE = "Complete Staffing Solutions — Who We Are";
 
@@ -31,10 +31,31 @@ const PauseIcon = () => (
   </svg>
 );
 
+const stats = [
+  { number: "35,000+", description: "Successful Placements" },
+  { number: "200,000+", description: "Qualified Candidates" },
+  { number: "1M+", description: "Career Opportunities" },
+];
+
 export default function LandingVideoSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isStatsVisible, setIsStatsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setIsStatsVisible(true);
+        });
+      },
+      { threshold: 0.1, rootMargin: "50px" }
+    );
+    if (statsRef.current) observer.observe(statsRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const toggleMute: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
@@ -47,10 +68,8 @@ export default function LandingVideoSection() {
 
   const togglePlayPause: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
-
     const video = videoRef.current;
     if (!video) return;
-
     if (video.paused) {
       video.play();
     } else {
@@ -60,31 +79,52 @@ export default function LandingVideoSection() {
 
   return (
     <section
-      className="w-full bg-[#f5f7fa] py-12 px-4 sm:py-14 sm:px-6 md:py-16 md:px-8 lg:py-20 2xl:py-24"
-      aria-label="Overview video"
+      className="relative w-full overflow-hidden border-t border-white/10 flex flex-col items-center"
+      aria-label="Video and impact stats"
     >
-      <div className="w-full max-w-[900px] mx-auto">
-        <h2 className="font-(--font-plus-jakarta) font-bold text-[#19478e] text-center mb-6 sm:mb-8 text-xl sm:text-2xl md:text-3xl">
-          See How We Help Our Clients
+      {/* Dark blurred background — glassy theme */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50 scale-110"
+        style={{
+          backgroundImage: "url('/modern-minimalist-office.jpg')",
+        }}
+        aria-hidden
+      />
+      {/* <div
+        className="absolute inset-0 bg-slate-900/75 backdrop-blur-sm"
+        aria-hidden
+      /> */}
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-800/70 to-slate-900/80"
+        aria-hidden
+      />
+
+      <div className="relative z-10 w-full py-12 max-w-[900px] sm:py-14 sm:px-6 md:py-16 md:px-8 lg:py-20">
+        {/* Headline */}
+        <h2 className="font-(--font-plus-jakarta) font-bold text-white text-center mb-6 sm:mb-8 text-xl sm:text-2xl md:text-3xl">
+          See How We Help Businesses Find Talent
         </h2>
-        <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black flex items-center justify-center select-none">
+
+        {/* Video container — rounded, shadow, glassy border */}
+        <div
+          className="relative aspect-video w-full rounded-2xl overflow-hidden flex items-center justify-center select-none
+            bg-black/40
+            border border-white/20
+            shadow-[0_24px_48px_rgba(0,0,0,0.5),0_12px_24px_rgba(0,0,0,0.4)]
+            ring-1 ring-white/10"
+        >
           <video
             ref={videoRef}
             src="/videos/landing-bottom-video.mp4"
             title={VIDEO_TITLE}
             muted={isMuted}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain]"
             playsInline
             controls={false}
-            onPlay={() => {
-              setIsPlaying(true);
-            }}
-            onPause={() => {
-              setIsPlaying(false);
-            }}
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
           />
 
-          {/* Center play/pause button */}
           <button
             type="button"
             onClick={togglePlayPause}
@@ -99,7 +139,6 @@ export default function LandingVideoSection() {
             </span>
           </button>
 
-          {/* Sound toggle */}
           <button
             type="button"
             onClick={toggleMute}
@@ -108,6 +147,32 @@ export default function LandingVideoSection() {
           >
             {isMuted ? <MuteIcon /> : <UnmuteIcon />}
           </button>
+        </div>
+      </div>
+      <div
+        ref={statsRef}
+        className={`mb-10 max-w-7xl flex items-center justify-center transition-all duration-700 ease-out ${isStatsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+      >
+        <div className="flex flex-wrap justify-center items-center md:justify-between font-(--font-plus-jakarta) text-white">
+          {stats.map((stat, index) => (
+            <div
+              key={stat.number}
+              className={`flex flex-col items-center text-center px-6 sm:px-8 transition-all duration-500 ease-out
+                    ${index < 2 ? "md:border-r md:border-white/20" : ""}
+                    ${isStatsVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+              style={{
+                transitionDelay: isStatsVisible ? `${0.15 + index * 0.15}s` : "0s",
+              }}
+            >
+              <span className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] leading-tight text-white tracking-tight">
+                {stat.number}
+              </span>
+              <span className="mt-2 text-sm sm:text-base text-white/80 font-(--font-inter)">
+                {stat.description}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

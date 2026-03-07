@@ -1,7 +1,6 @@
 import { Hero, HeroTagline } from "@/components/Hero";
 import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
 import LandingVideoSection from "@/components/LandingVideoSection/LandingVideoSection";
-import Industries from "@/components/Industries";
 import JobRequestSection from "@/components/JobRequestSection";
 // import IndustryWelcome from "@/app/industries-we-serve/healthcare/IndustryWelcome";
 // import FinancialServicesWelcome from "@/app/industries-we-serve/financial-services/IndustryWelcome";
@@ -10,12 +9,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <Hero />
-      <HeroTagline />
+      {/* <HeroTagline /> */}
       <WhyChooseUs />
       <LandingVideoSection />
-      <Industries />
       <JobRequestSection />
-
     </main>
   );
 }

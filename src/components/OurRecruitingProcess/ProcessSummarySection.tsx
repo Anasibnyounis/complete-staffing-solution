@@ -1,80 +1,90 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
-const CHECK_ICON = (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="shrink-0"
-  >
-    <path d="M20 6L9 17l-5-5" />
-  </svg>
-);
-
-const stats = [
-  "10,000+ candidates screened",
-  "95% client satisfaction rate",
-  "Average placement time: 14 days",
+const TIMELINE_STEPS = [
+  { letter: "I", title: "Identify", subtitle: "Talent" },
+  { letter: "S", title: "Shortlist", subtitle: "Top Candidates" },
+  { letter: "O", title: "Onsite", subtitle: "Support" },
+  { letter: "R", title: "Referrals", subtitle: "& Network" },
+  { letter: "T", title: "Team", subtitle: "Approach" },
 ];
 
 const ProcessSummarySection: React.FC = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.12 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
-      className={`w-full bg-[#f9f9fb] py-8 sm:py-10 md:py-14 ${isVisible ? "active" : ""}`}
+      className="w-full bg-[#F7F9FC]"
+      style={{ marginTop: "50px", marginBottom: "40px" }}
     >
-      <div className="w-full max-w-[900px] mx-auto px-4 sm:px-6 md:px-8">
-        <h2
-          className={`font-[var(--font-plus-jakarta)] text-[clamp(20px,3vw,32px)] font-bold text-[#19478e] uppercase tracking-wide text-center mb-6 sm:mb-8 reveal revealUp ${isVisible ? "active" : ""}`}
-          style={{ transitionDelay: "0.1s" }}
-        >
-          How Our Process Works
-        </h2>
+      <div
+        className="mx-auto flex flex-col items-center px-6"
+        style={{ maxWidth: "1200px" }}
+      >
+        {/* Row 1: Circles and connectors on same horizontal line */}
         <div
-          className={`rounded-xl bg-white shadow-md border border-neutral-200/60 p-5 sm:p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 reveal revealUp ${isVisible ? "active" : ""}`}
-          style={{ transitionDelay: "0.2s" }}
+          className="flex flex-wrap md:flex-nowrap justify-center items-center"
+          style={{ gap: "" }}
         >
-          <h3 className="font-[var(--font-plus-jakarta)] font-bold text-[#19478e] text-base sm:text-lg md:text-2xl mb-3 sm:mb-4 text-center">
-            Smart Recruitment. Real Results.
-          </h3>
-          <hr className="my-3 sm:my-4 border-neutral-200" />
-          <ul className="flex flex-col items-center gap-3 list-none p-0 m-0 max-w-xl mx-auto">
-            <li className="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-3 w-full">
-              <span className="flex items-center justify-center gap-2 text-black font-[var(--font-inter)] text-[14px] sm:text-base transition-transform duration-300 hover:translate-x-1">
-                <span className="text-[#6ca642] shrink-0">{CHECK_ICON}</span>
-                {stats[0]}
-              </span>
-              <span className="flex items-center justify-center gap-2 text-black font-[var(--font-inter)] text-[14px] sm:text-base transition-transform duration-300 hover:translate-x-1">
-                <span className="text-[#6ca642] shrink-0">{CHECK_ICON}</span>
-                {stats[1]}
-              </span>
-            </li>
-            <li className="flex items-center justify-center gap-2 text-black font-[var(--font-inter)] text-[14px] sm:text-base w-full transition-transform duration-300 hover:translate-x-1">
-              <span className="text-[#6ca642] shrink-0">{CHECK_ICON}</span>
-              {stats[2]}
-            </li>
-          </ul>
+          {TIMELINE_STEPS.map((step, index) => (
+            <React.Fragment key={step.letter}>
+              <div
+                className="flex items-center justify-center rounded-full text-white font-bold shrink-0"
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  background: "linear-gradient(135deg, #2D7FC1, #3455A5)",
+                  fontSize: "32px",
+                  fontWeight: 700,
+                  boxShadow: "0 4px 14px rgba(45, 127, 193, 0.4)",
+                }}
+              >
+                {step.letter}
+              </div>
+              {index < TIMELINE_STEPS.length - 1 && (
+                <div
+                  className="hidden md:flex items-center justify-center shrink-0 relative"
+                  style={{ width: "130px", height: "4px", background: "#BFD0EA" }}
+                >
+                  <div
+                    className="rounded-full shrink-0 absolute"
+                    style={{
+                      width: "10px",
+                      height: "10px",
+                      background: "#3A63A9",
+                      left: "50%",
+                      top: "50%",
+                      transform: "translate(-50%, -50%)",
+                    }}
+                  />
+                </div>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+
+        {/* Row 2: Labels under each circle - same flex layout so they align */}
+        <div
+          className="flex flex-wrap md:flex-nowrap justify-center items-start"
+          style={{ gap: "5px", marginTop: "10px" }}
+        >
+          {TIMELINE_STEPS.map((step, index) => (
+            <React.Fragment key={step.letter}>
+              <div
+                className="flex flex-col items-center text-center shrink-0 font-[var(--font-plus-jakarta)]"
+                style={{ width: "140px", color: "#2B3A4B" }}
+              >
+                <div style={{ fontSize: "18px", fontWeight: 700 }}>{step.title}</div>
+                <div className="whitespace-nowrap" style={{ fontSize: "14px", fontWeight: 400, marginTop: "4px" }}>{step.subtitle}</div>
+              </div>
+              {index < TIMELINE_STEPS.length - 1 && (
+                <div
+                  className="hidden md:block shrink-0"
+                  style={{ width: "80px" }}
+                  aria-hidden
+                />
+              )}
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </section>

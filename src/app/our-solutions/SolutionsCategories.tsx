@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type { SolutionTabId } from "./OurSolutionsWelcome";
 
 const CHECK_ICON = (
@@ -32,7 +31,7 @@ const CARDS: {
     ],
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
     icon: "at",
-    href: "/our-solutions#retained",
+    href: "/our-solutions/retained",
   },
   {
     id: "executive",
@@ -45,7 +44,7 @@ const CARDS: {
     ],
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80",
     icon: "briefcase",
-    href: "/our-solutions#executive",
+    href: "/our-solutions/executive",
   },
   {
     id: "contract",
@@ -58,7 +57,7 @@ const CARDS: {
     ],
     image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80",
     icon: "handshake",
-    href: "/our-solutions#contract",
+    href: "/our-solutions/contract",
   },
   {
     id: "direct",
@@ -71,7 +70,7 @@ const CARDS: {
     ],
     image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=600&q=80",
     icon: "search",
-    href: "/our-solutions#direct",
+    href: "/our-solutions/direct",
   },
 ];
 
@@ -109,7 +108,6 @@ interface SolutionsCategoriesProps {
 
 export default function SolutionsCategories({ activeTab, onTabChange }: SolutionsCategoriesProps) {
   const sectionRef = useRef<HTMLElement>(null);
-  const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -167,12 +165,6 @@ export default function SolutionsCategories({ activeTab, onTabChange }: Solution
                 <div className="flex justify-end">
                   <Link
                     href={card.href}
-                    onClick={(e) => {
-                      if (pathname === "/our-solutions" && onTabChange) {
-                        e.preventDefault();
-                        onTabChange(card.id);
-                      }
-                    }}
                     className="inline-flex items-center gap-1.5 py-2.5 px-4 bg-[#6ca642] text-white text-sm font-medium rounded-lg no-underline transition-all duration-300 hover:bg-[#5d9338] hover:shadow-md"
                   >
                     Learn More

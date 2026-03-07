@@ -11,9 +11,9 @@ export const metadata = {
 
 export default function OurRecruitingProcess() {
   return (
-    <main className="min-h-screen bg-[#f9f9fb] scroll-smooth">
+    <main className="min-h-screen scroll-smooth" style={{ background: "#F7F9FC" }}>
       <HeroSection />
-      {/* <ProcessSummarySection /> */}
+      <ProcessSummarySection />
       <ProcessSteps />
       <RecruitingProcessCTA />
     </main>
