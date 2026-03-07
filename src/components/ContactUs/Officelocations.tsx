@@ -42,11 +42,11 @@ const OFFICES: Office[] = [
     image: assets.rhode_island_office,
   },
   {
-    name: "Hartford Office",
-    address: "10 State House Square",
-    city: "Hartford",
-    state: "CT 06103",
-    phone: "(860) 555-0199",
+    name: "Glastonbury Office",
+    address: "45 Glastonbury Boulevard",
+    city: "Glastonbury",
+    state: "CT 06033",
+    phone: "(860) 554-3015",
     image: assets.glastonbury_ct,
   },
   {

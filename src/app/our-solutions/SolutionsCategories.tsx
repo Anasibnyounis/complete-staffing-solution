@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { SolutionTabId } from "./OurSolutionsWelcome";
 
 const CHECK_ICON = (
@@ -103,10 +104,12 @@ function CardIcon({ icon }: { icon: string }) {
 
 interface SolutionsCategoriesProps {
   activeTab?: SolutionTabId;
+  onTabChange?: (id: SolutionTabId) => void;
 }
 
-export default function SolutionsCategories({ activeTab }: SolutionsCategoriesProps) {
+export default function SolutionsCategories({ activeTab, onTabChange }: SolutionsCategoriesProps) {
   const sectionRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -143,7 +146,7 @@ export default function SolutionsCategories({ activeTab }: SolutionsCategoriesPr
                   sizes="(max-width: 640px) 100vw, 50vw"
                 />
               </div>
-              <div className="relative px-5 sm:px-6 py-5 sm:py-6 -mt-6 mx-3 sm:mx-4 rounded-t-xl bg-white shadow-gray-300 border border-neutral-200/60 min-h-[520px] flex flex-col justify-between">
+              <div className="relative px-5 sm:px-6 py-5 sm:py-6 -mt-6 mx-3 sm:mx-4 rounded-t-xl bg-white shadow-gray-300 border border-neutral-200/60  flex flex-col justify-between">
                 <div className="absolute -top-5 left-5 sm:left-6">
                   <CardIcon icon={card.icon} />
                 </div>
@@ -164,6 +167,12 @@ export default function SolutionsCategories({ activeTab }: SolutionsCategoriesPr
                 <div className="flex justify-end">
                   <Link
                     href={card.href}
+                    onClick={(e) => {
+                      if (pathname === "/our-solutions" && onTabChange) {
+                        e.preventDefault();
+                        onTabChange(card.id);
+                      }
+                    }}
                     className="inline-flex items-center gap-1.5 py-2.5 px-4 bg-[#6ca642] text-white text-sm font-medium rounded-lg no-underline transition-all duration-300 hover:bg-[#5d9338] hover:shadow-md"
                   >
                     Learn More

@@ -139,7 +139,7 @@ export default function JobDetailPage() {
                 </h2>
 
                 <div
-                  className="description-content"
+                  className="description-content text-black"
                   dangerouslySetInnerHTML={{
                     __html:
                       job.descriptionHtml &&

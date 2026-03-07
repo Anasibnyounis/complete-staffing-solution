@@ -19,7 +19,7 @@ export default function OurSolutionsPage() {
     <main className="min-h-screen bg-white">
       <OurSolutionsHero />
       <OurSolutionsWelcome activeTab={activeTab} onTabChange={handleTabChange} />
-      <SolutionsCategories activeTab={activeTab} />
+      <SolutionsCategories activeTab={activeTab} onTabChange={handleTabChange} />
       <JobRequestSection />
     </main>
   );
