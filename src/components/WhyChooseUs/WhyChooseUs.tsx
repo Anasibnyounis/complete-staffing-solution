@@ -3,9 +3,19 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaHospital, FaLandmark, FaCity, FaCog } from "react-icons/fa";
+import { FaHospital, FaLandmark, FaCity, FaCog, FaBriefcase } from "react-icons/fa";
 
 const INDUSTRY_CARDS = [
+  {
+    id: "our-solutions",
+    title: "Our Solutions",
+    description:
+      "We offer a wide range of solutions to meet your needs.",
+    href: "/our-solutions",
+    image: "/industries detail pages/manufacturing-hero.jpg",
+    icon: FaBriefcase,
+    linkColor: "#6ca642",
+  },
   {
     id: "healthcare",
     title: "Healthcare",
@@ -35,17 +45,7 @@ const INDUSTRY_CARDS = [
     image: "/industries detail pages/real-estate.jpg",
     icon: FaCity,
     linkColor: "#4a9da8",
-  },
-  {
-    id: "manufacturing",
-    title: "Manufacturing",
-    description:
-      "Operations, engineering, production positions.",
-    href: "/industries-we-serve/manufacturing",
-    image: "/industries detail pages/manufacturing-hero.jpg",
-    icon: FaCog,
-    linkColor: "#6ca642",
-  },
+  }
 ];
 
 export default function WhyChooseUs() {

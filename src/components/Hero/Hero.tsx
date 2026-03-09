@@ -18,12 +18,12 @@ const stats = [
   },
   {
     icon: FaUsers,
-    value: "12,000+",
+    value: "200,000+",
     label: "Placements",
   },
   {
     icon: FaBuilding,
-    value: "500+",
+    value: "35,000+",
     label: "Companies Served",
   },
 ];

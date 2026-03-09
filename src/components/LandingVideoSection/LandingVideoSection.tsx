@@ -32,9 +32,9 @@ const PauseIcon = () => (
 );
 
 const stats = [
-  { number: "35,000+", description: "Successful Placements" },
-  { number: "200,000+", description: "Qualified Candidates" },
-  { number: "1M+", description: "Career Opportunities" },
+  { number: "200,000+", description: "Successful Placements" },
+  { number: "1M+", description: "Qualified Candidates" },
+  { number: "5,000+", description: "Career Opportunities" },
 ];
 
 export default function LandingVideoSection() {
