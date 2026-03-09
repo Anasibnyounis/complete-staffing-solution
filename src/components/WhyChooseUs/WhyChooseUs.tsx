@@ -58,9 +58,10 @@ export default function WhyChooseUs() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-6 lg:gap-6">
           {INDUSTRY_CARDS.map((card) => (
-            <div
+            <Link
               key={card.id}
-              className="industries-card group flex flex-col bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-0.5"
+              href={card.href}
+              className="industries-card group flex flex-col bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 cursor-pointer"
             >
               {/* Top: image with overlay + white circle icon */}
               <div className="industries-card-image relative aspect-[4/3] min-h-[180px] overflow-hidden">
@@ -97,9 +98,8 @@ export default function WhyChooseUs() {
                 <p className="font-[var(--font-inter)] text-neutral-600 text-sm sm:text-[15px] leading-relaxed mb-5 flex-1">
                   {card.description}
                 </p>
-                <Link
-                  href={card.href}
-                  className="industries-learn-more relative inline-block font-[var(--font-inter)] font-medium text-sm sm:text-base transition-colors hover:opacity-90"
+                <span
+                  className="industries-learn-more relative inline-block font-[var(--font-inter)] font-medium text-sm sm:text-base transition-colors group-hover:opacity-90"
                   style={{ color: card.linkColor }}
                 >
                   Learn More
@@ -112,9 +112,9 @@ export default function WhyChooseUs() {
                       right: -2,
                     }}
                   />
-                </Link>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

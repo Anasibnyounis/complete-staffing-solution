@@ -84,7 +84,7 @@ export default function LandingVideoSection() {
     >
       {/* Dark blurred background — glassy theme */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50 scale-110"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 scale-110"
         style={{
           backgroundImage: "url('/modern-minimalist-office.jpg')",
         }}
@@ -95,7 +95,7 @@ export default function LandingVideoSection() {
         aria-hidden
       /> */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-800/70 to-slate-900/80"
+        className="absolute inset-0 bg-gradient-to-b from-slate-900/75 via-slate-800/85 to-slate-900/90"
         aria-hidden
       />
 
@@ -118,7 +118,7 @@ export default function LandingVideoSection() {
             src="/videos/landing-bottom-video.mp4"
             title={VIDEO_TITLE}
             muted={isMuted}
-            className="w-full h-full object-contain]"
+            className="w-full h-full object-contain"
             playsInline
             controls={false}
             onPlay={() => setIsPlaying(true)}

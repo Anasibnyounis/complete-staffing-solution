@@ -18,10 +18,10 @@ export default function IndustryChallenges({
   challenges,
 }: Props) {
   return (
-    <section className="w-full bg-white py-12 sm:py-14 md:py-16">
+    <section className="w-full bg-[#f5f7fb] py-12 sm:py-14 md:py-16">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 2xl:px-16">
         <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto">
-          <h2 className="font-[var(--font-plus-jakarta)] text-[clamp(24px,3.8vw,35px)] font-semibold text-[#022d6d] text-left mb-12 tracking-tight">
+          <h2 className="font-[var(--font-plus-jakarta)] text-[clamp(26px,4vw,38px)] font-semibold text-[#022d6d] text-left mb-10 tracking-tight">
             Addressing {industryName} Staffing{" "}
             <span className="font-medium text-[#022d6d]">Challenges</span>
           </h2>
@@ -36,11 +36,11 @@ export default function IndustryChallenges({
                   <div className="flex items-center justify-center flex-shrink-0">
                     {challenge.icon}
                   </div>
-                  <h3 className="m-0 text-[18px] font-bold leading-snug text-[#1e293b]">
+                  <h3 className="m-0 text-[19px] sm:text-[20px] font-bold leading-snug text-[#1e293b]">
                     {challenge.title}
                   </h3>
                 </div>
-                <p className="m-0 text-[13px] leading-relaxed text-[#64748b]">
+                <p className="m-0 text-[14px] leading-relaxed text-[#64748b]">
                   {challenge.description}
                 </p>
               </div>

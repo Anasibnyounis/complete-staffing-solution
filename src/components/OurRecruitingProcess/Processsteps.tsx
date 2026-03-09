@@ -10,6 +10,7 @@ const PROCESS_CARDS = [
     subtitle: "Find the right talent through data-driven sourcing",
     description:
       "We use targeted strategies and market insights to identify and attract qualified candidates who match your requirements and company culture.",
+    image: "/our-recruiting-process/identify-talent.jpg",
   },
   {
     letter: "S",
@@ -18,14 +19,16 @@ const PROCESS_CARDS = [
     subtitle: "Rigorous screening to deliver the best fits",
     description:
       "Our recruiters screen, evaluate, and shortlist only the most suitable candidates so you spend time on interviews that matter.",
+    image: "/our-recruiting-process/top-candidates.jpg",
   },
   {
     letter: "O",
-    title: "Onsite ",
+    title: "Onsite",
     subtitle2: "Support",
     subtitle: "Hands-on coordination for interviews and assessments",
     description:
       "We coordinate interviews, assessments, and onsite logistics to ensure a smooth process for both your team and the candidates.",
+    image: "/our-recruiting-process/onsite.jpg",
   },
   {
     letter: "R",
@@ -34,6 +37,7 @@ const PROCESS_CARDS = [
     subtitle: "Leverage proven talent from our extended network",
     description:
       "We tap into referrals and our professional network to surface high-quality candidates who come pre-vetted and often faster to hire.",
+    image: "/our-recruiting-process/referal.jpg",
   },
   {
     letter: "T",
@@ -42,6 +46,7 @@ const PROCESS_CARDS = [
     subtitle: "Collaborative partnership from start to placement",
     description:
       "We work as an extension of your team, aligning on goals and timelines to deliver a seamless hiring experience and successful placement.",
+    image: "/our-recruiting-process/team.jpg",
   },
 ];
 
@@ -118,7 +123,7 @@ const ProcessSteps: React.FC = () => {
                 style={{
                   width: "clamp(72px, 20vw, 100px)",
                   height: "clamp(72px, 20vw, 100px)",
-                  marginBottom: "16px",
+                  marginBottom: "12px",
                   background: "linear-gradient(135deg, #4DAED8, #2F60AA)",
                   fontSize: "clamp(24px, 6vw, 32px)",
                   fontWeight: 700,
@@ -128,6 +133,18 @@ const ProcessSteps: React.FC = () => {
                 {card.letter}
               </div>
             </div>
+            {card.image && (
+              <div className="px-3 sm:px-6 mb-3 sm:mb-4">
+                <div className="overflow-hidden rounded-lg shadow-sm">
+                  <img
+                    src={card.image}
+                    alt={`${card.title} step`}
+                    className="w-full h-28 sm:h-32 object-cover transform transition-transform duration-500 ease-out hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            )}
             <div className="px-3 sm:px-6 flex-1 flex flex-col">
               <h3
                 className="font-semibold text-center text-lg sm:text-xl"

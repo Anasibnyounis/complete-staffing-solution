@@ -36,7 +36,7 @@ export default function IndustryDetailPageHero({
             {subtitle}
           </p>
           <Link
-            href="/job-request"
+            href="/employment-form"
             className="inline-block w-fit rounded bg-[#6CA642] px-4 py-2.5 text-[15px] font-semibold text-white no-underline transition-all duration-300 hover:bg-[#5d9338] hover:-translate-y-0.5 hover:shadow-lg text-left"
           >
             Place Job Request

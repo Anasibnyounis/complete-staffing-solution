@@ -46,7 +46,7 @@ export default function Footer() {
             <b className="columnTitle font-bold text-neutral-900">Employers</b>
             <div className="linksList flex flex-col items-start gap-2.5 text-[15px] text-neutral-600 lg:items-center">
               <Link href="/industries-we-serve" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Industries We Serve</Link>
-              <Link href="/job-request" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Place a Job Request</Link>
+              <Link href="/employment-form" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Place a Job Request</Link>
             </div>
           </div>
 
