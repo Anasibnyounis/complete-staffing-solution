@@ -37,7 +37,7 @@ export default function JobRequestSection() {
           best talent is our passion.
         </h2>
         <Link
-          href="/employment-form"
+          href="/job-request"
           className="inline-flex items-center justify-center h-[50px] px-7 rounded bg-[#6ca642] text-lg font-semibold font-[var(--font-inter)] text-white no-underline transition-opacity hover:opacity-90 w-full max-w-[280px] md:max-w-none md:w-auto"
         >
           Place a Job Request

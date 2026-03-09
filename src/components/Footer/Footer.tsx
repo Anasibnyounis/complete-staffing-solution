@@ -77,7 +77,7 @@ export default function Footer() {
             <div className="contactInfoLinksContainer flex flex-col items-start justify-center gap-2.5 text-[15px] text-neutral-600 lg:items-center sm:text-xs">
               <div className="addressRow flex items-center gap-2.5 sm:justify-center sm:text-xs">
                 <Image src={`${FOOTER_ICONS}/MapPinLine.svg`} alt="" width={24} height={24} className="addressRowIcon h-5 w-5 shrink-0 object-contain sm:h-4 sm:w-4" />
-                <span>United States America</span>
+                <span>33 Boston Post Road West, Suite 190 Marlborough, MA 01752</span>
               </div>
               <div className="addressRow flex items-center gap-2.5 sm:justify-center sm:text-xs">
                 <Image src={`${FOOTER_ICONS}/Phone.svg`} alt="" width={24} height={24} className="addressRowIcon h-5 w-5 shrink-0 object-contain sm:h-4 sm:w-4" />
