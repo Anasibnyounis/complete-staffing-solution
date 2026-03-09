@@ -67,7 +67,7 @@ const RecruitingProcessCTA: React.FC = () => {
           Start your hiring process with us today—fast, transparent, and focused on the right fit.
         </p>
         <Link
-          href="/job-request"
+          href="/employment-form"
           className="inline-flex items-center justify-center font-[var(--font-inter)] font-semibold text-white no-underline rounded-lg transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent min-h-[48px] px-6 sm:px-8 py-3 sm:py-3.5 text-base sm:text-lg shadow-lg"
           style={{
             background: "linear-gradient(90deg, #4CAF50, #7CB342)",
