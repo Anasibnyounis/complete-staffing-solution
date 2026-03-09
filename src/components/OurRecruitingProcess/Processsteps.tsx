@@ -10,7 +10,7 @@ const PROCESS_CARDS = [
     subtitle: "Find the right talent through data-driven sourcing",
     description:
       "We use targeted strategies and market insights to identify and attract qualified candidates who match your requirements and company culture.",
-    image: "/our-recruiting-process/identify-talent.jpg",
+    image: "/our-recruiting-process/identify-talent.webp",
   },
   {
     letter: "S",
@@ -19,7 +19,7 @@ const PROCESS_CARDS = [
     subtitle: "Rigorous screening to deliver the best fits",
     description:
       "Our recruiters screen, evaluate, and shortlist only the most suitable candidates so you spend time on interviews that matter.",
-    image: "/our-recruiting-process/top-candidates.jpg",
+    image: "/our-recruiting-process/top-candidates.webp",
   },
   {
     letter: "O",
@@ -28,7 +28,7 @@ const PROCESS_CARDS = [
     subtitle: "Hands-on coordination for interviews and assessments",
     description:
       "We coordinate interviews, assessments, and onsite logistics to ensure a smooth process for both your team and the candidates.",
-    image: "/our-recruiting-process/onsite.jpg",
+    image: "/our-recruiting-process/onsite.webp",
   },
   {
     letter: "R",
@@ -37,7 +37,7 @@ const PROCESS_CARDS = [
     subtitle: "Leverage proven talent from our extended network",
     description:
       "We tap into referrals and our professional network to surface high-quality candidates who come pre-vetted and often faster to hire.",
-    image: "/our-recruiting-process/referal.jpg",
+    image: "/our-recruiting-process/referal.webp",
   },
   {
     letter: "T",
@@ -46,7 +46,7 @@ const PROCESS_CARDS = [
     subtitle: "Collaborative partnership from start to placement",
     description:
       "We work as an extension of your team, aligning on goals and timelines to deliver a seamless hiring experience and successful placement.",
-    image: "/our-recruiting-process/team.jpg",
+    image: "/our-recruiting-process/team.webp",
   },
 ];
 
