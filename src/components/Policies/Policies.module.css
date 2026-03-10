@@ -226,6 +226,10 @@
   font-family: var(--font-inter);
 }
 
+.embedWrapper {
+  margin-top: 20px;
+}
+
 .text a {
   color: #19478E;
   text-decoration: underline;

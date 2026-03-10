@@ -2,27 +2,11 @@
 
 import { useState } from "react";
 import styles from "./Policies.module.css";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-jakarta",
-});
 
 const sections = [
-  { id: "introduction", label: "Introduction" },
-  { id: "info-collect", label: "Information We Collect" },
-  { id: "use-info", label: "How We Use Your Information" },
-  { id: "cookies", label: "Cookies & Tracking Technologies" },
-  { id: "third-party", label: "Third-Party Services" },
-  { id: "rights", label: "Your Rights & Choices" },
-  { id: "data-security", label: "Data Security" },
-  { id: "updates", label: "Policy Updates" },
+  { id: "privacy-policy", label: "Privacy Policy" },
+  { id: "cookie-policy", label: "Cookie Policy" },
+  { id: "additional-disclosures", label: "Additional Disclosures" },
 ];
 
 export default function PoliciesSidebar() {
