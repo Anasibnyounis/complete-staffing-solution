@@ -2,15 +2,25 @@
 
 import { useState } from "react";
 import styles from "./Policies.module.css";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+});
 
 const sections = [
   { id: "privacy-policy", label: "Privacy Policy" },
   { id: "cookie-policy", label: "Cookie Policy" },
-  { id: "additional-disclosures", label: "Additional Disclosures" },
 ];
 
 export default function PoliciesSidebar() {
-  const [activeSection, setActiveSection] = useState("introduction");
+  const [activeSection, setActiveSection] = useState("privacy-policy");
 
   const scrollToSection = (id: string) => {
     setActiveSection(id);
