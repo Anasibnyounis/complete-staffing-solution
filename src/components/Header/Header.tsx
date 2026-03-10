@@ -158,7 +158,7 @@ export default function Header() {
       {/* Top bar with logo and quick contact */}
       <div className="w-full bg-[#19478e] text-white">
         <div className="w-full max-w-[1280px] 2xl:max-w-[1840px] mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-2 2xl:px-8 font-[var(--font-dm-sans)]">
-        <Link
+          <Link
             href="/"
             aria-label="Complete Staffing Solutions - Home"
             className="flex items-center gap-2"
@@ -240,7 +240,7 @@ export default function Header() {
               >
                 Industries
               </Link>
-              
+
             </DesktopDropdown>
 
             <Link
@@ -334,14 +334,13 @@ export default function Header() {
               >
                 <span>Employers</span>
                 <ChevronDownIcon
-                  className={`w-5 h-5 transition-transform ${
-                    mobileOpenDropdown === "employers" ? "rotate-180" : ""
-                  }`}
+                  className={`w-5 h-5 transition-transform ${mobileOpenDropdown === "employers" ? "rotate-180" : ""
+                    }`}
                 />
               </button>
               {mobileOpenDropdown === "employers" && (
                 <div className="pl-4 pb-2 space-y-1">
-                   <Link
+                  <Link
                     href="/our-solutions"
                     className="block py-1.5 text-neutral-700"
                     onClick={closeMobileMenu}
@@ -355,7 +354,7 @@ export default function Header() {
                   >
                     Industries
                   </Link>
-                 
+
                 </div>
               )}
             </div>
@@ -377,9 +376,8 @@ export default function Header() {
               >
                 <span>Job Seekers</span>
                 <ChevronDownIcon
-                  className={`w-5 h-5 transition-transform ${
-                    mobileOpenDropdown === "jobseekers" ? "rotate-180" : ""
-                  }`}
+                  className={`w-5 h-5 transition-transform ${mobileOpenDropdown === "jobseekers" ? "rotate-180" : ""
+                    }`}
                 />
               </button>
               {mobileOpenDropdown === "jobseekers" && (
@@ -411,9 +409,8 @@ export default function Header() {
               >
                 <span>Contact</span>
                 <ChevronDownIcon
-                  className={`w-5 h-5 transition-transform ${
-                    mobileOpenDropdown === "contact" ? "rotate-180" : ""
-                  }`}
+                  className={`w-5 h-5 transition-transform ${mobileOpenDropdown === "contact" ? "rotate-180" : ""
+                    }`}
                 />
               </button>
               {mobileOpenDropdown === "contact" && (

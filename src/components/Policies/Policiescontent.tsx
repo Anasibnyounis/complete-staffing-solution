@@ -15,7 +15,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 export default function PoliciesContent() {
   return (
-    <div className={`${styles.content} ${jakarta.variable} ${inter.variable}`}>
+    <div className={`${styles.content} text-black! ${jakarta.variable} ${inter.variable}`}>
       <section id="privacy-policy" className={styles.section}>
         <h2 className={styles.sectionTitle}>Privacy Policy</h2>
         <p className={styles.text}>

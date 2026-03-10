@@ -93,7 +93,7 @@ const ACCENT_COLORS = [
 
 const OfficeLocations: React.FC = () => {
   return (
-    <section className="w-full bg-sky-50/60 py-10 sm:py-14 md:py-16">
+    <section className="w-full bg-sky-100/70 py-10 sm:py-14 md:py-16">
       <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 2xl:px-16">
         <div className="mb-10 text-center">
           <span className="inline-block text-[#19478e] font-semibold text-sm uppercase tracking-wider mb-2">

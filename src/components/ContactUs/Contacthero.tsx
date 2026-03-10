@@ -72,7 +72,7 @@ const ContactHero: React.FC = () => {
       </section>
 
       {/* Intro + CTA - light blue background */}
-      <section className="w-full bg-sky-100/70 py-10 sm:py-12 md:py-14 border-b border-sky-200/60">
+      <section className="w-full bg-sky-100/70 py-10 sm:py-12 md:py-14">
         <div className="w-full max-w-[920px] mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-6">
             <p className="font-[var(--font-inter)] text-[15px] sm:text-base md:text-[17px] leading-relaxed text-neutral-700 mb-2">

@@ -8,19 +8,19 @@ const items = [
     description:
       "Complete Staffing Solutions connects exceptional talent with organizations that demand results. We believe great companies are built by great people. We deliver staffing solutions that fuel growth, productivity and long-term success.",
     icon: `${ASSETS}/mission statement icon.svg`,
-    image: `${ASSETS}/mission statement placeholder.jpg`,
+    image: `${ASSETS}/mission statement placeholder.jpeg`,
   },
   {
     title: "Our Service Commitment",
     description:
-      "At Complete Staffing Solutions, our staffing services are built on long-term workforce partnerships, not one-time transactions. We approach every talent placement as the foundation of a strategic relationship, delivering recruitment solutions that prioritize quality, consistency, and organizational fit. Our comprehensive recruitment process includes in-depth candidate interviews, skills assessments, and professional reference verification to ensure alignment in technical expertise, experience, values, and company culture. Through rigorous candidate screening and personalized matching, we support successful placements across finance, accounting, healthcare, and administrative roles. We are committed to responsive communication, transparent hiring practices, and dedicated client and candidate support. By aligning our staffing solutions with your business goals, we help drive sustainable growth and long-term success.",
+      "Complete Staffing Solutions builds long-term workforce partnerships, not one-time placements. Our recruitment process includes detailed interviews, skills assessments, and reference checks to ensure every candidate aligns with the role, company values, and culture.",
     icon: `${ASSETS}/our services commitmnet to you icon.svg`,
     image: `${ASSETS}/our service placeholder.jpg`,
   },
   {
     title: "Overview",
     description:
-      "For over 25 years, Complete Staffing Solutions has delivered professional staffing and recruitment services for organizations seeking top talent in finance and accounting, healthcare, and administrative support. As an experienced staffing agency, we partner with businesses across multiple industries, connecting highly qualified professionals with companies ranging from growing startups to established enterprises. Our specialized recruitment teams focus on permanent placement, direct hire, and temporary staffing solutions, providing strategic workforce solutions tailored to each client's hiring needs. Through rigorous candidate screening, industry expertise, and a deep understanding of organizational culture, we ensure precise talent acquisition and long-term placement success. By combining responsiveness, data-driven recruiting methods, and a consultative approach, we help organizations build high-performing teams that meet today's operational demands while supporting future growth.",
+      "For over 25 years, Complete Staffing Solutions has provided professional staffing for finance, healthcare, and administrative roles. We connect qualified professionals with organizations through permanent, direct hire, and temporary staffing solutions.",
     icon: `${ASSETS}/overview icon.svg`,
     image: `${ASSETS}/overview placeholder.jpg`,
   },
@@ -33,10 +33,10 @@ export default function MissionServicesSection() {
       aria-labelledby="mission-services-heading"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8 md:gap-10 font-[var(--font-plus-jakarta)] text-neutral-900">
-        {items.map((item) => (
+        {items.map((item, index) => (
           <article
             key={item.title}
-            className="w-full rounded-2xl bg-white shadow-lg flex flex-col md:flex-row items-stretch md:items-center p-4 sm:p-5 md:p-6 lg:p-7 gap-6 md:gap-8"
+            className={`${index === 1 ? "md:flex-row-reverse" : "md:flex-row"} w-full rounded-2xl bg-white shadow-lg flex flex-col  items-stretch md:items-center p-4 sm:p-5 md:p-6 lg:p-7 gap-6 md:gap-8`}
           >
             <div className="flex flex-col flex-1 min-w-0 gap-6 md:gap-8">
               <div className="border-b border-[#19478e] pb-5 flex flex-col gap-5">

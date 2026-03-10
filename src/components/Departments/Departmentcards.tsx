@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Icons = {
   accounting: () => <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13h8"/><path d="M8 17h8"/></svg>,
@@ -14,13 +15,209 @@ const Icons = {
 };
 
 const DEPARTMENTS = [
-  { id: "accounting", title: "Accounting", icon: Icons.accounting, industries: ["Finance", "Manufacturing", "Retail", "Nonprofit", "Legal"], positions: ["Accounting Manager", "Accounts Payable", "Accounts Receivable", "Accounting Systems Development", "Controller/Assistant Controller", "Corporate Accounting", "Cost Accounting", "Federal taxes", "Financial Policies and Procedures", "Financial Reporting", "General Accounting", "Internal Audit", "International Accounting", "IT Audit", "Tax Research and Compliance", "Technical Accounting", "Public Accounting", "Payroll Bookkeeper", "Property taxes", "SEC Reporting", "State taxes"] },
-  { id: "administrative", title: "Administrative", icon: Icons.administrative, industries: ["Education", "Healthcare", "Legal", "Real Estate", "Agriculture"], positions: ["Administrative Assistants", "Benefits Analysts", "Collections Agent", "Contract Recruiters", "Customer Service", "Customer Service Manager", "Customer Service Representative", "Data Analysts", "Data Entry Clerks", "General Office Clerks", "Human Resource Directors", "Human Resource Generalists", "Human Resource Managers", "Inside Sales Representatives", "Loan Processors", "Mail/File Clerks", "Marketing Professionals", "Mortgage Underwriters", "Office Managers", "Post Closers", "Receptionist", "Sales Assistants", "Secretaries"] },
-  { id: "engineering", title: "Engineering", icon: Icons.engineering, industries: ["Construction", "Energy & Mining", "Manufacturing", "Agriculture"], positions: ["Alternative Energy Consultants", "Analog/Digital Design Engineers", "Application Engineers", "CAD Drafters/Designers", "Chemical Engineers", "Civil Engineers", "CNC Programmers", "Controls Engineers", "Electrical Engineers", "Embedded/Firmware Engineers", "Engineering Management", "Environmental Engineers", "Geotechnical Engineers", "HVAC Engineers", "Industrial Engineers", "Manufacturing Engineers", "Mechanical Engineers", "MEP Engineers", "Packaging Engineers", "PCB Design", "Plumbing Design Engineers", "Process Engineers", "Product Engineers", "Project Managers", "QA/Test Engineers", "Quality Engineers", "RF Engineers", "Robotics/Automation Engineers", "SCADA Engineers", "Structural Engineers", "Systems Engineers"] },
-  { id: "finance", title: "Finance", icon: Icons.finance, industries: ["Legal"], positions: ["Budgeting & Forecasting", "CFO", "Financial Analysis", "Financial Planning", "Investor Relations", "Strategic Development", "Strategic Planning", "Treasury/Cash Management", "VP Finance"] },
-  { id: "it", title: "IT", icon: Icons.it, industries: [ "Hardware", "Design", "Entertainment"], positions: [".Net / C# Developer", "Android / Mobile Developer", "Application Developers", "Business Analyst", "Business Intelligence", "Casino IT Staff", "Data Warehousing", "CIO/CTO", "Web Developers", "Help Desk Support", "IT Project Managers", "Systems Engineer", "IT Management", "Security Positions", "Java/JavaScript Developer", "SQL Server DBA", "Network Administrator", "NOC Engineer", "Oracle Positions", "QA Testing", "SAP Positions", "Sharepoint Developers", "Systems Analyst", "Virtualization Engineer"] },
-  { id: "healthcare", title: "Healthcare", icon: Icons.healthcare, industries: ["Wellness & Fitness"], positions: ["Central Sterile Technician", "Dental Assistant", "Medical Assistant", "Occupational Therapist", "Phlebotomist", "Physical Therapist", "Respiratory Therapist", "Speech Pathologist", "X-Ray Technician", "Medical Biller", "Medical Records Clerk", "Medical Secretary", "Advanced Practice", "Nurse Practitioner", "Physician Assistant", "Registered Nurse", "Certified Nursing Assistant"] },
-  { id: "sales", title: "Sales & Marketing", icon: Icons.sales, industries: ["Consumer Goods", "Media", "Arts", "Logistics", "Recreation & Travel"], positions: ["Account Executives", "Account Management", "Call Center Managers", "Channel Sales", "Director of Customer Service", "Director of Sales Recruiting", "Entry-level Sales", "Inside Sales", "Lead Generation", "New Business Development", "Outside Sales", "Sales Management", "Sales Support Specialist", "Sales Training Specialist", "VP of Sales Recruiting"] }
+  {
+    id: "accounting",
+    title: "Accounting",
+    icon: Icons.accounting,
+    image: "/67db95411df971225cd735e7_emerging_technologies_in_finance.webp",
+    industries: ["Finance", "Manufacturing", "Retail", "Nonprofit", "Legal"],
+    positions: [
+      "Accounting Manager",
+      "Accounts Payable",
+      "Accounts Receivable",
+      "Accounting Systems Development",
+      "Controller/Assistant Controller",
+      "Corporate Accounting",
+      "Cost Accounting",
+      "Federal taxes",
+      "Financial Policies and Procedures",
+      "Financial Reporting",
+      "General Accounting",
+      "Internal Audit",
+      "International Accounting",
+      "IT Audit",
+      "Tax Research and Compliance",
+      "Technical Accounting",
+      "Public Accounting",
+      "Payroll Bookkeeper",
+      "Property taxes",
+      "SEC Reporting",
+      "State taxes",
+    ],
+  },
+  {
+    id: "administrative",
+    title: "Administrative",
+    icon: Icons.administrative,
+    image: "/industries/cards/corporate services.jpg",
+    industries: ["Education", "Healthcare", "Legal", "Real Estate", "Agriculture"],
+    positions: [
+      "Administrative Assistants",
+      "Benefits Analysts",
+      "Collections Agent",
+      "Contract Recruiters",
+      "Customer Service",
+      "Customer Service Manager",
+      "Customer Service Representative",
+      "Data Analysts",
+      "Data Entry Clerks",
+      "General Office Clerks",
+      "Human Resource Directors",
+      "Human Resource Generalists",
+      "Human Resource Managers",
+      "Inside Sales Representatives",
+      "Loan Processors",
+      "Mail/File Clerks",
+      "Marketing Professionals",
+      "Mortgage Underwriters",
+      "Office Managers",
+      "Post Closers",
+      "Receptionist",
+      "Sales Assistants",
+      "Secretaries",
+    ],
+  },
+  {
+    id: "engineering",
+    title: "Engineering",
+    icon: Icons.engineering,
+    image: "/industries/cards/construction.jpg",
+    industries: ["Construction", "Energy & Mining", "Manufacturing", "Agriculture"],
+    positions: [
+      "Alternative Energy Consultants",
+      "Analog/Digital Design Engineers",
+      "Application Engineers",
+      "CAD Drafters/Designers",
+      "Chemical Engineers",
+      "Civil Engineers",
+      "CNC Programmers",
+      "Controls Engineers",
+      "Electrical Engineers",
+      "Embedded/Firmware Engineers",
+      "Engineering Management",
+      "Environmental Engineers",
+      "Geotechnical Engineers",
+      "HVAC Engineers",
+      "Industrial Engineers",
+      "Manufacturing Engineers",
+      "Mechanical Engineers",
+      "MEP Engineers",
+      "Packaging Engineers",
+      "PCB Design",
+      "Plumbing Design Engineers",
+      "Process Engineers",
+      "Product Engineers",
+      "Project Managers",
+      "QA/Test Engineers",
+      "Quality Engineers",
+      "RF Engineers",
+      "Robotics/Automation Engineers",
+      "SCADA Engineers",
+      "Structural Engineers",
+      "Systems Engineers",
+    ],
+  },
+  {
+    id: "finance",
+    title: "Finance",
+    icon: Icons.finance,
+    image: "/67db95411df971225cd735e7_emerging_technologies_in_finance.webp",
+    industries: ["Legal"],
+    positions: [
+      "Budgeting & Forecasting",
+      "CFO",
+      "Financial Analysis",
+      "Financial Planning",
+      "Investor Relations",
+      "Strategic Development",
+      "Strategic Planning",
+      "Treasury/Cash Management",
+      "VP Finance",
+    ],
+  },
+  {
+    id: "it",
+    title: "IT",
+    icon: Icons.it,
+    image: "/industries/information.jpg",
+    industries: ["Hardware", "Design", "Entertainment"],
+    positions: [
+      ".Net / C# Developer",
+      "Android / Mobile Developer",
+      "Application Developers",
+      "Business Analyst",
+      "Business Intelligence",
+      "Casino IT Staff",
+      "Data Warehousing",
+      "CIO/CTO",
+      "Web Developers",
+      "Help Desk Support",
+      "IT Project Managers",
+      "Systems Engineer",
+      "IT Management",
+      "Security Positions",
+      "Java/JavaScript Developer",
+      "SQL Server DBA",
+      "Network Administrator",
+      "NOC Engineer",
+      "Oracle Positions",
+      "QA Testing",
+      "SAP Positions",
+      "Sharepoint Developers",
+      "Systems Analyst",
+      "Virtualization Engineer",
+    ],
+  },
+  {
+    id: "healthcare",
+    title: "Healthcare",
+    icon: Icons.healthcare,
+    image: "/industries/healthcare.jpg",
+    industries: ["Wellness & Fitness"],
+    positions: [
+      "Central Sterile Technician",
+      "Dental Assistant",
+      "Medical Assistant",
+      "Occupational Therapist",
+      "Phlebotomist",
+      "Physical Therapist",
+      "Respiratory Therapist",
+      "Speech Pathologist",
+      "X-Ray Technician",
+      "Medical Biller",
+      "Medical Records Clerk",
+      "Medical Secretary",
+      "Advanced Practice",
+      "Nurse Practitioner",
+      "Physician Assistant",
+      "Registered Nurse",
+      "Certified Nursing Assistant",
+    ],
+  },
+  {
+    id: "sales",
+    title: "Sales & Marketing",
+    icon: Icons.sales,
+    image: "/industries/cards/real estate.jpg",
+    industries: ["Consumer Goods", "Media", "Arts", "Logistics", "Recreation & Travel"],
+    positions: [
+      "Account Executives",
+      "Account Management",
+      "Call Center Managers",
+      "Channel Sales",
+      "Director of Customer Service",
+      "Director of Sales Recruiting",
+      "Entry-level Sales",
+      "Inside Sales",
+      "Lead Generation",
+      "New Business Development",
+      "Outside Sales",
+      "Sales Management",
+      "Sales Support Specialist",
+      "Sales Training Specialist",
+      "VP of Sales Recruiting",
+    ],
+  },
 ];
 
 const formatSlug = (name: string) => name.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
@@ -48,9 +245,16 @@ export default function DepartmentCards() {
                   isOpen ? "ring-2 ring-[#19478e] ring-offset-2 ring-offset-[#fcfdfe]" : ""
                 }`}
               >
-                {/* Icon banner area – visually matches industry cards but uses icons/graphics instead of photos */}
-                <div className="relative w-full overflow-hidden aspect-[1.25/1] bg-gradient-to-br from-[#e8f3ff] via-[#f5fbf0] to-[#e0f0ff] flex items-center justify-center">
-                  <div className="w-14 h-14 rounded-2xl bg-[#6ca642] text-white flex items-center justify-center shadow-[0_6px_16px_rgba(0,0,0,0.18)] transition-transform duration-300 group-hover:scale-[1.05] group-hover:-translate-y-0.5">
+                <div className="relative w-full overflow-hidden aspect-[1.25/1]">
+                  <Image
+                    src={dept.image}
+                    alt={dept.title}
+                    fill
+                    className="object-cover transition-transform duration-300 p-[9px] rounded-[20px] group-hover:scale-[1.02]"
+                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 280px"
+                    unoptimized
+                  />
+                  <div className="absolute top-4 left-4 w-10 h-10 rounded-2xl bg-[#6ca642] text-white flex items-center justify-center shadow-[0_6px_16px_rgba(0,0,0,0.18)] transition-transform duration-300 group-hover:scale-[1.05] group-hover:-translate-y-0.5">
                     <IconComp />
                   </div>
                 </div>

@@ -368,9 +368,31 @@
     font-size: 19px;
   }
 
-  .text,
-  .text2,
-  .list li {
-    font-size: 14px;
-  }
+.text,
+.text2,
+.list li {
+  font-size: 14px;
+}
+}
+
+/* ==========================================
+   TERMAGEDDON EMBED OVERRIDES
+   ========================================== */
+
+/* Keep embed content in normal flow */
+.content :global(.policy_embed_div) {
+  position: relative;
+}
+
+/* Hide Termageddon's own floating / dropdown TOC inside the embed */
+.content :global(.policy_embed_div .termageddon-toc),
+.content :global(.policy_embed_div .termageddon_menu),
+.content :global(.policy_embed_div nav[aria-label="Table of Contents"]) {
+  display: none !important;
+}
+
+/* Prevent horizontal overflow from embed markup */
+.content :global(.policy_embed_div *) {
+  max-width: 100%;
+  box-sizing: border-box;
 }

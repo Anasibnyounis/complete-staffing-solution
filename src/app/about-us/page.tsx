@@ -28,7 +28,7 @@ export default function AboutUsPage() {
 
       {/* Main content container - consistent padding and width with rest of site */}
       <section className="w-full bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16 space-y-16">
+        <div className="">
           <MissionServicesSection />
           <SpecializeSection />
           <AboutJobRequestSection />
