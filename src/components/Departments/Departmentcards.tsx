@@ -36,7 +36,7 @@ export default function DepartmentCards() {
 
   return (
     <section className="w-full py-16 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-10 2xl:px-16 bg-[#fcfdfe]">
-      <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto">
+      <div className="w-full max-w-[1180px] mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {DEPARTMENTS.map((dept) => {
             const IconComp = dept.icon;
@@ -44,33 +44,33 @@ export default function DepartmentCards() {
             return (
               <div
                 key={dept.id}
-                className={`flex flex-col h-fit rounded-2xl border bg-white p-6 shadow-sm transition-all duration-300 ease-out ${
-                  isOpen
-                    ? "border-[#19478e] shadow-[0_20px_40px_rgba(25,71,142,0.1)]"
-                    : "border-[#eef0f2]"
+                className={`flex flex-col overflow-hidden bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.1)] transition-all duration-300 ease-out group hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)] p-2 ${
+                  isOpen ? "ring-2 ring-[#19478e] ring-offset-2 ring-offset-[#fcfdfe]" : ""
                 }`}
               >
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-[10px] bg-[#6ca642] text-white flex items-center justify-center flex-shrink-0">
-                      <IconComp />
-                    </div>
-                    <h3 className="text-lg font-extrabold text-[#1e293b] m-0">
-                      {dept.title}
-                    </h3>
+                {/* Icon banner area – visually matches industry cards but uses icons/graphics instead of photos */}
+                <div className="relative w-full overflow-hidden aspect-[1.25/1] bg-gradient-to-br from-[#e8f3ff] via-[#f5fbf0] to-[#e0f0ff] flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-2xl bg-[#6ca642] text-white flex items-center justify-center shadow-[0_6px_16px_rgba(0,0,0,0.18)] transition-transform duration-300 group-hover:scale-[1.05] group-hover:-translate-y-0.5">
+                    <IconComp />
                   </div>
-                  {/* Removed industries/positions count per request */}
+                </div>
+
+                <div className="flex flex-col flex-1 gap-2 px-4 pt-4 pb-5">
+                  <h3 className="text-[17px] font-extrabold text-[#0d0d0d] m-0">
+                    {dept.title}
+                  </h3>
+                  {/* Toggle button – behavior unchanged, just styled like primary action */}
                   <button
                     type="button"
                     onClick={() => toggleExpand(dept.id)}
-                    className="bg-transparent border-none text-[#19478e] font-bold text-sm cursor-pointer underline underline-offset-2 text-left py-1 px-0 transition-colors hover:text-[#143a75]"
+                    className="relative inline-flex items-center justify-center gap-2 h-[40px] px-[16px] mt-1 text-[14px] font-semibold text-[#19478e] bg-transparent border border-[#d5e2f5] rounded-md cursor-pointer transition-all duration-300 hover:bg-[#19478e] hover:text-white hover:shadow-[0_4px_12px_rgba(25,71,142,0.35)]"
                   >
                     {isOpen ? "Close Details" : "View Details"}
                   </button>
                 </div>
 
                 <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                  className={`grid transition-[grid-template-rows] duration-300 ease-in-out px-4 pb-5 pt-0 ${
                     isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                   }`}
                 >

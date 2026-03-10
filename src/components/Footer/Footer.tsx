@@ -44,18 +44,18 @@ export default function Footer() {
         <div className="linksRow flex-1 flex flex-wrap items-start justify-between gap-2 lg:flex-nowrap w-full max-w-none">
           <div className="reveal revealLeft delay-1 column flex flex-col items-start gap-4 lg:items-center">
             <b className="columnTitle font-bold text-neutral-900">Employers</b>
-            <div className="linksList flex flex-col items-start gap-2.5 text-[15px] text-neutral-600 lg:items-center">
-              <Link href="/industries-we-serve" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Industries We Serve</Link>
-              <Link href="/job-request" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Place a Job Request</Link>
+            <div className="linksList flex flex-col items-start gap-2.5 text-[15px] text-neutral-800 lg:items-center">
+              <Link href="/industries-we-serve" className="footerLink text-neutral-800 no-underline transition-colors hover:text-neutral-900">Industries We Serve</Link>
+              <Link href="/job-request" className="footerLink text-neutral-800 no-underline transition-colors hover:text-neutral-900">Place a Job Request</Link>
             </div>
           </div>
 
           <div className="reveal revealLeft delay-2 column flex flex-col items-start gap-4 lg:items-center">
             <b className="columnTitle font-bold text-neutral-900">Job Seekers</b>
-            <div className="linksList flex flex-col items-start gap-2.5 text-[15px] text-neutral-600 lg:items-center">
-              <Link href="/Departments" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Primary Positions</Link>
-              <Link href="/policies" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Privacy Policy</Link>
-              <Link href="/terms-and-conditions" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Terms & Conditions</Link>
+            <div className="linksList flex flex-col items-start gap-2.5 text-[15px] text-neutral-800 lg:items-center">
+              <Link href="/Departments" className="footerLink text-neutral-800 no-underline transition-colors hover:text-neutral-900">Primary Positions</Link>
+              <Link href="/policies" className="footerLink text-neutral-800 no-underline transition-colors hover:text-neutral-900">Privacy Policy</Link>
+              <Link href="/terms-and-conditions" className="footerLink text-neutral-800 no-underline transition-colors hover:text-neutral-900">Terms & Conditions</Link>
             </div>
           </div>
 
@@ -63,10 +63,10 @@ export default function Footer() {
             <div className="completeStaffingGroup flex gap-5 items-start lg:flex-col lg:gap-0">
               <div className="column flex flex-col items-start gap-4 lg:items-center">
                 <b className="columnTitle font-bold text-neutral-900">Complete Staffing</b>
-                <div className="linksList flex flex-col items-start gap-2.5 text-[15px] text-neutral-600 lg:items-center">
-                  <Link href="/about-us" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">About us</Link>
-                  <Link href="/why-choose-us-page" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Why Choose Us?</Link>
-                  <Link href="/our-recruiting-process" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Our Process</Link>
+                <div className="linksList flex flex-col items-start gap-2.5 text-[15px] text-neutral-800 lg:items-center">
+                  <Link href="/about-us" className="footerLink text-neutral-800 no-underline transition-colors hover:text-neutral-900">About us</Link>
+                  <Link href="/why-choose-us-page" className="footerLink text-neutral-800 no-underline transition-colors hover:text-neutral-900">Why Choose Us?</Link>
+                  <Link href="/our-recruiting-process" className="footerLink text-neutral-800 no-underline transition-colors hover:text-neutral-900">Our Process</Link>
                 </div>
               </div>
             </div>
@@ -81,13 +81,13 @@ export default function Footer() {
               </div>
               <div className="addressRow flex items-center gap-2.5 sm:justify-center sm:text-xs">
                 <Image src={`${FOOTER_ICONS}/Phone.svg`} alt="" width={24} height={24} className="addressRowIcon h-5 w-5 shrink-0 object-contain sm:h-4 sm:w-4" />
-                <a href="tel:+12025550153" className="footerLink text-neutral-600 no-underline hover:text-neutral-900 sm:text-xs">(401) 475-8800</a>
+                <a href="tel:+12025550153" className="footerLink text-neutral-800 no-underline hover:text-neutral-900 sm:text-xs">(401) 475-8800</a>
               </div>
               <div className="addressRow flex items-center gap-2.5 sm:justify-center sm:text-xs">
                 <div className="contactIconContainer h-[27px] w-[27px] min-w-[27px] rounded-full shrink-0 bg-white border border-neutral-900 flex items-center justify-center box-border sm:h-5 sm:w-5 sm:min-w-5">
                   <Image src={`${FOOTER_ICONS}/EnvelopeSimple.svg`} alt="" width={20} height={20} />
                 </div>
-                <a href="mailto:Contactus@completestaffingsolutions.com" className="footerLink text-neutral-600 no-underline hover:text-neutral-900 sm:text-xs">Contactus@completestaffingsolutions.com</a>
+                <a href="mailto:Contactus@completestaffingsolutions.com" className="footerLink text-neutral-800 no-underline hover:text-neutral-900 sm:text-xs">Contactus@completestaffingsolutions.com</a>
               </div>
               <div className="socialIconsContainerColumn flex items-center gap-2.5 mt-1.5">
                 {socialLinks.map(({ icon, url }) => (

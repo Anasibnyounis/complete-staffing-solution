@@ -29,47 +29,49 @@ const items = [
 export default function MissionServicesSection() {
   return (
     <section
-      className="w-full flex flex-col items-center py-12 px-4 sm:py-14 sm:px-6 md:py-16 md:px-8 lg:py-20 lg:px-10 xl:px-12 2xl:px-16 gap-6 md:gap-8 text-left font-[var(--font-plus-jakarta)] text-neutral-900"
+      className="w-full bg-neutral-50 py-10 sm:py-14 lg:py-16"
       aria-labelledby="mission-services-heading"
     >
-      {items.map((item) => (
-        <article
-          key={item.title}
-          className="w-full rounded-2xl bg-white shadow-lg flex flex-col md:flex-row items-stretch md:items-center p-4 sm:p-5 md:p-6 gap-6 md:gap-8"
-        >
-          <div className="flex flex-col flex-1 min-w-0 gap-6 md:gap-8">
-            <div className="border-b border-[#19478e] pb-5 px-4 sm:px-5 flex flex-col gap-5">
-              <h2 className="font-bold text-[clamp(22px,2.5vw,36px)] leading-tight">
-                {item.title}
-              </h2>
-              <p className="font-[var(--font-inter)] text-base text-neutral-600 leading-relaxed text-justify">
-                {item.description}
-              </p>
-            </div>
-            <div className="flex justify-start px-4 sm:px-5">
-              <div className="w-20 h-20 md:w-[100px] md:h-[100px] rounded-full bg-[#6ca642] flex items-center justify-center shrink-0">
-                <Image
-                  src={item.icon.replace(/ /g, "%20")}
-                  alt=""
-                  width={56}
-                  height={56}
-                  className="w-12 h-12 md:w-14 md:h-14 object-contain brightness-0 invert"
-                  unoptimized
-                />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8 md:gap-10 font-[var(--font-plus-jakarta)] text-neutral-900">
+        {items.map((item) => (
+          <article
+            key={item.title}
+            className="w-full rounded-2xl bg-white shadow-lg flex flex-col md:flex-row items-stretch md:items-center p-4 sm:p-5 md:p-6 lg:p-7 gap-6 md:gap-8"
+          >
+            <div className="flex flex-col flex-1 min-w-0 gap-6 md:gap-8">
+              <div className="border-b border-[#19478e] pb-5 flex flex-col gap-5">
+                <h2 className="font-bold text-[clamp(22px,2.4vw,34px)] leading-tight tracking-wide uppercase">
+                  {item.title}
+                </h2>
+                <p className="font-[var(--font-inter)] text-[15px] sm:text-base text-neutral-700 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+              <div className="flex justify-start">
+                <div className="w-20 h-20 md:w-[100px] md:h-[100px] rounded-full bg-[#6ca642] flex items-center justify-center shrink-0">
+                  <Image
+                    src={item.icon.replace(/ /g, "%20")}
+                    alt=""
+                    width={56}
+                    height={56}
+                    className="w-12 h-12 md:w-14 md:h-14 object-contain brightness-0 invert"
+                    unoptimized
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="w-full md:w-[550px] md:min-w-[550px] h-56 sm:h-72 md:h-[400px] relative rounded-2xl overflow-hidden shrink-0">
-            <Image
-              src={item.image.replace(/ /g, "%20")}
-              alt=""
-              fill
-              className="object-cover"
-              unoptimized
-            />
-          </div>
-        </article>
-      ))}
+            <div className="w-full md:w-[520px] md:min-w-[520px] h-56 sm:h-72 md:h-[360px] lg:h-[380px] relative rounded-2xl overflow-hidden shrink-0">
+              <Image
+                src={item.image.replace(/ /g, "%20")}
+                alt=""
+                fill
+                className="object-cover"
+                unoptimized
+              />
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
   );
 }

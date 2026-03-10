@@ -6,7 +6,6 @@ import CommitmentSection from '@/components/JobSeekerOverview/Commitmentsection'
 export default function JobSeekerOverview() {
   return (
     <main>
-      
       <CommitmentSection />
       <JobRequestSection />
     </main>
