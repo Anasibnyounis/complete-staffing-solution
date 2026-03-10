@@ -176,10 +176,7 @@ export default function LandingVideoSection() {
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         {/* Header text */}
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-(--font-plus-jakarta) text-sky-100 text-xs sm:text-sm uppercase tracking-[0.18em]">
-            How We Partner With You
-          </h2>
-          <p className="mt-3 font-(--font-plus-jakarta) text-white text-xl sm:text-2xl md:text-3xl">
+          <p className="mt-3 font-(--font-plus-jakarta) text-[#19478E] font-bold text-xl sm:text-2xl md:text-3xl">
             See How We Help Businesses Find Talent
           </p>
           <p className="mt-3 text-sm sm:text-base md:text-lg text-slate-100/85 font-(--font-inter)">
