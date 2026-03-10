@@ -19,6 +19,7 @@ interface Props {
 
 export default function IndustryRoles({ roles }: Props) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const pausedRef = useRef(false);
 
   const marqueeRoles = roles.length > 0 ? [...roles, ...roles] : [];
 
@@ -28,7 +29,7 @@ export default function IndustryRoles({ roles }: Props) {
     let animationFrameId: number;
     let lastTimestamp: number | null = null;
     let currentX = 0;
-    const SPEED = 150; // pixels per second
+    const SPEED = 100; // pixels per second
 
     const getScrollWidth = () =>
       scrollerRef.current ? scrollerRef.current.scrollWidth / 2 : 0;
@@ -44,6 +45,12 @@ export default function IndustryRoles({ roles }: Props) {
     const step = (timestamp: number) => {
       if (lastTimestamp === null) {
         lastTimestamp = timestamp;
+      }
+
+      if (pausedRef.current) {
+        lastTimestamp = timestamp;
+        animationFrameId = window.requestAnimationFrame(step);
+        return;
       }
 
       const delta = timestamp - lastTimestamp;
@@ -81,7 +88,11 @@ export default function IndustryRoles({ roles }: Props) {
             </h2>
           </div>
 
-          <div className="overflow-x-hidden pt-5">
+          <div
+            className="overflow-x-hidden pt-5"
+            onMouseEnter={() => { pausedRef.current = true; }}
+            onMouseLeave={() => { pausedRef.current = false; }}
+          >
             <div
               ref={scrollerRef}
               className="flex gap-6 will-change-transform"
@@ -124,10 +135,7 @@ export default function IndustryRoles({ roles }: Props) {
 
                       <Link
                         href={`/open-position?search=${encodeURIComponent(role.title)}`}
-                        className={`mt-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-[15px] font-semibold text-white no-underline transition-all duration-300 ${
-                          role.buttonColor === "blue"
-                            ? "bg-[#4A7BAD] hover:bg-[#3d6a9a] hover:shadow-[0_4px_12px_rgba(74,123,173,0.3)]"
-                            : "bg-[#6CA642] hover:bg-[#5d9338] hover:shadow-[0_4px_12px_rgba(108,166,66,0.3)]"
+                        className={`bg-[#6CA642] hover:bg-[#5d9338] hover:shadow-[0_4px_12px_rgba(108,166,66,0.3)] mt-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-[15px] font-semibold text-white no-underline transition-all duration-300 
                         }`}
                       >
                         {role.buttonText}

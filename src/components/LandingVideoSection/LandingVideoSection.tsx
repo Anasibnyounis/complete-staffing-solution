@@ -82,20 +82,17 @@ export default function LandingVideoSection() {
       className="relative w-full overflow-hidden border-t border-white/10 flex flex-col items-center"
       aria-label="Video and impact stats"
     >
-      {/* Dark blurred background — glassy theme */}
+      {/* Background image — faded (not grayed); soft overlay for readability */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 scale-110"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
         style={{
           backgroundImage: "url('/modern-minimalist-office.jpg')",
+          opacity: 0.5,
         }}
         aria-hidden
       />
-      {/* <div
-        className="absolute inset-0 bg-slate-900/75 backdrop-blur-sm"
-        aria-hidden
-      /> */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-slate-900/75 via-slate-800/85 to-slate-900/90"
+        className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/15 to-black/35"
         aria-hidden
       />
 

@@ -27,17 +27,17 @@ const OFFICES: Office[] = [
   },
   {
     name: "Boston Office",
-    address: "100 Summer Street, 17th Floor",
+    address: "260 Franklin St, Suite 710",
     city: "Boston",
     state: "MA 02110",
     phone: "(617) 555-0123",
     image: assets.boston_ma,
   },
   {
-    name: "Providence Office",
-    address: "50 Kennedy Plaza",
-    city: "Providence",
-    state: "RI 02903",
+    name: "Lincoln Office",
+    address: "1 Albion Rd, Suite 105",
+    city: "Lincoln",
+    state: "RI 02865",
     phone: "(401) 555-0145",
     image: assets.rhode_island_office,
   },
@@ -93,9 +93,9 @@ const ACCENT_COLORS = [
 
 const OfficeLocations: React.FC = () => {
   return (
-    <section className="w-full bg-gradient-to-b from-white via-sky-50/50 to-amber-50/30 py-16 sm:py-20 md:py-24">
+    <section className="w-full bg-sky-50/60 py-10 sm:py-14 md:py-16">
       <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 2xl:px-16">
-        <div className="mb-14 text-center">
+        <div className="mb-10 text-center">
           <span className="inline-block text-[#19478e] font-semibold text-sm uppercase tracking-wider mb-2">
             Find us
           </span>

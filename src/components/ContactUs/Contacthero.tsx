@@ -61,17 +61,20 @@ const ContactHero: React.FC = () => {
   return (
     <>
       {/* Hero with gradient */}
-      <section className="w-full bg-gradient-to-br from-[#19478e] via-[#225eb9] to-[#2d7ac7] flex items-center justify-center min-h-[160px] sm:min-h-[180px] px-4 sm:px-6 md:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.06\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-80" />
-        <h1 className="font-[var(--font-plus-jakarta)] font-bold text-white text-[clamp(28px,4.5vw,44px)] uppercase tracking-wide m-0 relative z-10 drop-shadow-sm">
-          Contact Us
+      <section className="w-full bg-gradient-to-br from-[#19478e] via-[#225eb9] to-[#2d7ac7] flex items-center justify-center min-h-[380px] xs:min-h-[420px] px-4 sm:px-6 md:px-8 relative overflow-hidden flex-col gap-4">
+        <div className="absolute inset-0 opacity-80 " />
+        <h1 className="font-[var(--font-plus-jakarta)] font-bold text-white text-[clamp(28px,4.5vw,44px)] m-0 relative z-10 drop-shadow-sm">
+          Contact <span className="text-[var(--accent)]">Us.</span>
         </h1>
+        <p className="font-[var(--font-inter)] text-white/95 text-[clamp(14px,1.5vw,17px)] leading-relaxed max-w-[900px] mx-auto text-center">
+          We appreciate your interest and are here to assist you. Our dedicated team is ready to respond promptly, or you can schedule a time for us to reach out.
+        </p>
       </section>
 
-      {/* Intro + CTA - soft colored background */}
-      <section className="w-full bg-gradient-to-b from-sky-50/80 to-white py-14 sm:py-16 md:py-20 border-b border-sky-100/60">
+      {/* Intro + CTA - light blue background */}
+      <section className="w-full bg-sky-100/70 py-10 sm:py-12 md:py-14 border-b border-sky-200/60">
         <div className="w-full max-w-[920px] mx-auto px-4 sm:px-6 md:px-8">
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <p className="font-[var(--font-inter)] text-[15px] sm:text-base md:text-[17px] leading-relaxed text-neutral-700 mb-2">
               We appreciate your interest and are here to assist you. Our dedicated team is ready to respond promptly, or you can schedule a time for us to reach out.
             </p>

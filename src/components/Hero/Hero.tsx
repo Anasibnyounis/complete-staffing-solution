@@ -46,13 +46,13 @@ export default function Hero() {
     if (n <= 1) return;
     const interval = setInterval(() => {
       setActiveImageIndex((i) => (i + 1) % n);
-    }, 6000);
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section
-      className={`hero-section relative z-0 w-full overflow-hidden bg-black text-left font-[var(--font-plus-jakarta)] flex flex-col justify-between ${isActive ? "active" : ""} ${isMobile ? "min-h-screen" : ""}`}
+      className={`hero-section relative z-0 w-full overflow-hidden bg-black text-left font-[var(--font-plus-jakarta)] flex flex-col justify-between pt-[72px] sm:pt-[80px] ${isActive ? "active" : ""} ${isMobile ? "min-h-screen" : ""}`}
     >
       {/* Full-width background image with subtle shading and blend */}
       <div className="hero-bg-wrap absolute inset-0 z-[1] overflow-hidden">

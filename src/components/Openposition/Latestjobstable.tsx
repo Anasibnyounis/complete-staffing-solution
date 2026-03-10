@@ -536,7 +536,7 @@ export default function LatestJobsTable({
             {/* Headline + subheadline */}
             <div className="space-y-2">
               <h1 className="font-[var(--font-plus-jakarta)] font-bold text-[clamp(22px,3.2vw,32px)] leading-snug">
-                Browse Top Job Opportunities
+                Browse Top <span className="text-[var(--accent)]">Job Opportunities.</span>
               </h1>
               <p className="font-[var(--font-inter)] text-sm sm:text-[15px] text-white/90">
                 Helping Employers &amp; Job Seekers Succeed
@@ -883,17 +883,21 @@ export default function LatestJobsTable({
                         </span>
                       </td>
 
-                      {/* Type */}
+                      {/* Type — do not show "Full-Time" per request */}
                       <td className="px-4 sm:px-6 py-3 border-b border-neutral-100">
-                        <span
-                          className={
-                            job.type === "Part-Time"
-                              ? "inline-flex rounded-full bg-[#fee2e2] px-3 py-1 text-[11px] font-semibold text-[#b91c1c]"
-                              : "inline-flex rounded-full bg-[#e0f2fe] px-3 py-1 text-[11px] font-semibold text-[#0369a1]"
-                          }
-                        >
-                          {job.type}
-                        </span>
+                        {job.type && job.type.toLowerCase().replace(/\s/g, "") !== "full-time" ? (
+                          <span
+                            className={
+                              job.type === "Part-Time"
+                                ? "inline-flex rounded-full bg-[#fee2e2] px-3 py-1 text-[11px] font-semibold text-[#b91c1c]"
+                                : "inline-flex rounded-full bg-[#e0f2fe] px-3 py-1 text-[11px] font-semibold text-[#0369a1]"
+                            }
+                          >
+                            {job.type}
+                          </span>
+                        ) : (
+                          <span className="text-neutral-400">—</span>
+                        )}
                       </td>
                     </tr>
                   ))}

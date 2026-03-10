@@ -1,20 +1,17 @@
 .heroSection {
   position: relative;
-  max-width: 1280px;
+  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
-  height:500px; /* Full viewport height */
+  height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-
-  /* Background image as banner */
-  background-image: url("/for employer/hero (2).PNG");
-  /* background-size: 100% 100%; */
-  /* background-size: auto; */
-  background-size: 100% 100%;
-  background-position: center;  /* Center the image */
-  background-repeat: no-repeat; /* No repeat */
+  background-image: url("/homepage/job%20request.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .heroOverlay {

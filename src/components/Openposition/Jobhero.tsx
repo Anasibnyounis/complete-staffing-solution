@@ -5,7 +5,7 @@ const HERO_IMAGE =
 
 export default function JobHero() {
   return (
-    <section className="relative w-full bg-[#0b2547] py-10 sm:py-12 lg:py-16">
+    <section className="relative w-full bg-[#19478e] py-10 sm:py-12 lg:py-16">
       {/* Background image on the right, softly blended into left side */}
       <div className="pointer-events-none absolute inset-y-0 right-0 w-full sm:w-[60%]">
         <img
@@ -13,9 +13,9 @@ export default function JobHero() {
           alt="Professional smiling in modern office"
           className="h-full w-full object-cover object-center opacity-80 sm:opacity-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-l from-[#0b2547] via-[#0b2547]/80 to-[#0b2547]/95" />
+        <div className="absolute inset-0 bg-gradient-to-l from-[#0b2547] via-[#19478e]/80 to-[#19478e]/95" />
       </div>
-
+ 
       <div className="relative w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
         {/* Content */}
         <div className="relative z-10 max-w-2xl space-y-5 text-white">
@@ -36,7 +36,7 @@ export default function JobHero() {
           {/* Headline + subheadline */}
           <div className="space-y-2">
             <h1 className="font-[var(--font-plus-jakarta)] font-bold text-[clamp(22px,3.2vw,32px)] leading-snug">
-              Browse Top Job Opportunities
+              Browse Top <span className="text-[var(--accent)]">Job Opportunities</span>
             </h1>
             <p className="font-[var(--font-inter)] text-sm sm:text-[15px] text-white/90">
               Helping Employers &amp; Job Seekers Succeed

@@ -25,7 +25,7 @@ const CHECK_ICON = (
 const stats = [
   "20+ Years of Expertise",
   "95% Client Satisfaction Rate",
-  "900+ Companies Served",
+  "Over 35,000 Companies Served",
   "500+ Placements",
 ];
 
@@ -47,7 +47,7 @@ export default function OurSolutionsHero() {
   return (
     <section
       ref={sectionRef}
-      className={`relative w-full min-h-[380px] xs:min-h-[420px] sm:min-h-[480px] md:min-h-[520px] flex items-center overflow-hidden ${isVisible ? "active" : ""}`}
+      className={`relative w-full min-h-[280px] xs:min-h-[320px] sm:min-h-[360px] md:min-h-[400px] flex items-center overflow-hidden ${isVisible ? "active" : ""}`}
     >
       <div className="absolute inset-0 z-[1]">
         <Image

@@ -41,12 +41,12 @@ export default function Footer() {
       <div className="reveal revealUp self-stretch flex items-center justify-between py-0 font-[var(--font-plus-jakarta)]" />
 
       <div className="linksContainer self-stretch flex items-start text-lg">
-        <div className="linksRow flex-1 flex flex-wrap items-start justify-between gap-2 lg:flex-nowrap xl:max-w-[1200px] xl:mx-auto 2xl:max-w-[1320px] w-full">
+        <div className="linksRow flex-1 flex flex-wrap items-start justify-between gap-2 lg:flex-nowrap w-full max-w-none">
           <div className="reveal revealLeft delay-1 column flex flex-col items-start gap-4 lg:items-center">
             <b className="columnTitle font-bold text-neutral-900">Employers</b>
             <div className="linksList flex flex-col items-start gap-2.5 text-[15px] text-neutral-600 lg:items-center">
               <Link href="/industries-we-serve" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Industries We Serve</Link>
-              <Link href="/employment-form" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Place a Job Request</Link>
+              <Link href="/job-request" className="footerLink text-neutral-600 no-underline transition-colors hover:text-neutral-900">Place a Job Request</Link>
             </div>
           </div>
 

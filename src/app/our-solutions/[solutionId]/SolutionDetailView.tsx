@@ -125,6 +125,15 @@ export default function SolutionDetailView({ content }: SolutionDetailViewProps)
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link
+                  href="/job-request"
+                  className="inline-flex items-center gap-2 py-3 px-5 bg-[#6ca642] text-white text-sm font-semibold rounded-lg no-underline transition-all hover:bg-[#5d9338] hover:shadow-md"
+                >
+                  Place a Job Request
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                  </svg>
+                </Link>
+                <Link
                   href="/our-solutions"
                   className="inline-flex items-center gap-2 py-3 px-5 bg-[#19478e] text-white text-sm font-medium rounded-lg no-underline transition-all hover:bg-[#153a6e] hover:shadow-md"
                 >
@@ -135,7 +144,7 @@ export default function SolutionDetailView({ content }: SolutionDetailViewProps)
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 py-3 px-5 bg-[#6ca642] text-white text-sm font-medium rounded-lg no-underline transition-all hover:bg-[#5d9338] hover:shadow-md"
+                  className="inline-flex items-center gap-2 py-3 px-5 border-2 border-[#19478e] text-[#19478e] text-sm font-medium rounded-lg no-underline transition-all hover:bg-[#19478e] hover:text-white hover:shadow-md"
                 >
                   Get in Touch
                 </Link>

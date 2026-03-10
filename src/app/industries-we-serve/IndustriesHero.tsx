@@ -8,7 +8,7 @@ export default function IndustriesHero() {
       <div className={styles.heroOverlay} aria-hidden />
       <div className={styles.heroContent}>
         <h1 id="industries-hero-title" className={styles.title}>
-          Staffing by Industry. Specialists by Discipline.
+          Staffing by <span className="text-[var(--accent)]">Industry</span>. Specialists by <span className="text-[var(--accent)]">Discipline</span>.
         </h1>
         <p className={styles.description}>
           Our recruiters specialize in the fields they hire for—so you get
@@ -16,7 +16,7 @@ export default function IndustriesHero() {
         </p>
         <div className={styles.buttonsRow}>
           <Link
-            href="/employment-form"
+            href="/job-request"
             className={`${styles.ctaButton} ${styles.ctaPlaceJob}`}
           >
             Place Job Request

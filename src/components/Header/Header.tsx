@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { MailIcon, PhoneIcon, ChevronDownIcon } from "./icons";
+import { PhoneIcon, ChevronDownIcon } from "./icons";
+import RecruitmentFraudNotice from "@/components/FraudNoticeSection/RecruitmentFraudNotice";
 
 function HamburgerIcon({ className }: { className?: string }) {
   return (
@@ -92,7 +93,7 @@ function DesktopDropdown({
         type="button"
         aria-expanded={isOpen}
         aria-haspopup="true"
-        className="inline-flex items-center gap-1 font-semibold pb-1 border-b-2 border-transparent -mb-1.5 hover:text-[#6ca642] transition-colors"
+        className="inline-flex items-center gap-1 font-semibold pb-1 border-b-2 border-transparent -mb-1.5 hover:text-[var(--accent)] transition-colors"
       >
         {label}
         <ChevronDownIcon
@@ -116,6 +117,7 @@ export default function Header() {
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
   const [desktopOpenDropdown, setDesktopOpenDropdown] = useState<DropdownKey>(null);
   const [mounted, setMounted] = useState(false);
+  const [showFraudModal, setShowFraudModal] = useState(false);
 
   const pathname = usePathname();
 
@@ -149,39 +151,13 @@ export default function Header() {
     `nav-link-underline ${isActive(href) ? "active" : ""}`;
 
   const dropdownLinkClass =
-    "block px-5 py-2.5 text-[15px] font-semibold text-neutral-900 no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]";
+    "block px-5 py-2.5 text-[15px] font-semibold text-black no-underline hover:bg-[#6ca642]/10 hover:text-[#6ca642]";
 
   return (
-    <header className="relative z-50 w-full bg-white text-sm text-neutral-900 font-[var(--font-inter)] shadow-sm">
-      {/* Top bar */}
+    <header className="relative z-50 w-full text-sm font-[var(--font-inter)]">
+      {/* Top bar with logo and quick contact */}
       <div className="w-full bg-[#19478e] text-white">
         <div className="w-full max-w-[1280px] 2xl:max-w-[1840px] mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-2 2xl:px-8 font-[var(--font-dm-sans)]">
-          <div className="flex flex-wrap items-center gap-4">
-            <a
-              href="mailto:Contactus@completestaffingsolutions.com"
-              className="flex items-center gap-2 no-underline text-white hover:opacity-90"
-            >
-              <MailIcon className="w-[19px] h-[19px] text-[#6ca642]" />
-              <span className="truncate">Contactus@completestaffingsolutions.com</span>
-            </a>
-            <div className="flex items-center gap-2 text-white">
-              <PhoneIcon className="w-5 h-5 text-[#6ca642]" />
-              <span>(401) 475-8800</span>
-            </div>
-          </div>
-
-          <a
-            href="/FraudNotice"
-            className="hidden md:inline-flex items-center justify-center h-11 px-5 rounded bg-[#6ca642] text-sm font-semibold no-underline shadow-sm hover:bg-[#5a8e37] hover:-translate-y-0.5 hover:shadow-lg transition-all"
-          >
-            Recruitment Fraud Notice
-          </a>
-        </div>
-      </div>
-
-      {/* Logo row */}
-      <div className="w-full bg-white border-b border-neutral-200">
-        <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto flex items-center justify-between px-4 py-3 lg:py-4 2xl:px-8">
           <Link
             href="/"
             aria-label="Complete Staffing Solutions - Home"
@@ -191,15 +167,49 @@ export default function Header() {
             <Image
               src="/logo.svg"
               alt="Complete Staffing Solutions"
-              width={175}
-              height={72}
-              className="h-12 w-auto lg:h-[72px] object-contain"
+              width={160}
+              height={60}
+              className="h-10 w-auto lg:h-[56px] object-contain"
               priority
             />
           </Link>
 
+          <div className="flex items-center gap-4 text-xs sm:text-sm">
+            <div className="hidden sm:flex items-center gap-2 text-white">
+              <PhoneIcon className="w-4 h-4 text-[#6ca642]" />
+              <span>(401) 475-8800</span>
+            </div>
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); setShowFraudModal(true); }}
+              className="hidden md:inline-flex items-center justify-center h-9 px-4 rounded bg-[#6ca642] text-xs sm:text-sm font-semibold no-underline shadow-sm hover:bg-[#5a8e37] hover:-translate-y-0.5 hover:shadow-lg transition-all cursor-pointer"
+            >
+              Recruitment Fraud Notice
+            </a>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            type="button"
+            className="inline-flex lg:hidden items-center justify-center w-10 h-10 rounded hover:bg-black/10 text-white transition-colors"
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? (
+              <CloseIcon className="w-6 h-6" />
+            ) : (
+              <HamburgerIcon className="w-6 h-6" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Main navigation overlaying hero imagery */}
+      <div className="w-full absolute top-[56px] sm:top-[60px] left-0 right-0 z-40">
+        <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto flex items-center justify-end px-4 py-3 lg:py-4 2xl:px-8">
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6 text-[15px]" aria-label="Main navigation">
+          <nav className="py-5 hidden lg:flex items-center gap-6 text-[15px] text-white" aria-label="Main navigation">
             <Link
               href="/"
               className={navItemClass("/")}
@@ -290,21 +300,6 @@ export default function Header() {
               </Link>
             </DesktopDropdown>
           </nav>
-
-          {/* Mobile hamburger */}
-          <button
-            type="button"
-            className="inline-flex lg:hidden items-center justify-center w-11 h-11 rounded hover:bg-black/5 text-neutral-900 transition-colors"
-            onClick={() => setIsMobileMenuOpen((open) => !open)}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? (
-              <CloseIcon className="w-6 h-6" />
-            ) : (
-              <HamburgerIcon className="w-6 h-6" />
-            )}
-          </button>
         </div>
       </div>
 
@@ -442,6 +437,34 @@ export default function Header() {
             </div>
           </div>
         </nav>
+      )}
+
+      {/* Recruitment Fraud Notice modal overlay */}
+      {showFraudModal && (
+        <div
+          className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/60 p-4 sm:p-6"
+          onClick={() => setShowFraudModal(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="fraud-notice-title"
+        >
+          <div
+            className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full my-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setShowFraudModal(false)}
+              className="absolute top-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-600 transition-colors"
+              aria-label="Close"
+            >
+              <CloseIcon className="w-5 h-5" />
+            </button>
+            <div className="max-h-[85vh] overflow-y-auto pt-14">
+              <RecruitmentFraudNotice />
+            </div>
+          </div>
+        </div>
       )}
     </header>
   );

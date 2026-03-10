@@ -347,7 +347,7 @@ export default function IndustriesBrowseSection() {
      
       {/* Industry cards grid */}
       <div className="grid max-w-[1180px] grid-cols-1 gap-6 px-6 pt-12 mx-auto sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {industriesToShow.map((industry) => (
+        {industriesToShow.map((industry, index) => (
           <div
             key={industry.id}
             className="flex flex-col overflow-hidden bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.1)] transition-all duration-300 group hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)]"
@@ -374,10 +374,14 @@ export default function IndustriesBrowseSection() {
               <p className="px-[13px] m-0 text-[12.5px] leading-relaxed text-justify text-[#666] min-h-[38px]">
                 {industry.description}
               </p>
-              {/* Button */}
+              {/* Button — alternate color every other */}
               <Link
                 href={`/industries-we-serve/${industry.id}`}
-                className="relative inline-flex items-center justify-center gap-2 h-[42px] px-[18px] mt-auto text-[16px] font-medium text-white rounded-md bg-[#6CA642] transition-all duration-300 hover:bg-[#5d9338] hover:shadow-[0_4px_12px_rgba(108,166,66,0.35)]"
+                className={`relative inline-flex items-center justify-center gap-2 h-[42px] px-[18px] mt-auto text-[16px] font-medium text-white rounded-md transition-all duration-300 hover:shadow-lg ${
+                  index % 2 === 0
+                    ? "bg-[#6CA642] hover:bg-[#5d9338] hover:shadow-[0_4px_12px_rgba(108,166,66,0.35)]"
+                    : "bg-[#19478e] hover:bg-[#15376f] hover:shadow-[0_4px_12px_rgba(25,71,142,0.35)]"
+                }`}
               >
                 Explore
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

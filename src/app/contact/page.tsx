@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ContactUs() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-sky-50/80">
       <ContactHero />
       <OfficeLocations />
     </main>

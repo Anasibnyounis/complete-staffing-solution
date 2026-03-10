@@ -2,10 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import styles from "./Policies.module.css";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
 
 export default function PoliciesHero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -21,10 +17,11 @@ export default function PoliciesHero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className={`${styles.hero} ${styles.reveal}`}>
+    <section ref={sectionRef} className={`${styles.hero} ${styles.reveal} min-h-[380px] xs:min-h-[420px] flex items-center justify-center overflow-hidden`}>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#19478e] via-[#225eb9] to-[#6CA642]" />
       <div className={styles.container}>
         <h1 className={`${styles.heroTitle} ${styles.reveal} ${styles.revealDown}`}>
-          POLICIES AND DISCLOSURES
+          POLICIES AND <span className="text-[var(--accent)]">DISCLOSURES</span>
         </h1>
         
         <p className={`${styles.heroDate} ${styles.reveal} ${styles.revealDown} ${styles.delay1}`}>

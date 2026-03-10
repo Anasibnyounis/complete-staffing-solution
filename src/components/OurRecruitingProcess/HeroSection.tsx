@@ -7,8 +7,7 @@ import assets from "@/assets/assets";
 const HeroSection: React.FC = () => {
   return (
     <section
-      className="relative w-full flex items-center justify-center overflow-hidden"
-      style={{ minHeight: "260px" }}
+      className="relative w-full flex items-center justify-center overflow-hidden min-h-[380px] xs:min-h-[420px] sm:min-h-[480px] md:min-h-[520px]"
     >
       <div className="absolute inset-0">
         <Image
@@ -22,7 +21,7 @@ const HeroSection: React.FC = () => {
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(rgba(39,84,150,0.75), rgba(39,84,150,0.75))",
+            background: "linear-gradient(rgba(25,71,142,0.75), rgba(25,71,142,0.75))",
           }}
         />
       </div>
@@ -34,15 +33,14 @@ const HeroSection: React.FC = () => {
         }}
       >
         <h1
-          className="font-[var(--font-plus-jakarta)] font-bold text-white uppercase tracking-[2px]"
+          className="font-[var(--font-plus-jakarta)] font-bold text-white"
           style={{
             fontSize: "48px",
             fontWeight: 700,
-            letterSpacing: "2px",
             marginBottom: "12px",
           }}
         >
-          Our Recruiting Process
+          Our <span className="text-[var(--accent)]">Recruiting Process</span>
         </h1>
         <p
           className="font-[var(--font-plus-jakarta)] text-[#E5ECF6]"
