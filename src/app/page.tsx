@@ -4,7 +4,7 @@ import LandingVideoSection from "@/components/LandingVideoSection/LandingVideoSe
 import JobRequestSection from "@/components/JobRequestSection";
 
 const VIDEO_SYNOPSIS =
-  "In this video we share how Complete Staffing Solutions partners with businesses to find the right talent—from understanding your needs and culture to delivering qualified candidates who are ready to contribute from day one.";
+  "Complete Staffing Solutions is a full service organization specializing in numerous industries from Financial Services to Healthcare with specialized groups that recruit in Executive Searches to Contract Placements.";
 
 export default function Home() {
   return (

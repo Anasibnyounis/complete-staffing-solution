@@ -32,9 +32,86 @@ const PauseIcon = () => (
 );
 
 const stats = [
-  { number: "200,000+", description: "Successful Placements" },
-  { number: "1M+", description: "Qualified Candidates" },
-  { number: "5,000+", description: "Career Opportunities" },
+  { number: "35,000+", description: "Successful Placements" },
+  { number: "200,000+", description: "Qualified Candidates" },
+  { number: "25+", description: "Years of Experience" },
+];
+
+const pillars = [
+  {
+    title: "Understand Your Needs",
+    body: "We learn your company culture, goals, and hiring challenges.",
+    Icon: () => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-sky-500"
+        aria-hidden
+      >
+        <path
+          d="M10.5 4.5a6 6 0 0 0-4.243 10.243l-1.757 1.757 1.414 1.414 1.757-1.757A6 6 0 1 0 10.5 4.5z"
+          fill="currentColor"
+        />
+        <circle cx="10.5" cy="10.5" r="2.5" fill="white" />
+      </svg>
+    ),
+  },
+  {
+    title: "Find the Right Talent",
+    body: "Our recruiters identify qualified professionals who match your requirements.",
+    Icon: () => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-emerald-500"
+        aria-hidden
+      >
+        <circle cx="12" cy="7" r="3.25" fill="currentColor" />
+        <path
+          d="M6 19.5C6.75 15.75 9 14 12 14s5.25 1.75 6 5.5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+        />
+        <path
+          d="M18 11.5a3 3 0 1 1 2.5-4.75"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Deliver Results",
+    body: "We connect you with candidates ready to contribute from day one.",
+    Icon: () => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-emerald-500"
+        aria-hidden
+      >
+        <path
+          d="M7 11.5 10 15l7-8"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M18 6.5h2.25A1.75 1.75 0 0 1 22 8.25v8.5A1.75 1.75 0 0 1 20.25 18.5H7.75A1.75 1.75 0 0 1 6 16.75V7.25A1.75 1.75 0 0 1 7.75 5.5H14"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+  },
 ];
 
 export default function LandingVideoSection() {
@@ -92,84 +169,120 @@ export default function LandingVideoSection() {
         aria-hidden
       />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/15 to-black/35"
+        className="absolute inset-0 bg-linear-to-b from-black/25 via-black/15 to-black/35"
         aria-hidden
       />
 
-      <div className="relative z-10 w-full py-12 max-w-[900px] sm:py-14 sm:px-6 md:py-16 md:px-8 lg:py-20">
-        {/* Headline */}
-        <h2 className="font-(--font-plus-jakarta) font-bold text-white text-center mb-6 sm:mb-8 text-xl sm:text-2xl md:text-3xl">
-          See How We Help Businesses Find Talent
-        </h2>
-
-        {/* Video container — rounded, shadow, glassy border */}
-        <div
-          className="relative aspect-video w-full rounded-2xl overflow-hidden flex items-center justify-center select-none
-            bg-black/40
-            border border-white/20
-            shadow-[0_24px_48px_rgba(0,0,0,0.5),0_12px_24px_rgba(0,0,0,0.4)]
-            ring-1 ring-white/10"
-        >
-          <video
-            ref={videoRef}
-            src="/videos/landing-bottom-video.mp4"
-            title={VIDEO_TITLE}
-            muted={isMuted}
-            className="w-full h-full object-contain"
-            playsInline
-            controls={false}
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
-          />
-
-          <button
-            type="button"
-            onClick={togglePlayPause}
-            onKeyDown={(e) => {
-              if (e.key === " ") e.preventDefault();
-            }}
-            className="absolute inset-0 z-10 flex items-center justify-center"
-            aria-label={isPlaying ? "Pause" : "Play"}
-          >
-            <span className="flex items-center justify-center w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-full bg-black/55 text-white backdrop-blur-[2px] border border-white/15">
-              {isPlaying ? <PauseIcon /> : <PlayIcon />}
-            </span>
-          </button>
-
-          <button
-            type="button"
-            onClick={toggleMute}
-            className="absolute bottom-4 right-4 z-20 flex items-center justify-center w-10 h-10 rounded-full bg-black/60 text-white hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors"
-            aria-label={isMuted ? "Unmute video" : "Mute video"}
-          >
-            {isMuted ? <MuteIcon /> : <UnmuteIcon />}
-          </button>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        {/* Header text */}
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="font-(--font-plus-jakarta) text-sky-100 text-xs sm:text-sm uppercase tracking-[0.18em]">
+            How We Partner With You
+          </h2>
+          <p className="mt-3 font-(--font-plus-jakarta) text-white text-xl sm:text-2xl md:text-3xl">
+            See How We Help Businesses Find Talent
+          </p>
+          <p className="mt-3 text-sm sm:text-base md:text-lg text-slate-100/85 font-(--font-inter)">
+            Watch how we partner with employers to understand their{" "}
+            <span className="font-semibold">needs</span> and deliver qualified
+            candidates ready to succeed from day one.
+          </p>
         </div>
-      </div>
-      <div
-        ref={statsRef}
-        className={`mb-10 max-w-7xl flex items-center justify-center transition-all duration-700 ease-out ${isStatsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-      >
-        <div className="flex flex-wrap justify-center items-center md:justify-between font-(--font-plus-jakarta) text-white">
-          {stats.map((stat, index) => (
+
+        {/* Pillars row */}
+        <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-5 md:grid-cols-3">
+          {pillars.map(({ title, body, Icon }) => (
             <div
-              key={stat.number}
-              className={`flex flex-col items-center text-center px-6 sm:px-8 transition-all duration-500 ease-out
-                    ${index < 2 ? "md:border-r md:border-white/20" : ""}
-                    ${isStatsVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
-              style={{
-                transitionDelay: isStatsVisible ? `${0.15 + index * 0.15}s` : "0s",
-              }}
+              key={title}
+              className="flex flex-col items-start gap-3 rounded-2xl bg-white/95 px-5 py-5 sm:px-6 sm:py-6 shadow-[0_18px_40px_rgba(15,23,42,0.18)]"
             >
-              <span className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] leading-tight text-white tracking-tight">
-                {stat.number}
-              </span>
-              <span className="mt-2 text-sm sm:text-base text-white/80 font-(--font-inter)">
-                {stat.description}
-              </span>
+              <div className="inline-flex items-center justify-center rounded-full bg-sky-50 p-2.5">
+                <Icon />
+              </div>
+              <div>
+                <h3 className="font-(--font-plus-jakarta) text-slate-900 text-base sm:text-lg">
+                  {title}
+                </h3>
+                <p className="mt-1 text-sm sm:text-[15px] leading-relaxed text-slate-600 font-(--font-inter)">
+                  {body}
+                </p>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Video container */}
+        <div className="mt-9 sm:mt-11 lg:mt-12">
+          <div
+            className="relative mx-auto aspect-video w-full max-w-4xl rounded-[26px] overflow-hidden flex items-center justify-center select-none
+            bg-slate-950/80
+            border border-white/80
+            shadow-[0_30px_70px_rgba(15,23,42,0.65)]"
+          >
+            <video
+              ref={videoRef}
+              src="/videos/landing-bottom-video.mp4"
+              title={VIDEO_TITLE}
+              muted={isMuted}
+              className="w-full h-full object-cover"
+              playsInline
+              controls={false}
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+            />
+
+            <button
+              type="button"
+              onClick={togglePlayPause}
+              onKeyDown={(e) => {
+                if (e.key === " ") e.preventDefault();
+              }}
+              className="absolute inset-0 z-10 flex items-center justify-center"
+              aria-label={isPlaying ? "Pause" : "Play"}
+            >
+              <span className="flex items-center justify-center w-[70px] h-[70px] sm:w-[82px] sm:h-[82px] rounded-full bg-black/65 text-white backdrop-blur-[2px] border border-white/40">
+                {isPlaying ? <PauseIcon /> : <PlayIcon />}
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={toggleMute}
+              className="absolute bottom-5 right-5 z-20 flex items-center justify-center w-10 h-10 rounded-full bg-black/70 text-white hover:bg-black/85 focus:outline-none focus:ring-2 focus:ring-white/60 transition-colors"
+              aria-label={isMuted ? "Unmute video" : "Mute video"}
+            >
+              {isMuted ? <MuteIcon /> : <UnmuteIcon />}
+            </button>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div
+          ref={statsRef}
+          className={`mt-10 sm:mt-12 border-t border-white/20 pt-7 sm:pt-8 transition-all duration-700 ease-out ${
+            isStatsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
+          <div className="flex flex-col items-center gap-5 text-white font-(--font-plus-jakarta) sm:flex-row sm:justify-center sm:gap-10 lg:gap-16">
+            {stats.map((stat, index) => (
+              <div
+                key={stat.number}
+                className={`flex flex-col items-center text-center px-4 sm:px-6 transition-all duration-500 ease-out ${
+                  isStatsVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                }`}
+                style={{
+                  transitionDelay: isStatsVisible ? `${0.15 + index * 0.15}s` : "0s",
+                }}
+              >
+                <span className="font-bold text-2xl sm:text-3xl md:text-[2rem] leading-tight tracking-tight">
+                  {stat.number}
+                </span>
+                <span className="mt-1.5 text-xs sm:text-sm text-slate-100/85 font-(--font-inter)">
+                  {stat.description}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
