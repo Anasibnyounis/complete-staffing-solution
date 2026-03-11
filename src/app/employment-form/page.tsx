@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function EmploymentFormPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="        min-h-screen bg-white">
       <EmploymentpositionHero />
       <EmploymentForm />
     </main>
