@@ -19,7 +19,7 @@ const DEPARTMENTS = [
     id: "accounting",
     title: "Accounting",
     icon: Icons.accounting,
-    image: "/67db95411df971225cd735e7_emerging_technologies_in_finance.webp",
+    image: "/departments/acc.jpg",
     industries: ["Finance", "Manufacturing", "Retail", "Nonprofit", "Legal"],
     positions: [
       "Accounting Manager",
@@ -49,7 +49,7 @@ const DEPARTMENTS = [
     id: "administrative",
     title: "Administrative",
     icon: Icons.administrative,
-    image: "/industries/cards/corporate services.jpg",
+    image: "/departments/admin.jpg",
     industries: ["Education", "Healthcare", "Legal", "Real Estate", "Agriculture"],
     positions: [
       "Administrative Assistants",
@@ -81,7 +81,7 @@ const DEPARTMENTS = [
     id: "engineering",
     title: "Engineering",
     icon: Icons.engineering,
-    image: "/industries/cards/construction.jpg",
+    image: "/departments/eng.jpg",
     industries: ["Construction", "Energy & Mining", "Manufacturing", "Agriculture"],
     positions: [
       "Alternative Energy Consultants",
@@ -121,7 +121,7 @@ const DEPARTMENTS = [
     id: "finance",
     title: "Finance",
     icon: Icons.finance,
-    image: "/67db95411df971225cd735e7_emerging_technologies_in_finance.webp",
+    image: "/departments/finance.jpg",
     industries: ["Legal"],
     positions: [
       "Budgeting & Forecasting",
@@ -139,7 +139,7 @@ const DEPARTMENTS = [
     id: "it",
     title: "IT",
     icon: Icons.it,
-    image: "/industries/information.jpg",
+    image: "/departments/IT.jpg",
     industries: ["Hardware", "Design", "Entertainment"],
     positions: [
       ".Net / C# Developer",
@@ -172,7 +172,7 @@ const DEPARTMENTS = [
     id: "healthcare",
     title: "Healthcare",
     icon: Icons.healthcare,
-    image: "/industries/healthcare.jpg",
+    image: "/departments/health.jpg",
     industries: ["Wellness & Fitness"],
     positions: [
       "Central Sterile Technician",
@@ -198,7 +198,7 @@ const DEPARTMENTS = [
     id: "sales",
     title: "Sales & Marketing",
     icon: Icons.sales,
-    image: "/industries/cards/real estate.jpg",
+    image: "/departments/sales.jpg",
     industries: ["Consumer Goods", "Media", "Arts", "Logistics", "Recreation & Travel"],
     positions: [
       "Account Executives",

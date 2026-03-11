@@ -209,19 +209,21 @@ export default function LandingVideoSection() {
         </div>
 
         {/* Video container */}
-        <div className="mt-9 sm:mt-11 lg:mt-12">
+        <div className="mt-9 sm:mt-11 lg:mt-12 max-w-2xl mx-auto">
           <div
             className="relative mx-auto aspect-video w-full max-w-4xl rounded-[26px] overflow-hidden flex items-center justify-center select-none
             bg-slate-950/80
-            border border-white/80
-            shadow-[0_30px_70px_rgba(15,23,42,0.65)]"
+            border-10 border-white
+            border-b-25
+            shadow-b
+            shadow-xl"
           >
             <video
               ref={videoRef}
               src="/videos/landing-bottom-video.mp4"
               title={VIDEO_TITLE}
               muted={isMuted}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-[26px]"
               playsInline
               controls={false}
               onPlay={() => setIsPlaying(true)}
@@ -256,10 +258,11 @@ export default function LandingVideoSection() {
         {/* Stats */}
         <div
           ref={statsRef}
-          className={`mt-10 sm:mt-12 border-t border-white/20 pt-7 sm:pt-8 transition-all duration-700 ease-out ${
+          className={`mt-10 sm:mt-12 border-t border-white pt-7 sm:pt-8 transition-all duration-700 ease-out relative z-10 ${
             isStatsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
+          <div className="absolute inset-0 bg-gradient-to-b from-[#19478E]/25 via-[#19478E]/15 to-[#19478E]/0" aria-hidden />
           <div className="flex flex-col items-center gap-5 text-white font-(--font-plus-jakarta) sm:flex-row sm:justify-center sm:gap-10 lg:gap-16">
             {stats.map((stat, index) => (
               <div
