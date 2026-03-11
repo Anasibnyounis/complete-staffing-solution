@@ -245,6 +245,22 @@ export default function Header() {
               Home
             </Link>
 
+            <Link
+              href="/about-us"
+              className={navItemClass("/about-us")}
+              onClick={() => setDesktopOpenDropdown(null)}
+            >
+              About Us
+            </Link>
+
+            <Link
+              href="/why-choose-us-page"
+              className={navItemClass("/why-choose-us-page")}
+              onClick={() => setDesktopOpenDropdown(null)}
+            >
+              Why Choose Us
+            </Link>
+
             <DesktopDropdown
               label="Employers"
               dropdownKey="employers"
@@ -322,22 +338,6 @@ export default function Header() {
                 Policies and Disclosures
               </Link>
             </DesktopDropdown>
-
-            <Link
-              href="/why-choose-us-page"
-              className={navItemClass("/why-choose-us-page")}
-              onClick={() => setDesktopOpenDropdown(null)}
-            >
-              Why Choose Us
-            </Link>
-
-            <Link
-              href="/about-us"
-              className={navItemClass("/about-us")}
-              onClick={() => setDesktopOpenDropdown(null)}
-            >
-              About Us
-            </Link>
           </nav>
         </div>
       </div>

@@ -12,9 +12,9 @@ export default function Home() {
       <Hero />
       <WhyChooseUs />
       <section className="w-full bg-[#E4F4FE] border-y border-neutral-100">
-        <div className="w-full max-w-[720px] mx-auto px-4 sm:px-6 py-8 sm:py-10 text-center">
-          <p className="font-[var(--font-inter)] text-neutral-700 text-base sm:text-lg lg:text-xl xl:text-2xl font-semibold leading-relaxed">
-            {VIDEO_SYNOPSIS}
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 text-center">
+          <p className="font-[var(--font-inter)] italic text-neutral-700 text-base sm:text-lg lg:text-xl xl:text-2xl font-semibold leading-relaxed">
+            "{VIDEO_SYNOPSIS}"
           </p>
         </div>
       </section>
