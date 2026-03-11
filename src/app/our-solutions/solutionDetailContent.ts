@@ -50,7 +50,7 @@ export const SOLUTION_DETAIL_CONTENT: Record<SolutionId, SolutionDetailContent> 
       },
     ],
     ourEdge: "Retained search with CSS means a dedicated specialist team, deep industry networks across North America, EMEA, and APAC, and an unwavering commitment to the outcome. We bring Topgrading methodology and McQuaig psychometrics to every search — tools that consistently deliver A-Players over 90% of the time and cut mis-hire rates by more than half. We don't walk away at the offer; we support onboarding through the first 90 days, backed by our 12-Month Placement Guarantee. When the hire is critical, the process should be too.",
-  }
+  },
   contract: {
     title: "Contract Search",
     subtitle: "Flexible talent for project-based work and interim leadership",
