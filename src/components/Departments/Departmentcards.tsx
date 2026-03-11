@@ -19,7 +19,7 @@ const DEPARTMENTS = [
     id: "accounting",
     title: "Accounting",
     icon: Icons.accounting,
-    image: "/departments/acc.jpg",
+    image: "/departments/acc.webp",
     industries: ["Finance", "Manufacturing", "Retail", "Nonprofit", "Legal"],
     positions: [
       "Accounting Manager",
@@ -49,7 +49,7 @@ const DEPARTMENTS = [
     id: "administrative",
     title: "Administrative",
     icon: Icons.administrative,
-    image: "/departments/admin.jpg",
+    image: "/departments/admin.webp",
     industries: ["Education", "Healthcare", "Legal", "Real Estate", "Agriculture"],
     positions: [
       "Administrative Assistants",
@@ -81,7 +81,7 @@ const DEPARTMENTS = [
     id: "engineering",
     title: "Engineering",
     icon: Icons.engineering,
-    image: "/departments/eng.jpg",
+    image: "/departments/eng.webp",
     industries: ["Construction", "Energy & Mining", "Manufacturing", "Agriculture"],
     positions: [
       "Alternative Energy Consultants",
@@ -121,7 +121,7 @@ const DEPARTMENTS = [
     id: "finance",
     title: "Finance",
     icon: Icons.finance,
-    image: "/departments/finance.jpg",
+    image: "/departments/finance.webp",
     industries: ["Legal"],
     positions: [
       "Budgeting & Forecasting",
@@ -139,7 +139,7 @@ const DEPARTMENTS = [
     id: "it",
     title: "IT",
     icon: Icons.it,
-    image: "/departments/IT.jpg",
+    image: "/departments/IT.webp",
     industries: ["Hardware", "Design", "Entertainment"],
     positions: [
       ".Net / C# Developer",
@@ -172,7 +172,7 @@ const DEPARTMENTS = [
     id: "healthcare",
     title: "Healthcare",
     icon: Icons.healthcare,
-    image: "/departments/health.jpg",
+    image: "/departments/health.webp",
     industries: ["Wellness & Fitness"],
     positions: [
       "Central Sterile Technician",
@@ -198,7 +198,7 @@ const DEPARTMENTS = [
     id: "sales",
     title: "Sales & Marketing",
     icon: Icons.sales,
-    image: "/departments/sales.jpg",
+    image: "/departments/sales.webp",
     industries: ["Consumer Goods", "Media", "Arts", "Logistics", "Recreation & Travel"],
     positions: [
       "Account Executives",
