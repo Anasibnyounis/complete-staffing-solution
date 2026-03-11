@@ -38,21 +38,19 @@ export const SOLUTION_DETAIL_CONTENT: Record<SolutionId, SolutionDetailContent> 
     title: "Executive Search",
     subtitle: "C-suite and senior leadership placement with global reach",
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
-    ourFocus:
-      "We partner with organizations to identify and secure C-suite and senior executives who are culturally aligned and results-driven. Our executive search practice combines rigorous assessment with deep market access to place leaders who shape the future of your organization.",
+    ourFocus: "Our Premium Retained Search model is designed for organizations that refuse to compromise — C-suite, VP, Director and Board-level leaders whose impact will define the trajectory of your business. When the cost of a wrong hire is significant, the process needs to match the stakes.",
     sections: [
       {
-        title: "C-suite and Senior Leadership",
-        body: "We focus on board-level, C-suite, and senior leadership roles where fit and impact matter most. Each search is led by experienced consultants who understand both the role and the market.",
+        title: "Strategic Partnership",
+        body: "We don't fill vacancies; we solve leadership problems. From day one, a fully dedicated CSS search team works shoulder-to-shoulder with your leadership to build a comprehensive strategy: rigorous market mapping, passive candidate outreach, and a structured evaluation process using Topgrading interviews and McQuaig psychometric assessments. Every search is calibrated to your immediate goals and your broader organizational direction and validated through regular calibration check-ins to ensure complete alignment throughout.",
       },
       {
-        title: "Global Talent Network",
-        body: "Our reach extends across industries and geographies, enabling us to source and evaluate exceptional candidates who might otherwise remain undiscovered.",
+        title: "Confidential Search Process",
+        body: "Some of the most important hires are the ones that can't be made publicly. Whether you're filling a senior leadership role, navigating a sensitive succession, or replacing a key person without disruption, our retained model is built for discretion. We manage the entire process including finalist candidate profiles and presentations and full due diligence with the professionalism those situations demand.",
       },
     ],
-    ourEdge:
-      "Agile, consultative, and outcome-focused—we deliver leaders who drive results and align with your culture from day one.",
-  },
+    ourEdge: "Retained search with CSS means a dedicated specialist team, deep industry networks across North America, EMEA, and APAC, and an unwavering commitment to the outcome. We bring Topgrading methodology and McQuaig psychometrics to every search — tools that consistently deliver A-Players over 90% of the time and cut mis-hire rates by more than half. We don't walk away at the offer; we support onboarding through the first 90 days, backed by our 12-Month Placement Guarantee. When the hire is critical, the process should be too.",
+  }
   contract: {
     title: "Contract Search",
     subtitle: "Flexible talent for project-based work and interim leadership",
