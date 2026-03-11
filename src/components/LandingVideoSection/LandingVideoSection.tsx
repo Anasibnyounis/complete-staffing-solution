@@ -1,11 +1,23 @@
 "use client";
 
+import Image from "next/image";
 import React, { useRef, useState, useEffect } from "react";
 
 const VIDEO_TITLE = "Complete Staffing Solutions — Who We Are";
 
 const MuteIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden
+  >
     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
     <line x1="23" y1="9" x2="17" y2="15" />
     <line x1="17" y1="9" x2="23" y2="15" />
@@ -13,20 +25,45 @@ const MuteIcon = () => (
 );
 
 const UnmuteIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden
+  >
     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
     <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
   </svg>
 );
 
 const PlayIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="26"
+    height="26"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden
+  >
     <path d="M8 5v14l11-7z" />
   </svg>
 );
 
 const PauseIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="26"
+    height="26"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden
+  >
     <path d="M6 5h4v14H6zm8 0h4v14h-4z" />
   </svg>
 );
@@ -41,76 +78,17 @@ const pillars = [
   {
     title: "Understand Your Needs",
     body: "We learn your company culture, goals, and hiring challenges.",
-    Icon: () => (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        className="h-8 w-8 text-sky-500"
-        aria-hidden
-      >
-        <path
-          d="M10.5 4.5a6 6 0 0 0-4.243 10.243l-1.757 1.757 1.414 1.414 1.757-1.757A6 6 0 1 0 10.5 4.5z"
-          fill="currentColor"
-        />
-        <circle cx="10.5" cy="10.5" r="2.5" fill="white" />
-      </svg>
-    ),
+    icon: "/search.webp",
   },
   {
     title: "Find the Right Talent",
     body: "Our recruiters identify qualified professionals who match your requirements.",
-    Icon: () => (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        className="h-8 w-8 text-emerald-500"
-        aria-hidden
-      >
-        <circle cx="12" cy="7" r="3.25" fill="currentColor" />
-        <path
-          d="M6 19.5C6.75 15.75 9 14 12 14s5.25 1.75 6 5.5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-        />
-        <path
-          d="M18 11.5a3 3 0 1 1 2.5-4.75"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    icon: "/target.webp",
   },
   {
     title: "Deliver Results",
     body: "We connect you with candidates ready to contribute from day one.",
-    Icon: () => (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        className="h-8 w-8 text-emerald-500"
-        aria-hidden
-      >
-        <path
-          d="M7 11.5 10 15l7-8"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M18 6.5h2.25A1.75 1.75 0 0 1 22 8.25v8.5A1.75 1.75 0 0 1 20.25 18.5H7.75A1.75 1.75 0 0 1 6 16.75V7.25A1.75 1.75 0 0 1 7.75 5.5H14"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    icon: "/hand-shake.webp",
   },
 ];
 
@@ -128,7 +106,7 @@ export default function LandingVideoSection() {
           if (entry.isIntersecting) setIsStatsVisible(true);
         });
       },
-      { threshold: 0.1, rootMargin: "50px" }
+      { threshold: 0.1, rootMargin: "50px" },
     );
     if (statsRef.current) observer.observe(statsRef.current);
     return () => observer.disconnect();
@@ -179,7 +157,7 @@ export default function LandingVideoSection() {
           <p className="mt-3 font-(--font-plus-jakarta) text-[#19478E] font-bold text-xl sm:text-2xl md:text-3xl">
             See How We Help Businesses Find Talent
           </p>
-          <p className="mt-3 text-sm sm:text-base md:text-lg text-slate-100/85 font-(--font-inter)">
+          <p className="mt-3 text-sm sm:text-base md:text-lg font-medium text-slate-100/85 font-(--font-inter)">
             Watch how we partner with employers to understand their{" "}
             <span className="font-semibold">needs</span> and deliver qualified
             candidates ready to succeed from day one.
@@ -188,19 +166,22 @@ export default function LandingVideoSection() {
 
         {/* Pillars row */}
         <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-5 md:grid-cols-3">
-          {pillars.map(({ title, body, Icon }) => (
+          {pillars.map(({ title, body, icon }) => (
             <div
               key={title}
-              className="flex flex-col items-start gap-3 rounded-2xl bg-white/95 px-5 py-5 sm:px-6 sm:py-6 shadow-[0_18px_40px_rgba(15,23,42,0.18)]"
+              className="flex items-start gap-3 rounded-2xl bg-white/95 px-5 py-5 sm:px-6 sm:py-6 shadow-[0_18px_40px_rgba(15,23,42,0.18)]"
             >
-              <div className="inline-flex items-center justify-center rounded-full bg-sky-50 p-2.5">
-                <Icon />
-              </div>
+              <Image
+                src={icon.replace(/ /g, "%20")}
+                alt={title}
+                width={56}
+                height={56}
+              />
               <div>
                 <h3 className="font-(--font-plus-jakarta) text-slate-900 text-base sm:text-lg">
                   {title}
                 </h3>
-                <p className="mt-1 text-sm sm:text-[15px] leading-relaxed text-slate-600 font-(--font-inter)">
+                <p className="mt-1 text-sm sm:text-base leading-tight text-slate-600 font-(--font-inter)">
                   {body}
                 </p>
               </div>
@@ -259,19 +240,28 @@ export default function LandingVideoSection() {
         <div
           ref={statsRef}
           className={`mt-10 sm:mt-12 border-t border-white pt-7 sm:pt-8 transition-all duration-700 ease-out relative z-10 ${
-            isStatsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            isStatsVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-6"
           }`}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-[#19478E]/25 via-[#19478E]/15 to-[#19478E]/0" aria-hidden />
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-[#19478E]/25 via-[#19478E]/15 to-[#19478E]/0"
+            aria-hidden
+          />
           <div className="flex flex-col items-center gap-5 text-white font-(--font-plus-jakarta) sm:flex-row sm:justify-center sm:gap-10 lg:gap-16">
             {stats.map((stat, index) => (
               <div
                 key={stat.number}
                 className={`flex flex-col items-center text-center px-4 sm:px-6 transition-all duration-500 ease-out ${
-                  isStatsVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                  isStatsVisible
+                    ? "opacity-100 scale-100"
+                    : "opacity-0 scale-95"
                 }`}
                 style={{
-                  transitionDelay: isStatsVisible ? `${0.15 + index * 0.15}s` : "0s",
+                  transitionDelay: isStatsVisible
+                    ? `${0.15 + index * 0.15}s`
+                    : "0s",
                 }}
               >
                 <span className="font-bold text-2xl sm:text-3xl md:text-[2rem] leading-tight tracking-tight">

@@ -138,7 +138,7 @@ function DesktopDropdown({
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(
-    null
+    null,
   );
   const [desktopOpenDropdown, setDesktopOpenDropdown] =
     useState<DropdownKey>(null);
@@ -237,7 +237,13 @@ export default function Header() {
             className="py-5 hidden lg:flex items-center gap-6 text-[15px] text-white"
             aria-label="Main navigation"
           >
-            <Link href="/" className={navItemClass("/")} onClick={() => setDesktopOpenDropdown(null)}>Home</Link>
+            <Link
+              href="/"
+              className={navItemClass("/")}
+              onClick={() => setDesktopOpenDropdown(null)}
+            >
+              Home
+            </Link>
 
             <DesktopDropdown
               label="Employers"
@@ -246,11 +252,29 @@ export default function Header() {
               onOpen={setDesktopOpenDropdown}
               onClose={() => setDesktopOpenDropdown(null)}
             >
-              <Link href="/our-solutions" className={dropdownLinkClass} onClick={() => setDesktopOpenDropdown(null)}>Our Solutions</Link>
-              <Link href="/industries-we-serve" className={dropdownLinkClass} onClick={() => setDesktopOpenDropdown(null)}>Industries</Link>
+              <Link
+                href="/our-solutions"
+                className={dropdownLinkClass}
+                onClick={() => setDesktopOpenDropdown(null)}
+              >
+                Our Solutions
+              </Link>
+              <Link
+                href="/industries-we-serve"
+                className={dropdownLinkClass}
+                onClick={() => setDesktopOpenDropdown(null)}
+              >
+                Industries
+              </Link>
             </DesktopDropdown>
 
-            <Link href="/our-recruiting-process" className={navItemClass("/our-recruiting-process")} onClick={() => setDesktopOpenDropdown(null)}>Our Recruiting Process</Link>
+            <Link
+              href="/our-recruiting-process"
+              className={navItemClass("/our-recruiting-process")}
+              onClick={() => setDesktopOpenDropdown(null)}
+            >
+              Our Recruiting Process
+            </Link>
 
             <DesktopDropdown
               label="Job Seekers"
@@ -259,8 +283,20 @@ export default function Header() {
               onOpen={setDesktopOpenDropdown}
               onClose={() => setDesktopOpenDropdown(null)}
             >
-              <Link href="/open-position" className={dropdownLinkClass} onClick={() => setDesktopOpenDropdown(null)}>Open Positions</Link>
-              <Link href="/employment-form" className={dropdownLinkClass} onClick={() => setDesktopOpenDropdown(null)}>For Job Applications</Link>
+              <Link
+                href="/open-position"
+                className={dropdownLinkClass}
+                onClick={() => setDesktopOpenDropdown(null)}
+              >
+                Open Positions
+              </Link>
+              <Link
+                href="/employment-form"
+                className={dropdownLinkClass}
+                onClick={() => setDesktopOpenDropdown(null)}
+              >
+                For Job Applications
+              </Link>
             </DesktopDropdown>
 
             <DesktopDropdown
@@ -271,24 +307,61 @@ export default function Header() {
               onClose={() => setDesktopOpenDropdown(null)}
               alignRight
             >
-              <Link href="/contact" className={dropdownLinkClass} onClick={() => setDesktopOpenDropdown(null)}>Our Locations</Link>
-              <Link href="/policies" className={dropdownLinkClass} onClick={() => setDesktopOpenDropdown(null)}>Policies and Disclosures</Link>
+              <Link
+                href="/contact"
+                className={dropdownLinkClass}
+                onClick={() => setDesktopOpenDropdown(null)}
+              >
+                Our Locations
+              </Link>
+              <Link
+                href="/policies"
+                className={dropdownLinkClass}
+                onClick={() => setDesktopOpenDropdown(null)}
+              >
+                Policies and Disclosures
+              </Link>
             </DesktopDropdown>
+
+            <Link
+              href="/why-choose-us-page"
+              className={navItemClass("/why-choose-us-page")}
+              onClick={() => setDesktopOpenDropdown(null)}
+            >
+              Why Choose Us
+            </Link>
+
+            <Link
+              href="/about-us"
+              className={navItemClass("/about-us")}
+              onClick={() => setDesktopOpenDropdown(null)}
+            >
+              About Us
+            </Link>
           </nav>
         </div>
       </div>
 
       {/* Mobile nav */}
       {isMobileMenuOpen && (
-        <nav className="lg:hidden w-full bg-white border-b border-neutral-200" aria-label="Mobile navigation">
+        <nav
+          className="lg:hidden w-full bg-white border-b border-neutral-200"
+          aria-label="Mobile navigation"
+        >
           {/* ... Keep the same mobile nav code ... */}
         </nav>
       )}
 
       {/* Fraud Notice Modal */}
       {showFraudModal && (
-        <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/60 p-4 sm:p-6" onClick={() => setShowFraudModal(false)}>
-          <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full my-8" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/60 p-4 sm:p-6"
+          onClick={() => setShowFraudModal(false)}
+        >
+          <div
+            className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full my-8"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               type="button"
               onClick={() => setShowFraudModal(false)}

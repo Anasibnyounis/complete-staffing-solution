@@ -12,7 +12,8 @@ export default function AboutUsPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero bar - matches site primary blue and typography */}
-      <div className="w-full flex items-center justify-center h-24 min-h-[380px] xs:min-h-[420px] sm:min-h-[450px]px-4 sm:px-6 md:px-8 lg:px-12 relative z-10"
+      <div
+        className="w-full flex items-center justify-center h-24 min-h-[380px] xs:min-h-[420px] sm:min-h-[450px]px-4 sm:px-6 md:px-8 lg:px-12 relative z-10"
         style={{
           background: "url('/about us/about-us.webp')",
           backgroundSize: "cover",
@@ -21,18 +22,16 @@ export default function AboutUsPage() {
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#19478e]/60 via-[#19478e]/50 to-[#19478e]/30" />
-        <h1 className="m-0 font-[var(--font-plus-jakarta)] font-bold text-[clamp(26px,5vw,46px)] text-white tracking-[0.12em] relative z-11">
-          About <span className="text-[var(--accent)]">Us.</span>
+        <h1 className="m-0 font-[var(--font-plus-jakarta)] font-bold text-[clamp(26px,5vw,46px)] text-white relative z-11">
+          About <span className="text-[var(--accent)]">Us</span>.
         </h1>
       </div>
 
       {/* Main content container - consistent padding and width with rest of site */}
       <section className="w-full bg-white">
-        <div className="">
-          <MissionServicesSection />
-          <SpecializeSection />
-          <AboutJobRequestSection />
-        </div>
+        <MissionServicesSection />
+        <SpecializeSection />
+        <AboutJobRequestSection />
       </section>
     </main>
   );

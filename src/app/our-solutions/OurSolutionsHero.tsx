@@ -77,7 +77,7 @@ export default function OurSolutionsHero() {
               Tailored to Your Needs
             </span>
           </p>
-          <ul className="list-none p-0 m-0 flex flex-wrap gap-x-8 gap-y-3 max-w-[600px]">
+          <ul className="list-none p-0 m-0 flex gap-x-8 gap-y-3">
             {stats.map((stat, i) => (
               <li
                 key={stat}
