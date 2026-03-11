@@ -156,8 +156,8 @@ export default function Header() {
   return (
     <header className="relative z-50 w-full text-sm font-[var(--font-inter)]">
       {/* Top bar with logo and quick contact */}
-      <div className="w-full bg-gradient-to-r from-[#19478e]/40 to-[#19478e]/100 text-white">
-        <div className="w-full max-w-[1280px] 2xl:max-w-[1840px] mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-2 2xl:px-8 font-[var(--font-dm-sans)]">
+      <div className="w-full bg-gradient-to-r from-[#2d81ff] to-[#19478e] text-white">
+        <div className="w-full max-w-[1280px]  2xl:max-w-[1840px] mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-2 2xl:px-8 font-[var(--font-dm-sans)]">
           <Link
             href="/"
             aria-label="Complete Staffing Solutions - Home"
@@ -169,7 +169,7 @@ export default function Header() {
               alt="Complete Staffing Solutions"
               width={160}
               height={60}
-              className="h-10 w-auto lg:h-[56px] object-contain shadow-sm"
+              className="h-10 w-auto lg:h-[56px] object-contain"
               priority
             />
           </Link>
