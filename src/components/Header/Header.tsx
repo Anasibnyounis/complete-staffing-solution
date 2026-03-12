@@ -345,10 +345,159 @@ export default function Header() {
       {/* Mobile nav */}
       {isMobileMenuOpen && (
         <nav
-          className="lg:hidden w-full bg-white border-b border-neutral-200"
+          className="lg:hidden w-full bg-white border-b border-neutral-200 shadow-md"
           aria-label="Mobile navigation"
         >
-          {/* ... Keep the same mobile nav code ... */}
+          <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 py-4 space-y-1 text-sm font-[var(--font-inter)]">
+            <Link
+              href="/"
+              className="block py-2 font-semibold text-neutral-900"
+              onClick={closeMobileMenu}
+            >
+              Home
+            </Link>
+
+            <Link
+              href="/about-us"
+              className="block py-2 font-semibold text-neutral-900"
+              onClick={closeMobileMenu}
+            >
+              About Us
+            </Link>
+
+            <Link
+              href="/why-choose-us-page"
+              className="block py-2 font-semibold text-neutral-900"
+              onClick={closeMobileMenu}
+            >
+              Why Choose Us
+            </Link>
+
+            {/* Employers dropdown */}
+            <div className="border-t border-neutral-200 pt-2 mt-2">
+              <button
+                type="button"
+                className="flex w-full items-center justify-between py-2 font-semibold text-neutral-900"
+                onClick={() => toggleMobileDropdown("employers")}
+                aria-expanded={mobileOpenDropdown === "employers"}
+              >
+                <span>Employers</span>
+                <ChevronDownIcon
+                  className={`w-5 h-5 transition-transform ${
+                    mobileOpenDropdown === "employers" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {mobileOpenDropdown === "employers" && (
+                <div className="pl-4 pb-1 space-y-1">
+                  <Link
+                    href="/our-solutions"
+                    className="block py-2 text-[15px] font-medium text-neutral-800"
+                    onClick={closeMobileMenu}
+                  >
+                    Our Solutions
+                  </Link>
+                  <Link
+                    href="/industries-we-serve"
+                    className="block py-2 text-[15px] font-medium text-neutral-800"
+                    onClick={closeMobileMenu}
+                  >
+                    Industries
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/our-recruiting-process"
+              className="block py-2 font-semibold text-neutral-900 border-t border-neutral-200 mt-2"
+              onClick={closeMobileMenu}
+            >
+              Our Recruiting Process
+            </Link>
+
+            {/* Job Seekers dropdown */}
+            <div className="border-t border-neutral-200 pt-2 mt-2">
+              <button
+                type="button"
+                className="flex w-full items-center justify-between py-2 font-semibold text-neutral-900"
+                onClick={() => toggleMobileDropdown("jobseekers")}
+                aria-expanded={mobileOpenDropdown === "jobseekers"}
+              >
+                <span>Job Seekers</span>
+                <ChevronDownIcon
+                  className={`w-5 h-5 transition-transform ${
+                    mobileOpenDropdown === "jobseekers" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {mobileOpenDropdown === "jobseekers" && (
+                <div className="pl-4 pb-1 space-y-1">
+                  <Link
+                    href="/open-position"
+                    className="block py-2 text-[15px] font-medium text-neutral-800"
+                    onClick={closeMobileMenu}
+                  >
+                    Open Positions
+                  </Link>
+                  <Link
+                    href="/employment-form"
+                    className="block py-2 text-[15px] font-medium text-neutral-800"
+                    onClick={closeMobileMenu}
+                  >
+                    For Job Applications
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Contact dropdown */}
+            <div className="border-t border-neutral-200 pt-2 mt-2">
+              <button
+                type="button"
+                className="flex w-full items-center justify-between py-2 font-semibold text-neutral-900"
+                onClick={() => toggleMobileDropdown("contact")}
+                aria-expanded={mobileOpenDropdown === "contact"}
+              >
+                <span>Contact</span>
+                <ChevronDownIcon
+                  className={`w-5 h-5 transition-transform ${
+                    mobileOpenDropdown === "contact" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {mobileOpenDropdown === "contact" && (
+                <div className="pl-4 pb-2 space-y-1">
+                  <Link
+                    href="/contact"
+                    className="block py-2 text-[15px] font-medium text-neutral-800"
+                    onClick={closeMobileMenu}
+                  >
+                    Our Locations
+                  </Link>
+                  <Link
+                    href="/policies"
+                    className="block py-2 text-[15px] font-medium text-neutral-800"
+                    onClick={closeMobileMenu}
+                  >
+                    Policies and Disclosures
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Fraud notice button for mobile */}
+            <button
+              type="button"
+              onClick={() => {
+                setShowFraudModal(true);
+                closeMobileMenu();
+              }}
+              className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-[#6ca642] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#5a8e37] transition-colors"
+            >
+              Recruitment Fraud Notice
+            </button>
+          </div>
         </nav>
       )}
 
