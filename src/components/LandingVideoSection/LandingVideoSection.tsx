@@ -141,20 +141,20 @@ export default function LandingVideoSection() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
         style={{
-          backgroundImage: "url('/Landing-video-bg.webp')",
-          opacity: 0.5,
+          backgroundImage: "url('/Landing-video-bg.png')",
+          // opacity: 0.9,
         }}
         aria-hidden
       />
       <div
-        className="absolute inset-0 bg-linear-to-b from-black/25 via-black/15 to-black/35"
+        className="absolute inset-0 bg-linear-to-b from-black/15 via-black/20 to-black/30"
         aria-hidden
       />
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         {/* Header text */}
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="mt-3 font-(--font-plus-jakarta) text-[#354b83] font-bold text-2xl sm:text-3xl md:text-4xl">
+        <div className="max-w-3xl mx-auto text-center before:content-[''] before:absolute before:inset-0 before:rounded-4xl before:blur-3xl before:z-[-1] before:bg-pink-100/30">
+          <p className="mt-3 font-(--font-plus-jakarta) text-[#354b83] font-bold text-2xl sm:text-3xl md:text-4xl ">
             See How We Help Businesses Find Talent
           </p>
           <p className="mt-3 text-sm sm:text-base md:text-xl leading-relaxed text-[#343134] font-(--font-inter) tracking-wide">
@@ -246,7 +246,7 @@ export default function LandingVideoSection() {
           }`}
         >
           <div
-            className="absolute inset-0 bg-gradient-to-b from-[#19478E]/25 via-[#19478E]/15 to-[#19478E]/0"
+            className="absolute inset-0 bg-gradient-to-b from-[#19478E]/50 via-[#19478E]/30 to-[#19478E]/0"
             aria-hidden
           />
           <div className="flex flex-col items-center gap-5 text-white font-(--font-plus-jakarta) sm:flex-row sm:justify-center sm:gap-10 lg:gap-16">
