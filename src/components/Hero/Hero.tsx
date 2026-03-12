@@ -59,10 +59,9 @@ export default function Hero() {
         {HERO_IMAGES.map((img, index) => (
           <Image
             key={img.src}
-            className="absolute inset-0 h-full object-contain object-right transition-all duration-1000 ease-out"
+            className="absolute inset-0 h-full object-contain object-right transition-opacity duration-1000 ease-out"
             style={{
               opacity: activeImageIndex === index ? 0.8 : 0,
-              transform: activeImageIndex === index ? "translateX(0)" : "translateX(-15%)",
               zIndex: activeImageIndex === index ? 20 : 10,
             }}
             src={img.src}

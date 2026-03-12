@@ -11,7 +11,7 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Hero />
       <WhyChooseUs />
-      <section className="w-full bg-[#E4F4FE] border-y border-neutral-100">
+      <section className="w-full bg-[#c8eaff] border-y border-neutral-100">
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 text-center">
           <p className="font-[var(--font-inter)] italic text-neutral-700 text-base sm:text-lg lg:text-xl xl:text-2xl font-semibold leading-relaxed">
             "{VIDEO_SYNOPSIS}"
