@@ -23,7 +23,7 @@ export default function AboutUsPage() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#19478e]/60 via-[#19478e]/50 to-[#19478e]/30" />
         <h1 className="m-0 font-[var(--font-plus-jakarta)] font-bold text-[clamp(26px,5vw,46px)] text-white relative z-11">
-          About <span className="text-[var(--accent)]">Us</span>.
+          About <span className="text-[var(--accent)]">Us</span>
         </h1>
       </div>
 

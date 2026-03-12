@@ -193,7 +193,6 @@ export default function LandingVideoSection() {
         <div className="mt-9 sm:mt-11 lg:mt-12 max-w-2xl mx-auto">
           <div
             className="relative mx-auto aspect-video w-full max-w-4xl rounded-[26px] overflow-hidden flex items-center justify-center select-none
-            bg-slate-950/80
             border-10 border-white
             bg-white
             border-b-25
