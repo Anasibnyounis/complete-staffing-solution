@@ -134,14 +134,14 @@ export default function LandingVideoSection() {
 
   return (
     <section
-      className="relative w-full overflow-hidden border-t border-white/10 flex flex-col items-center"
+      className="relative w-full overflow-hidden flex flex-col items-center"
       aria-label="Video and impact stats"
     >
       {/* Background image — faded (not grayed); soft overlay for readability */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
         style={{
-          backgroundImage: "url('/modern-minimalist-office.jpg')",
+          backgroundImage: "url('/Landing-video-bg.webp')",
           opacity: 0.5,
         }}
         aria-hidden
@@ -154,10 +154,10 @@ export default function LandingVideoSection() {
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         {/* Header text */}
         <div className="max-w-3xl mx-auto text-center">
-          <p className="mt-3 font-(--font-plus-jakarta) text-[#19478E] font-bold text-xl sm:text-2xl md:text-3xl">
+          <p className="mt-3 font-(--font-plus-jakarta) text-[#354b83] font-bold text-2xl sm:text-3xl md:text-4xl">
             See How We Help Businesses Find Talent
           </p>
-          <p className="mt-3 text-sm sm:text-base md:text-lg font-medium text-slate-100/85 font-(--font-inter)">
+          <p className="mt-3 text-sm sm:text-base md:text-xl leading-relaxed text-[#343134] font-(--font-inter) tracking-wide">
             Watch how we partner with employers to understand their{" "}
             <span className="font-semibold">needs</span> and deliver qualified
             candidates ready to succeed from day one.
@@ -169,7 +169,7 @@ export default function LandingVideoSection() {
           {pillars.map(({ title, body, icon }) => (
             <div
               key={title}
-              className="flex items-start gap-3 rounded-2xl bg-white/95 px-5 py-5 sm:px-6 sm:py-6 shadow-[0_18px_40px_rgba(15,23,42,0.18)]"
+              className="flex items-start gap-3 rounded-2xl bg-white/65 backdrop-blur-sm px-5 py-5 sm:px-6 sm:py-6 shadow-[0_18px_40px_rgba(15,23,42,0.18)]"
             >
               <Image
                 src={icon.replace(/ /g, "%20")}
@@ -195,6 +195,7 @@ export default function LandingVideoSection() {
             className="relative mx-auto aspect-video w-full max-w-4xl rounded-[26px] overflow-hidden flex items-center justify-center select-none
             bg-slate-950/80
             border-10 border-white
+            bg-white
             border-b-25
             shadow-b
             shadow-xl"
@@ -204,7 +205,7 @@ export default function LandingVideoSection() {
               src="/videos/landing-bottom-video.mp4"
               title={VIDEO_TITLE}
               muted={isMuted}
-              className="w-full h-full object-cover rounded-[26px]"
+              className="w-full h-full object-cover rounded-[22px]"
               playsInline
               controls={false}
               onPlay={() => setIsPlaying(true)}
