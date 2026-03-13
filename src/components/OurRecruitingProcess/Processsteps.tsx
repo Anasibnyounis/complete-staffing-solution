@@ -80,13 +80,13 @@ const ProcessSteps: React.FC = () => {
         data-visible={isVisible}
       >
         <h2
-          className="font-[var(--font-plus-jakarta)] font-bold uppercase text-[28px] sm:text-[34px]"
+          className="font-[var(--font-plus-jakarta)] font-bold text-[28px] sm:text-[34px]"
           style={{ fontWeight: 700, color: "#2D3E50" }}
         >
           How Our Process Works
         </h2>
         <p
-          className="font-[var(--font-plus-jakarta)] text-base sm:text-lg mt-2"
+          className="text-base sm:text-lg mt-2"
           style={{ color: "#6B7C93" }}
         >
           A Clear, Proven Approach to Hiring
@@ -94,7 +94,7 @@ const ProcessSteps: React.FC = () => {
       </div>
 
       <div
-        className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 px-4 sm:px-6"
+        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 px-4 sm:px-6"
       >
         {PROCESS_CARDS.map((card, index) => (
           <div

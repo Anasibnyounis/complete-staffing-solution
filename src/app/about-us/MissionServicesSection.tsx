@@ -29,7 +29,7 @@ const items = [
 export default function MissionServicesSection() {
   return (
     <section
-      className="w-full bg-gradient-to-b from-neutral-50 via-white to-neutral-100 py-12 sm:py-16 lg:py-20"
+      className="w-full bg-linear-to-b from-neutral-50 via-white to-neutral-100 py-12 sm:py-16 lg:py-20"
       aria-labelledby="mission-services-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10 md:gap-12 font-[var(--font-plus-jakarta)] text-neutral-900">

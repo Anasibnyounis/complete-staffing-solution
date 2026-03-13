@@ -154,12 +154,12 @@ export default function LandingVideoSection() {
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         {/* Header text */}
         <div className="max-w-3xl mx-auto text-center before:content-[''] before:absolute before:inset-0 before:rounded-4xl before:blur-3xl before:z-[-1] before:bg-pink-100/30">
-          <p className="mt-3 font-(--font-plus-jakarta) text-[#354b83] font-bold text-2xl sm:text-3xl md:text-4xl ">
+          <p className="mt-3 text-[#354b83] font-bold text-2xl sm:text-3xl md:text-4xl ">
             See How We Help Businesses Find Talent
           </p>
-          <p className="mt-3 text-sm sm:text-base md:text-xl leading-relaxed text-[#343134] font-(--font-inter) tracking-wide">
+          <p className="mt-3 text-sm sm:text-base md:text-xl leading-relaxed text-[#343134] font-semibold tracking-wide">
             Watch how we partner with employers to understand their{" "}
-            <span className="font-semibold">needs</span> and deliver qualified
+            <span className="font-extrabold text-md sm:text-lg md:text-2xl text-[#354b83]">needs</span> and deliver qualified
             candidates ready to succeed from day one.
           </p>
         </div>

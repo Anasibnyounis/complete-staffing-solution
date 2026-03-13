@@ -6,69 +6,13 @@ import Link from "next/link";
 import DepartmentCards from "../../components/Departments/Departmentcards";
 
 const INDUSTRIES = [
-  // {
-  //   id: "agriculture",
-  //   image: "/industries/cards/agriculture.jpg",
-  //   title: "Agriculture",
-  //   description: "Skilled agricultural workers for farms, nurseries, and food production",
-  //   iconColor: "#6CA642",
-  // },
-  // {
-  //   id: "arts",
-  //   image: "/industries/cards/arts.jpg",
-  //   title: "Arts",
-  //   description: "Creative professionals for galleries, studios, and artistic ventures",
-  //   iconColor: "#6CA642",
-  // },
-  // {
-  //   id: "construction",
-  //   image: "/industries/cards/construction.jpg",
-  //   title: "Construction",
-  //   description: "Experienced workers for building, engineering, and construction projects",
-  //   iconColor: "#6CA642",
-  // },
-  // {
-  //   id: "consumergoods",
-  //   image: "/industries/cards/consumer goods.jpg",
-  //   title: "Consumer Goods",
-  //   description: "Professionals for product development, sales, and distribution",
-  //   iconColor: "#6CA642",
-  // },
   {
     id: "corporateservices",
-    image: "/industries/cards/corporate services.jpg",
+    image: "/industries/cards/corporate services.webp",
     title: "Corporate Services",
     description: "Professional staff for corporate operations and business services",
     iconColor: "#6CA642",
   },
-  // {
-  //   id: "design",
-  //   image: "/industries/cards/design.jpg",
-  //   title: "Design",
-  //   description: "Creative designers for UX, graphic, interior, and product design",
-  //   iconColor: "#6CA642",
-  // },
-  // {
-  //   id: "education",
-  //   image: "/industries/cards/education.jpg",
-  //   title: "Education",
-  //   description: "Qualified educators and administrators for schools and institutions",
-  //   iconColor: "#6CA642",
-  // },
-  // {
-  //   id: "energy",
-  //   image: "/industries/cards/energy.jpg",
-  //   title: "Energy & Mining",
-  //   description: "Skilled professionals for energy, utilities, and power generation",
-  //   iconColor: "#6CA642",
-  // },
-  // {
-  //   id: "entertainment",
-  //   image: "/industries/cards/design.jpg",
-  //   title: "Entertainment",
-  //   description: "Creative talent for media, events, and entertainment production",
-  //   iconColor: "#6CA642",
-  // },
   {
     id: "finance",
     image: "/67db95411df971225cd735e7_emerging_technologies_in_finance.webp",
@@ -78,7 +22,7 @@ const INDUSTRIES = [
   },
   {
     id: "healthcare",
-    image: "/industries/healthcare.jpg",
+    image: "/industries/cards/healthcare.webp",
     title: "Healthcare",
     description: "Qualified healthcare professionals for hospitals, clinics, and care facilities",
     iconColor: "#6CA642",
@@ -86,7 +30,7 @@ const INDUSTRIES = [
 
   {
     id: "hardware",
-    image: "/industries/cards/hardware.jpg",
+    image: "/industries/cards/hardware.webp",
     title: "Hardware & Networking",
     description: "Technical professionals for hardware systems and network infrastructure",
     iconColor: "#6CA642",
@@ -94,43 +38,28 @@ const INDUSTRIES = [
 
   {
     id: "legal",
-    image: "/industries/legal.jpg",
+    image: "/industries/cards/legal.webp",
     title: "Legal",
     description: "Experienced legal talent for law firms and legal departments",
     iconColor: "#6CA642",
   },
   {
     id: "manufacturing",
-    image: "/industries/cards/construction.jpg",
+    image: "/industries/cards/construction.webp",
     title: "Manufacturing",
     description: "Skilled workers for production, assembly and quality control",
     iconColor: "#6CA642",
   },
-  // {
-  //   id: "media",
-  //   image: "/industries/cards/media.jpg",
-  //   title: "Media & Communications",
-  //   description: "Media professionals for broadcasting, journalism, and communications",
-  //   iconColor: "#6CA642",
-  // },
   {
     id: "non-profit",
-    image: "/industries/cards/non profit.jpg",
+    image: "/industries/cards/non profit.webp",
     title: "Nonprofit",
     description: "Dedicated professionals for nonprofit organizations and social services",
     iconColor: "#6CA642",
   },
-  // {
-  //   id: "public",
-  //   image: "/industries/cards/corporate services.jpg",
-  //   title: "Public Administration",
-  //   description: "Government and public sector professionals for administration services",
-  //   iconColor: "#6CA642",
-  // },
-
   {
     id: "property",
-    image: "/industries/cards/real estate.jpg",
+    image: "/industries/cards/real estate.webp",
     title: "Property Management",
     description: "Property management professionals for residential, commercial, and facility operations",
     iconColor: "#6CA642",
@@ -138,63 +67,42 @@ const INDUSTRIES = [
 
   {
     id: "real-estate",
-    image: "/valuation-multiples-for-a-property-management-firm-1-980x551.jpg",
+    image: "/industries/cards/real estate.webp",
     title: "Real Estate",
     description: "Reliable agents and support staff for real estate industry",
     iconColor: "#6CA642",
   },
-  // {
-  //   id: "travel",
-  //   image: "/industries/cards/travel.jpg",
-  //   title: "Recreation & Travel",
-  //   description: "Hospitality and travel professionals for tourism and recreation services",
-  //   iconColor: "#6CA642",
-  // },
-  // {
-  //   id: "retail",
-  //   image: "/industries/legal.jpg",
-  //   title: "Retail",
-  //   description: "Sales and customer service professionals for retail operations",
-  //   iconColor: "#6CA642",
-  // },
   {
     id: "it",
-    image: "/industries/information.jpg",
+    image: "/industries/cards/information.webp",
     title: "Software & IT Services",
     description: "Top-notch tech talent for IT solutions and digital operations",
     iconColor: "#6CA642",
   },
   {
     id: "transportation",
-    image: "/industries/cards/transportation.jpg",
+    image: "/industries/cards/transportation.webp",
     title: "Transportation & Logistics",
     description: "Workers for supply chain, warehousing and distribution",
     iconColor: "#6CA642",
   },
-  // {
-  //   id: "wellness",
-  //   image: "/industries/healthcare.jpg",
-  //   title: "Wellness & Fitness",
-  //   description: "Health and wellness professionals for fitness and wellbeing services",
-  //   iconColor: "#6CA642",
-  // },
   {
     id: "financial-services",
-    image: "/industries/information.jpg",
+    image: "/industries/cards/information.webp",
     title: "Financial Services",
     description: "Strategic expertise in banking, investment management, and global compliance",
     iconColor: "#6CA642",
   },
   {
     id: "communications",
-    image: "/industries/cards/construction.jpg",
+    image: "/industries/cards/construction.webp",
     title: "Communications",
     description: "Connecting organizations with storytelling, PR, and digital media experts",
     iconColor: "#6CA642",
   },
   {
     id: "insurance",
-    image: "/industries/cards/insurance.jpg",
+    image: "/industries/cards/insurance.webp",
     title: "Insurance",
     description: "Professional staffing for risk assessment, underwriting, and claims management",
     iconColor: "#6CA642",
@@ -343,7 +251,7 @@ export default function IndustriesBrowseSection() {
   const industriesToShow = showAll ? filteredIndustries : filteredIndustries.slice(0, 8);
 
   return (
-    <div className="w-full pb-20 bg-[#f8f8f8] font-[var(--font-inter),Inter,sans-serif]">
+    <div className="w-full bg-[#f8f8f8] font-[var(--font-inter),Inter,sans-serif]">
      
       {/* Industry cards grid */}
       <div className="grid max-w-[1180px] grid-cols-1 gap-6 px-6 pt-12 mx-auto sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

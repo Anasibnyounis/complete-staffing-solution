@@ -12,7 +12,7 @@ export default function JobRequestSection() {
       ([entry]) => {
         if (entry?.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -21,25 +21,24 @@ export default function JobRequestSection() {
   return (
     <section
       ref={sectionRef}
-      className={`relative w-full flex items-center justify-center overflow-hidden min-h-[280px] py-8 px-5 md:min-h-[320px] md:py-10 md:px-6 lg:h-[390px] lg:min-h-[390px] lg:py-0 2xl:min-h-[420px] bg-cover bg-center bg-no-repeat ${isVisible ? "active" : ""}`}
-      style={{ backgroundImage: "url('/homepage/job%20request.png')" }}
+      className={`relative w-full flex items-center overflow-hidden min-h-[280px] py-8 px-5 md:min-h-[320px] md:py-10 md:px-6 lg:px-12 lg:h-[350px] lg:min-h-[350px] lg:py-0 2xl:min-h-[390px] bg-cover bg-center bg-no-repeat ${isVisible ? "active" : ""}`}
+      style={{ backgroundImage: "url('/footer-bg.webp')" }}
     >
-      <div
+      {/* <div
         className="absolute inset-0 bg-[#19478e] opacity-45 pointer-events-none"
         aria-hidden
-      />
+      /> */}
       <div
-        className={`relative z-10 flex flex-col items-center justify-center gap-6 text-center px-6 opacity-0 translate-y-10 transition-all duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${isVisible ? "opacity-100 translate-y-0" : ""}`}
+        className={`relative z-10 flex flex-col px-6 opacity-0 transition-all duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${isVisible ? "opacity-100 translate-y-0" : ""}`}
       >
-        <h2 className="font-[var(--font-plus-jakarta)] font-bold text-[clamp(22px,4vw,42px)] leading-snug text-white m-0 max-w-[700px]">
+        <h2 className="font-extralight! text-[clamp(22px,4vw,42px)] leading-snug text-white m-0">
           Connecting businesses with the
-          <br />
-          best talent is our passion.
         </h2>
+        <h2 className="font-bold text-[clamp(22px,4vw,42px)] leading-snug text-white m-0">best talent is our passion.</h2>
         <Link
           href="/job-request"
-          className="inline-flex items-center justify-center h-[50px] px-7 rounded bg-[#6ca642] text-lg font-semibold font-[var(--font-inter)] text-white no-underline transition-opacity hover:opacity-90 w-full max-w-[280px] md:max-w-none md:w-auto"
-        > 
+          className="mt-6 inline-flex items-center justify-center h-[50px] px-7 rounded bg-[#6AB63B] text-lg font-semibold font-[var(--font-inter)] text-white no-underline transition-opacity hover:opacity-90 w-full max-w-[280px] rounded-lg"
+        >
           Place a Job Request
         </Link>
       </div>

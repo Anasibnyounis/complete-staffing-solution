@@ -1,5 +1,6 @@
 import IndustriesHero from "./IndustriesHero";
 import IndustriesBrowseSection from "./IndustriesBrowseSection";
+import FooterHead from "@/components/FooterHead/footerHead";
 
 export const metadata = {
   title: "Industries We Serve | Complete Staffing Solutions",
@@ -12,6 +13,7 @@ export default function IndustriesWeServePage() {
     <main className="min-h-screen bg-white">
       <IndustriesHero />
       <IndustriesBrowseSection />
+      <FooterHead />
     </main>
   );
 }

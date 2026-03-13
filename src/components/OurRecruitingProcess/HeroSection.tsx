@@ -33,21 +33,17 @@ const HeroSection: React.FC = () => {
         }}
       >
         <h1
-          className="font-[var(--font-plus-jakarta)] font-bold text-white"
+          className="font-bold text-white"
           style={{
             fontSize: "48px",
             fontWeight: 700,
             marginBottom: "12px",
           }}
         >
-          Our <span className="text-[var(--accent)]">Recruiting Process</span>
+          Our <span className="text-accent">Recruiting Process</span>
         </h1>
         <p
-          className="font-[var(--font-plus-jakarta)] text-[#E5ECF6]"
-          style={{
-            fontSize: "20px",
-            fontWeight: 400,
-          }}
+          className="text-[#E5ECF6] font-semibold text-[clamp(18px,3vw,24px)]"
         >
           A Clear, Proven Approach to Hiring
         </p>
