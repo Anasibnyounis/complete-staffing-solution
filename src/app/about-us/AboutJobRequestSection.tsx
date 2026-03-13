@@ -3,8 +3,8 @@ import Link from "next/link";
 export default function AboutJobRequestSection() {
   return (
     <section
-      className={`relative w-full flex items-center overflow-hidden min-h-[280px] py-8 px-5 md:min-h-[320px] md:py-10 md:px-6 lg:px-12 lg:h-[350px] lg:min-h-[350px] lg:py-0 2xl:min-h-[390px] bg-cover bg-center bg-no-repeat`}
-      style={{ backgroundImage: "url('/footer-bg.webp')" }}
+      className={`relative w-full flex items-center overflow-hidden min-h-[280px] py-8 px-5 md:min-h-[320px] md:py-10 md:px-6 lg:px-12 lg:h-[350px] lg:min-h-[350px] lg:py-0 2xl:min-h-[390px] bg-cover bg-no-repeat`}
+      style={{ backgroundImage: "url('/footer-bg.webp')", backgroundPosition: "83%" }}
     >
       {/* <div
         className="absolute inset-0 bg-[#19478e] opacity-45 pointer-events-none"

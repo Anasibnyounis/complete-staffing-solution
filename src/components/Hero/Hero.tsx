@@ -52,14 +52,14 @@ export default function Hero() {
 
   return (
     <section
-      className={`hero-section relative z-0 w-full overflow-hidden bg-black text-left font-[var(--font-plus-jakarta)] flex flex-col justify-between pt-[72px] sm:pt-[80px] ${isActive ? "active" : ""} ${isMobile ? "min-h-screen" : ""}`}
+      className={`hero-section relative z-0 w-full overflow-hidden bg-black text-left font-[var(--font-plus-jakarta)] flex flex-col justify-between sm:pt-[80px] ${isActive ? "active" : ""} ${isMobile ? "min-h-screen" : ""}`}
     >
       {/* Full-width background image with subtle shading and blend */}
       <div className="hero-bg-wrap absolute inset-0 z-[1] overflow-hidden">
         {HERO_IMAGES.map((img, index) => (
           <Image
             key={img.src}
-            className="absolute inset-0 h-full object-contain object-right transition-opacity duration-1000 ease-out"
+            className="absolute inset-0 h-full object-cover xl:object-contain object-right transition-opacity duration-1000 ease-out"
             style={{
               opacity: activeImageIndex === index ? 0.8 : 0,
               zIndex: activeImageIndex === index ? 20 : 10,
@@ -74,8 +74,9 @@ export default function Hero() {
         <div
           className="absolute inset-0 z-30"
           style={{
-            background:
-              "linear-gradient(to right, #000 0%, #000 35%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 100%)",
+            background: isMobile
+              ? "linear-gradient(to right, #000 0%, #000 10%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 90%)"
+              : "linear-gradient(to right, #000 0%, #000 35%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 100%)",
           }}
         />
         {/* Extra bottom shade to visually minimize the photo area */}
@@ -85,7 +86,7 @@ export default function Hero() {
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {/* Hero content */}
         <div className="relative z-[4] col-span-2 flex flex-1 flex-col justify-center pt-[100px] md:pt-[120px] pb-6 md:pb-8">
-          <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 2xl:px-8">
+          <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 2xl:px-8">
             <div className="revealLeft textContent max-w-[600px] flex flex-col items-start gap-5 md:gap-6">
               <h1 className="hero-title font-bold text-[clamp(28px,4vw,48px)] md:text-[clamp(36px,4.5vw,56px)] leading-[1.15] text-white text-left">
                 Empowering Careers.
@@ -96,7 +97,7 @@ export default function Hero() {
                 For over 25 years we&apos;ve helped exceptional talent connect with
                 companies that are ready to grow.
               </p>
-              <div className="hero-buttons flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4">
+              <div className="hero-buttons w-full flex items-center justify-center md:justify-start gap-4">
                 <Link
                   href="/open-position"
                   className="hero-cta hero-cta-blue inline-flex items-center justify-center h-[50px] px-6 rounded-lg text-base font-semibold font-[var(--font-inter)] text-white no-underline transition-all duration-300 hover:scale-[1.02] hover:shadow-lg min-w-[140px] sm:min-w-[140px]"
@@ -113,11 +114,17 @@ export default function Hero() {
             </div>
             <div className="relative z-[4] col-span-1 mt-4 pb-8 md:pb-10">
               <div className="w-full">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+                <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                   {stats.map((stat, index) => (
-                    <div key={`${stat.label}- ${index}`} className="items-center justify-center backdrop-blur-lg border border-white/10 bg-white/5 revealUp group relative flex gap-4 p-5 md:px-2 md:py-6 rounded-xl transition-all duration-300 ease-out hover:-translate-y-1">
-                      <span className="hero-stat-icon text-[#5ba3a8] text-xl md:text-2xl">
-                        <stat.icon aria-hidden className="w-10 h-10" />
+                    <div
+                      key={`${stat.label}- ${index}`}
+                      className="backdrop-blur-lg border border-white/10 bg-white/5 revealUp group relative flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left justify-center gap-3 sm:gap-4 px-3 py-4 sm:px-4 sm:py-5 md:px-2 md:py-6 rounded-xl transition-all duration-300 ease-out hover:-translate-y-1"
+                    >
+                      <span className="hero-stat-icon text-[#5ba3a8] text-lg sm:text-xl md:text-2xl">
+                        <stat.icon
+                          aria-hidden
+                          className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
+                        />
                       </span>
                       <div
                         key={stat.label}
@@ -125,10 +132,10 @@ export default function Hero() {
                         style={{ transitionDelay: `${index * 0.1}s` }}
                       >
                         <div className="flex flex-col gap-1">
-                          <span className="hero-stat-value font-bold text-white text-2xl md:text-3xl leading-tight">
+                          <span className="hero-stat-value font-bold text-white text-lg sm:text-xl md:text-3xl leading-tight">
                             {stat.value}
                           </span>
-                          <span className="hero-stat-label text-white/90 text-sm md:text-base font-[var(--font-inter)]">
+                          <span className="hero-stat-label text-white/90 text-[11px] sm:text-xs md:text-base font-[var(--font-inter)]">
                             {stat.label}
                           </span>
                         </div>

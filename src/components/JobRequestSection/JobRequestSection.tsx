@@ -22,12 +22,12 @@ export default function JobRequestSection() {
     <section
       ref={sectionRef}
       className={`relative w-full flex items-center overflow-hidden min-h-[280px] py-8 px-5 md:min-h-[320px] md:py-10 md:px-6 lg:px-12 lg:h-[350px] lg:min-h-[350px] lg:py-0 2xl:min-h-[390px] bg-cover bg-center bg-no-repeat ${isVisible ? "active" : ""}`}
-      style={{ backgroundImage: "url('/footer-bg.webp')" }}
+      style={{ backgroundImage: "url('/footer-bg.webp')", backgroundPosition: "83%" }}
     >
-      {/* <div
-        className="absolute inset-0 bg-[#19478e] opacity-45 pointer-events-none"
+      <div
+        className="md:hidden absolute inset-0 bg-[#19488e7a] opacity-45 pointer-events-none"
         aria-hidden
-      /> */}
+      />
       <div
         className={`relative z-10 flex flex-col px-6 opacity-0 transition-all duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${isVisible ? "opacity-100 translate-y-0" : ""}`}
       >

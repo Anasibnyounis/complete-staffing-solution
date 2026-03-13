@@ -249,11 +249,11 @@ export default function LandingVideoSection() {
             className="absolute inset-0 bg-gradient-to-b from-[#19478E]/50 via-[#19478E]/30 to-[#19478E]/0"
             aria-hidden
           />
-          <div className="flex flex-col items-center gap-5 text-white font-(--font-plus-jakarta) sm:flex-row sm:justify-center sm:gap-10 lg:gap-16">
+          <div className="flex items-center justify-center gap-1 text-white font-(--font-plus-jakarta) sm:justify-center sm:gap-10 lg:gap-16">
             {stats.map((stat, index) => (
               <div
                 key={stat.number}
-                className={`flex flex-col items-center text-center px-4 sm:px-6 transition-all duration-500 ease-out ${
+                className={`flex flex-col items-center justify-center text-center px-4 sm:px-6 transition-all duration-500 ease-out ${
                   isStatsVisible
                     ? "opacity-100 scale-100"
                     : "opacity-0 scale-95"
