@@ -77,11 +77,11 @@ export default function OurSolutionsHero() {
               Tailored to Your Needs
             </span>
           </p>
-          <ul className="list-none p-0 m-0 flex gap-x-8 gap-y-3">
+          <ul className="list-none p-0 m-0 flex flex-wrap gap-x-8 gap-y-3">
             {stats.map((stat, i) => (
               <li
                 key={stat}
-                className={`flex flex-wrap items-center gap-2 text-white font-[var(--font-inter)] text-[14px] sm:text-base reveal revealUp transition-transform duration-300 hover:translate-x-0.5 ${isVisible ? "active" : ""}`}
+                className={`flex items-center gap-2 text-white font-[var(--font-inter)] text-[14px] sm:text-base reveal revealUp transition-transform duration-300 hover:translate-x-0.5 ${isVisible ? "active" : ""}`}
                 style={{ transitionDelay: `${0.3 + i * 0.08}s` }}
               >
                 <span className="text-[#6ca642] shrink-0">{CHECK_ICON}</span>
