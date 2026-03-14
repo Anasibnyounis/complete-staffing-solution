@@ -1,4 +1,5 @@
 "use client";
+import { CheckIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export default function BlueSection() {
@@ -51,7 +52,7 @@ export default function BlueSection() {
         <div className="">
           <div
             className={`px-6 sm:px-8 opacity-0 translate-y-10 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] delay-200 ${
-              isVisible ? "opacity-100 translate-y-0" : ""
+              isVisible ? "opacity-100 translate-none" : ""
             }`}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-10 py-7 sm:py-8">
@@ -64,23 +65,7 @@ export default function BlueSection() {
                   style={{ transitionDelay: `${300 + idx * 60}ms` }}
                 >
                   <span className="inline-flex h-7 w-7 sm:h-10 sm:w-10 lg:h-12 lg:w-12  items-center justify-center rounded-full bg-white shadow-[0_4px_10px_rgba(0,0,0,0.10)]">
-                    <svg
-                      width="32"
-                      height="32"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="text-[#6ca642]"
-                      aria-hidden
-                    >
-                      <path
-                        d="M20 6L9 17l-5-5"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <CheckIcon className="text-[#6ca642] h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
                   </span>
                   <span className="font-(family-name:--font-inter) text-[15px] sm:text-[19px] lg:text-[20px] font-semibold text-neutral-900">
                     {label}

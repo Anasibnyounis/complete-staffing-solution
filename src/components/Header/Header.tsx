@@ -348,10 +348,10 @@ export default function Header() {
           className="lg:hidden w-full bg-white border-b border-neutral-200 shadow-md"
           aria-label="Mobile navigation"
         >
-          <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 py-4 space-y-1 text-sm font-[var(--font-inter)]">
+          <div className="max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 py-4 text-sm font-[var(--font-inter)]">
             <Link
               href="/"
-              className="block py-2 font-semibold text-neutral-900"
+              className="block py-4 font-semibold text-neutral-900"
               onClick={closeMobileMenu}
             >
               Home
@@ -359,7 +359,7 @@ export default function Header() {
 
             <Link
               href="/about-us"
-              className="block py-2 font-semibold text-neutral-900"
+              className="block border-t border-neutral-200 py-4 font-semibold text-neutral-900"
               onClick={closeMobileMenu}
             >
               About Us
@@ -367,14 +367,14 @@ export default function Header() {
 
             <Link
               href="/why-choose-us"
-              className="block py-2 font-semibold text-neutral-900"
+              className="block border-t border-neutral-200 py-4 font-semibold text-neutral-900"
               onClick={closeMobileMenu}
             >
               Why Choose Us
             </Link>
 
             {/* Employers dropdown */}
-            <div className="border-t border-neutral-200 pt-2 mt-2">
+            <div className="border-t border-neutral-200 py-2">
               <button
                 type="button"
                 className="flex w-full items-center justify-between py-2 font-semibold text-neutral-900"
@@ -410,14 +410,14 @@ export default function Header() {
 
             <Link
               href="/our-recruiting-process"
-              className="block py-2 font-semibold text-neutral-900 border-t border-neutral-200 mt-2"
+              className="block py-4 font-semibold text-neutral-900 border-t border-neutral-200"
               onClick={closeMobileMenu}
             >
               Our Recruiting Process
             </Link>
 
             {/* Job Seekers dropdown */}
-            <div className="border-t border-neutral-200 pt-2 mt-2">
+            <div className="border-t border-neutral-200 py-2">
               <button
                 type="button"
                 className="flex w-full items-center justify-between py-2 font-semibold text-neutral-900"
@@ -452,7 +452,7 @@ export default function Header() {
             </div>
 
             {/* Contact dropdown */}
-            <div className="border-t border-neutral-200 pt-2 mt-2">
+            <div className="border-t border-neutral-200 py-2">
               <button
                 type="button"
                 className="flex w-full items-center justify-between py-2 font-semibold text-neutral-900"

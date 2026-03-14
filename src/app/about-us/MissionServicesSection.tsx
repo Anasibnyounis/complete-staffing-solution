@@ -54,29 +54,47 @@ export default function MissionServicesSection() {
             key={item.title}
             className={`${index === 1 ? "md:flex-row-reverse" : "md:flex-row"} w-full rounded-[26px] bg-white/80 shadow-[0_18px_45px_rgba(15,23,42,0.10)] ring-1 ring-neutral-100/80 flex flex-col items-stretch md:items-center p-4 sm:p-5 md:p-6 lg:p-7 gap-6 md:gap-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_55px_rgba(15,23,42,0.16)]`}
           >
-            <div className="flex flex-col flex-1 min-w-0 gap-6 md:gap-8">
-              <div className="border-b border-[#19478e]/30 pb-5 flex flex-col gap-4">
-                <h3 className="font-bold text-[clamp(22px,2.4vw,30px)] leading-tight tracking-wide uppercase">
-                  {item.title}
-                </h3>
-                <p className="font-[var(--font-inter)] text-[15px] sm:text-base text-neutral-700 leading-relaxed">
+            {/* Mobile: order 1 — title + icon (small). Desktop: first column with title + description + icon */}
+            <div className="order-1 flex flex-col flex-1 min-w-0 gap-4 md:gap-8">
+              <div className="lg:border-b border-[#19478e]/30 pb-4 md:pb-5 flex flex-col gap-4">
+                <div className="flex sm:flex-row items-center justify-between md:justify-start sm:gap-4 gap-3">
+                  <h3 className="font-bold text-[clamp(22px,2.4vw,30px)] leading-tight tracking-wide uppercase">
+                    {item.title}
+                  </h3>
+                  {/* Icon: right after title on mobile only, smaller */}
+                  <div className="flex justify-start md:hidden">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-[#19478e] to-[#6ca642] flex items-center justify-center shrink-0 shadow-lg shadow-[#19478e]/25">
+                      <Image
+                        src={item.icon.replace(/ /g, "%20")}
+                        alt=""
+                        width={40}
+                        height={40}
+                        className="w-5 h-5 sm:w-6 sm:h-6 object-contain brightness-0 invert"
+                        unoptimized
+                      />
+                    </div>
+                  </div>
+                </div>
+                <p className="hidden md:block font-[var(--font-inter)] text-[15px] sm:text-base text-neutral-700 leading-relaxed">
                   {item.description}
                 </p>
               </div>
-              <div className="flex justify-start">
-                <div className="w-20 h-20 md:w-[100px] md:h-[100px] rounded-full bg-gradient-to-tr from-[#19478e] to-[#6ca642] flex items-center justify-center shrink-0 shadow-lg shadow-[#19478e]/25">
+              {/* Desktop: icon below description (spacer when description is present) */}
+              <div className="hidden md:flex justify-start">
+                <div className="w-[100px] h-[100px] rounded-full bg-gradient-to-tr from-[#19478e] to-[#6ca642] flex items-center justify-center shrink-0 shadow-lg shadow-[#19478e]/25">
                   <Image
                     src={item.icon.replace(/ /g, "%20")}
-                    alt={item.title}
+                    alt=""
                     width={56}
                     height={56}
-                    className="w-12 h-12 md:w-14 md:h-14 object-contain brightness-0 invert"
+                    className="w-14 h-14 object-contain brightness-0 invert"
                     unoptimized
                   />
                 </div>
               </div>
             </div>
-            <div className="w-full md:w-[520px] md:min-w-[520px] h-56 sm:h-72 md:h-[360px] lg:h-[380px] relative rounded-2xl overflow-hidden shrink-0 group">
+            {/* Mobile: order 2 — image */}
+            <div className="order-2 w-full md:w-[520px] md:min-w-[520px] h-40 sm:h-48 md:h-[360px] lg:h-[380px] relative rounded-2xl overflow-hidden shrink-0 group">
               <Image
                 src={item.image.replace(/ /g, "%20")}
                 alt={item.title}
@@ -85,6 +103,10 @@ export default function MissionServicesSection() {
                 unoptimized
               />
             </div>
+            {/* Mobile only: order 3 — description under image */}
+            <p className="order-3 md:hidden font-[var(--font-inter)] text-[15px] text-neutral-700 leading-relaxed pt-1">
+              {item.description}
+            </p>
           </article>
         ))}
       </div>

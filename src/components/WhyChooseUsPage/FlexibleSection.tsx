@@ -74,45 +74,46 @@ export default function FlexibleSection({
             isVisible ? "opacity-100 translate-y-0" : ""
           }`}
         >
-          <div className="relative grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr]">
-            <div className="relative z-0">
+          <div className="relative min-h-[320px] lg:min-h-[380px]">
+            {/* Photo as full background (desktop-style) */}
+            <div className="absolute inset-0 z-0">
               <Image
                 src={image}
                 alt={title}
                 fill
                 className="object-cover"
-                // unoptimized
-                sizes="(max-width: 1024px) 100vw, 60vw"
+                sizes="(max-width: 1024px) 100vw, 1280px"
               />
             </div>
 
-            <div className="px-6 py-4 sm:px-8 lg:px-8 relative z-10">
-              <div className="flex flex-col gap-4 lg:gap-3">
+            {/* Cards on top, shifted right and slightly smaller */}
+            <div className="relative z-10 flex justify-end px-5 py-6 sm:px-6 lg:px-10 lg:py-8">
+              <div className="w-full max-w-[420px] lg:max-w-[380px] flex flex-col gap-3">
                 {cards.map((card, i) => (
                   <div
                     key={card.title}
-                    className={`rounded-2xl bg-white px-5 sm:px-6 py-4 sm:py-5 flex gap-4 items-start opacity-0 transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] lg:-ml-20 xl:-ml-24 ${
+                    className={`rounded-xl bg-white px-4 sm:px-5 py-3.5 sm:py-4 flex gap-3 items-start opacity-0 transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-sm ${
                       isVisible ? "opacity-100 translate-y-0" : ""
                     }`}
                     style={{ transitionDelay: `${320 + i * 120}ms` }}
                   >
                     <div
-                      className="h-10 w-10 rounded-full flex items-center justify-center shrink-0"
+                      className="h-9 w-9 rounded-full flex items-center justify-center shrink-0"
                       style={{ backgroundColor: iconBg[i] ?? backgroundColor }}
                     >
                       <Image
                         src={card.icon}
                         alt=""
-                        width={20}
-                        height={20}
+                        width={18}
+                        height={18}
                         unoptimized
                       />
                     </div>
                     <div className="min-w-0">
-                      <h3 className="font-(family-name:--font-plus-jakarta) font-bold text-[16px] sm:text-[18px] text-neutral-900 leading-snug">
+                      <h3 className="font-(family-name:--font-plus-jakarta) font-bold text-[15px] sm:text-[16px] text-neutral-900 leading-snug">
                         {card.title}
                       </h3>
-                      <p className="mt-1 font-(family-name:--font-inter) text-[14px] sm:text-[15px] leading-[1.55] text-neutral-700">
+                      <p className="mt-0.5 font-(family-name:--font-inter) text-[13px] sm:text-[14px] leading-[1.55] text-neutral-700">
                         {card.text}
                       </p>
                     </div>
