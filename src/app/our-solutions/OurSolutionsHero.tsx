@@ -81,7 +81,7 @@ export default function OurSolutionsHero() {
             {stats.map((stat, i) => (
               <li
                 key={stat}
-                className={`flex items-center gap-2 text-white font-[var(--font-inter)] text-[14px] sm:text-base reveal revealUp transition-transform duration-300 hover:translate-x-0.5 ${isVisible ? "active" : ""}`}
+                className={`flex flex-wrap items-center gap-2 text-white font-[var(--font-inter)] text-[14px] sm:text-base reveal revealUp transition-transform duration-300 hover:translate-x-0.5 ${isVisible ? "active" : ""}`}
                 style={{ transitionDelay: `${0.3 + i * 0.08}s` }}
               >
                 <span className="text-[#6ca642] shrink-0">{CHECK_ICON}</span>
