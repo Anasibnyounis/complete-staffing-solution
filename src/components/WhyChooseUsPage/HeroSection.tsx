@@ -155,7 +155,7 @@ export default function HeroSection() {
           </div>
 
           <div
-            className={`relative h-[280px] sm:h-[340px] lg:h-[400px] rounded-2xl overflow-hidden shadow-[0_14px_32px_rgba(0,0,0,0.18)] opacity-0 translate-x-10 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] delay-200 ${
+            className={`relative h-[280px] sm:h-[340px] lg:h-[400px] rounded-2xl overflow-hidden shadow-[0_14px_32px_rgba(0,0,0,0.18)] opacity-0 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] delay-200 ${
               isVisible ? "opacity-100 translate-x-0" : ""
             }`}
           >
@@ -164,7 +164,7 @@ export default function HeroSection() {
               alt="Business professionals"
               fill
               className="object-cover"
-              unoptimized
+              // unoptimized
               priority
             />
           </div>

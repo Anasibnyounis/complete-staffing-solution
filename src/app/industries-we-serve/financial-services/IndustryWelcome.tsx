@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Certified financial advisors",
         "Scalable staffing for investment firms",
       ]}
-      imageSrc="/industries/cards/agriculture.jpg"
+      imageSrc="/industries/cards/agriculture.webp"
       imageAlt="Financial services workers"
     />
   );

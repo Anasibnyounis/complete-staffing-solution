@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Regulatory Compliance",
         "Engineering Expertise",
       ]}
-      imageSrc="/industries/cards/energy.jpg"
+      imageSrc="/industries/cards/energy.webp"
       imageAlt="Energy workers"
     />
   );

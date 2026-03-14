@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Fast-paced Adaptability",
         "Talent Management",
       ]}
-      imageSrc="/industries/cards/media.jpg"
+      imageSrc="/industries/cards/media.webp"
       imageAlt="Entertainment workers"
     />
   );

@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Experienced claims adjusters",
         "Licensed insurance professionals",
       ]}
-      imageSrc="/industries/cards/insurance.jpg"
+      imageSrc="/industries/cards/insurance.webp"
       imageAlt="Insurance workers"
     />
   );

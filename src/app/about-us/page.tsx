@@ -13,7 +13,7 @@ export default function AboutUsPage() {
     <main className="min-h-screen bg-white">
       {/* Hero bar - matches site primary blue and typography */}
       <div
-        className="w-full flex items-center justify-center h-24 min-h-[380px] xs:min-h-[420px] sm:min-h-[450px]px-4 sm:px-6 md:px-8 lg:px-12 relative z-10"
+        className="w-full flex items-center justify-center h-24 min-h-[200px] xs:min-h-[300px] sm:min-h-[400px] px-4 sm:px-6 md:px-8 lg:px-12 relative z-10"
         style={{
           background: "url('/about us/about-us.webp')",
           backgroundSize: "cover",

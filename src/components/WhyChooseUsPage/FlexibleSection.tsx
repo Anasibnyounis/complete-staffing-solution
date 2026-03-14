@@ -81,7 +81,7 @@ export default function FlexibleSection({
                 alt={title}
                 fill
                 className="object-cover"
-                unoptimized
+                // unoptimized
                 sizes="(max-width: 1024px) 100vw, 60vw"
               />
             </div>

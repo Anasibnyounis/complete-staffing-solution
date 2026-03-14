@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Operational Safety",
         "Skilled Industrial Labor",
       ]}
-      imageSrc="/industries/cards/transportation.jpg"
+      imageSrc="/industries/cards/transportation.webp"
       imageAlt="Manufacturing workers"
     />
   );

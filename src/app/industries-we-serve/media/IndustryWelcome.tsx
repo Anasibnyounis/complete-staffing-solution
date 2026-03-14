@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Digital media innovators",
         "Audience engagement specialists",
       ]}
-      imageSrc="/industries/cards/media.jpg"
+      imageSrc="/industries/cards/media.webp"
       imageAlt="Media workers"
     />
   );

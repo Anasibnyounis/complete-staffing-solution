@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Strategic Staffing Plans",
         "Regulatory Compliance",
       ]}
-      imageSrc="/industries/real estate.jpg"
+      imageSrc="/industries/cards/real estate.webp"
       imageAlt="Property management workers"
     />
   );

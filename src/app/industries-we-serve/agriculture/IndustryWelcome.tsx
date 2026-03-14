@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Flexible and scalable staffing solutions",
         "Commitment to safety and efficiency",
       ]}
-      imageSrc="/industries/cards/agriculture.jpg"
+      imageSrc="/industries/cards/agriculture.webp"
       imageAlt="Agriculture workers"
     />
   );

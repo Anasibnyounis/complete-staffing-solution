@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Safety & Sensitivity",
         "Passion for Travel",
       ]}
-      imageSrc="/industries/cards/travel.jpg"
+      imageSrc="/industries/cards/travel.webp"
       imageAlt="Travel workers"
     />
   );

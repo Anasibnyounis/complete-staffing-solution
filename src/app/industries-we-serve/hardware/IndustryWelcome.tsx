@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "System Scalability",
         "Cybersecurity Focus",
       ]}
-      imageSrc="/industries/cards/hardware.jpg"
+      imageSrc="/industries/cards/hardware.webp"
       imageAlt="Hardware and networking workers"
     />
   );

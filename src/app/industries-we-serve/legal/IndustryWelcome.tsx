@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Ethical Standards",
         "Professionalism",
       ]}
-      imageSrc="/industries/legal.jpg"
+      imageSrc="/industries/cards/legal.webp"
       imageAlt="Legal workers"
     />
   );

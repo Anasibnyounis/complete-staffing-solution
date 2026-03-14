@@ -52,7 +52,7 @@ export default function Hero() {
 
   return (
     <section
-      className={`hero-section relative z-0 w-full overflow-hidden bg-black text-left font-[var(--font-plus-jakarta)] flex flex-col justify-between sm:pt-[80px] ${isActive ? "active" : ""} ${isMobile ? "min-h-screen" : ""}`}
+      className={`hero-section relative z-0 w-full overflow-hidden bg-black text-left font-[var(--font-plus-jakarta)] max-h-[600px] flex flex-col justify-between sm:pt-[80px] ${isActive ? "active" : ""}`}
     >
       {/* Full-width background image with subtle shading and blend */}
       <div className="hero-bg-wrap absolute inset-0 z-[1] overflow-hidden">

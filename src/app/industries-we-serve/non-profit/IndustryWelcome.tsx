@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Community Engagement",
         "Transparent Operations",
       ]}
-      imageSrc="/industries/cards/non profit.jpg"
+      imageSrc="/industries/cards/non profit.webp"
       imageAlt="Non-profit workers"
     />
   );

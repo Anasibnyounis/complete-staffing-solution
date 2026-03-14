@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Comprehensive Support",
         "Organizational Fit",
       ]}
-      imageSrc="/industries/cards/corporate services.jpg"
+      imageSrc="/industries/cards/corporate services.webp"
       imageAlt="Corporate services workers"
     />
   );

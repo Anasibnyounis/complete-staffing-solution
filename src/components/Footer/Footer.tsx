@@ -121,7 +121,7 @@ export default function Footer() {
                       About us
                     </Link>
                     <Link
-                      href="/why-choose-us-page"
+                      href="/why-choose-us"
                       className="footerLink text-neutral-800 no-underline transition-colors hover:text-neutral-900"
                     >
                       Why Choose Us?

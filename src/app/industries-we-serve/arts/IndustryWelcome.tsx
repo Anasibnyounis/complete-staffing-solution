@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Creative & Passionate talent",
         "Niche administrative support.",
       ]}
-      imageSrc="/industries/cards/arts.jpg"
+      imageSrc="/industries/cards/arts.webp"
       imageAlt="Arts workers"
     />
   );

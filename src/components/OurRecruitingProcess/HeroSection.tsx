@@ -7,7 +7,7 @@ import assets from "@/assets/assets";
 const HeroSection: React.FC = () => {
   return (
     <section
-      className="relative w-full flex items-center justify-center overflow-hidden min-h-[380px] xs:min-h-[420px] sm:min-h-[480px] md:min-h-[520px]"
+      className="relative w-full flex items-center justify-center overflow-hidden min-h-[200px] xs:min-h-[300px] sm:min-h-[400px]"
     >
       <div className="absolute inset-0">
         <Image
@@ -33,12 +33,7 @@ const HeroSection: React.FC = () => {
         }}
       >
         <h1
-          className="font-bold text-white"
-          style={{
-            fontSize: "48px",
-            fontWeight: 700,
-            marginBottom: "12px",
-          }}
+          className="font-bold text-white text-[40px] sm:text-[48px] md:text-[56px] leading-tight"
         >
           Our <span className="text-accent">Recruiting Process</span>
         </h1>

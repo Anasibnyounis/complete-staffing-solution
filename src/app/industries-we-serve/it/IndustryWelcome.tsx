@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Technical Expertise",
         "Collaborative Development",
       ]}
-      imageSrc="/industries/cards/safety.jpg"
+      imageSrc="/industries/cards/safety.webp"
       imageAlt="IT workers"
     />
   );

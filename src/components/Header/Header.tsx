@@ -7,7 +7,7 @@ import Image from "next/image";
 import { PhoneIcon, ChevronDownIcon } from "./icons";
 import RecruitmentFraudNotice from "@/components/FraudNoticeSection/RecruitmentFraudNotice";
 
-const specificPathnames = ["/why-choose-us-page", `/open-position/[jobId]`];
+const specificPathnames = ["/why-choose-us", `/open-position/[jobId]`];
 
 // Function to check if current pathname matches static or dynamic routes
 const isSpecificPath = (pathname: string) => {
@@ -254,8 +254,8 @@ export default function Header() {
             </Link>
 
             <Link
-              href="/why-choose-us-page"
-              className={navItemClass("/why-choose-us-page")}
+              href="/why-choose-us"
+              className={navItemClass("/why-choose-us")}
               onClick={() => setDesktopOpenDropdown(null)}
             >
               Why Choose Us
@@ -366,7 +366,7 @@ export default function Header() {
             </Link>
 
             <Link
-              href="/why-choose-us-page"
+              href="/why-choose-us"
               className="block py-2 font-semibold text-neutral-900"
               onClick={closeMobileMenu}
             >

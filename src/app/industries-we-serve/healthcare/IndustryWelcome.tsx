@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Regulatory compliance",
         "Allied health expertise",
       ]}
-      imageSrc="/industries/healthcare.jpg"
+      imageSrc="/industries/cards/healthcare.webp"
       imageAlt="Healthcare professionals at work"
     />
   );

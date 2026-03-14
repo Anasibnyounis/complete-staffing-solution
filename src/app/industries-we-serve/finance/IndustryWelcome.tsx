@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Risk Management",
         "Financial Accuracy",
       ]}
-      imageSrc="/industries/office finance.jpg"
+      imageSrc="/industries/cards/office finance.webp"
       imageAlt="Finance workers"
     />
   );

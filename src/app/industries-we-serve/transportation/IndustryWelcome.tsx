@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Supply Chain Optimization",
         "Skilled Logistics",
       ]}
-      imageSrc="/industries/cards/transportation.jpg"
+      imageSrc="/industries/cards/transportation.webp"
       imageAlt="Transportation workers"
     />
   );

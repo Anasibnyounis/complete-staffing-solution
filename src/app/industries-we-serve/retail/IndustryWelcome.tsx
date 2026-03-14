@@ -10,7 +10,7 @@ export default function IndustryWelcome() {
         "Adaptability",
         "Sales Growth",
       ]}
-      imageSrc="/industries/cards/corporate services.jpg"
+      imageSrc="/industries/cards/corporate services.webp"
       imageAlt="Retail workers"
     />
   );

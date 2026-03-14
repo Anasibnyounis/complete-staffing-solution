@@ -23,10 +23,10 @@ const CHECK_ICON = (
 );
 
 const stats = [
-  "20+ Years of Expertise",
+  "25+ Years of Expertise",
   "95% Client Satisfaction Rate",
   "Over 35,000 Companies Served",
-  "500+ Placements",
+  "200,000+ Placements",
 ];
 
 export default function OurSolutionsHero() {

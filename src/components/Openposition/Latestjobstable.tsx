@@ -551,7 +551,7 @@ export default function LatestJobsTable({
             </p>
 
             {/* Search row */}
-            <div className="mt-5 bg-white/95 rounded-full px-3 sm:px-4 py-2 flex flex-col gap-2 sm:flex-row sm:items-center shadow-xl w-full">
+            <div className="mt-5 bg-white/0 lg:bg-white/95 rounded-full px-3 sm:px-4 py-2 flex flex-col gap-2 sm:flex-row sm:items-center shadow-xl w-full">
               <input
                 type="text"
                 placeholder="Job title or keyword"
@@ -569,7 +569,7 @@ export default function LatestJobsTable({
               <select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
-                className="flex-[0_0_180px] rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs sm:text-sm text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#19478e]/60 focus:border-[#19478e]"
+                className=" rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-xs sm:text-sm text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#19478e]/60 focus:border-[#19478e]"
               >
                 <option value="">Category</option>
                 {/* High-level groupings that match the category cards */}

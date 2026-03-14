@@ -32,7 +32,7 @@ export default function IndustryWelcome() {
           </div>
           <div className="relative w-full aspect-[1.2/1] max-w-[600px] md:max-w-none mx-auto md:mx-0 order-1 md:order-2 overflow-hidden rounded-lg shadow-lg">
             <Image
-              src="/industries/cards/real estate.jpg"
+              src="/industries/cards/real estate.webp"
               alt="Real estate professionals"
               fill
               className="object-cover"
