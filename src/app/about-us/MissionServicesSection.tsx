@@ -20,7 +20,7 @@ const items = [
   {
     title: "Overview",
     description:
-      "For over 25 years, Complete Staffing Solutions has provided professional staffing for finance, healthcare, and administrative roles. We connect qualified professionals with organizations through permanent, direct hire, and temporary staffing solutions.",
+      "For over 25 years, Complete Staffing Solutions has connected exceptional talent with forward-thinking organizations across the country. From finance and accounting to healthcare, IT, engineering, legal, and administrative — we place professionals at every level through retained, direct hire, and temporary staffing solutions, with the hands-on service of a boutique firm.",
     icon: `${ASSETS}/overview icon.svg`,
     image: `${ASSETS}/overview placeholder.jpg`,
   },

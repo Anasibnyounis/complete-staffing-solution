@@ -36,8 +36,12 @@ export default function HeroSection() {
             </h1>
             <div className="mt-4 h-[3px] w-[46px] rounded-full bg-[#6ca642]" />
             <p className="mt-6 font-(family-name:--font-inter) text-[15px] sm:text-[16px] leading-[1.75] text-neutral-700 max-w-[560px]">
-              For over 25 years, we’ve matched exceptional candidates with
-              leading employers — helping businesses grow and careers thrive.
+              For over 25 years, Complete Staffing Solutions has done one thing
+              exceptionally well: put the right people in the right roles.
+              Whether you need one critical hire or an entire team, our
+              recruiters work across every industry and discipline — with the
+              speed, precision, and personal attention that national firms
+              simply can&apos;t match.
             </p>
 
             <div className="mt-8 grid grid-cols-3 gap-6 max-w-[520px]">
@@ -69,8 +73,10 @@ export default function HeroSection() {
                 <div className="mt-2 font-(family-name:--font-plus-jakarta) font-extrabold text-[20px] sm:text-[22px] text-neutral-900">
                   25+
                 </div>
-                <div className="mt-0.5 font-(family-name:--font-inter) text-[12px] sm:text-[13px] text-neutral-600">
-                  Years Experience
+                <div className="mt-0.5 font-(family-name:--font-inter) text-[12px] sm:text-[13px] text-neutral-600 text-center">
+                  Years of proven placement
+                  <br />
+                  expertise
                 </div>
               </div>
 
@@ -108,8 +114,10 @@ export default function HeroSection() {
                 <div className="mt-2 font-(family-name:--font-plus-jakarta) font-extrabold text-[20px] sm:text-[22px] text-neutral-900">
                   35,000+
                 </div>
-                <div className="mt-0.5 font-(family-name:--font-inter) text-[12px] sm:text-[13px] text-neutral-600">
-                  Companies Served
+                <div className="mt-0.5 font-(family-name:--font-inter) text-[12px] sm:text-[13px] text-neutral-600 text-center">
+                  Companies we&apos;ve
+                  <br />
+                  partnered with
                 </div>
               </div>
 
@@ -147,8 +155,10 @@ export default function HeroSection() {
                 <div className="mt-2 font-(family-name:--font-plus-jakarta) font-extrabold text-[20px] sm:text-[22px] text-neutral-900">
                   200,000+
                 </div>
-                <div className="mt-0.5 font-(family-name:--font-inter) text-[12px] sm:text-[13px] text-neutral-600">
-                  Placements
+                <div className="mt-0.5 font-(family-name:--font-inter) text-[12px] sm:text-[13px] text-neutral-600 text-center">
+                  Successful
+                  <br />
+                  placements made
                 </div>
               </div>
             </div>
