@@ -81,14 +81,14 @@ export default function FlexibleSection({
                 src={image}
                 alt={title}
                 fill
-                className="object-cover object-[30%_center]"
+                className="object-cover object-left"
                 sizes="(max-width: 1024px) 100vw, 1280px"
               />
             </div>
 
             {/* Cards on top, shifted further right and slightly smaller */}
-            <div className="relative z-10 flex justify-end px-5 py-6 sm:px-6 lg:px-12 lg:py-8">
-              <div className="w-full max-w-[380px] lg:max-w-[340px] flex flex-col gap-3">
+            <div className="relative z-10 flex justify-end px-5 py-6 sm:px-6 lg:pl-10 lg:pr-20 lg:py-8">
+              <div className="w-full max-w-[360px] lg:max-w-[320px] flex flex-col gap-3">
                 {cards.map((card, i) => (
                   <div
                     key={card.title}

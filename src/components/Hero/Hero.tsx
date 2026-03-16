@@ -52,16 +52,16 @@ export default function Hero() {
 
   return (
     <section
-      className={`hero-section relative z-0 w-full overflow-hidden bg-black text-left font-[var(--font-plus-jakarta)] max-h-[600px] md:max-h-[700px] flex flex-col justify-between sm:pt-[50px] ${isActive ? "active" : ""}`}
+      className={`hero-section relative z-0 w-full overflow-hidden bg-black text-left font-[var(--font-plus-jakarta)] max-h-[680px] md:max-h-[760px] flex flex-col justify-between sm:pt-[50px] ${isActive ? "active" : ""}`}
     >
       {/* Full-width background image with subtle shading and blend */}
       <div className="hero-bg-wrap absolute inset-0 z-[1] overflow-hidden">
         {HERO_IMAGES.map((img, index) => (
           <Image
             key={img.src}
-            className="absolute inset-0 h-full object-cover xl:object-contain object-right transition-opacity duration-1000 ease-out"
+            className="absolute inset-0 h-full w-full object-cover xl:object-cover object-center transition-opacity duration-1000 ease-out"
             style={{
-              opacity: activeImageIndex === index ? 0.8 : 0,
+              opacity: activeImageIndex === index ? 1 : 0,
               zIndex: activeImageIndex === index ? 20 : 10,
             }}
             src={img.src}
@@ -75,8 +75,8 @@ export default function Hero() {
           className="absolute inset-0 z-30"
           style={{
             background: isMobile
-              ? "linear-gradient(to right, #000 0%, #000 10%, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 90%)"
-              : "linear-gradient(to right, #000 0%, #000 35%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 100%)",
+              ? "linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.05) 90%)"
+              : "linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 28%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.3) 72%, rgba(0,0,0,0.08) 100%)",
           }}
         />
         {/* Extra bottom shade to visually minimize the photo area */}
