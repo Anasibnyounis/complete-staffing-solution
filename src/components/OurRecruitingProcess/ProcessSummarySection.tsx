@@ -50,7 +50,7 @@ const ProcessSummarySection: React.FC = () => {
         {/* --- MOBILE VIEW (Hidden on Desktop) --- */}
         <div className="md:hidden flex flex-col items-center">
           {/* Using a grid to get the 3-over-2 look from your image */}
-          <div className="flex flex-wrap justify-center gap-8 w-full max-w-[320px]">
+          <div className="flex gap-8 w-full overflow-x-auto">
             {TIMELINE_STEPS.map((step, index) => (
               <div 
                 key={`mobile-${step.letter}`}
@@ -59,7 +59,7 @@ const ProcessSummarySection: React.FC = () => {
                 }`}
               >
                 {/* Circle */}
-                <div className="flex items-center justify-center rounded-full text-white font-bold shadow-[0_4px_14px_rgba(45,127,193,0.4)] bg-[linear-gradient(135deg,#2D7FC1,#3455A5)] w-20 h-20 text-3xl mb-3">
+                <div className="flex items-center justify-center rounded-full text-white font-bold shadow-[0_4px_14px_rgba(45,127,193,0.4)] bg-[linear-gradient(135deg,#2D7FC1,#3455A5)] w-14 h-14 text-xl mb-3">
                   {step.letter}
                 </div>
                 {/* Text Content */}

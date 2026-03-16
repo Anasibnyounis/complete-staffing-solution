@@ -61,7 +61,7 @@ const ContactHero: React.FC = () => {
   return (
     <>
       {/* Hero with gradient */}
-      <section className="w-full bg-gradient-to-br from-[#19478e] via-[#225eb9] to-[#2d7ac7] flex items-center justify-center min-h-[380px] xs:min-h-[420px] px-4 sm:px-6 md:px-8 relative overflow-hidden flex-col gap-4">
+      <section className="w-full bg-gradient-to-br from-[#19478e] via-[#225eb9] to-[#2d7ac7] flex items-center justify-center min-h-[200px] xs:min-h-[300px] sm:min-h-[400px] px-4 sm:px-6 md:px-8 relative overflow-hidden flex-col gap-4">
         <div className="absolute inset-0 opacity-80 " />
         <h1 className="font-[var(--font-plus-jakarta)] font-bold text-white text-[clamp(28px,4.5vw,44px)] m-0 relative z-10 drop-shadow-sm">
           Contact <span className="text-[var(--accent)]">Us.</span>
