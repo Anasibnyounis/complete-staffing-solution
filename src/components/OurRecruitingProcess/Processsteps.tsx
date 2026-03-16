@@ -59,7 +59,7 @@ const ProcessSteps: React.FC = () => {
       ([entry]) => {
         if (entry?.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -85,17 +85,12 @@ const ProcessSteps: React.FC = () => {
         >
           How Our Process Works
         </h2>
-        <p
-          className="text-base sm:text-lg mt-2"
-          style={{ color: "#6B7C93" }}
-        >
+        <p className="text-base sm:text-lg mt-2" style={{ color: "#6B7C93" }}>
           A Clear, Proven Approach to Hiring
         </p>
       </div>
 
-      <div
-        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 px-4 sm:px-6"
-      >
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 px-4 sm:px-6">
         {PROCESS_CARDS.map((card, index) => (
           <div
             key={card.letter}
@@ -118,33 +113,35 @@ const ProcessSteps: React.FC = () => {
                   transitionDelay: isVisible ? `${index * 80 + 250}ms` : "0ms",
                 }}
               />
-              <div
-                className="flex items-center justify-center rounded-full text-white font-bold mx-auto relative z-10 transition-transform duration-300 hover:scale-105"
-                style={{
-                  width: "clamp(72px, 20vw, 100px)",
-                  height: "clamp(72px, 20vw, 100px)",
-                  marginBottom: "12px",
-                  background: "linear-gradient(135deg, #4DAED8, #2F60AA)",
-                  fontSize: "clamp(24px, 6vw, 32px)",
-                  fontWeight: 700,
-                  boxShadow: "0 4px 14px rgba(45, 127, 193, 0.35)",
-                }}
-              >
-                {card.letter}
+              <div className="flex items-center">
+                <div
+                  className="flex items-center justify-center rounded-full text-white font-bold mx-auto relative z-10 transition-transform duration-300 hover:scale-105 w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24"
+                  style={{
+                    // width: "clamp(72px, 20vw, 100px)",
+                    // height: "clamp(72px, 20vw, 100px)",
+                    marginBottom: "12px",
+                    background: "linear-gradient(135deg, #4DAED8, #2F60AA)",
+                    fontSize: "clamp(24px, 6vw, 32px)",
+                    fontWeight: 700,
+                    boxShadow: "0 4px 14px rgba(45, 127, 193, 0.35)",
+                  }}
+                >
+                  {card.letter}
+                </div>
+                {card.image && (
+                  <div className="px-3 sm:px-6 mb-3 sm:mb-4">
+                    <div className="overflow-hidden rounded-lg shadow-sm">
+                      <img
+                        src={card.image}
+                        alt={`${card.title} step`}
+                        className="h-32 sm:h-32 w-52 lg:w-full object-cover transform transition-transform duration-500 ease-out hover:scale-105"
+                        loading="lazy"
+                      /> 
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
-            {card.image && (
-              <div className="px-3 sm:px-6 mb-3 sm:mb-4">
-                <div className="overflow-hidden rounded-lg shadow-sm">
-                  <img
-                    src={card.image}
-                    alt={`${card.title} step`}
-                    className="w-full h-28 sm:h-32 object-cover transform transition-transform duration-500 ease-out hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            )}
             <div className="px-3 sm:px-6 flex-1 flex flex-col">
               <h3
                 className="font-semibold text-center text-lg sm:text-xl"
