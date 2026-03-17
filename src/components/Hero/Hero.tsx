@@ -6,7 +6,10 @@ import { FaBriefcase, FaUsers, FaBuilding } from "react-icons/fa";
 
 const HERO_IMAGES = [
   { src: "/firsthero.jpg", alt: "Professionals collaborating" },
-  { src: "/valuation-multiples-for-a-property-management-firm-1-980x551.jpg", alt: "Team and workplace" },
+  {
+    src: "/valuation-multiples-for-a-property-management-firm-1-980x551.jpg",
+    alt: "Team and workplace",
+  },
   { src: "/financial_hero_section_image.jpg", alt: "Financial services" },
 ];
 
@@ -83,33 +86,47 @@ export default function Hero() {
         {/* <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-40 z-[40] bg-gradient-to-t from-black/85 via-black/60 to-transparent" /> */}
       </div>
 
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6">
         {/* Hero content */}
         <div className="relative z-[4] col-span-2 flex flex-1 flex-col justify-center pt-[100px] md:pt-[120px] pb-6 md:pb-8">
           <div className="w-full max-w-[1280px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 2xl:px-8">
-            <div className="revealLeft textContent max-w-[600px] flex flex-col items-start gap-5 md:gap-6">
-              <h1 className="hero-title font-bold text-[clamp(28px,4vw,48px)] md:text-[clamp(36px,4.5vw,56px)] leading-[1.15] text-white text-left">
-                Empowering Careers.
-                <br />
-                Strengthening Businesses.
-              </h1>
-              <p className="hero-description text-[clamp(14px,2vw,18px)] font-[var(--font-inter)] text-white/95 leading-relaxed max-w-[520px]">
-                For over 25 years we&apos;ve helped exceptional talent connect with
-                companies that are ready to grow.
-              </p>
-              <div className="hero-buttons w-full flex items-center justify-center md:justify-start gap-4">
-                <Link
-                  href="/open-position"
-                  className="hero-cta hero-cta-blue inline-flex items-center justify-center h-[50px] px-6 rounded-lg text-base font-semibold font-[var(--font-inter)] text-white no-underline transition-all duration-300 hover:scale-[1.02] hover:shadow-lg min-w-[140px] sm:min-w-[140px]"
-                >
-                  Search Jobs
-                </Link>
-                <Link
-                  href="/employment-form"
-                  className="hero-cta hero-cta-green inline-flex items-center justify-center h-[50px] px-6 rounded-lg text-base font-semibold font-[var(--font-inter)] text-white no-underline transition-all duration-300 hover:scale-[1.02] hover:shadow-lg min-w-[140px] sm:min-w-[140px]"
-                >
-                  Hire Talent
-                </Link>
+            <div className="flex items-center justify-between">
+              <div className="revealLeft textContent max-w-[600px] flex flex-col items-start gap-5 md:gap-6">
+                <h1 className="hero-title font-bold text-[clamp(28px,4vw,48px)] md:text-[clamp(36px,4.5vw,56px)] leading-[1.15] text-white text-left">
+                  Empowering Careers.
+                  <br />
+                  Strengthening Businesses.
+                </h1>
+                <p className="hero-description text-[clamp(14px,2vw,18px)] font-[var(--font-inter)] text-white/95 leading-relaxed max-w-[520px]">
+                  For over 25 years we&apos;ve helped exceptional talent connect
+                  with companies that are ready to grow.
+                </p>
+                <div className="hero-buttons w-full flex items-center justify-center md:justify-start gap-4">
+                  <Link
+                    href="/open-position"
+                    className="hero-cta hero-cta-blue inline-flex items-center justify-center h-[50px] px-6 rounded-lg text-xs lg:text-base  font-semibold font-[var(--font-inter)] text-white no-underline transition-all duration-300 hover:scale-[1.02] hover:shadow-lg min-w-[140px] sm:min-w-[140px] 
+                    whitespace-nowrap"
+                  >
+                    Search Jobs
+                  </Link>
+                  <Link
+                    href="/employment-form"
+                    className="hero-cta hero-cta-green inline-flex items-center justify-center h-[50px] px-6 rounded-lg text-base font-semibold font-[var(--font-inter)] text-white no-underline  text-xs lg:text-base transition-all duration-300 hover:scale-[1.02] hover:shadow-lg min-w-[140px] sm:min-w-[140px] whitespace-nowrap"
+                  >
+                    Hire Talent
+                  </Link>
+                </div>
+              </div>
+              {/* Left-side hero logo */}
+              <div className="mt-4 sm:mt-6">
+                <Image
+                  src="/logo.svg"
+                  alt="Complete Staffing Solutions"
+                  width={340}
+                  height={120}
+                  className="h-auto w-[220px] sm:w-[260px] md:w-[300px] object-contain drop-shadow-[0_10px_40px_rgba(0,0,0,0.7)]"
+                  priority
+                />
               </div>
             </div>
             <div className="relative z-[4] col-span-1 mt-4 pb-8 md:pb-10">
